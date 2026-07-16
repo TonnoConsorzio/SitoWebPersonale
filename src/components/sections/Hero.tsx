@@ -17,6 +17,7 @@ export function Hero() {
         >
           <source src="/media/hero/hero.mp4" type="video/mp4" />
         </video>
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-8 text-center flex flex-col items-center">
