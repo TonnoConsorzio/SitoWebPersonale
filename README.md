@@ -1,11 +1,28 @@
-<div align="center">
+# Alessio Bellan - Sviluppo Web e Brand Identity
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+Sito web personale per offrire servizi digitali: siti web, gestionali, grafica, social media management e infrastrutture.
 
-  <h1>Built with AI Studio</h2>
+## Tecnologie utilizzate
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Lucide React
+- React Router
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## Installazione e Avvio Locale
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+1. Installa le dipendenze:
+\`\`\`bash
+npm install
+\`\`\`
 
-</div>
+2. Avvia il server di sviluppo:
+\`\`\`bash
+npm run dev
+\`\`\`
+
+3. Costruisci per la produzione:
+\`\`\`bash
+npm run build
+\`\`\`

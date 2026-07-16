@@ -1,0 +1,68 @@
+import { Instagram, Linkedin } from 'lucide-react';
+import config from '../../data/config.json';
+
+export function Footer() {
+  return (
+    <footer className="mt-24 liquid-glass rounded-t-3xl border-b-0 px-8 py-12 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+        <div className="max-w-xs">
+          <a href="/" className="flex items-center gap-2 text-3xl font-display text-foreground block mb-4">
+            <img src="/media/brand/logo.svg" alt="Alessio Bellan Logo" className="h-10 w-auto" />
+          </a>
+          <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+            Progetto e sviluppo siti web, gestionali e identità digitali per chi ha qualcosa da dire.
+          </p>
+          <p className="text-xs text-muted-foreground/60 mb-2 flex items-center gap-2">
+            Il 10% del totale va in donazione ad
+            <img src="/media/brand/abbo-logo-bianco.svg" alt="ABBO APS" className="h-4 w-auto inline" />
+            <a href="https://abboaps.it" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted-foreground">ABBO APS</a>
+          </p>
+        </div>
+        
+        <div className="flex flex-col sm:flex-row gap-12 sm:gap-24 md:col-span-1 justify-center">
+          <div>
+            <h4 className="font-medium text-foreground mb-4 text-sm uppercase tracking-widest">Servizi</h4>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li><a href="#servizi" className="hover:text-foreground transition-colors">Siti Web</a></li>
+              <li><a href="#servizi" className="hover:text-foreground transition-colors">Gestionali</a></li>
+              <li><a href="#servizi" className="hover:text-foreground transition-colors">Grafica</a></li>
+              <li><a href="#servizi" className="hover:text-foreground transition-colors">Social</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-medium text-foreground mb-4 text-sm uppercase tracking-widest">Info</h4>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li><a href="#about" className="hover:text-foreground transition-colors">About</a></li>
+              <li><a href="#portfolio" className="hover:text-foreground transition-colors">Portfolio</a></li>
+              <li><a href="#prezzi" className="hover:text-foreground transition-colors">Prezzi</a></li>
+              <li><a href="#faq" className="hover:text-foreground transition-colors">FAQ</a></li>
+              <li><a href="#contatti" className="hover:text-foreground transition-colors">Contatti</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="flex flex-col md:items-end md:ml-auto">
+          <a href="mailto:info@alessiobellan.it" className="text-foreground hover:text-muted-foreground transition-colors mb-6 text-lg">
+            info@alessiobellan.it
+          </a>
+          <div className="flex gap-4">
+            <a href={config.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Linkedin className="w-5 h-5" />
+            </a>
+            <a href={config.social.instagram} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Instagram className="w-5 h-5" />
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-muted-foreground/60">
+        <p>© {new Date().getFullYear()} Alessio Bellan. Tutti i diritti riservati.</p>
+        <div className="flex gap-4 mt-4 md:mt-0">
+          <a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a>
+          <a href="#" className="hover:text-foreground transition-colors">Cookie Policy</a>
+        </div>
+      </div>
+    </footer>
+  );
+}

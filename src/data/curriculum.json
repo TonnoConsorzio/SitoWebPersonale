@@ -1,0 +1,93 @@
+[
+  {
+    "id": "1",
+    "title": "Presidente",
+    "company": "ABBO APS",
+    "period": "Giu 2026 - Presente",
+    "description": "Coordino i progetti educativi dell'associazione, gestisco le relazioni con scuole, comuni e partner istituzionali, e guido Digital Heroes — il nostro laboratorio di informatica per ragazzi attivo in Brianza e nel territorio lombardo."
+  },
+  {
+    "id": "10",
+    "title": "Junior Project Manager",
+    "company": "Elementary Group",
+    "period": "apr 2026 - mag 2026",
+    "description": ""
+  },
+  {
+    "id": "2",
+    "title": "Responsabile di progetto",
+    "company": "Digital Heroes",
+    "period": "set 2025 - Presente",
+    "description": "Fondatore e responsabile. Gestione completa: ideazione, finanziamento, organizzazione e promozione dei corsi. Laboratori pratici su basi dell'informatica, creazione di videogiochi, social network e sicurezza online."
+  },
+  {
+    "id": "3",
+    "title": "Team Eventi e Risorse umane",
+    "company": "Minecraft Italia NET",
+    "period": "lug 2025 - Presente",
+    "description": "Attualmente mi occupo in modo attivo della gestione completa dello staff. Il mio ruolo prevede la conduzione dei colloqui conoscitivi per la selezione dei nuovi membri e l'organizzazione dell'intero processo di onboarding."
+  },
+  {
+    "id": "8",
+    "title": "Collaboratore informatico esterno",
+    "company": "ABC... SPORT",
+    "period": "giu 2025 - Presente",
+    "description": "Coordinamento del laboratorio di consapevolezza digitale e realizzazione di videogiochi interattivi con Scratch."
+  },
+  {
+    "id": "6",
+    "title": "Stagista UI/UX",
+    "company": "K12 - APS",
+    "period": "ott 2024 - gen 2025",
+    "description": "Durante l'ultimo stage mi sono occupato della progettazione e ottimizzazione della UI dell'applicazione in fase di lancio."
+  },
+  {
+    "id": "9",
+    "title": "Assistente allenatore",
+    "company": "ABC... SPORT",
+    "period": "set 2024 - ott 2025",
+    "description": ""
+  },
+  {
+    "id": "11",
+    "title": "Direttore Summer Camp Informatica",
+    "company": "Agriturismo La Camilla",
+    "period": "giu 2024 - lug 2024",
+    "description": "Coordinamento del Summer Camp di informatica: dalla progettazione delle lezioni, alle attività pratiche, fino alla gestione delle relazioni con i genitori."
+  },
+  {
+    "id": "7",
+    "title": "Stagista Social Media & Podcasting",
+    "company": "K12 - APS",
+    "period": "gen 2024 - mar 2024",
+    "description": "Ho collaborato alla progettazione, registrazione e montaggio di un podcast e ho partecipato all'insegnamento di Scratch presso le scuole elementari di Vimercate."
+  },
+  {
+    "id": "4",
+    "title": "Team Eventi",
+    "company": "Minecraft Italia NET",
+    "period": "ott 2023 - lug 2025",
+    "description": "Consulenze mirate per l'ottimizzazione delle strategie operative legate ai nostri eventi. Ideazione e avvio da zero del progetto del podcast ufficiale, curandone la struttura e il lancio."
+  },
+  {
+    "id": "12",
+    "title": "Insegnante d'informatica",
+    "company": "Agriturismo La Camilla",
+    "period": "giu 2023 - lug 2023",
+    "description": "Progettazione e programmazione delle lezioni e dei laboratori settimanali, con gestione e coordinamento degli orari e delle attività."
+  },
+  {
+    "id": "13",
+    "title": "Stagista (Reparto Decorazione)",
+    "company": "Iper - La Grande I",
+    "period": "mar 2022 - giu 2022",
+    "description": "Reparto Decorazione"
+  },
+  {
+    "id": "5",
+    "title": "Volontario e Mentor",
+    "company": "K12 - APS (Coderdojo Brianza)",
+    "period": "set 2020 - Presente",
+    "description": "Dal 2020 sono Mentor per Coderdojo Brianza, dove ho insegnato HTML e CSS e ora insegno come creare dei Server Minecraft. Inoltre mi occupo dei social media, della comunicazione, e del brand."
+  }
+]

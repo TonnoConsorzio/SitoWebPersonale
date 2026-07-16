@@ -1,0 +1,37 @@
+[
+  {
+    "id": "siti-web",
+    "title": "Siti Web",
+    "description": "Design e sviluppo di siti che raccontano chi sei, non solo cosa vendi.",
+    "icon": "Monitor",
+    "large": true
+  },
+  {
+    "id": "gestionali",
+    "title": "Gestionali & App su misura",
+    "description": "Strumenti pensati sul tuo flusso di lavoro, non il contrario.",
+    "icon": "Layout",
+    "large": false
+  },
+  {
+    "id": "grafica",
+    "title": "Grafica & Identità visiva",
+    "description": "Loghi, brand kit, materiali coerenti con la tua storia.",
+    "icon": "PenTool",
+    "large": false
+  },
+  {
+    "id": "social",
+    "title": "Social Media Management",
+    "description": "Contenuti e presenza costante, senza che tu debba pensarci.",
+    "icon": "Share2",
+    "large": false
+  },
+  {
+    "id": "infrastrutture",
+    "title": "Infrastrutture & Docker",
+    "description": "Setup, hosting e deploy fatti bene, una volta sola.",
+    "icon": "Server",
+    "large": false
+  }
+]

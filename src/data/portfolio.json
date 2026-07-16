@@ -1,0 +1,53 @@
+[
+  {
+    "id": 1,
+    "title": "ABBO APS",
+    "category": "Sito Web",
+    "image": "/media/projects/abbo-aps/cover.jpg",
+    "gallery": [
+      "/media/projects/abbo-aps/gallery-1.jpg",
+      "/media/projects/abbo-aps/gallery-2.jpg"
+    ],
+    "authors": [
+      "Alessio Bellan"
+    ],
+    "link": "https://abboaps.it",
+    "description": "Sviluppo dell'identità visiva e del portale web per ABBO APS, associazione di terzo settore per l'educazione digitale che presiedo e ho co-fondato."
+  },
+  {
+    "id": 2,
+    "title": "Gestionale Digital Heroes",
+    "category": "Gestionale",
+    "image": "/media/projects/gestionale-digital-heroes/cover.jpg",
+    "gallery": [],
+    "authors": [
+      "Alessio Bellan"
+    ],
+    "link": "#",
+    "description": "Sviluppo di un gestionale per Digital Heroes, il laboratorio di educazione digitale che ho fondato, con funzionalità di gestione eventi e vendita ticket."
+  },
+  {
+    "id": 3,
+    "title": "La Voce del Fumagalli",
+    "category": "Sito Web",
+    "image": "/media/projects/voce-fumagalli/cover.jpg",
+    "gallery": [],
+    "authors": [
+      "Alessio Bellan"
+    ],
+    "link": "PLACEHOLDER_LINK",
+    "description": "Sviluppo del sito web per \"La Voce del Fumagalli\"."
+  },
+  {
+    "id": 4,
+    "title": "ECFoP NEXT & Magistery",
+    "category": "Progetto Editoriale",
+    "image": "/media/projects/magistery/cover.jpg",
+    "gallery": [],
+    "authors": [
+      "Alessio Bellan"
+    ],
+    "link": "#",
+    "description": "Nato come giornalino scolastico, l'ho trasformato in un progetto auto-finanziabile lanciando un gioco di carte ispirato a Magic: The Gathering. Ne sono diventato il direttore, coordinando il team, pianificando laboratori e garantendo la sostenibilità finanziaria."
+  }
+]

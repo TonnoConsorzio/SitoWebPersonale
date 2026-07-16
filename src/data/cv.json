@@ -1,0 +1,27 @@
+{
+  "education": [
+    {
+      "title": "Tecnico Di Gestione delle reti e impianti TLC, IFTS System administration",
+      "school": "Galdus Formazione",
+      "period": "set 2025 - mag 2026"
+    },
+    {
+      "title": "Tecnico Grafico Ipermediale",
+      "school": "E.C.Fo.P",
+      "period": "set 2024 - giu 2025"
+    },
+    {
+      "title": "Operatore Grafico Multimediale",
+      "school": "E.C.Fo.P",
+      "period": "set 2021 - giu 2024"
+    }
+  ],
+  "skills": [
+    "Project Management", 
+    "Cybersecurity", 
+    "Public speaking", 
+    "IoT", 
+    "Scienza dei dati", 
+    "Big data"
+  ]
+}

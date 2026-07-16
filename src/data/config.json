@@ -1,0 +1,103 @@
+{
+  "social": {
+    "linkedin": "https://www.linkedin.com/in/alessiobellan",
+    "instagram": "https://www.instagram.com/alessiobellan",
+    "whatsapp": "393330000000"
+  },
+  "about": {
+    "title": "Ciao, sono Alessio Bellan",
+    "paragraphs": [
+      "Mi chiamo Alessio, sono una persona curiosa ed empatica, sempre pronta a socializzare e imparare cose nuove. Ho un talento naturale per il problem solving: quando incontro un ostacolo, adoro cercare strade alternative e soluzioni creative.",
+      "Grazie alla mia facilità di adattamento e alle doti relazionali, mi inserisco rapidamente in nuovi contesti e mi entusiasmo nel collaborare per raggiungere risultati concreti."
+    ],
+    "quote": "Studente di marketing con la passione per l'informatica. Forse non sarò il migliore a scrivere codice, ma sono bravo a raccontare storie e a trasformarle in progetti concreti.",
+    "disclaimer": "L'attività freelance è un progetto indipendente e separato dall'associazione ABBO APS."
+  },
+  "testimonials": [
+    {
+      "quote": "La combinazione di leadership, problem solving e capacità di networking rende Alessio una risorsa preziosa per qualsiasi iniziativa.",
+      "name": "Vincenzo Romano",
+      "role": "Manager"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "title": "Rebranding Sartoriale",
+      "category": "Brand & Web",
+      "authors": [
+        "Alessio Bellan"
+      ],
+      "problem": "Il cliente aveva un'immagine datata che non rispecchiava la qualità artigianale dei suoi prodotti. Il sito era lento e non convertiva.",
+      "solution": "Abbiamo ridisegnato il logo, definito una nuova palette colori e sviluppato un e-commerce su misura focalizzato sull'esperienza utente.",
+      "result": "Aumento del 45% delle conversioni nel primo trimestre e un posizionamento di mercato premium.",
+      "image": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=1600",
+      "hotspots": [
+        {
+          "x": 20,
+          "y": 40,
+          "title": "Logo Ridisegnato",
+          "description": "Curve morbide e carattere distintivo per esaltare l'eleganza."
+        },
+        {
+          "x": 75,
+          "y": 60,
+          "title": "Nuova Palette Colori",
+          "description": "Toni caldi e accoglienti, in linea con i nuovi valori del brand."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Gestionale Logistica",
+      "category": "App su misura",
+      "authors": [
+        "Alessio Bellan"
+      ],
+      "problem": "Processi manuali frammentati su fogli Excel causavano errori nelle spedizioni e ritardi nell'assistenza.",
+      "solution": "Sviluppo di una web app dedicata per centralizzare ordini, tracking e comunicazioni con i fornitori, integrata con le API dei corrieri.",
+      "result": "Tempo di elaborazione ordini dimezzato e riduzione degli errori di spedizione del 90%.",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600",
+      "hotspots": [
+        {
+          "x": 50,
+          "y": 30,
+          "title": "Dashboard Centralizzata",
+          "description": "Tutti i dati più importanti a portata di mano in un'unica vista."
+        },
+        {
+          "x": 80,
+          "y": 80,
+          "title": "Tracking in Tempo Reale",
+          "description": "Integrazione API per monitorare le spedizioni istantaneamente."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Lancio Associazione",
+      "category": "Sito Web",
+      "authors": [
+        "Alessio Bellan"
+      ],
+      "problem": "Una nuova no-profit aveva bisogno di una vetrina digitale per raccogliere fondi e spiegare la propria missione in modo chiaro.",
+      "solution": "Un sito one-page dal design pulito e accessibile, con un sistema di donazione integrato e facile da usare.",
+      "result": "Primo obiettivo di raccolta fondi raggiunto in 15 giorni dal lancio del sito.",
+      "image": "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&q=80&w=1600",
+      "hotspots": [
+        {
+          "x": 30,
+          "y": 20,
+          "title": "Copywriting Emozionale",
+          "description": "Testi mirati a coinvolgere i visitatori e spiegare la missione."
+        },
+        {
+          "x": 70,
+          "y": 70,
+          "title": "CTA Donazioni",
+          "description": "Pulsanti chiari e flusso di donazione senza attriti."
+        }
+      ]
+    }
+  ]
+}

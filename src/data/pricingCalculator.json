@@ -1,0 +1,45 @@
+[
+  {
+    "id": "website",
+    "category": "Sito Web",
+    "options": [
+      { "id": "web-landing", "label": "Essenziale (Landing Page)", "price": 550, "description": "1 pagina, no CMS, responsive, form contatti." },
+      { "id": "web-standard", "label": "Standard (Sito Multypage)", "price": 1045, "description": "3-5 pagine, CMS semplice, SEO base." },
+      { "id": "web-custom", "label": "Su Misura (E-commerce / Booking)", "price": 2090, "description": "Design custom, multilingua, logiche complesse." }
+    ]
+  },
+  {
+    "id": "app",
+    "category": "Gestionali & App",
+    "options": [
+      { "id": "app-micro", "label": "Micro-tool", "price": 880, "description": "Una funzione singola (es. prenotazioni)." },
+      { "id": "app-base", "label": "Gestionale Base", "price": 1870, "description": "CRUD, dashboard, login semplice." },
+      { "id": "app-pro", "label": "Gestionale Avanzato", "price": 3410, "description": "Multi-ruolo, API, reportistica complessa." }
+    ]
+  },
+  {
+    "id": "brand",
+    "category": "Grafica & Brand",
+    "options": [
+      { "id": "brand-logo", "label": "Logo Start", "price": 330, "description": "2 proposte logo, palette." },
+      { "id": "brand-kit", "label": "Brand Kit", "price": 660, "description": "Logo + font + biglietti visita digitali." },
+      { "id": "brand-full", "label": "Identità Completa", "price": 990, "description": "Brand kit + linee guida + template social." }
+    ]
+  },
+  {
+    "id": "social",
+    "category": "Social Media",
+    "options": [
+      { "id": "social-base", "label": "Base (1 Mese)", "price": 418, "description": "8 post/mese, 1 canale." },
+      { "id": "social-standard", "label": "Standard (1 Mese)", "price": 660, "description": "12-16 post, 2 canali, stories." },
+      { "id": "social-full", "label": "Full (1 Mese)", "price": 1100, "description": "Come standard + ads + community." }
+    ]
+  },
+  {
+    "id": "infra",
+    "category": "Infrastrutture (Opzionale)",
+    "options": [
+      { "id": "infra-setup", "label": "Setup Server & Docker", "price": 550, "description": "Setup una tantum per la messa in opera." }
+    ]
+  }
+]
