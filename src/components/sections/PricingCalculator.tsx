@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useInView } from '../../hooks/useInView';
-import { Heart } from 'lucide-react';
+import { Heart, MessageCircle, Mail, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import config from '../../data/config.json';
 
 const categories = [
   {
@@ -46,6 +47,13 @@ const categories = [
     name: 'Infrastrutture',
     options: [
       { id: 'infra-1', name: 'Setup Server', price: 605, desc: 'Configurazione VPS, Docker, Nginx, SSL e deploy automatici.' },
+    ]
+  },
+  {
+    id: 'marketing',
+    name: 'Marketing & Copy',
+    options: [
+      { id: 'mkt-1', name: 'Copywriting', price: 100, desc: 'Consulenza marketing, posizionamento e testi (Placeholder).' },
     ]
   }
 ];
@@ -105,6 +113,28 @@ export function PricingCalculator() {
   }, 0);
 
   const donationAmount = Math.floor(total * 0.1);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const generateMessage = () => {
+    let msg = "Ciao Alessio! Ho appena configurato un preventivo sul tuo sito:\n\nServizi selezionati:\n";
+    categories.forEach(cat => {
+      const selectedIndex = selections[cat.id];
+      if (selectedIndex !== null) {
+        const option = cat.options[selectedIndex];
+        msg += `- ${cat.name}: ${option.name} (€${option.price})\n`;
+      }
+    });
+    msg += `\nTotale stimato: €${total}\n`;
+    if (donationAmount > 0) {
+      msg += `Donazione ad ABBO APS: €${donationAmount}\n`;
+    }
+    msg += "\nVorrei prenotare una chiamata per parlarne insieme.";
+    return encodeURIComponent(msg);
+  };
+
+  const whatsappLink = `https://wa.me/${config.social.whatsapp}?text=${generateMessage()}`;
+  const emailLink = `mailto:info@alessiobellan.it?subject=Richiesta%20Preventivo&body=${generateMessage()}`;
 
   return (
     <section ref={ref as any} className="py-24 px-8 max-w-5xl mx-auto">
@@ -205,11 +235,55 @@ export function PricingCalculator() {
           <p className="text-center text-muted-foreground text-sm max-w-md mb-8">
             Questa è una stima indicativa — il preventivo definitivo arriva dopo una chiamata conoscitiva in cui analizziamo le tue reali necessità.
           </p>
-          <a href="#contatti" className="liquid-glass rounded-full px-8 py-4 text-foreground font-medium hover:scale-[1.03] transition-transform">
-            Prenota una chiamata
-          </a>
+          <button 
+            onClick={() => setIsModalOpen(true)}
+            className="liquid-glass rounded-full px-8 py-4 text-foreground font-medium hover:scale-[1.03] transition-transform"
+          >
+            Invia preventivo
+          </button>
         </div>
       </div>
+
+      <AnimatePresence>
+        {isModalOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" onClick={() => setIsModalOpen(false)}>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              onClick={e => e.stopPropagation()}
+              className="liquid-glass p-8 rounded-3xl max-w-sm w-full shadow-2xl border border-white/20 relative"
+            >
+              <button onClick={() => setIsModalOpen(false)} className="absolute top-6 right-6 text-muted-foreground hover:text-foreground">
+                <X className="w-5 h-5" />
+              </button>
+              <h3 className="text-2xl font-display text-foreground mb-2" style={{ fontFamily: "'Instrument Serif', serif" }}>Contattami</h3>
+              <p className="text-muted-foreground text-sm mb-8 leading-relaxed">
+                Come preferisci inviarmi il preventivo? Ti risponderò al più presto per organizzare la chiamata.
+              </p>
+              
+              <div className="flex flex-col gap-3">
+                <a 
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#25D366] text-white py-3.5 px-4 rounded-xl flex items-center justify-center font-medium hover:bg-[#20bd5a] transition-colors gap-2"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  Invia su WhatsApp
+                </a>
+                <a 
+                  href={emailLink}
+                  className="bg-white/10 border border-white/10 text-foreground py-3.5 px-4 rounded-xl flex items-center justify-center font-medium hover:bg-white/20 transition-colors gap-2"
+                >
+                  <Mail className="w-5 h-5" />
+                  Invia via Email
+                </a>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

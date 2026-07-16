@@ -1,20 +1,23 @@
 import { Instagram, Linkedin } from 'lucide-react';
 import config from '../../data/config.json';
+import { useScrollTo } from '../../hooks/useScrollTo';
 
 export function Footer() {
+  const handleScrollTo = useScrollTo();
+
   return (
     <footer className="mt-24 liquid-glass rounded-t-3xl border-b-0 px-8 py-12 max-w-7xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
         <div className="max-w-xs">
-          <a href="#/" className="flex items-center gap-2 text-3xl font-display text-foreground block mb-4">
-            <img src="./media/brand/logo.svg" alt="Alessio Bellan Logo" className="h-10 w-auto" />
+          <a href="#/" onClick={(e) => handleScrollTo(e, 'home')} className="flex items-center gap-2 text-3xl font-display text-foreground block mb-4">
+            <img src="./media/brand/logo.svg" alt="Alessio Bellan Logo" className="h-10 w-10" width="40" height="40" />
           </a>
           <p className="text-muted-foreground text-sm leading-relaxed mb-4">
             Progetto e sviluppo siti web, gestionali e identità digitali per chi ha qualcosa da dire.
           </p>
           <p className="text-xs text-muted-foreground/60 mb-2 flex items-center gap-2">
             Il 10% del totale va in donazione ad
-            <img src="./media/brand/abbo-logo-bianco.svg" alt="ABBO APS" className="h-4 w-auto inline" />
+            <img src="./media/brand/abbo-logo-bianco.svg" alt="ABBO APS" className="h-4 w-auto inline" height="16" />
             <a href="https://abboaps.it" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted-foreground">ABBO APS</a>
           </p>
         </div>
@@ -23,20 +26,20 @@ export function Footer() {
           <div>
             <h4 className="font-medium text-foreground mb-4 text-sm uppercase tracking-widest">Servizi</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><a href="#servizi" className="hover:text-foreground transition-colors">Siti Web</a></li>
-              <li><a href="#servizi" className="hover:text-foreground transition-colors">Gestionali</a></li>
-              <li><a href="#servizi" className="hover:text-foreground transition-colors">Grafica</a></li>
-              <li><a href="#servizi" className="hover:text-foreground transition-colors">Social</a></li>
+              <li><a href="#servizi" onClick={(e) => handleScrollTo(e, 'servizi')} className="hover:text-foreground transition-colors">Siti Web</a></li>
+              <li><a href="#servizi" onClick={(e) => handleScrollTo(e, 'servizi')} className="hover:text-foreground transition-colors">Gestionali</a></li>
+              <li><a href="#servizi" onClick={(e) => handleScrollTo(e, 'servizi')} className="hover:text-foreground transition-colors">Grafica</a></li>
+              <li><a href="#servizi" onClick={(e) => handleScrollTo(e, 'servizi')} className="hover:text-foreground transition-colors">Social</a></li>
             </ul>
           </div>
           <div>
             <h4 className="font-medium text-foreground mb-4 text-sm uppercase tracking-widest">Info</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><a href="#about" className="hover:text-foreground transition-colors">About</a></li>
-              <li><a href="#portfolio" className="hover:text-foreground transition-colors">Portfolio</a></li>
-              <li><a href="#prezzi" className="hover:text-foreground transition-colors">Prezzi</a></li>
-              <li><a href="#faq" className="hover:text-foreground transition-colors">FAQ</a></li>
-              <li><a href="#contatti" className="hover:text-foreground transition-colors">Contatti</a></li>
+              <li><a href="#about" onClick={(e) => handleScrollTo(e, 'about')} className="hover:text-foreground transition-colors">About</a></li>
+              <li><a href="#portfolio" onClick={(e) => handleScrollTo(e, 'portfolio')} className="hover:text-foreground transition-colors">Portfolio</a></li>
+              <li><a href="#prezzi" onClick={(e) => handleScrollTo(e, 'prezzi')} className="hover:text-foreground transition-colors">Prezzi</a></li>
+              <li><a href="#faq" onClick={(e) => handleScrollTo(e, 'faq')} className="hover:text-foreground transition-colors">FAQ</a></li>
+              <li><a href="#contatti" onClick={(e) => handleScrollTo(e, 'contatti')} className="hover:text-foreground transition-colors">Contatti</a></li>
             </ul>
           </div>
         </div>
@@ -46,10 +49,10 @@ export function Footer() {
             info@alessiobellan.it
           </a>
           <div className="flex gap-4">
-            <a href={config.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+            <a href={config.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Profilo LinkedIn" className="text-muted-foreground hover:text-foreground transition-colors">
               <Linkedin className="w-5 h-5" />
             </a>
-            <a href={config.social.instagram} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+            <a href={config.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Profilo Instagram" className="text-muted-foreground hover:text-foreground transition-colors">
               <Instagram className="w-5 h-5" />
             </a>
           </div>

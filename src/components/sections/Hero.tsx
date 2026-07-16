@@ -12,6 +12,7 @@ export function Hero() {
           loop 
           muted 
           playsInline
+          aria-hidden="true"
           poster="./hero-poster.jpg"
           className="absolute inset-0 w-full h-full object-cover opacity-30"
         >

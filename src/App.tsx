@@ -12,6 +12,7 @@ const ProjectPage = lazy(() => import('./pages/ProjectPage').then(module => ({ d
 const PricingPage = lazy(() => import('./pages/PricingPage').then(module => ({ default: module.PricingPage })));
 const LandingPage = lazy(() => import('./pages/LandingPage').then(module => ({ default: module.LandingPage })));
 const ArticlePage = lazy(() => import('./pages/ArticlePage').then(module => ({ default: module.ArticlePage })));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then(module => ({ default: module.NotFoundPage })));
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
               <Route path="/prezzi" element={<PricingPage />} />
               <Route path="/servizi/:id" element={<LandingPage />} />
               <Route path="/journal/:slug" element={<ArticlePage />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>
         </div>
