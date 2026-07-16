@@ -1,16 +1,21 @@
 import { useInView } from '../../hooks/useInView';
 import { Linkedin, Instagram, ArrowRight } from 'lucide-react';
 import config from '../../data/config.json';
-
-const articles = [
-  {
-    title: "Lorem ipsum dolor sit amet",
-    excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  }
-];
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Article, getAllArticles } from '../../utils/markdown';
 
 export function Journal() {
   const { ref, isInView } = useInView({ threshold: 0.1, triggerOnce: true });
+  const [articles, setArticles] = useState<Article[]>([]);
+
+  useEffect(() => {
+    async function fetchArticles() {
+      const data = await getAllArticles();
+      setArticles(data);
+    }
+    fetchArticles();
+  }, []);
 
   return (
     <section id="journal" ref={ref as any} className="py-24 px-8 max-w-7xl mx-auto">
@@ -20,19 +25,20 @@ export function Journal() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
         {articles.map((article, idx) => (
-          <div 
+          <Link 
             key={idx}
+            to={`/journal/${article.slug}`}
             className={`liquid-glass rounded-2xl p-8 flex flex-col justify-between group cursor-pointer ${isInView ? 'animate-fade-rise' : 'opacity-0'}`}
             style={{ animationDelay: `${0.1 * idx}s` }}
           >
             <div>
-              <h3 className="text-2xl font-display text-foreground mb-4 group-hover:text-primary transition-colors" style={{ fontFamily: "'Instrument Serif', serif" }}>{article.title}</h3>
-              <p className="text-muted-foreground leading-relaxed mb-8">{article.excerpt}</p>
+              <h3 className="text-2xl font-display text-foreground mb-4 group-hover:text-primary transition-colors" style={{ fontFamily: "'Instrument Serif', serif" }}>{article.metadata.title}</h3>
+              <p className="text-muted-foreground leading-relaxed mb-8">{article.metadata.excerpt}</p>
             </div>
             <div className="flex items-center text-sm font-medium text-foreground">
               Leggi <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 

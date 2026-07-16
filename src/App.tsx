@@ -11,6 +11,7 @@ const PortfolioPage = lazy(() => import('./pages/PortfolioPage').then(module => 
 const ProjectPage = lazy(() => import('./pages/ProjectPage').then(module => ({ default: module.ProjectPage })));
 const PricingPage = lazy(() => import('./pages/PricingPage').then(module => ({ default: module.PricingPage })));
 const LandingPage = lazy(() => import('./pages/LandingPage').then(module => ({ default: module.LandingPage })));
+const ArticlePage = lazy(() => import('./pages/ArticlePage').then(module => ({ default: module.ArticlePage })));
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
               <Route path="/portfolio/:id" element={<ProjectPage />} />
               <Route path="/prezzi" element={<PricingPage />} />
               <Route path="/servizi/:id" element={<LandingPage />} />
+              <Route path="/journal/:slug" element={<ArticlePage />} />
             </Routes>
           </Suspense>
         </div>

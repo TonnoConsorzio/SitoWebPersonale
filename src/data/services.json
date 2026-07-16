@@ -33,5 +33,12 @@
     "description": "Setup, hosting e deploy fatti bene, una volta sola.",
     "icon": "Server",
     "large": false
+  },
+  {
+    "id": "marketing-copy",
+    "title": "Marketing & Copywriting",
+    "description": "Consulenze marketing, posizionamento e scrittura di testi per il web e newsletter.",
+    "icon": "Megaphone",
+    "large": false
   }
 ]

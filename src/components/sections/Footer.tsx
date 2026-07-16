@@ -57,7 +57,11 @@ export function Footer() {
       </div>
       
       <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-muted-foreground/60">
-        <p>© {new Date().getFullYear()} Alessio Bellan. Tutti i diritti riservati.</p>
+        <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center">
+          <p>© {new Date().getFullYear()} Alessio Bellan. Tutti i diritti riservati.</p>
+          <span className="hidden md:inline">•</span>
+          <p>P.IVA: [INSERISCI P.IVA QUI]</p>
+        </div>
         <div className="flex gap-4 mt-4 md:mt-0">
           <a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a>
           <a href="#" className="hover:text-foreground transition-colors">Cookie Policy</a>

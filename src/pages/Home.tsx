@@ -8,6 +8,7 @@ import { PricingPackages } from '../components/sections/PricingPackages';
 import { PortfolioGrid } from '../components/sections/PortfolioGrid';
 import { Testimonials } from '../components/sections/Testimonials';
 import { About } from '../components/sections/About';
+import { Certifications } from '../components/sections/Certifications';
 import { Journal } from '../components/sections/Journal';
 import { FAQ } from '../components/sections/FAQ';
 import { Contact } from '../components/sections/Contact';
@@ -31,6 +32,7 @@ export function Home() {
         <PricingCalculator />
         <PricingPackages />
         <PortfolioGrid />
+        <Certifications />
         <Testimonials />
         <Journal />
         <FAQ />

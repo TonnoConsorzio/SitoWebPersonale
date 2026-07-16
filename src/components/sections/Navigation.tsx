@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Linkedin, Instagram } from 'lucide-react';
+import config from '../../data/config.json';
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -28,9 +30,19 @@ export function Navigation() {
           <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
           <a href="#contatti" className="hover:text-foreground transition-colors">Contatti</a>
         </div>
-        <a href="#contatti" className="liquid-glass rounded-full px-6 min-h-[48px] flex items-center justify-center text-sm text-foreground hover:scale-[1.03] transition-transform cursor-pointer">
-          Inizia un progetto
-        </a>
+        <div className="flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-4 border-r border-white/20 pr-6">
+            <a href={config.social.instagram} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Instagram className="w-5 h-5" strokeWidth={1.5} />
+            </a>
+            <a href={config.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Linkedin className="w-5 h-5" strokeWidth={1.5} />
+            </a>
+          </div>
+          <a href="#contatti" className="liquid-glass rounded-full px-6 min-h-[48px] flex items-center justify-center text-sm text-foreground hover:scale-[1.03] transition-transform cursor-pointer">
+            Inizia un progetto
+          </a>
+        </div>
       </div>
     </nav>
   );

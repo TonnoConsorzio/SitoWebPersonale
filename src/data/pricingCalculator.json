@@ -41,5 +41,12 @@
     "options": [
       { "id": "infra-setup", "label": "Setup Server & Docker", "price": 550, "description": "Setup una tantum per la messa in opera." }
     ]
+  },
+  {
+    "id": "marketing-copy",
+    "category": "Marketing & Copywriting",
+    "options": [
+      { "id": "marketing-copy-base", "label": "Copywriting (Placeholder)", "price": 100, "description": "Consulenza marketing, posizionamento e testi." }
+    ]
   }
 ]
