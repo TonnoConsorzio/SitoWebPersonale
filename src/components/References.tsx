@@ -6,6 +6,11 @@ const references = [
     text: "La combinazione di leadership, problem solving e capacità di networking rende Alessio una risorsa preziosa per qualsiasi iniziativa.",
     author: "Vincenzo Romano",
     role: "Manager"
+  },
+  {
+    text: "Lavorare sotto la sua guida ha significato avere obiettivi chiari e un supporto sempre presente. In pochi avrebbero saputo gestire un progetto così ampio e complesso con la stessa efficacia.",
+    author: "Alessio Buso",
+    role: "Graphic Designer & Visual Creator"
   }
 ];
 
