@@ -4,16 +4,8 @@ import config from '../../data/config.json';
 
 const articles = [
   {
-    title: "Perché un sito web non è una brochure digitale",
-    excerpt: "L'errore più comune che le PMI fanno quando decidono di investire nella loro presenza online.",
-  },
-  {
-    title: "Come scegliere lo stack tecnologico giusto",
-    excerpt: "React, Vue, o WordPress? Una guida pratica per non perdersi nella giungla dei framework.",
-  },
-  {
-    title: "Il valore invisibile dell'accessibilità",
-    excerpt: "Costruire interfacce usabili da tutti non è solo un obbligo morale, ma un vantaggio competitivo.",
+    title: "Lorem ipsum dolor sit amet",
+    excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   }
 ];
 

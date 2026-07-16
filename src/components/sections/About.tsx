@@ -1,9 +1,9 @@
 import { useInView } from '../../hooks/useInView';
-import config from '../../data/config.json';
+import aboutData from '../../data/about.json';
 
 export function About() {
   const { ref, isInView } = useInView({ threshold: 0.1, triggerOnce: true });
-  const about = config.about;
+  const about = aboutData;
 
   return (
     <section id="about" ref={ref as any} className="py-24 px-8 max-w-7xl mx-auto">
@@ -18,7 +18,7 @@ export function About() {
               {about.quote}
             </p>
             <p className="text-sm text-muted-foreground/70 mt-8 border-t border-white/10 pt-6">
-              * {about.disclaimer}
+              {about.footer}
             </p>
           </div>
         </div>
@@ -26,7 +26,7 @@ export function About() {
         <div className={`${isInView ? 'animate-fade-rise-delay' : 'opacity-0'}`}>
           <div className="aspect-[4/5] liquid-glass rounded-2xl overflow-hidden relative flex items-center justify-center">
             <img 
-              src="https://lh3.googleusercontent.com/d/13qhllagm_igvG3CHdZV-jXnzIx8MYzGm=w1000-h1000?.png" 
+              src={about.image}
               alt="Alessio Bellan Ritratto" 
               loading="lazy" width="800" height="1000"
               className="absolute inset-0 w-full h-full object-cover"

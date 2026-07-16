@@ -3,47 +3,55 @@
     "id": 1,
     "title": "ABBO APS",
     "category": "Sito Web",
-    "image": "/media/projects/abbo-aps/cover.jpg",
+    "image": "/media/projects/abbo-aps/cover.png",
     "gallery": [
-      "/media/projects/abbo-aps/gallery-1.jpg",
-      "/media/projects/abbo-aps/gallery-2.jpg"
+      "/media/projects/abbo-aps/gallery-1.png",
+      "/media/projects/abbo-aps/gallery-2.png"
     ],
     "authors": [
       "Alessio Bellan"
     ],
-    "link": "https://abboaps.it",
+    "link": "https://abboaps.org",
     "description": "Sviluppo dell'identità visiva e del portale web per ABBO APS, associazione di terzo settore per l'educazione digitale che presiedo e ho co-fondato."
   },
   {
     "id": 2,
-    "title": "Gestionale Digital Heroes",
-    "category": "Gestionale",
-    "image": "/media/projects/gestionale-digital-heroes/cover.jpg",
-    "gallery": [],
+    "title": "Web App Digital Heroes",
+    "category": "Sito Web & Gestionale",
+    "image": "/media/projects/dh/cover.png",
+    "gallery": [
+      "/media/projects/dh/gallery-1.png",
+      "/media/projects/dh/gallery-2.png",
+      "/media/projects/dh/gallery-3.png",
+      "/media/projects/dh/gallery-4.png"
+    ],
     "authors": [
       "Alessio Bellan"
     ],
-    "link": "#",
+    "link": "https://digital-heroes.me",
     "description": "Sviluppo di un gestionale per Digital Heroes, il laboratorio di educazione digitale che ho fondato, con funzionalità di gestione eventi e vendita ticket."
   },
   {
     "id": 3,
     "title": "La Voce del Fumagalli",
     "category": "Sito Web",
-    "image": "/media/projects/voce-fumagalli/cover.jpg",
+    "image": "/media/projects/fumagalli/cover.png",
     "gallery": [],
     "authors": [
       "Alessio Bellan"
     ],
-    "link": "PLACEHOLDER_LINK",
+    "link": "https://abboaps.github.io/lavocedelfumagalli-sitoweb/",
     "description": "Sviluppo del sito web per \"La Voce del Fumagalli\"."
   },
   {
     "id": 4,
     "title": "ECFoP NEXT & Magistery",
     "category": "Progetto Editoriale",
-    "image": "/media/projects/magistery/cover.jpg",
-    "gallery": [],
+    "image": "/media/projects/ecfop-next/cover.png",
+    "gallery": [
+      "/media/projects/ecfop-next/gallery-1.png",
+      "/media/projects/ecfop-next/gallery-2.png"
+    ],
     "authors": [
       "Alessio Bellan"
     ],

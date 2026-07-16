@@ -15,8 +15,7 @@ export function Hero() {
           poster="/hero-poster.jpg"
           className="absolute inset-0 w-full h-full object-cover opacity-30"
         >
-          {/* TODO: replace with final brand video */}
-          <source src="/media/hero/hero-placeholder.mp4" type="video/mp4" />
+          <source src="/media/hero/hero.mp4" type="video/mp4" />
         </video>
       </div>
 

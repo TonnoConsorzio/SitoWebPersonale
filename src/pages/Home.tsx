@@ -12,7 +12,6 @@ import { Journal } from '../components/sections/Journal';
 import { FAQ } from '../components/sections/FAQ';
 import { Contact } from '../components/sections/Contact';
 import { FloatingWhatsApp } from '../components/sections/FloatingWhatsApp';
-import { CookieBanner } from '../components/sections/CookieBanner';
 import { Footer } from '../components/sections/Footer';
 
 export function Home() {
@@ -39,7 +38,6 @@ export function Home() {
       </main>
       <Footer />
       <FloatingWhatsApp />
-      <CookieBanner />
     </>
   );
 }
