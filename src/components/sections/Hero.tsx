@@ -12,10 +12,10 @@ export function Hero() {
           loop 
           muted 
           playsInline
-          poster="/hero-poster.jpg"
+          poster="./hero-poster.jpg"
           className="absolute inset-0 w-full h-full object-cover opacity-30"
         >
-          <source src="/media/hero/hero.mp4" type="video/mp4" />
+          <source src="./media/hero/hero.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent pointer-events-none" />
       </div>

@@ -6,15 +6,15 @@ export function Footer() {
     <footer className="mt-24 liquid-glass rounded-t-3xl border-b-0 px-8 py-12 max-w-7xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
         <div className="max-w-xs">
-          <a href="/" className="flex items-center gap-2 text-3xl font-display text-foreground block mb-4">
-            <img src="/media/brand/logo.svg" alt="Alessio Bellan Logo" className="h-10 w-auto" />
+          <a href="#/" className="flex items-center gap-2 text-3xl font-display text-foreground block mb-4">
+            <img src="./media/brand/logo.svg" alt="Alessio Bellan Logo" className="h-10 w-auto" />
           </a>
           <p className="text-muted-foreground text-sm leading-relaxed mb-4">
             Progetto e sviluppo siti web, gestionali e identità digitali per chi ha qualcosa da dire.
           </p>
           <p className="text-xs text-muted-foreground/60 mb-2 flex items-center gap-2">
             Il 10% del totale va in donazione ad
-            <img src="/media/brand/abbo-logo-bianco.svg" alt="ABBO APS" className="h-4 w-auto inline" />
+            <img src="./media/brand/abbo-logo-bianco.svg" alt="ABBO APS" className="h-4 w-auto inline" />
             <a href="https://abboaps.it" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted-foreground">ABBO APS</a>
           </p>
         </div>

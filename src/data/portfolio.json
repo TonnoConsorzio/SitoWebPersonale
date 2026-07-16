@@ -3,10 +3,10 @@
     "id": 1,
     "title": "ABBO APS",
     "category": "Sito Web",
-    "image": "/media/projects/abbo-aps/cover.png",
+    "image": "./media/projects/abbo-aps/cover.png",
     "gallery": [
-      "/media/projects/abbo-aps/gallery-1.png",
-      "/media/projects/abbo-aps/gallery-2.png"
+      "./media/projects/abbo-aps/gallery-1.png",
+      "./media/projects/abbo-aps/gallery-2.png"
     ],
     "authors": [
       "Alessio Bellan"
@@ -18,12 +18,12 @@
     "id": 2,
     "title": "Web App Digital Heroes",
     "category": "Sito Web & Gestionale",
-    "image": "/media/projects/dh/cover.png",
+    "image": "./media/projects/dh/cover.png",
     "gallery": [
-      "/media/projects/dh/gallery-1.png",
-      "/media/projects/dh/gallery-2.png",
-      "/media/projects/dh/gallery-3.png",
-      "/media/projects/dh/gallery-4.png"
+      "./media/projects/dh/gallery-1.png",
+      "./media/projects/dh/gallery-2.png",
+      "./media/projects/dh/gallery-3.png",
+      "./media/projects/dh/gallery-4.png"
     ],
     "authors": [
       "Alessio Bellan"
@@ -35,7 +35,7 @@
     "id": 3,
     "title": "La Voce del Fumagalli",
     "category": "Sito Web",
-    "image": "/media/projects/fumagalli/cover.png",
+    "image": "./media/projects/fumagalli/cover.png",
     "gallery": [],
     "authors": [
       "Alessio Bellan"
@@ -47,10 +47,10 @@
     "id": 4,
     "title": "ECFoP NEXT & Magistery",
     "category": "Progetto Editoriale",
-    "image": "/media/projects/ecfop-next/cover.png",
+    "image": "./media/projects/ecfop-next/cover.png",
     "gallery": [
-      "/media/projects/ecfop-next/gallery-1.png",
-      "/media/projects/ecfop-next/gallery-2.png"
+      "./media/projects/ecfop-next/gallery-1.png",
+      "./media/projects/ecfop-next/gallery-2.png"
     ],
     "authors": [
       "Alessio Bellan"

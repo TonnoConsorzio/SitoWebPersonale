@@ -27,7 +27,7 @@ export function ProjectPage() {
             <ArrowLeft className="w-4 h-4 mr-2" /> Torna al portfolio
           </Link>
           <Link to="/" className="flex items-center gap-2 text-2xl font-display text-foreground">
-            <img src="/media/brand/logo.svg" alt="Alessio Bellan Logo" className="h-8 w-auto" />
+            <img src="./media/brand/logo.svg" alt="Alessio Bellan Logo" className="h-8 w-auto" />
             Alessio Bellan
           </Link>
         </div>

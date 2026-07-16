@@ -17,8 +17,8 @@ export function Navigation() {
   return (
     <nav className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? 'py-4 liquid-glass' : 'py-6 bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-8 flex flex-row justify-between items-center">
-        <a href="/" className="flex items-center gap-2 text-2xl font-display text-foreground">
-          <img src="/media/brand/logo.svg" alt="Alessio Bellan Logo" className="h-8 w-auto" />
+        <a href="#/" className="flex items-center gap-2 text-2xl font-display text-foreground">
+          <img src="./media/brand/logo.svg" alt="Alessio Bellan Logo" className="h-8 w-auto" />
           Alessio Bellan
         </a>
         <div className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
