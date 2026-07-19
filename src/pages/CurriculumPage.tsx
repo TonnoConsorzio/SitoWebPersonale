@@ -2,9 +2,10 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
-import { ArrowLeft, BookOpen, Briefcase, Code } from 'lucide-react';
+import { ArrowLeft, BookOpen, Briefcase, Code, Award } from 'lucide-react';
 import experiences from '../data/curriculum.json';
 import cvData from '../data/cv.json';
+import certifications from '../data/certifications.json';
 import { SEO } from '../components/SEO';
 
 export function CurriculumPage() {
@@ -76,6 +77,31 @@ export function CurriculumPage() {
                     <div className="flex justify-between items-center text-sm">
                       <span className="text-muted-foreground">{item.school}</span>
                       <time className="text-primary/80 font-mono text-xs">{item.period}</time>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section>
+              <h2 className="flex items-center font-display text-3xl mb-8 text-primary">
+                <Award className="w-6 h-6 mr-3" />
+                Certificazioni
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {certifications.map((item, idx) => (
+                  <div key={idx} className="liquid-glass p-5 rounded-2xl flex flex-col gap-4 group">
+                    <div className="aspect-video w-full overflow-hidden rounded-xl bg-white/5 relative">
+                      <img 
+                        src={item.image} 
+                        alt={item.title} 
+                        className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div>
+                      <h3 className="font-display text-lg text-foreground mb-1 leading-tight">{item.title}</h3>
+                      <span className="text-muted-foreground text-sm uppercase tracking-wider font-semibold">{item.issuer}</span>
                     </div>
                   </div>
                 ))}
