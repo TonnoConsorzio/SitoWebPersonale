@@ -3,71 +3,41 @@ import { useInView } from '../../hooks/useInView';
 import { Heart, MessageCircle, Mail, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import config from '../../data/config.json';
+import pricingData from '../../data/pricingCalculator.json';
 
-const categories = [
-  {
-    id: 'web',
-    name: 'Siti Web',
-    options: [
-      { id: 'web-1', name: 'Essenziale', price: 605, desc: 'Sito web One-Page, Design su misura, Form di contatto, Setup SEO base.' },
-      { id: 'web-2', name: 'Standard', price: 1150, desc: 'Fino a 5 pagine, Pannello CMS gestibile, Ottimizzazione SEO, Performance ottimizzate.' },
-      { id: 'web-3', name: 'Su Misura', price: 2299, desc: 'Funzionalità avanzate, Design 100% custom, Integrazioni esterne, Supporto prioritario.' },
-    ]
-  },
-  {
-    id: 'app',
-    name: 'Gestionali / App',
-    options: [
-      { id: 'app-1', name: 'Micro-tool', price: 968, desc: 'Strumento singolo per automatizzare un processo specifico.' },
-      { id: 'app-2', name: 'Base', price: 2057, desc: 'Gestionale base per amministrare dati, utenti ed entità interne.' },
-      { id: 'app-3', name: 'Avanzato', price: 3751, desc: 'Sistema complesso con ruoli multipli, integrazioni API e reportistica.' },
-    ]
-  },
-  {
-    id: 'brand',
-    name: 'Grafica e Identità',
-    options: [
-      { id: 'brand-1', name: 'Logo', price: 363, desc: 'Design del logo base, palette colori principale.' },
-      { id: 'brand-2', name: 'Brand Kit', price: 726, desc: 'Logo completo, tipografia, palette espansa e linee guida.' },
-      { id: 'brand-3', name: 'Identità Completa', price: 1089, desc: 'Brand identity a 360°, materiali coordinati (biglietti da visita, carta intestata).' },
-    ]
-  },
-  {
-    id: 'social',
-    name: 'Social (al mese)',
-    description: 'Gestione strategica per costruire una community e raccontare il tuo valore.',
-    options: [
-      { id: 'social-1', name: 'Base', price: 460, desc: 'Gestione base, piano editoriale, 2 post a settimana.' },
-      { id: 'social-2', name: 'Standard', price: 726, desc: 'Piano editoriale, 3 post/settimana, gestione community.' },
-      { id: 'social-3', name: 'Full', price: 1210, desc: 'Gestione completa, reportistica mensile, campagne adv.' },
-    ]
-  },
-  {
-    id: 'infra',
-    name: 'Infrastrutture',
-    options: [
-      { id: 'infra-1', name: 'Setup Server', price: 605, desc: 'Configurazione VPS, Docker, Nginx, SSL e deploy automatici.' },
-    ]
-  },
-  {
-    id: 'copywriting',
-    name: 'Copywriting',
-    options: [
-      { id: 'copy-1', name: 'Base', price: 190, desc: 'Testi per fino a 3 pagine del sito.' },
-      { id: 'copy-2', name: 'Standard', price: 380, desc: 'Testi per fino a 6 pagine + guida tone of voice.' },
-      { id: 'copy-3', name: 'Full', price: 630, desc: 'Testi sito completo + articoli iniziali per il Journal.' },
-    ]
-  },
-  {
-    id: 'seo',
-    name: 'SEO Optimization',
-    options: [
-      { id: 'seo-1', name: 'On-page Base', price: 250, desc: 'Ottimizzazione tecnica una tantum per il sito.' },
-      { id: 'seo-2', name: 'Standard', price: 500, desc: 'Setup SEO sito + social, primo mese di monitoraggio incluso.' },
-      { id: 'seo-3', name: 'Continuativa', price: 310, desc: 'Monitoraggio e ottimizzazione continua, ricorrente ogni mese.' },
-    ]
-  }
-];
+const shortNames: Record<string, string> = {
+  'web-landing': 'Essenziale',
+  'web-standard': 'Standard',
+  'web-custom': 'Su Misura',
+  'app-micro': 'Micro-tool',
+  'app-base': 'Base',
+  'app-pro': 'Avanzato',
+  'brand-logo': 'Logo',
+  'brand-kit': 'Brand Kit',
+  'brand-full': 'Identità Completa',
+  'social-base': 'Base',
+  'social-standard': 'Standard',
+  'social-full': 'Full',
+  'infra-setup': 'Setup Server',
+  'copy-base': 'Base',
+  'copy-standard': 'Standard',
+  'copy-full': 'Full',
+  'seo-base': 'On-page Base',
+  'seo-standard': 'Standard',
+  'seo-continuous': 'Continuativa'
+};
+
+const categories = pricingData.map(cat => ({
+  id: cat.id,
+  name: cat.category,
+  description: cat.id === 'social' ? 'Gestione strategica per costruire una community e raccontare il tuo valore.' : undefined,
+  options: cat.options.map(opt => ({
+    id: opt.id,
+    name: shortNames[opt.id] || opt.label,
+    price: opt.price,
+    desc: opt.description
+  }))
+}));
 
 function AnimatedTotal({ total }: { total: number }) {
   const [displayTotal, setDisplayTotal] = useState(0);
