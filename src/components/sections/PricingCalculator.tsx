@@ -27,9 +27,9 @@ const categories = [
     id: 'brand',
     name: 'Grafica e Identità',
     options: [
-      { id: 'brand-1', name: 'Logo Start', price: 363, desc: 'Design del logo base, palette colori principale.' },
+      { id: 'brand-1', name: 'Logo', price: 363, desc: 'Design del logo base, palette colori principale.' },
       { id: 'brand-2', name: 'Brand Kit', price: 726, desc: 'Logo completo, tipografia, palette espansa e linee guida.' },
-      { id: 'brand-3', name: 'Full', price: 1089, desc: 'Brand identity a 360°, materiali coordinati (biglietti da visita, carta intestata).' },
+      { id: 'brand-3', name: 'Identità Completa', price: 1089, desc: 'Brand identity a 360°, materiali coordinati (biglietti da visita, carta intestata).' },
     ]
   },
   {
@@ -50,10 +50,21 @@ const categories = [
     ]
   },
   {
-    id: 'marketing',
-    name: 'Marketing & Copy',
+    id: 'copywriting',
+    name: 'Copywriting',
     options: [
-      { id: 'mkt-1', name: 'Copywriting', price: 100, desc: 'Consulenza marketing, posizionamento e testi (Placeholder).' },
+      { id: 'copy-1', name: 'Base', price: 190, desc: 'Testi per fino a 3 pagine del sito.' },
+      { id: 'copy-2', name: 'Standard', price: 380, desc: 'Testi per fino a 6 pagine + guida tone of voice.' },
+      { id: 'copy-3', name: 'Full', price: 630, desc: 'Testi sito completo + articoli iniziali per il Journal.' },
+    ]
+  },
+  {
+    id: 'seo',
+    name: 'SEO Optimization',
+    options: [
+      { id: 'seo-1', name: 'On-page Base', price: 250, desc: 'Ottimizzazione tecnica una tantum per il sito.' },
+      { id: 'seo-2', name: 'Standard', price: 500, desc: 'Setup SEO sito + social, primo mese di monitoraggio incluso.' },
+      { id: 'seo-3', name: 'Continuativa', price: 310, desc: 'Monitoraggio e ottimizzazione continua, ricorrente ogni mese.' },
     ]
   }
 ];

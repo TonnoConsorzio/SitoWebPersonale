@@ -12,7 +12,7 @@ export function PricingPackages() {
       savings: "Risparmio 90€",
       features: [
         "Sito Essenziale",
-        "Logo Start"
+        "Logo"
       ]
     },
     {
