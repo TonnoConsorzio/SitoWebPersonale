@@ -49,7 +49,7 @@ function AnimatedTotal({ total }: { total: number }) {
 
 export function PricingCalculator() {
   const { t, i18n } = useTranslation();
-  const currentLang = i18n.language as 'it' | 'en';
+  const currentLang = (i18n.language?.startsWith('en') ? 'en' : 'it') as 'it' | 'en';
   const { ref, isInView } = useInView({ threshold: 0.1, triggerOnce: true });
 
   const [selections, setSelections] = useState<Record<string, number | null>>(() => {
@@ -84,7 +84,9 @@ export function PricingCalculator() {
       const selectedIndex = selections[cat.id];
       if (selectedIndex !== null) {
         const option = cat.options[selectedIndex];
-        msg += `- ${cat.name}: ${option.name} (€${option.price})\n`;
+        const catName = cat.name?.[currentLang] || cat.name?.['it'] || '';
+        const optName = option?.name?.[currentLang] || option?.name?.['it'] || '';
+        msg += `- ${catName}: ${optName} (€${option?.price || 0})\n`;
       }
     });
     msg += `\nTotale stimato: €${total}\n`;
@@ -110,17 +112,19 @@ export function PricingCalculator() {
           {categories.map(category => {
             const selectedIndex = selections[category.id];
             const currentOption = selectedIndex !== null ? category.options[selectedIndex] : null;
+            const catName = category.name?.[currentLang] || category.name?.['it'] || '';
+            const catDesc = category.description?.[currentLang] || category.description?.['it'] || '';
 
             return (
               <div key={category.id} className="relative flex flex-col">
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex flex-col">
                     <h3 className="text-xl font-medium text-foreground">
-                      {category.name[currentLang]}
+                      {catName}
                     </h3>
-                    {category.description && (
+                    {catDesc && (
                       <p className="text-xs text-muted-foreground mt-1 max-w-[280px]">
-                        {category.description[currentLang]}
+                        {catDesc}
                       </p>
                     )}
                   </div>
@@ -134,6 +138,8 @@ export function PricingCalculator() {
                     <div className="flex bg-white/5 p-1.5 rounded-2xl border border-white/10 relative overflow-hidden">
                       {category.options.map((opt, i) => {
                         const isSelected = i === selectedIndex;
+                        const optName = opt.name?.[currentLang] || opt.name?.['it'] || '';
+
                         return (
                           <button
                             key={opt.id}
@@ -147,7 +153,7 @@ export function PricingCalculator() {
                                 transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                               />
                             )}
-                            <span className="relative z-10">{opt.name[currentLang]}</span>
+                            <span className="relative z-10">{optName}</span>
                           </button>
                         );
                       })}
@@ -157,8 +163,10 @@ export function PricingCalculator() {
                   <div className="bg-white/5 p-3 rounded-xl text-xs text-muted-foreground leading-relaxed border border-white/5 shadow-inner min-h-[60px]">
                     {currentOption ? (
                       <>
-                        <strong className="text-foreground block mb-1">{currentOption.name[currentLang]}</strong>
-                        {currentOption.desc[currentLang]}
+                        <strong className="text-foreground block mb-1">
+                          {currentOption.name?.[currentLang] || currentOption.name?.['it'] || ''}
+                        </strong>
+                        {currentOption.desc?.[currentLang] || currentOption.desc?.['it'] || ''}
                       </>
                     ) : (
                       <span className="opacity-60 italic flex items-center justify-center h-full text-xs">
