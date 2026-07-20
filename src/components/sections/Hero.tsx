@@ -11,7 +11,7 @@ export function Hero() {
       {/* Background Video */}
       <div className="absolute inset-0 z-0 bg-[hsl(201,100%,13%)]">
         <div className="absolute inset-0 opacity-30">
-          <LiquidHover videoSrc="./media/hero/hero.mp4" intensity={40} cursorSize={80} />
+          <LiquidHover videoSrc="/media/hero/hero.mp4" intensity={40} cursorSize={80} />
         </div>
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent pointer-events-none z-10" />
       </div>

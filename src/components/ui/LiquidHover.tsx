@@ -416,49 +416,49 @@ void main () {
     initFBOs();
     const cleanupEvents = setupEvents();
     render(0);
-    
+
     if (videoSrc) {
-        const vid = document.createElement("video");
-        vid.crossOrigin = "anonymous";
-        vid.src = videoSrc;
-        vid.muted = true;
-        vid.loop = true;
-        vid.playsInline = true;
-        vid.autoplay = true;
-        vid.play();
-        vid.onloadedmetadata = () => {
-          imgRatio = vid.videoWidth / Math.max(1, vid.videoHeight);
-          imageTexture = gl.createTexture();
-          gl.bindTexture(gl.TEXTURE_2D, imageTexture);
-          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-          videoElement = vid;
-        };
+      const vid = document.createElement("video");
+      vid.crossOrigin = "anonymous";
+      vid.src = videoSrc;
+      vid.muted = true;
+      vid.loop = true;
+      vid.playsInline = true;
+      vid.autoplay = true;
+      vid.play();
+      vid.onloadedmetadata = () => {
+        imgRatio = vid.videoWidth / Math.max(1, vid.videoHeight);
+        imageTexture = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, imageTexture);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+        videoElement = vid;
+      };
     } else if (imageSrc) {
-        const img = new Image();
-        img.crossOrigin = "anonymous";
-        img.src = imageSrc;
-        img.onload = () => {
-          imgRatio = img.naturalWidth / Math.max(1, img.naturalHeight);
-          imageTexture = gl.createTexture();
-          gl.bindTexture(gl.TEXTURE_2D, imageTexture);
-          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-          gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-          gl.activeTexture(gl.TEXTURE0);
-          gl.bindTexture(gl.TEXTURE_2D, imageTexture);
-          gl.texImage2D(
-            gl.TEXTURE_2D,
-            0,
-            gl.RGBA,
-            gl.RGBA,
-            gl.UNSIGNED_BYTE,
-            img
-          );
-        };
+      const img = new Image();
+      img.crossOrigin = "anonymous";
+      img.src = imageSrc;
+      img.onload = () => {
+        imgRatio = img.naturalWidth / Math.max(1, img.naturalHeight);
+        imageTexture = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, imageTexture);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+        gl.activeTexture(gl.TEXTURE0);
+        gl.bindTexture(gl.TEXTURE_2D, imageTexture);
+        gl.texImage2D(
+          gl.TEXTURE_2D,
+          0,
+          gl.RGBA,
+          gl.RGBA,
+          gl.UNSIGNED_BYTE,
+          img
+        );
+      };
     }
 
     function initFBOs() {
@@ -703,7 +703,7 @@ void main () {
       );
       gl.uniform1f(displayProgram.uniforms.u_canvas_scale, 1);
       gl.uniform1f(displayProgram.uniforms.u_inner_scale, innerScale);
-      
+
       if (imageTexture) {
         gl.activeTexture(gl.TEXTURE0);
         gl.bindTexture(gl.TEXTURE_2D, imageTexture);
@@ -712,7 +712,7 @@ void main () {
         }
         gl.uniform1i(displayProgram.uniforms.u_text_texture, 0);
       }
-      
+
       blit();
       gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
       gl.bindFramebuffer(gl.FRAMEBUFFER, null);

@@ -156,11 +156,39 @@ export function LandingPage() {
           </div>
         </div>
       );
-    } else if (serviceId === 'grafica') {
+    } else if (serviceId === 'grafica' || serviceId === 'brand') {
       return (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-          <div className="order-last lg:order-first relative aspect-square rounded-3xl overflow-hidden liquid-glass flex items-center justify-center">
-             <div className="text-muted-foreground/30 font-display text-2xl text-center px-4">[Immagine concettuale:<br/>Identità visiva]</div>
+          <div className="order-last lg:order-first relative aspect-square rounded-3xl overflow-hidden liquid-glass flex items-center justify-center p-8">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/5 to-transparent"></div>
+            {/* Visual & Brand Graphic Composition */}
+            <div className="relative w-full h-full max-w-sm max-h-[85%] flex items-center justify-center">
+              <div className="absolute w-40 h-40 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
+              <div className="absolute top-4 left-4 w-3/4 h-44 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-5 shadow-2xl flex flex-col justify-between transform -rotate-3 hover:rotate-0 transition-transform duration-500">
+                <div className="flex items-center justify-between">
+                  <span className="font-display text-2xl text-primary font-bold">AB</span>
+                  <div className="flex gap-1.5">
+                    <span className="w-3 h-3 rounded-full bg-primary"></span>
+                    <span className="w-3 h-3 rounded-full bg-accent"></span>
+                    <span className="w-3 h-3 rounded-full bg-white/40"></span>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <div className="w-full h-2 rounded bg-white/20"></div>
+                  <div className="w-2/3 h-2 rounded bg-white/10"></div>
+                </div>
+                <div className="text-[10px] uppercase tracking-widest text-muted-foreground font-mono">Brand Book & Identity</div>
+              </div>
+              <div className="absolute bottom-6 right-4 w-2/3 h-36 rounded-2xl border border-white/15 bg-background/80 backdrop-blur-xl p-4 shadow-xl transform rotate-6 hover:rotate-0 transition-transform duration-500 flex flex-col justify-between">
+                <div className="text-xs font-semibold text-foreground">Color System</div>
+                <div className="grid grid-cols-4 gap-2">
+                  <div className="h-8 rounded-lg bg-primary flex items-end p-1 text-[8px] font-mono text-primary-foreground">#F5A623</div>
+                  <div className="h-8 rounded-lg bg-accent flex items-end p-1 text-[8px] font-mono text-primary-foreground">#FF9500</div>
+                  <div className="h-8 rounded-lg bg-secondary border border-white/10 flex items-end p-1 text-[8px] font-mono text-white/70">#1C2333</div>
+                  <div className="h-8 rounded-lg bg-white/10 flex items-end p-1 text-[8px] font-mono text-white/50">#FFFFFF</div>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="space-y-8 order-first lg:order-last">
             <h1 className="font-display text-5xl md:text-6xl text-primary leading-tight">
@@ -196,7 +224,7 @@ export function LandingPage() {
           </div>
         </div>
       );
-    } else if (serviceId === 'siti-web') {
+    } else if (serviceId === 'siti-web' || serviceId === 'web') {
       return (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
           <div className="space-y-8">
@@ -250,6 +278,63 @@ export function LandingPage() {
           </div>
         </div>
       );
+    } else if (serviceId === 'automazioni' || serviceId === 'automation') {
+      return (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+          <div className="space-y-8">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-primary leading-tight">
+              {pageData.h1}
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+              {pageData.intro}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <Link to={`/prezzi?service=${serviceId}`} className="bg-primary text-primary-foreground rounded-full px-8 py-4 text-center text-sm font-medium hover:scale-[1.03] transition-transform shadow-lg shadow-primary/20">
+                Vedi i prezzi
+              </Link>
+              <a href="https://wa.me/393755532010" target="_blank" rel="noopener noreferrer" className="liquid-glass rounded-full px-8 py-4 text-center text-sm font-medium text-foreground hover:bg-white/10 transition-colors">
+                Contattami
+              </a>
+            </div>
+          </div>
+          {/* Graphic for Automations & Workflows */}
+          <div className="relative aspect-[4/3] lg:aspect-square rounded-3xl overflow-hidden liquid-glass flex items-center justify-center p-8">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-emerald-500/10 to-transparent"></div>
+            <div className="relative w-full h-full max-w-sm flex flex-col items-center justify-center gap-4">
+              <div className="w-full h-16 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md flex items-center justify-between px-6 shadow-lg">
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 rounded-full bg-emerald-400 animate-ping"></div>
+                  <span className="text-xs font-mono text-foreground">Form Sito Web</span>
+                </div>
+                <span className="text-[10px] text-muted-foreground font-mono">Trigger</span>
+              </div>
+
+              <div className="w-0.5 h-6 bg-gradient-to-b from-emerald-400 to-primary"></div>
+
+              <div className="w-full h-20 rounded-2xl border border-primary/30 bg-primary/10 backdrop-blur-md flex items-center justify-between px-6 shadow-xl">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-primary/20 border border-primary/40 flex items-center justify-center text-primary font-bold text-xs">AI</div>
+                  <div>
+                    <div className="text-xs font-semibold text-foreground">Workflow Integrato</div>
+                    <div className="text-[10px] text-muted-foreground">Make / Zapier API</div>
+                  </div>
+                </div>
+                <span className="text-[10px] bg-primary/20 text-primary px-2 py-1 rounded-full font-mono">24/7 Active</span>
+              </div>
+
+              <div className="w-0.5 h-6 bg-gradient-to-b from-primary to-accent"></div>
+
+              <div className="w-full h-16 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md flex items-center justify-between px-6 shadow-lg">
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 rounded-full bg-accent"></div>
+                  <span className="text-xs font-mono text-foreground">CRM & Fatturazione</span>
+                </div>
+                <span className="text-[10px] text-muted-foreground font-mono">Sync Completo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
     } else {
       // Default (infrastrutture)
       return (
@@ -270,9 +355,31 @@ export function LandingPage() {
               </a>
             </div>
           </div>
-          <div className="relative aspect-[4/3] lg:aspect-square rounded-3xl overflow-hidden liquid-glass flex items-center justify-center">
-             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-50 mix-blend-overlay"></div>
-             <div className="text-muted-foreground/30 font-display text-2xl text-center px-4">[Immagine concettuale]</div>
+          <div className="relative aspect-[4/3] lg:aspect-square rounded-3xl overflow-hidden liquid-glass flex items-center justify-center p-8">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent"></div>
+            <div className="relative w-full h-full max-w-sm flex flex-col justify-center gap-4">
+              <div className="w-full h-20 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-4 flex items-center justify-between shadow-xl">
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></div>
+                  <div>
+                    <div className="text-xs font-mono text-foreground font-semibold">Docker Container Cluster</div>
+                    <div className="text-[10px] text-muted-foreground font-mono">Uptime: 99.9%</div>
+                  </div>
+                </div>
+                <span className="text-[10px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full font-mono">Healthy</span>
+              </div>
+
+              <div className="w-full h-20 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-4 flex items-center justify-between shadow-xl">
+                <div className="flex items-center gap-3">
+                  <div className="w-3 h-3 rounded-full bg-primary"></div>
+                  <div>
+                    <div className="text-xs font-mono text-foreground font-semibold">Reverse Proxy & SSL</div>
+                    <div className="text-[10px] text-muted-foreground font-mono">TLS 1.3 / Nginx</div>
+                  </div>
+                </div>
+                <span className="text-[10px] text-primary bg-primary/10 border border-primary/20 px-2 py-0.5 rounded-full font-mono">Secured</span>
+              </div>
+            </div>
           </div>
         </div>
       );
