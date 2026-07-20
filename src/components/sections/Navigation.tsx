@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useScrollTo } from '../../hooks/useScrollTo';
 import { Linkedin, Instagram } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import config from '../../data/config.json';
 
 export function Navigation() {
+  const { t, i18n } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const handleScrollTo = useScrollTo();
 
@@ -24,16 +26,23 @@ export function Navigation() {
           <span className="hidden sm:inline">Alessio Bellan</span>
         </a>
         <div className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-          <a href="#" onClick={(e) => handleScrollTo(e, 'home')} className="hover:text-foreground transition-colors">Home</a>
-          <a href="#servizi" onClick={(e) => handleScrollTo(e, 'servizi')} className="hover:text-foreground transition-colors">Servizi</a>
-          <a href="#portfolio" onClick={(e) => handleScrollTo(e, 'portfolio')} className="hover:text-foreground transition-colors">Portfolio</a>
-          <a href="#journal" onClick={(e) => handleScrollTo(e, 'journal')} className="hover:text-foreground transition-colors">Journal</a>
-          <a href="#prezzi" onClick={(e) => handleScrollTo(e, 'prezzi')} className="hover:text-foreground transition-colors">Prezzi</a>
-          <a href="#faq" onClick={(e) => handleScrollTo(e, 'faq')} className="hover:text-foreground transition-colors">FAQ</a>
-          <a href="#contatti" onClick={(e) => handleScrollTo(e, 'contatti')} className="hover:text-foreground transition-colors">Contatti</a>
+          <a href="#" onClick={(e) => handleScrollTo(e, 'home')} className="hover:text-foreground transition-colors">{t('nav.home')}</a>
+          <a href="#servizi" onClick={(e) => handleScrollTo(e, 'servizi')} className="hover:text-foreground transition-colors">{t('nav.services')}</a>
+          <a href="#portfolio" onClick={(e) => handleScrollTo(e, 'portfolio')} className="hover:text-foreground transition-colors">{t('nav.portfolio')}</a>
+          <a href="#journal" onClick={(e) => handleScrollTo(e, 'journal')} className="hover:text-foreground transition-colors">{t('nav.journal')}</a>
+          <a href="#prezzi" onClick={(e) => handleScrollTo(e, 'prezzi')} className="hover:text-foreground transition-colors">{t('nav.pricing')}</a>
+          <a href="#faq" onClick={(e) => handleScrollTo(e, 'faq')} className="hover:text-foreground transition-colors">{t('nav.faq')}</a>
+          <a href="#contatti" onClick={(e) => handleScrollTo(e, 'contatti')} className="hover:text-foreground transition-colors">{t('nav.contact')}</a>
         </div>
         <div className="flex items-center gap-3 sm:gap-6">
           <div className="hidden md:flex items-center gap-4 border-r border-white/20 pr-6">
+            <button 
+              onClick={() => i18n.changeLanguage(i18n.language.startsWith('it') ? 'en' : 'it')}
+              className="text-xl hover:scale-110 transition-transform mr-2"
+              aria-label="Toggle language"
+            >
+              {i18n.language.startsWith('it') ? '🇬🇧' : '🇮🇹'}
+            </button>
             <a href={config.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Profilo Instagram" className="text-muted-foreground hover:text-foreground transition-colors">
               <Instagram className="w-5 h-5" strokeWidth={1.5} />
             </a>
@@ -42,7 +51,7 @@ export function Navigation() {
             </a>
           </div>
           <a href="#contatti" onClick={(e) => handleScrollTo(e, 'contatti')} className="liquid-glass rounded-full px-4 sm:px-6 min-h-[40px] sm:min-h-[48px] flex items-center justify-center text-xs sm:text-sm text-foreground hover:scale-[1.03] transition-transform cursor-pointer">
-            Inizia un progetto
+            {t('nav.start_project')}
           </a>
         </div>
       </div>

@@ -25,7 +25,7 @@ export function Footer() {
         </div>
         <div className="flex flex-col md:items-end md:ml-auto">
           <p className="text-xs text-muted-foreground/60 mb-2">
-            Parte del ricavato sostiene <a href="https://abboaps.it" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted-foreground min-h-[44px] inline-flex items-center ml-1">ABBO APS</a>
+            Parte del ricavato sostiene <a href="https://abboaps.org" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted-foreground min-h-[44px] inline-flex items-center ml-1">ABBO APS</a>
           </p>
         </div>
       </div>

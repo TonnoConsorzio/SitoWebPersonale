@@ -1,56 +1,89 @@
 [
   {
-    "title": "Minecraft 101: Creare una classe di apprendimento basata sui giochi",
+    "title": {
+      "it": "Minecraft 101: Creare una classe di apprendimento basata sui giochi",
+      "en": "Minecraft 101: Creating a game-based learning classroom"
+    },
     "issuer": "Microsoft",
     "image": "https://i.ibb.co/qY72gttz/Minecraft101-page-0001.jpg"
   },
   {
-    "title": "Minecraft: Adestrare i docenti a insegnare Minecraft Education in classe",
+    "title": {
+      "it": "Minecraft: Addestrare i docenti a insegnare Minecraft Education in classe",
+      "en": "Minecraft: Train teachers to teach Minecraft Education in the classroom"
+    },
     "issuer": "Microsoft",
     "image": "https://i.ibb.co/nMDLWQ63/Minecraft-Trainer-Academy-page-0001.jpg"
   },
   {
-    "title": "Certificate of completion: Teaching the AI Fluency Framework",
+    "title": {
+      "it": "Certificate of completion: Teaching the AI Fluency Framework",
+      "en": "Certificate of completion: Teaching the AI Fluency Framework"
+    },
     "issuer": "Anthropic",
     "image": "https://i.ibb.co/jZhDHm9N/certificate-7dccuc2sjr4m-1782846087-page-0001.jpg"
   },
   {
-    "title": "Certificate of completion: AI Fluency for nonprofits",
+    "title": {
+      "it": "Certificate of completion: AI Fluency for nonprofits",
+      "en": "Certificate of completion: AI Fluency for nonprofits"
+    },
     "issuer": "Anthropic",
     "image": "https://i.ibb.co/048zgs1/IAFluency-Non-Profit-page-0001.jpg"
   },
   {
-    "title": "Introduction to IoT and Digital Transformation",
+    "title": {
+      "it": "Introduction to IoT and Digital Transformation",
+      "en": "Introduction to IoT and Digital Transformation"
+    },
     "issuer": "Cisco",
     "image": "https://i.ibb.co/21VVYpXt/1762942320527.jpg"
   },
   {
-    "title": "Introduction to Data Science",
+    "title": {
+      "it": "Introduction to Data Science",
+      "en": "Introduction to Data Science"
+    },
     "issuer": "Cisco",
     "image": "https://i.ibb.co/2YPYPq5b/1762942320527.jpg"
   },
   {
-    "title": "Introduction to Modern AI",
+    "title": {
+      "it": "Introduction to Modern AI",
+      "en": "Introduction to Modern AI"
+    },
     "issuer": "Cisco",
     "image": "https://i.ibb.co/N6Bp06zx/1761487917244.jpg"
   },
   {
-    "title": "Introduction to Cybersecurity",
+    "title": {
+      "it": "Introduction to Cybersecurity",
+      "en": "Introduction to Cybersecurity"
+    },
     "issuer": "Cisco",
     "image": "https://i.ibb.co/KjXjvrwF/1755010898090.jpg"
   },
   {
-    "title": "Come creare una Brand Identity attraverso il social copywriting",
+    "title": {
+      "it": "Come creare una Brand Identity attraverso il social copywriting",
+      "en": "How to create a Brand Identity through social copywriting"
+    },
     "issuer": "Edulia",
     "image": "https://i.ibb.co/zhhRXwJP/1755011527398.jpg"
   },
   {
-    "title": "Podcast per la comunicazione aziendale",
+    "title": {
+      "it": "Podcast per la comunicazione aziendale",
+      "en": "Podcasts for corporate communication"
+    },
     "issuer": "Edulia",
     "image": "https://i.ibb.co/svkDTjMw/1755011131148.jpg"
   },
   {
-    "title": "Public speaking online",
+    "title": {
+      "it": "Public speaking online",
+      "en": "Online public speaking"
+    },
     "issuer": "Edulia",
     "image": "https://i.ibb.co/402dkpx/1755011042909.jpg"
   }

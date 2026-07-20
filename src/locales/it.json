@@ -1,0 +1,117 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Servizi",
+    "portfolio": "Portfolio",
+    "journal": "Journal",
+    "pricing": "Prezzi",
+    "faq": "FAQ",
+    "contact": "Contatti",
+    "start_project": "Inizia un progetto"
+  },
+  "hero": {
+    "title_part1": "Ogni sito ",
+    "title_highlight": "racconta una storia.",
+    "title_part2": "Costruiamo la tua.",
+    "subtitle": "Progetto e sviluppo siti web, gestionali e identità digitali per chi ha qualcosa da dire. Ogni progetto nasce da un'idea, non da un template.",
+    "cta": "Scopri i progetti"
+  },
+  "footer": {
+    "description": "Progetto e sviluppo siti web, gestionali e identità digitali per chi ha qualcosa da dire.",
+    "donation": "Il 10% del totale va in donazione ad",
+    "services": "Servizi",
+    "info": "Info",
+    "rights": "Tutti i diritti riservati.",
+    "made_with": "Made with ❤️ and 🍕 by Alessio Bellan.",
+    "made_with_it": ""
+  },
+  "pricing_calc": {
+    "title": "Quanto potrebbe costare il tuo progetto",
+    "subtitle": "Seleziona i servizi per configurare una stima iniziale. Clicca di nuovo per deselezionare.",
+    "no_plan": "Nessun piano selezionato",
+    "estimate_label": "Stima indicativa",
+    "donation_text": "(il 10% del totale) andranno in donazione ad",
+    "disclaimer": "Questa è una stima indicativa — il preventivo definitivo arriva dopo una chiamata conoscitiva in cui analizziamo le tue reali necessità.",
+    "cta": "Invia preventivo",
+    "modal_title": "Contattami",
+    "modal_desc": "Come preferisci inviarmi il preventivo? Ti risponderò al più presto per organizzare la chiamata.",
+    "whatsapp": "Invia su WhatsApp",
+    "email": "Invia via Email"
+  },
+  "about": {
+    "title": "Ciao, sono Alessio Bellan",
+    "p1": "Studio marketing e mi occupo di sviluppo web da qualche anno, imparando soprattutto lavorando su progetti reali. Mi interessa capire come funzionano le cose, dal codice alla comunicazione, e trovare soluzioni quando qualcosa si blocca.",
+    "p2": "Prima di essere freelance sono presidente di ABBO APS, un'associazione di terzo settore per l'educazione digitale. È lì che ho iniziato a costruire siti e strumenti per davvero, ed è da lì che viene anche il modo in cui lavoro adesso.",
+    "quote": "Lavoro bene quando capisco davvero cosa serve, non quando seguo un template.",
+    "footer": "Il 10% del ricavato di ogni progetto sostiene ABBO APS."
+  },
+  "services": {
+    "title": "Cosa posso costruire per te",
+    "web": "Siti Web",
+    "web_desc": "Design e sviluppo di siti che raccontano chi sei, non solo cosa vendi.",
+    "app": "Gestionali & App",
+    "app_desc": "Strumenti su misura per ottimizzare il tuo flusso di lavoro.",
+    "brand": "Grafica & Identità",
+    "brand_desc": "Identità visiva coerente, creata da un esperto con background già formato (senza costi aggiuntivi).",
+    "social": "Social Media",
+    "social_desc": "Gestione strategica per costruire una community e raccontare il tuo valore.",
+    "infra": "Infrastrutture",
+    "infra_desc": "Setup server e architetture Docker per garantire stabilità e performance."
+  },
+  "portfolio_grid": {
+    "title": "Alcuni progetti",
+    "subtitle": "Una selezione di lavori per capire come approccio le diverse sfide.",
+    "view_all": "Vedi il portfolio completo"
+  },
+  "testimonials": {
+    "title": "Dicono di me"
+  },
+  "certifications": {
+    "title": "Certificazioni"
+  },
+  "pricing_packages": {
+    "title": "Pacchetti & Piani",
+    "subtitle": "Le configurazioni più richieste e ottimali per partire.",
+    "recommended": "Consigliato",
+    "cta": "Richiedi info"
+  },
+  "faq": {
+    "title": "Domande frequenti",
+    "q1": "Quanto tempo ci vuole per completare il progetto?",
+    "a1": "Dipende dalla richiesta: da una settimana per un sito semplice, fino a qualche mese per progetti più articolati come un gestionale su misura.",
+    "q2": "Quante revisioni sono incluse?",
+    "a2": "Nella prima settimana le revisioni sono illimitate. Dopo la consegna puoi scegliere tra revisioni a consumo (30€ + 45€/h) oppure un forfait mensile di 85€ per modifiche illimitate nel tempo.",
+    "q3": "Il dominio e l'hosting li gestisci tu?",
+    "a3": "Il dominio resta sempre di tua proprietà e gestione. Dell'hosting posso occuparmene io, ma solo dopo esserci confrontati su cosa serve davvero.",
+    "q4": "Cosa succede dopo la consegna se qualcosa si rompe?",
+    "a4": "Nel primo mese dopo la consegna, assistenza e risoluzione di eventuali errori sono a mio carico, senza costi aggiuntivi. Le modifiche vere e proprie seguono invece le opzioni di revisione.",
+    "q5": "Che differenza c'è tra i pacchetti?",
+    "a5": "Non ci sono funzionalità bloccate per fascia: la differenza è semplicemente quanto vuoi investire nel progetto — più budget, più tempo e cura possiamo dedicare a design e dettagli.",
+    "q6": "Fai anche e-commerce?",
+    "a6": "Sì. Per un e-commerce contattami direttamente per un preventivo su misura, perché le esigenze cambiano molto da caso a caso.",
+    "q7": "Come funziona il pagamento?",
+    "a7": "Acconto all'avvio del progetto, saldo alla consegna.",
+    "q8": "Devo fornirti io i contenuti?",
+    "a8": "Testi e foto puoi fornirmeli tu, oppure posso occuparmene io — dipende dal progetto. Copy e fotografie professionali, se richiesti, sono quotati a parte.",
+    "q9": "Se dopo mi serve modificare un testo o una foto, è compreso?",
+    "a9": "Le piccole modifiche (fino a circa 30 minuti di lavoro) sono sempre gratuite.",
+    "q10": "Lavori anche con chi non ha le idee chiare?",
+    "a10": "Lavoro con chi ha voglia di raccontare qualcosa di vero. Le idee le sviluppiamo insieme: il punto di partenza sei tu e la tua storia, il resto lo costruiamo insieme."
+  },
+  "contact": {
+    "title": "Lavoriamo insieme",
+    "subtitle": "Raccontami il tuo progetto o prenota direttamente una chiamata.",
+    "form_name": "Nome",
+    "form_name_ph": "Il tuo nome",
+    "form_email": "Email",
+    "form_email_ph": "la.tua@email.it",
+    "form_service": "Servizio di interesse",
+    "form_service_ph": "Seleziona un servizio...",
+    "form_message": "Messaggio",
+    "form_message_ph": "Raccontami il tuo progetto...",
+    "form_submit": "Invia richiesta",
+    "cal_title": "Prenota una chiamata conoscitiva",
+    "cal_desc": "Scegli il momento migliore per te direttamente dal mio calendario. Ne parleremo davanti a un caffè virtuale.",
+    "cal_cta": "Prenota su Google Calendar"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "journal": "Journal",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "start_project": "Start a project"
+  },
+  "hero": {
+    "title_part1": "Every website ",
+    "title_highlight": "tells a story.",
+    "title_part2": "Let's build yours.",
+    "subtitle": "I design and develop websites, management systems, and digital identities for those who have something to say. Every project starts from an idea, not a template.",
+    "cta": "View projects"
+  },
+  "footer": {
+    "description": "I design and develop websites, management systems, and digital identities for those who have something to say.",
+    "donation": "10% of the total is donated to",
+    "services": "Services",
+    "info": "Info",
+    "rights": "All rights reserved.",
+    "made_with": "Made with ❤️ and 🍕 by Alessio Bellan.",
+    "made_with_it": "Fatto in Italia con tanta pizza."
+  },
+  "pricing_calc": {
+    "title": "How much might your project cost",
+    "subtitle": "Select services to configure an initial estimate. Click again to deselect.",
+    "no_plan": "No plan selected",
+    "estimate_label": "Rough estimate",
+    "donation_text": "(10% of the total) will be donated to",
+    "disclaimer": "This is a rough estimate — the final quote comes after a discovery call where we analyze your real needs.",
+    "cta": "Send quote",
+    "modal_title": "Contact me",
+    "modal_desc": "How would you prefer to send the quote? I will reply as soon as possible to schedule our call.",
+    "whatsapp": "Send on WhatsApp",
+    "email": "Send via Email"
+  },
+  "about": {
+    "title": "Hi, I'm Alessio Bellan",
+    "p1": "I study marketing and have been developing websites for a few years, mostly learning by working on real projects. I'm interested in understanding how things work, from code to communication, and finding solutions when things get stuck.",
+    "p2": "Before being a freelancer, I am the president of ABBO APS, a third-sector association for digital education. That's where I really started building sites and tools, and that's where the way I work now comes from.",
+    "quote": "I work best when I truly understand what is needed, not when I follow a template.",
+    "footer": "10% of the proceeds from each project supports ABBO APS."
+  },
+  "services": {
+    "title": "What I can build for you",
+    "web": "Websites",
+    "web_desc": "Design and development of sites that tell who you are, not just what you sell.",
+    "app": "Apps & Mgmt",
+    "app_desc": "Custom tools to optimize your workflow.",
+    "brand": "Graphics & Identity",
+    "brand_desc": "Consistent visual identity, created by an expert with a strong background (no extra costs).",
+    "social": "Social Media",
+    "social_desc": "Strategic management to build a community and tell your value.",
+    "infra": "Infrastructure",
+    "infra_desc": "Server setup and Docker architectures to ensure stability and performance."
+  },
+  "portfolio_grid": {
+    "title": "Some projects",
+    "subtitle": "A selection of works to understand how I approach different challenges.",
+    "view_all": "View full portfolio"
+  },
+  "testimonials": {
+    "title": "What people say"
+  },
+  "certifications": {
+    "title": "Certifications"
+  },
+  "pricing_packages": {
+    "title": "Packages & Plans",
+    "subtitle": "The most requested and optimal configurations to start.",
+    "recommended": "Recommended",
+    "cta": "Request info"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "q1": "How long does it take to complete the project?",
+    "a1": "It depends on the request: from one week for a simple site, up to a few months for more complex projects like a custom management system.",
+    "q2": "How many revisions are included?",
+    "a2": "In the first week, revisions are unlimited. After delivery, you can choose between pay-as-you-go revisions (€30 + €45/h) or a flat monthly rate of €85 for unlimited modifications over time.",
+    "q3": "Do you manage the domain and hosting?",
+    "a3": "The domain always remains your property and under your management. I can take care of hosting, but only after we discuss what is really needed.",
+    "q4": "What happens after delivery if something breaks?",
+    "a4": "In the first month after delivery, support and bug fixes are on me, at no extra cost. Actual modifications follow the revision options.",
+    "q5": "What is the difference between the packages?",
+    "a5": "There are no locked features by tier: the difference is simply how much you want to invest in the project — more budget, more time and care we can dedicate to design and details.",
+    "q6": "Do you also do e-commerce?",
+    "a6": "Yes. For an e-commerce, contact me directly for a custom quote, because needs vary greatly from case to case.",
+    "q7": "How does payment work?",
+    "a7": "Deposit at the start of the project, balance upon delivery.",
+    "q8": "Do I have to provide the content?",
+    "a8": "You can provide texts and photos, or I can take care of it — it depends on the project. Professional copy and photography, if requested, are quoted separately.",
+    "q9": "If I need to change a text or a photo later, is it included?",
+    "a9": "Small changes (up to about 30 minutes of work) are always free.",
+    "q10": "Do you also work with those who don't have clear ideas?",
+    "a10": "I work with those who want to tell something real. We develop ideas together: the starting point is you and your story, the rest we build together."
+  },
+  "contact": {
+    "title": "Let's work together",
+    "subtitle": "Tell me about your project or book a call directly.",
+    "form_name": "Name",
+    "form_name_ph": "Your name",
+    "form_email": "Email",
+    "form_email_ph": "your@email.com",
+    "form_service": "Service of interest",
+    "form_service_ph": "Select a service...",
+    "form_message": "Message",
+    "form_message_ph": "Tell me about your project...",
+    "form_submit": "Send request",
+    "cal_title": "Book a discovery call",
+    "cal_desc": "Choose the best time for you directly from my calendar. We'll talk about it over a virtual coffee.",
+    "cal_cta": "Book on Google Calendar"
+  }
+}

@@ -1,44 +1,74 @@
 [
   {
-    "id": "siti-web",
-    "title": "Siti Web",
-    "description": "Design e sviluppo di siti che raccontano chi sei, non solo cosa vendi.",
-    "icon": "Monitor",
-    "large": true
+    "id": "web",
+    "icon": "globe",
+    "title": {
+      "it": "Siti Web",
+      "en": "Websites"
+    },
+    "description": {
+      "it": "Design e sviluppo di siti che raccontano chi sei, non solo cosa vendi.",
+      "en": "Design and development of sites that tell who you are, not just what you sell."
+    }
   },
   {
-    "id": "gestionali",
-    "title": "Gestionali & App su misura",
-    "description": "Strumenti pensati sul tuo flusso di lavoro, non il contrario.",
-    "icon": "Layout",
-    "large": false
+    "id": "app",
+    "icon": "layout",
+    "title": {
+      "it": "Gestionali & App",
+      "en": "Apps & Mgmt"
+    },
+    "description": {
+      "it": "Strumenti su misura per ottimizzare il tuo flusso di lavoro.",
+      "en": "Custom tools to optimize your workflow."
+    }
   },
   {
-    "id": "grafica",
-    "title": "Grafica & Identità visiva",
-    "description": "Loghi, brand kit, materiali coerenti con la tua storia.",
-    "icon": "PenTool",
-    "large": false
+    "id": "brand",
+    "icon": "layers",
+    "title": {
+      "it": "Grafica & Identità",
+      "en": "Graphics & Identity"
+    },
+    "description": {
+      "it": "Identità visiva coerente, creata da un esperto con background già formato (senza costi aggiuntivi).",
+      "en": "Consistent visual identity, created by an expert with a strong background (no extra costs)."
+    }
   },
   {
     "id": "social",
-    "title": "Social Media Management",
-    "description": "Contenuti e presenza costante, senza che tu debba pensarci.",
-    "icon": "Share2",
-    "large": false
+    "icon": "network",
+    "title": {
+      "it": "Social Media",
+      "en": "Social Media"
+    },
+    "description": {
+      "it": "Gestione strategica per costruire una community e raccontare il tuo valore.",
+      "en": "Strategic management to build a community and tell your value."
+    }
   },
   {
-    "id": "infrastrutture",
-    "title": "Infrastrutture & Docker",
-    "description": "Setup, hosting e deploy fatti bene, una volta sola.",
-    "icon": "Server",
-    "large": false
+    "id": "infra",
+    "icon": "server",
+    "title": {
+      "it": "Infrastrutture",
+      "en": "Infrastructure"
+    },
+    "description": {
+      "it": "Setup server e architetture Docker per garantire stabilità e performance.",
+      "en": "Server setup and Docker architectures to ensure stability and performance."
+    }
   },
   {
-    "id": "marketing-copy",
-    "title": "Marketing & Copywriting",
-    "description": "Consulenze marketing, posizionamento e scrittura di testi per il web e newsletter.",
-    "icon": "Megaphone",
-    "large": false
+    "id": "automation",
+    "icon": "settings",
+    "title": {
+      "it": "Automazioni",
+      "en": "Automations"
+    },
+    "description": {
+      "it": "Sviluppo di flussi per automatizzare task ripetitivi e far risparmiare tempo.",
+      "en": "Development of workflows to automate repetitive tasks and save time."
+    }
   }
 ]

@@ -1,0 +1,33 @@
+[
+  {
+    "name": { "it": "Presenza Digitale", "en": "Digital Presence" },
+    "price": "790€",
+    "originalPrice": "880€",
+    "savings": { "it": "Risparmio 90€", "en": "Save 90€" },
+    "features": {
+      "it": ["Sito Essenziale", "Logo"],
+      "en": ["Essential Site", "Logo"]
+    }
+  },
+  {
+    "name": { "it": "Crescita", "en": "Growth" },
+    "price": "2.030€",
+    "originalPrice": "2.255€",
+    "savings": { "it": "Risparmio 225€", "en": "Save 225€" },
+    "featured": true,
+    "features": {
+      "it": ["Sito Standard", "Brand Kit", "Setup Server"],
+      "en": ["Standard Site", "Brand Kit", "Server Setup"]
+    }
+  },
+  {
+    "name": { "it": "Full Experience", "en": "Full Experience" },
+    "price": "4.450€",
+    "originalPrice": "4.950€",
+    "savings": { "it": "Risparmio 500€", "en": "Save 500€" },
+    "features": {
+      "it": ["Sito Su Misura", "Identità Completa", "Gestionale Base"],
+      "en": ["Custom Site", "Full Identity", "Basic Management App"]
+    }
+  }
+]

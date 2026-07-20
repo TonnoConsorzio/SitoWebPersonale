@@ -1,157 +1,369 @@
 [
   {
     "id": "website",
-    "category": "Sito Web",
+    "category": {
+      "it": "Sito Web",
+      "en": "Website"
+    },
+    "description": {
+      "it": "Design e sviluppo di siti che raccontano chi sei, non solo cosa vendi.",
+      "en": "Design and development of sites that tell who you are, not just what you sell."
+    },
     "options": [
       {
         "id": "web-landing",
-        "label": "Essenziale (Landing Page)",
+        "label": {
+          "it": "Essenziale (Landing Page)",
+          "en": "Essential (Landing Page)"
+        },
         "price": 690,
-        "description": "1 pagina, no CMS, responsive, form contatti."
+        "description": {
+          "it": "1 pagina, no CMS, responsive, form contatti.",
+          "en": "1 page, no CMS, responsive, contact form."
+        }
       },
       {
         "id": "web-standard",
-        "label": "Standard (Sito Multipage)",
+        "label": {
+          "it": "Standard (Sito Multipage)",
+          "en": "Standard (Multipage Site)"
+        },
         "price": 1310,
-        "description": "3-5 pagine, CMS semplice, SEO base."
+        "description": {
+          "it": "3-5 pagine, CMS semplice, SEO base.",
+          "en": "3-5 pages, simple CMS, basic SEO."
+        }
       },
       {
         "id": "web-custom",
-        "label": "Su Misura (E-commerce / Booking)",
+        "label": {
+          "it": "Su Misura (E-commerce / Booking)",
+          "en": "Custom (E-commerce / Booking)"
+        },
         "price": 2610,
-        "description": "Design custom, multilingua, logiche complesse."
+        "description": {
+          "it": "Design custom, multilingua, logiche complesse.",
+          "en": "Custom design, multilingual, complex logic."
+        }
       }
     ]
   },
   {
     "id": "app",
-    "category": "Gestionali & App",
+    "category": {
+      "it": "Gestionali & App",
+      "en": "Apps & Mgmt"
+    },
+    "description": {
+      "it": "Strumenti su misura per ottimizzare il tuo flusso di lavoro.",
+      "en": "Custom tools to optimize your workflow."
+    },
     "options": [
       {
         "id": "app-micro",
-        "label": "Micro-tool",
+        "label": {
+          "it": "Micro-tool",
+          "en": "Micro-tool"
+        },
         "price": 1100,
-        "description": "Una funzione singola (es. prenotazioni)."
+        "description": {
+          "it": "Una funzione singola (es. prenotazioni).",
+          "en": "A single function (e.g. bookings)."
+        }
       },
       {
         "id": "app-base",
-        "label": "Gestionale Base",
+        "label": {
+          "it": "Gestionale Base",
+          "en": "Basic Management App"
+        },
         "price": 2340,
-        "description": "CRUD, dashboard, login semplice."
+        "description": {
+          "it": "CRUD, dashboard, login semplice.",
+          "en": "CRUD, dashboard, simple login."
+        }
       },
       {
         "id": "app-pro",
-        "label": "Gestionale Avanzato",
+        "label": {
+          "it": "Gestionale Avanzato",
+          "en": "Advanced Management App"
+        },
         "price": 4260,
-        "description": "Multi-ruolo, API, reportistica complessa."
+        "description": {
+          "it": "Multi-ruolo, API, reportistica complessa.",
+          "en": "Multi-role, API, complex reporting."
+        }
       }
     ]
   },
   {
     "id": "brand",
-    "category": "Grafica & Brand",
+    "category": {
+      "it": "Grafica & Brand",
+      "en": "Graphics & Brand"
+    },
+    "description": {
+      "it": "Identità visiva coerente, creata da un esperto con background già formato (senza costi aggiuntivi).",
+      "en": "Consistent visual identity, created by an expert with a strong background (no extra costs)."
+    },
     "options": [
       {
         "id": "brand-logo",
-        "label": "Logo",
+        "label": {
+          "it": "Logo",
+          "en": "Logo"
+        },
         "price": 550,
-        "description": "2 proposte logo, palette."
+        "description": {
+          "it": "2 proposte logo, palette.",
+          "en": "2 logo proposals, color palette."
+        }
       },
       {
         "id": "brand-kit",
-        "label": "Brand Kit",
+        "label": {
+          "it": "Brand Kit",
+          "en": "Brand Kit"
+        },
         "price": 950,
-        "description": "Logo + font + biglietti visita digitali."
+        "description": {
+          "it": "Logo + font + biglietti visita digitali.",
+          "en": "Logo + fonts + digital business cards."
+        }
       },
       {
         "id": "brand-full",
-        "label": "Identità Completa",
+        "label": {
+          "it": "Identità Completa",
+          "en": "Full Identity"
+        },
         "price": 1450,
-        "description": "Brand kit + linee guida + template social."
+        "description": {
+          "it": "Brand kit + linee guida + template social.",
+          "en": "Brand kit + guidelines + social templates."
+        }
       }
     ]
   },
   {
     "id": "social",
-    "category": "Social Media",
+    "category": {
+      "it": "Social Media",
+      "en": "Social Media"
+    },
+    "description": {
+      "it": "Gestione strategica per costruire una community e raccontare il tuo valore.",
+      "en": "Strategic management to build a community and tell your value."
+    },
     "options": [
       {
         "id": "social-base",
-        "label": "Base (1 Mese)",
+        "label": {
+          "it": "Base (1 Mese)",
+          "en": "Basic (1 Month)"
+        },
         "price": 400,
-        "description": "8 post/mese, 1 canale."
+        "description": {
+          "it": "8 post/mese, 1 canale.",
+          "en": "8 posts/month, 1 channel."
+        }
       },
       {
         "id": "social-standard",
-        "label": "Standard (1 Mese)",
+        "label": {
+          "it": "Standard (1 Mese)",
+          "en": "Standard (1 Month)"
+        },
         "price": 750,
-        "description": "12-16 post, 2 canali, stories."
+        "description": {
+          "it": "12-16 post, 2 canali, stories.",
+          "en": "12-16 posts, 2 channels, stories."
+        }
       },
       {
         "id": "social-full",
-        "label": "Full (1 Mese)",
+        "label": {
+          "it": "Full (1 Mese)",
+          "en": "Full (1 Month)"
+        },
         "price": 1200,
-        "description": "Come standard + ads + community."
+        "description": {
+          "it": "Come standard + ads + community.",
+          "en": "Like standard + ads + community management."
+        }
       }
     ]
   },
   {
     "id": "infra",
-    "category": "Infrastrutture (Opzionale)",
+    "category": {
+      "it": "Infrastrutture (Opzionale)",
+      "en": "Infrastructure (Optional)"
+    },
+    "description": {
+      "it": "Setup server e architetture Docker per garantire stabilità e performance.",
+      "en": "Server setup and Docker architectures to ensure stability and performance."
+    },
     "options": [
       {
         "id": "infra-setup",
-        "label": "Setup Server & Docker",
+        "label": {
+          "it": "Setup Server & Docker",
+          "en": "Server & Docker Setup"
+        },
         "price": 690,
-        "description": "Setup una tantum per la messa in opera."
+        "description": {
+          "it": "Setup una tantum per la messa in opera.",
+          "en": "One-time setup for deployment."
+        }
       }
     ]
   },
   {
     "id": "copywriting",
-    "category": "Copywriting",
+    "category": {
+      "it": "Copywriting",
+      "en": "Copywriting"
+    },
+    "description": {
+      "it": "Scrittura di testi persuasivi e professionali per il tuo sito web.",
+      "en": "Writing persuasive and professional texts for your website."
+    },
     "options": [
       {
         "id": "copy-base",
-        "label": "Base",
+        "label": {
+          "it": "Base",
+          "en": "Basic"
+        },
         "price": 190,
-        "description": "Testi per fino a 3 pagine del sito."
+        "description": {
+          "it": "Testi per fino a 3 pagine del sito.",
+          "en": "Texts for up to 3 pages."
+        }
       },
       {
         "id": "copy-standard",
-        "label": "Standard",
+        "label": {
+          "it": "Standard",
+          "en": "Standard"
+        },
         "price": 380,
-        "description": "Testi per fino a 6 pagine + guida tone of voice."
+        "description": {
+          "it": "Testi per fino a 6 pagine + guida tone of voice.",
+          "en": "Texts for up to 6 pages + tone of voice guide."
+        }
       },
       {
         "id": "copy-full",
-        "label": "Full",
+        "label": {
+          "it": "Full",
+          "en": "Full"
+        },
         "price": 630,
-        "description": "Testi sito completo + articoli iniziali per il Journal."
+        "description": {
+          "it": "Testi sito completo + articoli iniziali per il Journal.",
+          "en": "Full site copy + initial Journal articles."
+        }
       }
     ]
   },
   {
     "id": "seo",
-    "category": "SEO Optimization",
+    "category": {
+      "it": "Ottimizzazione SEO",
+      "en": "SEO Optimization"
+    },
+    "description": {
+      "it": "Migliora la visibilità sui motori di ricerca per farti trovare dai clienti.",
+      "en": "Improve search engine visibility to get found by clients."
+    },
     "options": [
       {
         "id": "seo-base",
-        "label": "On-page Base",
+        "label": {
+          "it": "On-page Base",
+          "en": "Basic On-page"
+        },
         "price": 250,
-        "description": "Ottimizzazione tecnica una tantum per il sito."
+        "description": {
+          "it": "Ottimizzazione tecnica una tantum per il sito.",
+          "en": "One-time technical optimization for the site."
+        }
       },
       {
         "id": "seo-standard",
-        "label": "Standard",
+        "label": {
+          "it": "Standard",
+          "en": "Standard"
+        },
         "price": 500,
-        "description": "Setup SEO sito + social, primo mese di monitoraggio incluso."
+        "description": {
+          "it": "Setup SEO sito + social, primo mese di monitoraggio incluso.",
+          "en": "Site + social SEO setup, first month tracking included."
+        }
       },
       {
         "id": "seo-continuous",
-        "label": "Continuativa",
+        "label": {
+          "it": "Continuativa",
+          "en": "Continuous"
+        },
         "price": 310,
-        "description": "Monitoraggio e ottimizzazione continua, ricorrente ogni mese."
+        "description": {
+          "it": "Monitoraggio e ottimizzazione continua, ricorrente ogni mese.",
+          "en": "Continuous monitoring and optimization, recurring monthly."
+        }
+      }
+    ]
+  },
+  {
+    "id": "automation",
+    "category": {
+      "it": "Automazioni & Workflow",
+      "en": "Automations & Workflows"
+    },
+    "description": {
+      "it": "Elimina i lavori ripetitivi automatizzando i processi tra i software che usi ogni giorno.",
+      "en": "Eliminate repetitive tasks by automating processes between your everyday software."
+    },
+    "options": [
+      {
+        "id": "auto-micro",
+        "label": {
+          "it": "Micro-Automazione",
+          "en": "Micro-Automation"
+        },
+        "price": 350,
+        "description": {
+          "it": "Connessione semplice (es. form dal sito -> CRM -> email di benvenuto).",
+          "en": "Simple connection (e.g. site form -> CRM -> welcome email)."
+        }
+      },
+      {
+        "id": "auto-standard",
+        "label": {
+          "it": "Flusso Integrato",
+          "en": "Integrated Workflow"
+        },
+        "price": 850,
+        "description": {
+          "it": "Sincronizzazione tra 2-3 software (es. e-commerce, fatturazione, notifiche team).",
+          "en": "Sync between 2-3 tools (e.g. e-commerce, billing, team notifications)."
+        }
+      },
+      {
+        "id": "auto-pro",
+        "label": {
+          "it": "Ecosistema Avanzato",
+          "en": "Advanced Ecosystem"
+        },
+        "price": 1600,
+        "description": {
+          "it": "Logiche condizionali complesse, integrazione AI per smistamento dati, bot aziendali.",
+          "en": "Complex conditional logic, AI integration for data routing, company bots."
+        }
       }
     ]
   }

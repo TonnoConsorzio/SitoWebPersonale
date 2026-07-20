@@ -15,14 +15,26 @@
   },
   "testimonials": [
     {
-      "quote": "La combinazione di leadership, problem solving e capacità di networking rende Alessio una risorsa preziosa per qualsiasi iniziativa.",
+      "quote": {
+        "it": "La combinazione di leadership, problem solving e capacità di networking rende Alessio una risorsa preziosa per qualsiasi iniziativa.",
+        "en": "The combination of leadership, problem solving, and networking skills makes Alessio a valuable asset for any initiative."
+      },
       "name": "Vincenzo Romano",
-      "role": "Manager"
+      "role": {
+        "it": "Manager",
+        "en": "Manager"
+      }
     },
     {
-      "quote": "Lavorare sotto la sua guida ha significato avere obiettivi chiari e un supporto sempre presente. In pochi avrebbero saputo gestire un progetto così ampio e complesso con la stessa efficacia.",
+      "quote": {
+        "it": "Lavorare sotto la sua guida ha significato avere obiettivi chiari e un supporto sempre presente. In pochi avrebbero saputo gestire un progetto così ampio e complesso con la stessa efficacia.",
+        "en": "Working under his leadership meant having clear goals and constant support. Few could have managed such a large and complex project with the same effectiveness."
+      },
       "name": "Alessio Buso",
-      "role": "Graphic Designer & Visual Creator"
+      "role": {
+        "it": "Graphic Designer & Visual Creator",
+        "en": "Graphic Designer & Visual Creator"
+      }
     }
   ],
   "projects": [

@@ -158,5 +158,57 @@
       {"question": "Posso migrare da un altro hosting senza perdere dati?", "answer": "Sì, la migrazione fa parte del setup iniziale, con backup di sicurezza prima di ogni intervento."}
     ],
     "cta": "Fai valutare gratuitamente la tua infrastruttura attuale."
+  },
+  "automazioni": {
+    "titleTag": "Automazioni Aziendali e Workflow | Monza, Milano, Lecco, Bergamo",
+    "metaDescription": "Elimina i lavori ripetitivi automatizzando i processi tra i software che usi ogni giorno. Da 350€, preventivo in 48 ore.",
+    "h1": "Il tuo tempo vale più del copia-incolla tra un programma e l'altro. Automatizzalo.",
+    "intro": "Sviluppiamo automazioni e flussi di lavoro su misura per PMI, associazioni e professionisti a Monza e Brianza, Milano, Lecco e Bergamo, a partire da 350€. Colleghiamo i software che usi già per far scorrere i dati in automatico, senza errori umani e senza perdere ore ogni settimana.",
+    "sections": [
+      {
+        "title": "Quanto costa automatizzare un processo aziendale?",
+        "content": "**Micro-Automazione** (350-500€: connessione semplice es. form dal sito -> CRM -> email di benvenuto), **Flusso Integrato** (850-1.200€: sincronizzazione tra 2-3 software es. e-commerce, fatturazione e notifiche team), **Ecosistema Avanzato** (da 1.600€: logiche condizionali complesse, integrazione AI per smistamento dati, bot aziendali su misura)."
+      },
+      {
+        "title": "Perché automatizzare invece di fare le cose a mano?",
+        "content": "Ogni volta che tu o i tuoi collaboratori ricopiate dati manualmente tra Excel, email, gestionale e fatturazione, rischiate errori e sprecate ore. L'automazione lavora 24/7 in background, non dimentica nulla e libera tempo per le attività che fanno crescere davvero l'azienda."
+      },
+      {
+        "title": "Bisogna cambiare i software che usiamo già?",
+        "content": "No, nella maggior parte dei casi colleghiamo esattamente gli strumenti che utilizzi già (Google Workspace, WhatsApp, Notion, Zapier/Make, CRM, software di fatturazione). Creiamo il ponte che li fa parlare tra loro."
+      }
+    ],
+    "faq": [
+      {"question": "Devo pagare un abbonamento ricorrente?", "answer": "Il nostro sviluppo è una tantum. Potrebbe servire un piccolo piano per la piattaforma di integrazione (es. Make o Zapier) se i volumi sono alti."},
+      {"question": "Cosa succede se un software aggiorna le sue API?", "answer": "Costruiamo le integrazioni seguendo gli standard ufficiali per garantire stabilità nel tempo e offriamo assistenza per eventuali adeguamenti."},
+      {"question": "È sicuro trasferire i dati aziendali in automatico?", "answer": "Sì, tutti i flussi utilizzano connessioni crittografate sicure e rispettano le normative sulla privacy e GDPR."}
+    ],
+    "cta": "Raccontaci quali operazioni ti fanno perdere più tempo, ti risponderemo con una soluzione entro 48 ore."
+  },
+  "automation": {
+    "titleTag": "Automazioni Aziendali e Workflow | Monza, Milano, Lecco, Bergamo",
+    "metaDescription": "Elimina i lavori ripetitivi automatizzando i processi tra i software che usi ogni giorno. Da 350€, preventivo in 48 ore.",
+    "h1": "Il tuo tempo vale più del copia-incolla tra un programma e l'altro. Automatizzalo.",
+    "intro": "Sviluppiamo automazioni e flussi di lavoro su misura per PMI, associazioni e professionisti a Monza e Brianza, Milano, Lecco e Bergamo, a partire da 350€. Colleghiamo i software che usi già per far scorrere i dati in automatico, senza errori umani e senza perdere ore ogni settimana.",
+    "sections": [
+      {
+        "title": "Quanto costa automatizzare un processo aziendale?",
+        "content": "**Micro-Automazione** (350-500€: connessione semplice es. form dal sito -> CRM -> email di benvenuto), **Flusso Integrato** (850-1.200€: sincronizzazione tra 2-3 software es. e-commerce, fatturazione e notifiche team), **Ecosistema Avanzato** (da 1.600€: logiche condizionali complesse, integrazione AI per smistamento dati, bot aziendali su misura)."
+      },
+      {
+        "title": "Perché automatizzare invece di fare le cose a mano?",
+        "content": "Ogni volta che tu o i tuoi collaboratori ricopiate dati manualmente tra Excel, email, gestionale e fatturazione, rischiate errori e sprecate ore. L'automazione lavora 24/7 in background, non dimentica nulla e libera tempo per le attività che fanno crescere davvero l'azienda."
+      },
+      {
+        "title": "Bisogna cambiare i software che usiamo già?",
+        "content": "No, nella maggior parte dei casi colleghiamo esattamente gli strumenti che utilizzi già (Google Workspace, WhatsApp, Notion, Zapier/Make, CRM, software di fatturazione). Creiamo il ponte che li fa parlare tra loro."
+      }
+    ],
+    "faq": [
+      {"question": "Devo pagare un abbonamento ricorrente?", "answer": "Il nostro sviluppo è una tantum. Potrebbe servire un piccolo piano per la piattaforma di integrazione (es. Make o Zapier) se i volumi sono alti."},
+      {"question": "Cosa succede se un software aggiorna le sue API?", "answer": "Costruiamo le integrazioni seguendo gli standard ufficiali per garantire stabilità nel tempo e offriamo assistenza per eventuali adeguamenti."},
+      {"question": "È sicuro trasferire i dati aziendali in automatico?", "answer": "Sì, tutti i flussi utilizzano connessioni crittografate sicure e rispettano le normative sulla privacy e GDPR."}
+    ],
+    "cta": "Raccontaci quali operazioni ti fanno perdere più tempo, ti risponderemo con una soluzione entro 48 ore."
   }
 }
