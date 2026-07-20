@@ -7,7 +7,7 @@ import portfolio from '../../data/portfolio.json';
 
 export function PortfolioGrid() {
   const { t, i18n } = useTranslation();
-  const currentLang = i18n.language as 'it' | 'en';
+  const currentLang = (i18n.language?.startsWith('en') ? 'en' : 'it') as 'it' | 'en';
   const { ref, isInView } = useInView({ threshold: 0.1, triggerOnce: true });
   const projects = portfolio;
   const previewProjects = projects.slice(0, 3); // show only up to 3 on home
@@ -27,32 +27,38 @@ export function PortfolioGrid() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {previewProjects.map((project, idx) => (
-          <Link 
-            key={project.id}
-            to="/portfolio"
-            className={`rounded-2xl overflow-hidden cursor-pointer group relative flex flex-col ${isInView ? 'animate-fade-rise' : 'opacity-0'}`}
-            style={{ animationDelay: `${0.1 * idx}s` }}
-          >
-            <div className="aspect-[4/3] bg-secondary relative overflow-hidden flex items-center justify-center group">
-              <img src={project.image} alt={project.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-            </div>
-            
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
-            <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col justify-end translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-              <div className="flex items-center gap-2 flex-wrap mb-2">
-                <div className="text-[10px] uppercase tracking-widest text-primary font-bold">{project.category[currentLang]}</div>
-              </div>
-              <h3 className="text-2xl font-display text-white mb-2" style={{ fontFamily: "'Instrument Serif', serif" }}>
-                {project.title[currentLang]}
-              </h3>
-              <p className="text-sm text-gray-300 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                {project.description[currentLang]}
-              </p>
-            </div>
+        {previewProjects.map((project: any, idx: number) => {
+          const category = project.category?.[currentLang] || project.category?.['it'] || '';
+          const title = project.title?.[currentLang] || project.title?.['it'] || '';
+          const description = project.description?.[currentLang] || project.description?.['it'] || '';
 
-          </Link>
-        ))}
+          return (
+            <Link 
+              key={project.id}
+              to="/portfolio"
+              className={`rounded-2xl overflow-hidden cursor-pointer group relative flex flex-col ${isInView ? 'animate-fade-rise' : 'opacity-0'}`}
+              style={{ animationDelay: `${0.1 * idx}s` }}
+            >
+              <div className="aspect-[4/3] bg-secondary relative overflow-hidden flex items-center justify-center group">
+                <img src={project.image} alt={typeof title === 'string' ? title : ''} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              </div>
+              
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
+              <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col justify-end translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                <div className="flex items-center gap-2 flex-wrap mb-2">
+                  <div className="text-[10px] uppercase tracking-widest text-primary font-bold">{category}</div>
+                </div>
+                <h3 className="text-2xl font-display text-white mb-2" style={{ fontFamily: "'Instrument Serif', serif" }}>
+                  {title}
+                </h3>
+                <p className="text-sm text-gray-300 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                  {description}
+                </p>
+              </div>
+
+            </Link>
+          );
+        })}
       </div>
     </section>
   );
