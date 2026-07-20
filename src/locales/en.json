@@ -112,6 +112,7 @@
     "form_submit": "Send request",
     "cal_title": "Book a discovery call",
     "cal_desc": "Choose the best time for you directly from my calendar. We'll talk about it over a virtual coffee.",
-    "cal_cta": "Book on Google Calendar"
+    "cal_cta": "Book on Google Calendar",
+    "download_vcard": "Save Contact (vCard)"
   }
 }

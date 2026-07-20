@@ -112,6 +112,7 @@
     "form_submit": "Invia richiesta",
     "cal_title": "Prenota una chiamata conoscitiva",
     "cal_desc": "Scegli il momento migliore per te direttamente dal mio calendario. Ne parleremo davanti a un caffè virtuale.",
-    "cal_cta": "Prenota su Google Calendar"
+    "cal_cta": "Prenota su Google Calendar",
+    "download_vcard": "Salva Contatto (vCard)"
   }
 }

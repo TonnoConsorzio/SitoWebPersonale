@@ -1,5 +1,6 @@
 import { useInView } from '../../hooks/useInView';
 import { useTranslation } from 'react-i18next';
+import { Download } from 'lucide-react';
 
 export function Contact() {
   const { t } = useTranslation();
@@ -50,14 +51,24 @@ export function Contact() {
             <p className="text-muted-foreground mb-8">
               {t('contact.cal_desc')}
             </p>
-            <a 
-              href="https://calendar.app.google/GLseASBXvsbYPY5m7" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="liquid-glass rounded-full px-8 py-4 text-foreground font-medium hover:scale-[1.03] transition-transform inline-block"
-            >
-              {t('contact.cal_cta')}
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a 
+                href="https://calendar.app.google/GLseASBXvsbYPY5m7" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="liquid-glass rounded-full px-8 py-4 text-foreground font-medium hover:scale-[1.03] transition-transform inline-block"
+              >
+                {t('contact.cal_cta')}
+              </a>
+              <a 
+                href="/alessio-bellan.vcf" 
+                download="alessio-bellan.vcf"
+                className="bg-primary text-primary-foreground rounded-full px-6 py-4 font-medium hover:scale-[1.03] transition-transform inline-flex items-center gap-2 text-sm shadow-lg shadow-primary/20"
+              >
+                <Download className="w-4 h-4" />
+                {t('contact.download_vcard')}
+              </a>
+            </div>
           </div>
         </div>
       </div>

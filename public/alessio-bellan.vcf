@@ -1,0 +1,15 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Alessio Bellan
+N:Bellan;Alessio;;;
+TITLE:Consulente IT & Sviluppatore Web
+ORG:Alessio Bellan Freelance;ABBO APS
+TEL;TYPE=CELL,VOICE,pref:+393755532010
+EMAIL;TYPE=INTERNET,WORK,pref:info@alessiobellan.it
+URL;TYPE=WORK:https://alessiobellan.it
+URL;TYPE=LinkedIn:https://www.linkedin.com/in/alessiobellan
+URL;TYPE=Instagram:https://www.instagram.com/alessio.bellan
+ADR;TYPE=WORK:;;Mezzago;Monza e Brianza;Lombardia;;Italia
+NOTE:Presidente ABBO APS | P.IVA 14824790969
+PHOTO;VALUE=URI:https://alessiobellan.it/media/brand/foto-profilo.JPG
+END:VCARD
