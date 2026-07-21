@@ -23,7 +23,7 @@ export function Footer() {
             <a href="https://abboaps.it" target="_blank" rel="noopener noreferrer" className="underline hover:text-muted-foreground">ABBO APS</a>
           </p>
         </div>
-        
+
         <div className="flex flex-col sm:flex-row gap-12 sm:gap-24 md:col-span-1 justify-center">
           <div>
             <h4 className="font-medium text-foreground mb-4 text-sm uppercase tracking-widest">{t('footer.services')}</h4>
@@ -47,7 +47,7 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col md:items-end md:ml-auto">
-          <a href="mailto:info@alessiobellan.it" className="text-foreground hover:text-muted-foreground transition-colors mb-6 text-lg">
+          <a href="mailto:email@alessiobellan.it" className="text-foreground hover:text-muted-foreground transition-colors mb-6 text-lg">
             info@alessiobellan.it
           </a>
           <div className="flex gap-4">
@@ -60,7 +60,7 @@ export function Footer() {
           </div>
         </div>
       </div>
-      
+
       <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-muted-foreground/60 gap-4 md:gap-0">
         <div className="flex flex-col gap-1 items-center md:items-start">
           <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center">
