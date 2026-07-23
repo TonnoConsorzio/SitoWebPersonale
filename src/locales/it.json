@@ -27,7 +27,7 @@
   },
   "pricing_calc": {
     "title": "Quanto potrebbe costare il tuo progetto",
-    "subtitle": "Seleziona i servizi per configurare una stima iniziale. Clicca di nuovo per deselezionare.",
+    "subtitle": "Il prezzo lo vedi subito, non tra una settimana.",
     "no_plan": "Nessun piano selezionato",
     "estimate_label": "Stima indicativa",
     "donation_text": "(il 10% del totale) andranno in donazione ad",
@@ -65,6 +65,12 @@
   },
   "testimonials": {
     "title": "Dicono di me"
+  },
+  "education": {
+    "title": "Formazione & Competenze",
+    "subtitle": "Il mio percorso di studi ed esperienziale, orientato allo sviluppo tecnico e alla comunicazione visiva.",
+    "skills_title": "Competenze principali",
+    "view_full": "Vedi il curriculum completo"
   },
   "certifications": {
     "title": "Certificazioni"

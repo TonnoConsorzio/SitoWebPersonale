@@ -26,8 +26,8 @@
     "made_with_it": "Fatto in Italia con tanta pizza."
   },
   "pricing_calc": {
-    "title": "How much might your project cost",
-    "subtitle": "Select services to configure an initial estimate. Click again to deselect.",
+    "title": "What could your project cost",
+    "subtitle": "See the price now, not in a week.",
     "no_plan": "No plan selected",
     "estimate_label": "Rough estimate",
     "donation_text": "(10% of the total) will be donated to",
@@ -65,6 +65,12 @@
   },
   "testimonials": {
     "title": "What people say"
+  },
+  "education": {
+    "title": "Education & Skills",
+    "subtitle": "My educational background and skill set, focused on technical development and visual communication.",
+    "skills_title": "Core Skills",
+    "view_full": "View full resume"
   },
   "certifications": {
     "title": "Certifications"

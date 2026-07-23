@@ -3,15 +3,25 @@ import { Link } from 'react-router-dom';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { ArrowLeft, BookOpen, Briefcase, Code, Award } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import experiences from '../data/curriculum.json';
 import cvData from '../data/cv.json';
 import certifications from '../data/certifications.json';
 import { SEO } from '../components/SEO';
 
 export function CurriculumPage() {
+  const { i18n } = useTranslation();
+  const currentLang = (i18n.language?.startsWith('en') ? 'en' : 'it') as 'it' | 'en';
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const getLocalized = (val: any) => {
+    if (!val) return '';
+    if (typeof val === 'string') return val;
+    return val[currentLang] || val['it'] || '';
+  };
 
   return (
     <>
@@ -71,15 +81,20 @@ export function CurriculumPage() {
                 Formazione
               </h2>
               <div className="space-y-6">
-                {cvData.education.map((item, idx) => (
-                  <div key={idx} className="liquid-glass p-6 rounded-2xl">
-                    <h3 className="font-display text-lg text-foreground mb-1">{item.title}</h3>
-                    <div className="flex justify-between items-center text-sm">
-                      <span className="text-muted-foreground">{item.school}</span>
-                      <time className="text-primary/80 font-mono text-xs">{item.period}</time>
+                {cvData.education.map((item: any, idx: number) => {
+                  const title = getLocalized(item.title);
+                  const school = getLocalized(item.school);
+                  const period = getLocalized(item.period);
+                  return (
+                    <div key={idx} className="liquid-glass p-6 rounded-2xl">
+                      <h3 className="font-display text-lg text-foreground mb-1">{title}</h3>
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="text-muted-foreground">{school}</span>
+                        <time className="text-primary/80 font-mono text-xs">{period}</time>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </section>
 
@@ -89,22 +104,25 @@ export function CurriculumPage() {
                 Certificazioni
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {certifications.map((item, idx) => (
-                  <div key={idx} className="liquid-glass p-5 rounded-2xl flex flex-col gap-4 group">
-                    <div className="aspect-video w-full overflow-hidden rounded-xl bg-white/5 relative">
-                      <img 
-                        src={item.image} 
-                        alt={item.title} 
-                        className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
+                {certifications.map((item: any, idx: number) => {
+                  const certTitle = getLocalized(item.title);
+                  return (
+                    <div key={idx} className="liquid-glass p-5 rounded-2xl flex flex-col gap-4 group">
+                      <div className="aspect-video w-full overflow-hidden rounded-xl bg-white/5 relative">
+                        <img 
+                          src={item.image} 
+                          alt={certTitle} 
+                          className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="font-display text-lg text-foreground mb-1 leading-tight">{certTitle}</h3>
+                        <span className="text-muted-foreground text-sm uppercase tracking-wider font-semibold">{item.issuer}</span>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="font-display text-lg text-foreground mb-1 leading-tight">{item.title}</h3>
-                      <span className="text-muted-foreground text-sm uppercase tracking-wider font-semibold">{item.issuer}</span>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </section>
           </div>
@@ -116,14 +134,17 @@ export function CurriculumPage() {
                 Skills
               </h2>
               <div className="flex flex-wrap gap-2">
-                {cvData.skills.map((skill, idx) => (
-                  <span 
-                    key={idx} 
-                    className="liquid-glass border border-white/10 rounded-full px-4 py-2 text-sm text-foreground/90"
-                  >
-                    {skill}
-                  </span>
-                ))}
+                {cvData.skills.map((skill: any, idx: number) => {
+                  const skillName = getLocalized(skill);
+                  return (
+                    <span 
+                      key={idx} 
+                      className="liquid-glass border border-white/10 rounded-full px-4 py-2 text-sm text-foreground/90"
+                    >
+                      {skillName}
+                    </span>
+                  );
+                })}
               </div>
             </div>
           </div>
