@@ -13,11 +13,12 @@ export interface Article {
 }
 
 export function parseFrontmatter(markdown: string) {
-  const match = markdown.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+  // Support both Unix (\n) and Windows (\r\n) line endings
+  const match = markdown.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
   
   if (!match) {
     return {
-      metadata: { title: "Senza Titolo", date: "", excerpt: "" } as ArticleMetadata,
+      metadata: { title: "Senza Titolo", date: new Date().toISOString().split('T')[0], excerpt: "" } as ArticleMetadata,
       content: markdown
     };
   }
@@ -26,7 +27,7 @@ export function parseFrontmatter(markdown: string) {
   const content = match[2].trim();
   const metadata: any = {};
 
-  frontmatter.split('\n').forEach(line => {
+  frontmatter.split(/\r?\n/).forEach(line => {
     const colonIndex = line.indexOf(':');
     if (colonIndex !== -1) {
       const key = line.slice(0, colonIndex).trim();
@@ -39,6 +40,11 @@ export function parseFrontmatter(markdown: string) {
       }
     }
   });
+
+  // Ensure title and date exist
+  if (!metadata.title) metadata.title = "Senza Titolo";
+  if (!metadata.date) metadata.date = new Date().toISOString().split('T')[0];
+  if (!metadata.excerpt) metadata.excerpt = "";
 
   return { metadata: metadata as ArticleMetadata, content };
 }
@@ -63,7 +69,13 @@ export async function getAllArticles(): Promise<Article[]> {
   }
 
   // Sort by date (descending)
-  return articles.sort((a, b) => new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime());
+  return articles.sort((a, b) => {
+    const timeA = new Date(a.metadata.date).getTime();
+    const timeB = new Date(b.metadata.date).getTime();
+    const valA = isNaN(timeA) ? 0 : timeA;
+    const valB = isNaN(timeB) ? 0 : timeB;
+    return valB - valA;
+  });
 }
 
 export async function getArticleBySlug(slug: string): Promise<Article | null> {
