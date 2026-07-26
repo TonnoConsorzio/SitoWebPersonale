@@ -1,157 +1,236 @@
 ---
-title: Da WordPress ed Eventbrite a una piattaforma proprietaria: come ho sviluppato il sito di Digital Heroes
+title: Da Eventbrite a una piattaforma proprietaria: il viaggio dietro Digital Heroes
 date: 2026-07-26
 excerpt: Come ho costruito il sito web di di Digital Heroes da WordPress ed Eventbrite a una piattaforma proprietaria
 tags: Tech, Markdown, React
 ---
 
-Quando si parla di realizzare un sito web, spesso si pensa a una vetrina digitale: alcune pagine informative, un modulo di contatto e una sezione dedicata alle attività.
+**Ho sviluppato una piattaforma proprietaria per gestire eventi, iscrizioni e reminder. Ma il vero lavoro è iniziato quando ho capito che non stavo costruendo un semplice sito web.**
 
-Per Digital Heroes, però, un semplice sito non sarebbe stato sufficiente.
+Stavo costruendo il sistema operativo di un progetto educativo.
 
-L’obiettivo era costruire un ecosistema digitale capace non solo di raccontare il progetto, ma anche di gestirne concretamente le attività: pubblicazione degli eventi, iscrizioni, comunicazioni automatiche, lista d’attesa, presenze e amministrazione dei partecipanti.
+Questa è la storia di Digital Heroes, delle difficoltà che mi hanno portato a ripensare da zero la gestione degli eventi e di ciò che ho imparato occupandomi personalmente dell’intero progetto: identità visiva, esperienza utente, frontend, backend, database, sicurezza e deployment.
 
-In altre parole, non soltanto un sito web, ma un vero strumento operativo.
+## Il punto di partenza: un progetto per creare, non solo consumare
 
-## Che cos’è Digital Heroes
+Digital Heroes è un’iniziativa promossa da **ABBO APS** e rivolta principalmente a ragazzi tra i **9 e i 14 anni**.
 
-Digital Heroes è un’iniziativa promossa da ABBO APS e rivolta principalmente a ragazzi tra i 9 e i 14 anni.
+L’obiettivo è accompagnarli nell’apprendimento pratico della tecnologia e aiutarli a passare da consumatori passivi a creatori consapevoli.
 
-Il progetto nasce con l’obiettivo di accompagnare i più giovani nell’apprendimento pratico della tecnologia attraverso laboratori dedicati a programmazione, videogiochi, robotica, elettronica e consapevolezza digitale.
-
-Le attività comprendono, tra le altre:
+I laboratori affrontano temi come:
 
 - coding con Scratch e Python;
 - robotica con LEGO Spike e mBot;
+- sviluppo di piccoli videogiochi;
 - Minecraft Education;
 - Arduino ed elettronica;
 - sicurezza online;
 - privacy, social network e riconoscimento delle fake news.
 
-I laboratori si svolgono in presenza, durano generalmente circa tre ore e hanno un costo di 5 euro all’ora.
+Le attività si svolgono in presenza, durano generalmente circa tre ore e hanno un costo di **5 euro all’ora**.
 
-Alla base del progetto c’è un principio semplice: aiutare i ragazzi a non essere soltanto consumatori passivi di tecnologia, ma a comprenderla e utilizzarla in modo creativo e consapevole.
+Il progetto educativo era chiaro.
 
-## Il problema del sistema precedente
+Lo strumento digitale che avrebbe dovuto sostenerlo, invece, aveva bisogno di evolvere.
 
-In precedenza, la pubblicazione e la gestione degli eventi si basavano su un sito WordPress integrato con Eventbrite.
+## Il primo ostacolo: quando una soluzione funzionante non è più quella giusta
 
-Era una soluzione funzionante, ma presentava diversi limiti.
+In precedenza, gli eventi venivano pubblicati su un sito WordPress e gestiti attraverso un’integrazione con Eventbrite.
 
-Il percorso di registrazione risultava più macchinoso del necessario e portava l’utente fuori dall’ambiente del progetto. Inoltre, l’esperienza era poco personalizzabile e dipendeva dalle logiche, dall’interfaccia e dai costi di una piattaforma esterna.
+Il sistema funzionava, ma imponeva al progetto le logiche di una piattaforma esterna.
 
-Per iscriversi a un laboratorio destinato a ragazzi e famiglie, volevamo invece un processo molto semplice:
+Il percorso di registrazione era più macchinoso di quanto volessimo. L’esperienza grafica era poco personalizzabile, gli utenti venivano portati fuori dall’ambiente di Digital Heroes e i costi erano elevati rispetto alle nostre esigenze.
+
+Soprattutto, c’era una domanda che continuava a tornare:
+
+> Perché chiedere a un genitore di scaricare un’applicazione o creare un nuovo account solo per iscrivere un ragazzo a un laboratorio?
+
+Volevamo un percorso più diretto:
 
 1. aprire la pagina dell’evento;
-2. inserire i dati richiesti;
-3. confermare l’iscrizione;
-4. ricevere immediatamente tutte le informazioni utili.
+2. leggere tutte le informazioni;
+3. compilare il modulo;
+4. ricevere la conferma.
 
-Senza obbligare le persone a scaricare un’applicazione o a creare un nuovo account.
+Nessun passaggio superfluo. Nessun account obbligatorio. Nessun cambio di piattaforma.
 
-Da qui è nata la scelta di sviluppare un sistema proprietario.
+A quel punto avremmo potuto cercare un altro servizio esterno.
 
-## Non un’integrazione, ma un prodotto completo
+Ho scelto invece la strada più impegnativa: costruire un sistema proprietario.
 
-La decisione più importante è stata quella di non limitarsi a sostituire Eventbrite con un altro servizio.
+## La soglia da attraversare: smettere di pensare a un sito
 
-Ho progettato e sviluppato un’unica applicazione che comprende sia il sito pubblico sia il pannello amministrativo.
+La prima svolta del progetto è arrivata quando ho smesso di considerarlo un semplice sito web.
 
-Dal lato dell’utente, il sistema permette di consultare gli eventi disponibili e iscrivere uno o più ragazzi attraverso un modulo integrato direttamente nel sito.
+Digital Heroes aveva bisogno di due prodotti che lavorassero insieme:
 
-Durante la registrazione vengono raccolte le informazioni necessarie, come i dati del genitore o tutore, il nome del partecipante, l’eventuale necessità di ricevere un computer dall’associazione e i consensi relativi a privacy e comunicazioni.
+- uno spazio pubblico capace di raccontare il progetto e presentare gli eventi;
+- un gestionale amministrativo per organizzare concretamente le attività.
 
-Dopo l’iscrizione, il sistema salva i dati e invia automaticamente una conferma contenente le informazioni logistiche dell’evento.
+Ho quindi sviluppato un’unica applicazione che unisce comunicazione e operatività.
 
-Quando i posti disponibili terminano, l’iscrizione può essere inserita in una lista d’attesa. Se successivamente si libera un posto, l’amministratore può promuovere il partecipante e inviargli automaticamente una nuova comunicazione.
+Dal lato pubblico, le famiglie possono consultare gli eventi e iscrivere uno o più partecipanti direttamente dal sito.
 
-Sono stati previsti anche reminder prima dell’evento e notifiche in caso di annullamento, così da ridurre le operazioni manuali e mantenere più facilmente aggiornate le famiglie.
+Il modulo raccoglie i dati del genitore o tutore, il nome del ragazzo, l’eventuale necessità di ricevere un computer dall’associazione, l’iscrizione di fratelli o sorelle e i consensi relativi alla privacy e alla newsletter.
 
-## Il gestionale amministrativo
+Dopo l’invio, l’iscrizione viene registrata e il sistema invia automaticamente una conferma con le informazioni utili.
 
-La parte pubblica rappresenta solo una metà del progetto.
+Quando un evento raggiunge la capienza massima, entra in gioco la lista d’attesa. Se si libera un posto, l’amministratore può promuovere un partecipante e comunicargli automaticamente la disponibilità.
 
-All’interno della stessa applicazione ho sviluppato un’area amministrativa protetta, attraverso la quale è possibile:
+Sono previsti anche reminder prima del laboratorio e comunicazioni in caso di annullamento.
 
-- creare e modificare gli eventi;
-- configurare data, orario, sede, immagine, descrizione, capienza e prezzo;
-- controllare le iscrizioni ricevute;
-- gestire la lista d’attesa;
-- inserire manualmente una prenotazione;
-- registrare le presenze;
-- gestire l’annullamento degli eventi;
-- esportare i dati;
-- consultare statistiche e indicatori operativi.
+L’utente vede pochi passaggi.
 
-In questo modo il sito non è più soltanto il luogo in cui vengono presentate le attività, ma diventa lo strumento centrale con cui vengono organizzate.
+Dietro quei pochi passaggi, però, esiste un’intera macchina organizzativa.
 
-Questo approccio consente inoltre di avere maggiore controllo sull’esperienza utente, sui dati raccolti e sull’evoluzione futura del progetto.
+## Le prove del viaggio: costruire il gestionale amministrativo
 
-## Le tecnologie utilizzate
+La parte pubblica è solo ciò che si vede.
 
-Per la realizzazione ho scelto uno stack JavaScript e TypeScript moderno.
+Nel pannello amministrativo ho sviluppato gli strumenti necessari per gestire il ciclo di vita degli eventi:
 
-Il frontend è stato sviluppato con React, TypeScript e Vite, mentre per l’interfaccia e il sistema di stile ho utilizzato Tailwind CSS.
+- creazione e modifica degli eventi;
+- configurazione di data, orario, sede, descrizione, immagine, capienza e prezzo;
+- pubblicazione e gestione delle attività;
+- visualizzazione delle iscrizioni;
+- gestione della lista d’attesa;
+- inserimento manuale delle prenotazioni;
+- registrazione delle presenze;
+- annullamento degli eventi;
+- esportazione dei dati;
+- consultazione di statistiche e indicatori operativi.
 
-La parte backend è basata su Node.js ed Express. Per database e autenticazione ho utilizzato Supabase, basato su PostgreSQL, mentre le email transazionali e i reminder vengono gestiti attraverso servizi dedicati e automazioni programmate.
+Il sito non è quindi soltanto il luogo in cui Digital Heroes viene presentato.
 
-Il sito e il gestionale fanno parte della stessa applicazione, ma le aree pubbliche e amministrative sono separate attraverso autenticazione, ruoli e controlli sui permessi.
+È diventato lo strumento con cui il progetto può essere organizzato.
 
-Ho lavorato anche sulla visibilità organica del progetto, inserendo metadati e dati strutturati dedicati agli eventi, in modo da fornire ai motori di ricerca informazioni più precise su date, luoghi, modalità di partecipazione e prezzi.
+Questa scelta ci permette di controllare direttamente l’esperienza utente, i flussi amministrativi e l’evoluzione futura della piattaforma, senza dipendere dalle funzionalità decise da un fornitore esterno.
 
-## La sicurezza come difficoltà principale
+## Gli strumenti: uno stack JavaScript e TypeScript moderno
 
-La sfida tecnica più importante non è stata la realizzazione di una singola funzionalità, ma la sicurezza complessiva del sistema.
+Per il frontend ho utilizzato **React, TypeScript, Vite e Tailwind CSS**.
 
-Quando un’applicazione gestisce dati relativi a iscrizioni, minori, genitori ed eventi, non è sufficiente nascondere l’area amministrativa dietro una schermata di login.
+La parte backend è stata sviluppata con **Node.js, Express e TypeScript**.
 
-È necessario verificare ogni operazione, validare i dati ricevuti e impedire che un utente possa eseguire azioni per le quali non possiede i permessi necessari.
+Per il database e l’autenticazione ho scelto **Supabase**, basato su PostgreSQL. Le email transazionali e i reminder vengono gestiti attraverso servizi dedicati e automazioni programmate.
 
-Per questo sono stati introdotti diversi livelli di protezione:
+Il sito pubblico e il pannello amministrativo fanno parte della stessa applicazione, ma sono separati attraverso autenticazione, ruoli e controlli sui permessi.
 
-- autenticazione per l’accesso al gestionale;
-- ruoli e permessi amministrativi;
-- controlli sia lato client sia lato server;
+Ho lavorato anche sull’ottimizzazione per i motori di ricerca, inserendo metadati e dati strutturati dedicati agli eventi, così da descrivere in modo più preciso date, luoghi, prezzi e modalità di partecipazione.
+
+La tecnologia, però, è soltanto una parte della storia.
+
+La sfida più importante era proteggere tutto ciò che quella tecnologia avrebbe gestito.
+
+## La prova più difficile: la sicurezza
+
+La difficoltà tecnica principale è stata la sicurezza complessiva della piattaforma.
+
+Quando un sistema gestisce iscrizioni, dati dei genitori e informazioni relative a partecipanti minorenni, una semplice schermata di login non è sufficiente.
+
+Ogni operazione deve essere verificata.
+
+Ogni dato deve essere validato.
+
+Ogni utente deve poter eseguire soltanto le azioni previste dal proprio ruolo.
+
+Per questo ho lavorato su più livelli di protezione:
+
+- autenticazione dell’area amministrativa;
+- ruoli e permessi;
+- controlli lato client e lato server;
+- validazione degli input;
 - limitazione delle richieste alle API;
 - sistemi anti-bot nei moduli pubblici;
-- validazione degli input;
-- gestione esplicita dei consensi privacy;
-- protezione delle operazioni più sensibili.
+- gestione esplicita dei consensi;
+- protezione delle operazioni sensibili.
 
-È probabilmente la parte meno visibile per chi utilizza il sito, ma è anche una delle più importanti.
+È un lavoro che spesso rimane invisibile.
 
-## Un’identità visiva Neobrutalist
+Ed è proprio questo il punto: quando la sicurezza funziona, l’utente non dovrebbe accorgersi della sua complessità.
 
-Oltre all’architettura tecnica, ho curato personalmente anche la progettazione e lo sviluppo dell’interfaccia.
+## L’identità dell’eroe: il Neobrutalism
 
-In accordo con il direttore artistico, abbiamo scelto uno stile ispirato al Neobrutalism: colori netti, bordi marcati, ombre evidenti, tipografia decisa e componenti immediatamente riconoscibili.
+Un progetto dedicato alla creatività e alla tecnologia non poteva avere un’identità visiva anonima.
 
-L’obiettivo non era seguire semplicemente una tendenza grafica, ma costruire un’identità coerente con Digital Heroes: giovane, energica, accessibile e lontana dall’aspetto istituzionale che spesso caratterizza i progetti educativi.
+In accordo con il direttore artistico, abbiamo scelto uno stile ispirato al **Neobrutalism**: colori netti, bordi marcati, ombre evidenti, tipografia decisa e componenti immediatamente riconoscibili.
 
-Ho seguito l’intero processo, dalla grafica e dalla user experience fino al database, alle automazioni, alla sicurezza e al deployment.
+Non volevamo seguire una tendenza soltanto perché popolare.
 
-## Cosa ho imparato sviluppando l’intero progetto
+Volevamo un linguaggio visivo coerente con l’energia di Digital Heroes: giovane, diretto, accessibile e lontano dall’aspetto troppo istituzionale che spesso accompagna i progetti educativi.
 
-Questo progetto mi ha confermato quanto la qualità del contesto iniziale sia fondamentale per la buona riuscita di un prodotto digitale.
+Ho curato personalmente anche questa parte, traducendo l’identità concordata in interfacce, componenti, navigazione e comportamento responsive.
 
-Prima di sviluppare bisogna comprendere con precisione il problema, i flussi operativi, gli utenti e le eccezioni che il sistema dovrà gestire.
+## La trasformazione: ciò che il progetto mi ha insegnato
 
-Ho imparato anche l’importanza delle verifiche incrociate.
+Sviluppare l’intera piattaforma mi ha confermato una cosa fondamentale:
 
-Quando ci si accorge che una funzionalità, una scelta architetturale o anche un piccolo dettaglio non funziona correttamente, conviene fermarsi e tornare indietro. Ignorare un problema nelle prime fasi significa quasi sempre trascinarlo fino alla fine, quando correggerlo sarà più complesso.
+> La qualità del risultato dipende dalla qualità del contesto da cui parti.
 
-La necessità di approfondire gli strumenti utilizzati mi ha inoltre portato a studiare nuovi argomenti e a conseguire diverse certificazioni. Non soltanto per aggiungere tecnologie al progetto, ma per comprenderle abbastanza da poter prendere decisioni consapevoli.
+Prima di scrivere codice bisogna comprendere il problema, gli utenti, i flussi, le eccezioni e le conseguenze di ogni scelta.
 
-## Il prossimo passo: il test sul campo
+Un requisito poco chiaro non scompare durante lo sviluppo.
 
-Il sito è attualmente in fase di test.
+Diventa un problema tecnico.
 
-Le funzionalità sono state verificate attraverso prove tecniche e dati generici, ma il sistema non è ancora stato utilizzato con dati reali di partecipanti.
+Ho imparato anche il valore delle verifiche incrociate. Quando qualcosa non torna, anche se sembra un dettaglio minimo, fermarsi e tornare indietro è quasi sempre la decisione migliore.
 
-Il primo test operativo è previsto per ottobre 2026, con l’inizio della nuova stagione di Digital Heroes.
+Ignorare un errore nelle prime fasi significa trascinarlo fino alla fine, quando correggerlo richiederà molto più tempo.
 
-Sarà il momento in cui potremo osservare il comportamento della piattaforma nel suo contesto reale: dalla semplicità del percorso di iscrizione all’affidabilità delle comunicazioni, fino alla gestione quotidiana degli eventi attraverso il pannello amministrativo.
+Questo progetto mi ha anche costretto, nel senso migliore del termine, a studiare in profondità gli strumenti che stavo utilizzando. Da questo percorso sono nate nuove competenze e diverse certificazioni.
 
-Il progetto è consultabile su [digital-heroes.me](https://digital-heroes.me/).
+Non ho semplicemente aggiunto tecnologie a un progetto.
 
-Essendo ancora in fase di evoluzione, osservazioni, suggerimenti e nuove idee sono più che benvenuti.
+Ho dovuto comprenderle abbastanza da assumermi la responsabilità delle decisioni prese.
+
+## Il ritorno: la piattaforma è pronta, ma la storia non è finita
+
+Digital Heroes è attualmente in fase di test.
+
+Le funzionalità sono state verificate con dati generici, ma la piattaforma non è ancora stata utilizzata con dati reali dei partecipanti.
+
+Il primo vero test operativo è previsto per **ottobre 2026**, con l’inizio della nuova stagione.
+
+Sarà il momento in cui il sistema incontrerà finalmente il contesto per cui è stato costruito.
+
+Potremo verificare la semplicità del percorso di iscrizione, l’affidabilità delle comunicazioni, la gestione dei posti e l’utilizzo quotidiano del pannello amministrativo.
+
+Per questo non considero il progetto concluso.
+
+Il software non termina quando viene pubblicato.
+
+Comincia davvero quando viene utilizzato.
+
+La piattaforma è disponibile su **[digital-heroes.me](https://digital-heroes.me/)**.
+
+Se doveste iscrivere vostro figlio a un laboratorio, quale passaggio vorreste che fosse ancora più semplice?
+
+Suggerimenti, osservazioni e nuove idee sono benvenuti.
+
+---
+
+## Testo consigliato per condividere l’articolo su LinkedIn
+
+Ho sviluppato una piattaforma proprietaria per gestire eventi, iscrizioni e reminder.
+
+Ma il vero lavoro è iniziato quando ho capito che non stavo costruendo un semplice sito web.
+
+Stavo costruendo il sistema operativo di Digital Heroes.
+
+Siamo partiti da WordPress ed Eventbrite. Volevamo eliminare account obbligatori, passaggi superflui, scarsa personalizzazione e dipendenza da una piattaforma esterna.
+
+Ho quindi progettato e sviluppato tutto il sistema: identità visiva Neobrutalist, frontend, backend, database, area amministrativa, automazioni, sicurezza e deployment.
+
+La parte più difficile?
+
+Non una singola funzionalità, ma proteggere correttamente un’applicazione che gestirà iscrizioni e dati relativi a partecipanti minorenni.
+
+Il progetto entrerà nella sua prima vera prova sul campo a ottobre 2026.
+
+Nell’articolo racconto le scelte, gli errori evitati, le verifiche incrociate e la lezione più importante che mi porto dietro:
+
+**La qualità del risultato dipende dalla qualità del contesto da cui parti.**
+
+La piattaforma è già online: [digital-heroes.me](https://digital-heroes.me/)
+
+Se doveste iscrivere vostro figlio a un laboratorio, quale passaggio vorreste che fosse ancora più semplice?
