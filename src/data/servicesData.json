@@ -1,0 +1,327 @@
+{
+  "overview": {
+    "url": "/servizi",
+    "badge": "SERVIZI",
+    "title1": "Tecnologia essenziale.",
+    "title2": "Risultati concreti.",
+    "subtitle": "Siti web, gestionali, automazioni ed identità visive per il tuo lavoro.",
+    "heroCta": "Inizia un progetto",
+    "introTitle": "Soluzioni su misura",
+    "introText1": "Analizziamo cosa serve davvero alla tua attività.",
+    "introText2": "Definiamo lo scopo prima di scegliere lo strumento.",
+    "grid": [
+      {
+        "id": "siti-web",
+        "title": "Siti web",
+        "desc": "Spiega cosa fai e raccogli contatti in modo chiaro.",
+        "linkText": "Scopri i siti web →",
+        "path": "/servizi/siti-web",
+        "shortPhrase": "Veloce, chiaro e sotto il tuo controllo."
+      },
+      {
+        "id": "gestionali-web-app",
+        "title": "Gestionali e web app",
+        "desc": "Organizza dati, iscrizioni e documenti in un unico pannello.",
+        "linkText": "Scopri i gestionali →",
+        "path": "/servizi/gestionali-web-app",
+        "shortPhrase": "Software essenziale senza funzioni inutili."
+      },
+      {
+        "id": "automazioni",
+        "title": "Automazioni",
+        "desc": "Elimina operazioni manuali ripetitive tra i tuoi strumenti.",
+        "linkText": "Scopri le automazioni →",
+        "path": "/servizi/automazioni",
+        "shortPhrase": "Meno lavoro manuale, zero errori."
+      },
+      {
+        "id": "grafica-identita",
+        "title": "Grafica e identità",
+        "desc": "Logo, colori e tipografia per farti riconoscere subito.",
+        "linkText": "Scopri la grafica →",
+        "path": "/servizi/grafica-identita",
+        "shortPhrase": "Immagine visiva pulita e coerente."
+      },
+      {
+        "id": "social-media",
+        "title": "Social media",
+        "desc": "Piano editoriale e contenuti brevi per comunicare con costanza.",
+        "linkText": "Scopri i social media →",
+        "path": "/servizi/social-media",
+        "shortPhrase": "Contenuti utili senza inseguire i trend."
+      },
+      {
+        "id": "formazione-ai",
+        "title": "Formazione e AI",
+        "desc": "Uso pratico dell'intelligenza artificiale nel lavoro di tutti i giorni.",
+        "linkText": "Scopri la formazione →",
+        "path": "/servizi/formazione-ai",
+        "shortPhrase": "Esercitazioni e strumenti reali."
+      },
+      {
+        "id": "infrastrutture",
+        "title": "Infrastrutture",
+        "desc": "Hosting, server e Docker configurati per la massima stabilità.",
+        "linkText": "Scopri le infrastrutture →",
+        "path": "/servizi/infrastrutture",
+        "shortPhrase": "Ambienti sicuri e documentati."
+      }
+    ],
+    "method": [
+      { "step": "01", "title": "Ascolto", "desc": "Analisi delle esigenze reali." },
+      { "step": "02", "title": "Progetto", "desc": "Definizione di tempi e costi." },
+      { "step": "03", "title": "Sviluppo", "desc": "Realizzazione e collaudo." },
+      { "step": "04", "title": "Messa online", "desc": "Pubblicazione e assistenza." }
+    ],
+    "ctaTitle": "Hai un progetto in mente?",
+    "ctaText": "Parliamone per capire da dove iniziare.",
+    "ctaBtn": "Prenota una chiamata"
+  },
+
+  "siti-web": {
+    "id": "siti-web",
+    "badge": "SITI WEB",
+    "title1": "Siti web veloci,",
+    "title2": "chiari e su misura.",
+    "subtitle": "Spiega cosa fai e raccogli contatti senza distrazioni.",
+    "ctaPrimary": "Parliamone",
+    "ctaSecondary": "Richiedi una stima",
+    "positioningTitle": "Chiaro e immediato",
+    "positioningText1": "Un sito efficace guida il visitatore a contattarti senza fargli perdere tempo.",
+    "offerings": [
+      { "title": "Siti essenziali", "desc": "Una pagina chiara per essere subito online." },
+      { "title": "Siti multipagina", "desc": "Struttura completa per servizi, progetti e contatti." },
+      { "title": "Landing page", "desc": "Pagine dedicate a eventi o campagne." },
+      { "title": "Siti su misura", "desc": "Design e codice personalizzato senza template." },
+      { "title": "E-commerce", "desc": "Vendita online con gestione ordini." }
+    ],
+    "principles": [
+      { "title": "Veloce", "desc": "Caricamento sotto i 2 secondi." },
+      { "title": "Chiaro", "desc": "Messaggi diretti e navigazione semplice." },
+      { "title": "Tuo", "desc": "Dominio e contenuti di tua proprietà." }
+    ],
+    "includes": [
+      "Architettura contenuti",
+      "Design responsive",
+      "SEO base integrata",
+      "Form di contatto",
+      "Setup dominio e hosting"
+    ],
+    "process": [
+      { "step": "01", "title": "Obiettivi", "desc": "Analisi pubblico e messaggi." },
+      { "step": "02", "title": "Struttura", "desc": "Schema pagine e testi." },
+      { "step": "03", "title": "Sviluppo", "desc": "Scrittura codice e test." },
+      { "step": "04", "title": "Pubblicazione", "desc": "Collaudo e messa online." }
+    ],
+    "faq": [
+      { "question": "Potrò aggiornare il sito da solo?", "answer": "Sì, integro un pannello semplice per gestire i contenuti in autonomia." },
+      { "question": "Il sito funziona su smartphone?", "answer": "Sì, ogni sito è progettato e testato per tutti i dispositivi." },
+      { "question": "Quanto tempo serve?", "answer": "Da 1-2 settimane per landing page a 3-4 settimane per siti completi." }
+    ],
+    "ctaTitle": "Iniziamo il tuo nuovo sito web.",
+    "ctaBtn": "Inizia un progetto"
+  },
+
+  "gestionali-web-app": {
+    "id": "gestionali-web-app",
+    "badge": "GESTIONALI E WEB APP",
+    "title1": "Pannelli gestionali",
+    "title2": "su misura.",
+    "subtitle": "Organizza dati, iscrizioni e documenti in un unico strumento.",
+    "ctaPrimary": "Parliamone",
+    "problemTitle": "Basta fogli dispersi",
+    "problemText": "Raccogli le informazioni in un unico posto ed elimina i passaggi manuali.",
+    "offerings": [
+      "Pannelli amministrativi",
+      "Gestione clienti e soci",
+      "Iscrizioni e prenotazioni",
+      "Archivi e documenti",
+      "Generazione PDF",
+      "Ruoli e permessi"
+    ],
+    "principles": [
+      { "title": "Essenziale", "desc": "Solo le funzioni che usi davvero." },
+      { "title": "Semplice", "desc": "Interfaccia chiara per tutto il team." },
+      { "title": "Tuo", "desc": "Dati sotto il tuo controllo." }
+    ],
+    "process": [
+      { "step": "01", "title": "Analisi", "desc": "Mappatura del flusso di lavoro." },
+      { "step": "02", "title": "Prototipo", "desc": "Schermate e passaggi." },
+      { "step": "03", "title": "Sviluppo", "desc": "Programmazione modulare." },
+      { "step": "04", "title": "Avvio", "desc": "Formazione e collaudo." }
+    ],
+    "faq": [
+      { "question": "Serve installare software sul PC?", "answer": "No, funziona via browser da qualsiasi dispositivo." },
+      { "question": "Posso aggiungere funzioni in seguito?", "answer": "Sì, la struttura viene predisposta per espansioni future." },
+      { "question": "Quanto tempo richiede?", "answer": "Da 3-4 settimane per micro-tool fino a 6-8 settimane per gestionali complessi." }
+    ],
+    "ctaTitle1": "Semplifichiamo il tuo lavoro.",
+    "ctaBtn": "Richiedi una stima"
+  },
+
+  "automazioni": {
+    "id": "automazioni",
+    "badge": "AUTOMAZIONI",
+    "title1": "Meno lavoro manuale,",
+    "title2": "zero errori.",
+    "subtitle": "Collego i tuoi strumenti per recuperare ore di lavoro ogni settimana.",
+    "ctaPrimary": "Parliamone",
+    "introTitle": "Elimina le attività ripetitive",
+    "introText": "Individuiamo dove perdi tempo ogni giorno e creiamo flussi automatici.",
+    "examples": [
+      { "title": "Form → Email", "desc": "Risposta automatica personalizzata." },
+      { "title": "Dati → PDF", "desc": "Creazione automatica di preventivi o ricevute." },
+      { "title": "Iscrizioni → DB", "desc": "Registrazione senza ricopiare dati a mano." },
+      { "title": "Scadenze → Avvisi", "desc": "Notifiche automatiche via email o Telegram." }
+    ],
+    "benefits": [
+      { "title": "Tempo", "desc": "Ore liberate da compiti meccanici." },
+      { "title": "Precisione", "desc": "Zero errori di trascrizione dati." },
+      { "title": "Continuità", "desc": "Flussi attivi 24/7 in automatico." }
+    ],
+    "process": [
+      { "step": "01", "title": "Mappatura", "desc": "Analisi delle ripetizioni." },
+      { "step": "02", "title": "Flusso", "desc": "Disegno dei passaggi." },
+      { "step": "03", "title": "Setup", "desc": "Collegamento degli strumenti." },
+      { "step": "04", "title": "Test", "desc": "Verifica ed esecuzione." }
+    ],
+    "faq": [
+      { "question": "Devo cambiare i software che uso già?", "answer": "No, colleghiamo gli strumenti che stai già utilizzando." },
+      { "question": "Cosa succede in caso di errore?", "answer": "Configuro notifiche automatiche di avviso per l'intervento manuale." },
+      { "question": "I dati sono al sicuro?", "answer": "Sì, utilizziamo connessioni crittografate nel rispetto del GDPR." }
+    ],
+    "ctaTitle": "Automatizziamo le tue attività ripetitive.",
+    "ctaBtn": "Parliamone"
+  },
+
+  "grafica-identita": {
+    "id": "grafica-identita",
+    "badge": "GRAFICA E IDENTITÀ",
+    "title1": "Identità visiva",
+    "title2": "chiara e coerente.",
+    "subtitle": "Logo, colori e caratteri per farti riconoscere subito dai clienti.",
+    "ctaPrimary": "Inizia il branding",
+    "introTitle": "Immagine professionale",
+    "introText": "Un'identità pulita rende la tua comunicazione credibile su sito e materiali.",
+    "offerings": [
+      { "title": "Logo design", "desc": "Vettoriale pulito per tutti gli utilizzi." },
+      { "title": "Palette colori", "desc": "Combinazione cromatica bilanciata." },
+      { "title": "Tipografia", "desc": "Scelta dei font e gerarchie visive." },
+      { "title": "Brand kit", "desc": "Linee guida d'uso essenziali." }
+    ],
+    "process": [
+      { "step": "01", "title": "Brief", "desc": "Definizione del tono visivo." },
+      { "step": "02", "title": "Bozze", "desc": "Proposte grafiche e palette." },
+      { "step": "03", "title": "Rifinitura", "desc": "Scelta finale ed esecutivi." },
+      { "step": "04", "title": "Consegna", "desc": "Invio di tutti i file vettoriali." }
+    ],
+    "faq": [
+      { "question": "Riceverò i file vettoriali?", "answer": "Sì, sempre. Riceverai file SVG, PDF, PNG e sorgenti." },
+      { "question": "Fate anche restyling di loghi esistenti?", "answer": "Sì, possiamo aggiornare un logo mantenendo la riconoscibilità." },
+      { "question": "Quanto tempo richiede?", "answer": "Circa 1-2 settimane." }
+    ],
+    "ctaTitle": "Costruiamo la tua identità visiva.",
+    "ctaBtn": "Parliamone"
+  },
+
+  "social-media": {
+    "id": "social-media",
+    "badge": "SOCIAL MEDIA",
+    "title1": "Comunicazione costante,",
+    "title2": "contenuti utili.",
+    "subtitle": "Piano editoriale e gestione social senza inseguire i trend.",
+    "ctaPrimary": "Parliamone",
+    "introTitle": "Pubblicare con uno scopo",
+    "introText": "Ogni post deve informare, mostrare un lavoro o chiarire un servizio.",
+    "includes": [
+      "Piano editoriale mensile",
+      "Scrittura testi e grafica",
+      "Programmazione post",
+      "Reportistica periodica"
+    ],
+    "approach": [
+      { "title": "Strategia", "desc": "Argomenti e pubblico di riferimento." },
+      { "title": "Grafica", "desc": "Format visivi riconoscibili." },
+      { "title": "Copy", "desc": "Testi brevi e chiari." },
+      { "title": "Costanza", "desc": "Uscite regolari e pianificate." }
+    ],
+    "disclaimerTitle": "Niente promesse irrealistiche",
+    "disclaimerText": "Non prometto numeri esplosivi. Costruiamo una presenza seria nel tempo.",
+    "faq": [
+      { "question": "Fornite anche le grafiche dei post?", "answer": "Sì, mi occupo sia dei testi che della parte visiva." },
+      { "question": "Devo approvare i post prima?", "answer": "Sì, riceverai il piano editoriale per la conferma prima di ogni uscita." },
+      { "question": "Su quali canali lavorate?", "answer": "Principalmente Instagram, Facebook e LinkedIn." }
+    ],
+    "ctaTitle1": "Pianifichiamo i tuoi social.",
+    "ctaBtn": "Prenota una chiamata"
+  },
+
+  "formazione-ai": {
+    "id": "formazione-ai",
+    "badge": "FORMAZIONE E AI",
+    "title1": "Intelligenza Artificiale",
+    "title2": "nel lavoro quotidiano.",
+    "subtitle": "Corsi ed esercitazioni pratiche per usare l'AI nelle tue attività.",
+    "ctaPrimary": "Richiedi informazioni",
+    "introTitle": "Uso pratico e concreto",
+    "introText": "Impara a formulare istruzioni chiare per risparmiare tempo in sicurezza.",
+    "paths": [
+      { "title": "AI per il lavoro", "desc": "Scrittura, sintesi documenti ed email." },
+      { "title": "Prompting pratico", "desc": "Come ottenere risposte precise." },
+      { "title": "AI per associazioni", "desc": "Gestione eventi, testi e comunicazione." }
+    ],
+    "method": [
+      { "phase": "Prima", "desc": "Valutazione delle esigenze di partenza." },
+      { "phase": "Durante", "desc": "Lezioni pratiche su casi reali." },
+      { "phase": "Dopo", "desc": "Materiali e prontuario istruzioni." }
+    ],
+    "principles": [
+      "Casi reali della tua attività",
+      "Nessun tecnicismo astratto",
+      "Controllo dei dati riservati"
+    ],
+    "faq": [
+      { "question": "È adatto a chi parte da zero?", "answer": "Sì, il percorso è strutturato in modo graduale." },
+      { "question": "I corsi sono online o in presenza?", "answer": "Entrambe le modalità sono disponibili." },
+      { "question": "Quanto dura un percorso?", "answer": "Da sessioni singole di 2 ore a corsi di più giornate." }
+    ],
+    "ctaTitle1": "Impara a usare l'AI nel tuo lavoro.",
+    "ctaBtn": "Organizziamo una sessione"
+  },
+
+  "infrastrutture": {
+    "id": "infrastrutture",
+    "badge": "INFRASTRUTTURE",
+    "title1": "Server e hosting",
+    "title2": "stabili e sicuri.",
+    "subtitle": "Configurazione di server cloud, Docker e domini per i tuoi strumenti.",
+    "ctaPrimary": "Parliamone",
+    "introTitle": "Ambienti tecnici ordinati",
+    "introText": "Infrastrutture documentate con costi chiari nel tempo.",
+    "tasks": [
+      "Setup server cloud e VPS",
+      "Ambienti Docker e container",
+      "Certificati SSL e HTTPS",
+      "Backup automatici dati",
+      "Configurazione DNS e domini"
+    ],
+    "principles": [
+      { "title": "Proporzionato", "desc": "Solo le risorse necessarie." },
+      { "title": "Sicuro", "desc": "Certificati SSL e backup periodici." },
+      { "title": "Documentato", "desc": "Credenziali sempre a tua disposizione." }
+    ],
+    "process": [
+      { "step": "01", "title": "Analisi", "desc": "Stima delle risorse." },
+      { "step": "02", "title": "Configurazione", "desc": "Setup server e Docker." },
+      { "step": "03", "title": "Deploy", "desc": "Pubblicazione e sicurezza." },
+      { "step": "04", "title": "Consegna", "desc": "Invio documentazione." }
+    ],
+    "faq": [
+      { "question": "Gli account saranno a mio nome?", "answer": "Sì. Server e domini vengono sempre intestati direttamente al cliente." },
+      { "question": "Fornisci documentazione degli accessi?", "answer": "Sì, riceverai un documento con tutte le credenziali." },
+      { "question": "Offri manutenzione post-lancio?", "answer": "Sì, con canoni mensili per backup ed aggiornamenti." }
+    ],
+    "ctaTitle1": "Configuriamo i tuoi server.",
+    "ctaBtn": "Valutiamo l'infrastruttura"
+  }
+}

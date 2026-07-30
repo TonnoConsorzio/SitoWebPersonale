@@ -10,115 +10,134 @@
     "start_project": "Start a project"
   },
   "hero": {
-    "title_part1": "Every website ",
-    "title_highlight": "tells a story.",
-    "title_part2": "Let's build yours.",
-    "subtitle": "I design and develop websites, management systems, and digital identities for those who have something to say. Every project starts from an idea, not a template.",
-    "cta": "View projects"
+    "badge": "Web development, management apps & automations",
+    "title_part1": "Every project tells a story. ",
+    "title_highlight": "Let's build yours.",
+    "title_part2": "",
+    "subtitle": "Custom websites, management tools, and automations for freelancers and small organizations.",
+    "cta_primary": "Start a project",
+    "cta_secondary": "Explore projects"
   },
-  "footer": {
-    "description": "I design and develop websites, management systems, and digital identities for those who have something to say.",
-    "donation": "10% of the total is donated to",
-    "services": "Services",
-    "info": "Info",
-    "rights": "All rights reserved.",
-    "made_with": "Made with ❤️ and 🍕 by Alessio Bellan.",
-    "made_with_it": "Fatto in Italia con tanta pizza."
-  },
-  "pricing_calc": {
-    "title": "What could your project cost",
-    "subtitle": "See the price now, not in a week.",
-    "no_plan": "No plan selected",
-    "estimate_label": "Rough estimate",
-    "donation_text": "(10% of the total) will be donated to",
-    "disclaimer": "This is a rough estimate — the final quote comes after a discovery call where we analyze your real needs.",
-    "cta": "Send quote",
-    "modal_title": "Contact me",
-    "modal_desc": "How would you prefer to send the quote? I will reply as soon as possible to schedule our call.",
-    "whatsapp": "Send on WhatsApp",
-    "email": "Send via Email"
+  "stats": {
+    "projects_num": "12+",
+    "projects_label": "Completed projects",
+    "experience_num": "5+",
+    "experience_label": "Years experience",
+    "donation_num": "10%",
+    "donation_label": "Donated to ABBO APS"
   },
   "about": {
-    "title": "Hi, I'm Alessio Bellan",
-    "p1": "I study marketing and have been developing websites for a few years, mostly learning by working on real projects. I'm interested in understanding how things work, from code to communication, and finding solutions when things get stuck.",
-    "p2": "Before being a freelancer, I am the president of ABBO APS, a third-sector association for digital education. That's where I really started building sites and tools, and that's where the way I work now comes from.",
-    "quote": "I work best when I truly understand what is needed, not when I follow a template.",
-    "footer": "10% of the proceeds from each project supports ABBO APS."
+    "title": "About me",
+    "subtitle": "",
+    "p1": "I build websites, web apps, and workflow automations to help professionals and small teams simplify their daily work.",
+    "p2": "I am president and co-founder of ABBO APS, a non-profit association for digital education.",
+    "p3": "",
+    "p4": "",
+    "p5": "",
+    "cta": "How I work",
+    "box_title": "Non-profit donation",
+    "box_text": "10% of every project fee supports ABBO APS."
   },
   "services": {
-    "title": "What I can build for you",
-    "web": "Websites",
-    "web_desc": "Design and development of sites that tell who you are, not just what you sell.",
-    "app": "Apps & Mgmt",
-    "app_desc": "Custom tools to optimize your workflow.",
-    "brand": "Graphics & Identity",
-    "brand_desc": "Consistent visual identity, created by an expert with a strong background (no extra costs).",
-    "social": "Social Media",
-    "social_desc": "Strategic management to build a community and tell your value.",
-    "infra": "Infrastructure",
-    "infra_desc": "Server setup and Docker architectures to ensure stability and performance."
+    "title": "Core Services",
+    "subtitle": "Essential digital tools and websites built without bloat."
+  },
+  "pricing_calc": {
+    "title": "Project Estimate Calculator",
+    "subtitle": "Select your requirements to calculate an initial cost estimate.",
+    "select_config": "Select a configuration",
+    "no_plan": "Select a plan",
+    "estimate_label": "Estimated cost",
+    "donation_text": "(10% of total) goes to",
+    "disclaimer": "Final proposal is provided after a brief discovery call.",
+    "cta": "Request detailed quote",
+    "modal_title": "Contact me",
+    "modal_desc": "How would you like to submit your request?",
+    "whatsapp": "Send via WhatsApp",
+    "email": "Send via Email"
+  },
+  "pricing_packages": {
+    "title": "Main Packages",
+    "subtitle": "Ready-to-launch packages for your growth.",
+    "recommended": "Recommended",
+    "cta": "Request info",
+    "savings_prefix": "You save "
   },
   "portfolio_grid": {
-    "title": "Some projects",
-    "subtitle": "A selection of works to understand how I approach different challenges.",
-    "view_all": "View full portfolio"
-  },
-  "testimonials": {
-    "title": "What people say"
+    "title": "Recent Work",
+    "subtitle": "A selection of recent projects.",
+    "view_all": "View full portfolio",
+    "cta": "View project"
   },
   "education": {
-    "title": "Education & Skills",
-    "subtitle": "My educational background and skill set, focused on technical development and visual communication.",
-    "skills_title": "Core Skills",
+    "title": "Education & Background",
+    "subtitle": "Technical background in development, AI, and design.",
+    "skills_title": "Key Skills",
     "view_full": "View full resume"
   },
   "certifications": {
     "title": "Certifications"
   },
-  "pricing_packages": {
-    "title": "Packages & Plans",
-    "subtitle": "The most requested and optimal configurations to start.",
-    "recommended": "Recommended",
-    "cta": "Request info"
+  "testimonials": {
+    "title": "Testimonials",
+    "subtitle": ""
+  },
+  "journal": {
+    "title": "Journal"
   },
   "faq": {
     "title": "Frequently Asked Questions",
-    "q1": "How long does it take to complete the project?",
-    "a1": "It depends on the request: from one week for a simple site, up to a few months for more complex projects like a custom management system.",
+    "q1": "How long does it take?",
+    "a1": "1-2 weeks for landing pages up to 4-6 weeks for full management apps.",
     "q2": "How many revisions are included?",
-    "a2": "In the first week, revisions are unlimited. After delivery, you can choose between pay-as-you-go revisions (€30 + €45/h) or a flat monthly rate of €85 for unlimited modifications over time.",
-    "q3": "Do you manage the domain and hosting?",
-    "a3": "The domain always remains your property and under your management. I can take care of hosting, but only after we discuss what is really needed.",
-    "q4": "What happens after delivery if something breaks?",
-    "a4": "In the first month after delivery, support and bug fixes are on me, at no extra cost. Actual modifications follow the revision options.",
-    "q5": "What is the difference between the packages?",
-    "a5": "There are no locked features by tier: the difference is simply how much you want to invest in the project — more budget, more time and care we can dedicate to design and details.",
-    "q6": "Do you also do e-commerce?",
-    "a6": "Yes. For an e-commerce, contact me directly for a custom quote, because needs vary greatly from case to case.",
-    "q7": "How does payment work?",
-    "a7": "Deposit at the start of the project, balance upon delivery.",
-    "q8": "Do I have to provide the content?",
-    "a8": "You can provide texts and photos, or I can take care of it — it depends on the project. Professional copy and photography, if requested, are quoted separately.",
-    "q9": "If I need to change a text or a photo later, is it included?",
-    "a9": "Small changes (up to about 30 minutes of work) are always free.",
-    "q10": "Do you also work with those who don't have clear ideas?",
-    "a10": "I work with those who want to tell something real. We develop ideas together: the starting point is you and your story, the rest we build together."
+    "a2": "All necessary adjustments within the agreed scope during the first week.",
+    "q3": "Will I own the domain?",
+    "a3": "Yes. Domain and content remain 100% your property.",
+    "q4": "What happens after launch?",
+    "a4": "First month of technical support is included free for any bug fixes.",
+    "q5": "What changes between tiers?",
+    "a5": "Higher tiers allow more time for custom features and refined details.",
+    "q6": "Do you build e-commerce?",
+    "a6": "Yes. We evaluate e-commerce projects based on catalog size and logistics.",
+    "q7": "How do payments work?",
+    "a7": "Deposit at project start, balance upon delivery with invoice.",
+    "q8": "Do I need to provide copy and images?",
+    "a8": "You can provide them or I can write copy under a separate quote.",
+    "q9": "Are minor edits free?",
+    "a9": "Minor fixes within 30 minutes post-delivery are free.",
+    "q10": "Who do you work with?",
+    "a10": "Freelancers, associations, and small businesses looking for clear solutions."
   },
   "contact": {
-    "title": "Let's work together",
-    "subtitle": "Tell me about your project or book a call directly.",
+    "title": "Let's talk",
+    "subtitle": "Tell me about your project to see where to start.",
     "form_name": "Name",
     "form_name_ph": "Your name",
     "form_email": "Email",
-    "form_email_ph": "your@email.com",
-    "form_service": "Service of interest",
+    "form_email_ph": "Your email",
+    "form_service": "Requested service",
     "form_service_ph": "Select a service...",
-    "form_message": "Message",
-    "form_message_ph": "Tell me about your project...",
-    "form_submit": "Send request",
-    "cal_title": "Book a discovery call",
-    "cal_desc": "Choose the best time for you directly from my calendar. We'll talk about it over a virtual coffee.",
-    "cal_cta": "Book on Google Calendar",
-    "download_vcard": "Save Contact (vCard)"
+    "opt_web": "Websites",
+    "opt_app": "Management & web apps",
+    "opt_auto": "Automations",
+    "opt_brand": "Graphics & identity",
+    "opt_social": "Social media",
+    "opt_ai": "AI Training",
+    "opt_infra": "Infrastructure",
+    "form_msg": "Message",
+    "form_msg_ph": "Briefly describe your project...",
+    "form_submit": "Send message",
+    "booking_title": "Book a call",
+    "booking_desc": "Select a date and time on calendar.",
+    "booking_btn": "Open Google Calendar",
+    "vcard_btn": "Download Contact (vCard)"
+  },
+  "footer": {
+    "description": "Building websites, management apps, and automations for professionals and small teams.",
+    "donation": "10% of every project supports",
+    "services": "Services",
+    "info": "Information",
+    "rights": "All rights reserved.",
+    "made_with": "Crafted with React & TailwindCSS"
   }
 }

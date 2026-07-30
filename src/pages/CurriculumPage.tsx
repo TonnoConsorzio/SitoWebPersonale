@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Navigation } from '../components/Navigation';
-import { Footer } from '../components/Footer';
-import { ArrowLeft, BookOpen, Briefcase, Code, Award } from 'lucide-react';
+import { Navigation } from '../components/sections/Navigation';
+import { Footer } from '../components/sections/Footer';
+import { ArrowLeft, Briefcase, GraduationCap, Award, Code } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import experiences from '../data/curriculum.json';
 import cvData from '../data/cv.json';
@@ -26,88 +26,116 @@ export function CurriculumPage() {
   return (
     <>
       <SEO 
-        title="Curriculum ed Esperienza" 
-        description="Scopri il mio percorso professionale, le competenze e le esperienze nel campo dello sviluppo web e della comunicazione digitale."
+        title="Curriculum ed Esperienze | Alessio Bellan" 
+        description="Percorso professionale, esperienze lavorative, formazione e certificazioni di Alessio Bellan."
         canonical="/curriculum"
       />
       <Navigation />
-      <main className="pt-32 pb-24 px-6 md:px-8 max-w-4xl mx-auto">
-        <div className="mb-12">
-          <Link to="/" className="inline-flex items-center text-sm text-primary hover:text-primary/80 transition-colors mb-8">
-            <ArrowLeft className="w-4 h-4 mr-2" />
+
+      <main className="pt-28 pb-24 px-6 md:px-8 max-w-7xl mx-auto space-y-16">
+        {/* Header Hero */}
+        <div className="max-w-4xl mx-auto text-center space-y-4">
+          <Link to="/" className="inline-flex items-center text-base font-mono text-primary hover:underline transition-colors mb-2">
+            <ArrowLeft className="w-4 h-4 mr-1" />
             Torna alla Home
           </Link>
-          <h1 className="font-display text-5xl md:text-7xl mb-6">Il mio curriculum</h1>
-          <p className="text-xl text-muted-foreground leading-relaxed">
-            Project Manager, esperto in grafica & comunicazione, e appassionato di innovazione e tecnologia.
+
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-display text-foreground leading-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>
+            Curriculum e Percorso
+          </h1>
+
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+            Sviluppatore web, coordinatore di progetti digitali e presidente di ABBO APS.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        {/* Main 2-Column Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start max-w-7xl mx-auto">
           
-          <div className="md:col-span-2 space-y-16">
-            <section>
-              <h2 className="flex items-center font-display text-3xl mb-8 text-primary">
-                <Briefcase className="w-6 h-6 mr-3" />
-                Esperienza
-              </h2>
-              <div className="space-y-8 relative before:absolute before:inset-0 before:ml-[19px] before:h-full before:w-px before:bg-white/10">
+          {/* Main Column: Experiences & Education */}
+          <div className="lg:col-span-2 space-y-16">
+            
+            {/* Experience Section */}
+            <section className="space-y-8">
+              <div className="flex items-center gap-3 border-b border-white/10 pb-4">
+                <Briefcase className="w-6 h-6 text-primary shrink-0" strokeWidth={1.5} />
+                <h2 className="text-3xl md:text-4xl font-display text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>
+                  Esperienze lavorative
+                </h2>
+              </div>
+
+              <div className="space-y-6">
                 {experiences.map((item, idx) => (
-                  <div key={idx} className="relative flex items-start group">
-                    <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white/20 bg-background text-primary shadow shrink-0 z-10 mr-6 mt-1">
-                      <div className="w-2 h-2 rounded-full bg-primary"></div>
+                  <div 
+                    key={idx} 
+                    className="liquid-glass p-6 md:p-8 rounded-3xl border border-white/10 space-y-3 relative group hover:border-primary/40 transition-all"
+                  >
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                      <h3 className="text-2xl font-display text-foreground group-hover:text-primary transition-colors" style={{ fontFamily: "'Instrument Serif', serif" }}>
+                        {item.title}
+                      </h3>
+                      <span className="inline-flex items-center px-4 py-1.5 rounded-full text-base font-mono bg-white/5 border border-white/10 text-primary shrink-0 w-fit">
+                        {item.period}
+                      </span>
                     </div>
-                    <div className="flex-1 liquid-glass p-6 rounded-2xl">
-                      <h3 className="font-display text-xl text-foreground mb-1">{item.title}</h3>
-                      <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground mb-4">
-                        <span className="font-medium text-foreground/80">{item.company}</span>
-                        <span>•</span>
-                        <time className="text-primary/80 font-mono">{item.period}</time>
-                      </div>
-                      {item.description && (
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          {item.description}
-                        </p>
-                      )}
+
+                    <div className="text-base font-mono text-muted-foreground uppercase tracking-wider">
+                      {item.company}
                     </div>
+
+                    {item.description && (
+                      <p className="text-base text-muted-foreground leading-relaxed pt-1">
+                        {item.description}
+                      </p>
+                    )}
                   </div>
                 ))}
               </div>
             </section>
 
-            <section>
-              <h2 className="flex items-center font-display text-3xl mb-8 text-primary">
-                <BookOpen className="w-6 h-6 mr-3" />
-                Formazione
-              </h2>
-              <div className="space-y-6">
+            {/* Education Section */}
+            <section className="space-y-8">
+              <div className="flex items-center gap-3 border-b border-white/10 pb-4">
+                <GraduationCap className="w-6 h-6 text-primary shrink-0" strokeWidth={1.5} />
+                <h2 className="text-3xl md:text-4xl font-display text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>
+                  Formazione
+                </h2>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {cvData.education.map((item: any, idx: number) => {
                   const title = getLocalized(item.title);
                   const school = getLocalized(item.school);
                   const period = getLocalized(item.period);
                   return (
-                    <div key={idx} className="liquid-glass p-6 rounded-2xl">
-                      <h3 className="font-display text-lg text-foreground mb-1">{title}</h3>
-                      <div className="flex justify-between items-center text-sm">
-                        <span className="text-muted-foreground">{school}</span>
-                        <time className="text-primary/80 font-mono text-xs">{period}</time>
+                    <div key={idx} className="liquid-glass p-6 rounded-2xl border border-white/10 space-y-2 flex flex-col justify-between">
+                      <div>
+                        <h3 className="font-display text-lg text-foreground mb-1" style={{ fontFamily: "'Instrument Serif', serif" }}>
+                          {title}
+                        </h3>
+                        <p className="text-base text-muted-foreground">{school}</p>
                       </div>
+                      <span className="text-base font-mono text-primary pt-2 block">{period}</span>
                     </div>
                   );
                 })}
               </div>
             </section>
 
-            <section>
-              <h2 className="flex items-center font-display text-3xl mb-8 text-primary">
-                <Award className="w-6 h-6 mr-3" />
-                Certificazioni
-              </h2>
+            {/* Certifications Section */}
+            <section className="space-y-8">
+              <div className="flex items-center gap-3 border-b border-white/10 pb-4">
+                <Award className="w-6 h-6 text-primary shrink-0" strokeWidth={1.5} />
+                <h2 className="text-3xl md:text-4xl font-display text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>
+                  Certificazioni ({certifications.length})
+                </h2>
+              </div>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {certifications.map((item: any, idx: number) => {
                   const certTitle = getLocalized(item.title);
                   return (
-                    <div key={idx} className="liquid-glass p-5 rounded-2xl flex flex-col gap-4 group">
+                    <div key={idx} className="liquid-glass p-6 rounded-2xl border border-white/10 flex flex-col justify-between space-y-4 group hover:border-primary/30 transition-all">
                       <div className="aspect-video w-full overflow-hidden rounded-xl bg-white/5 relative">
                         <img 
                           src={item.image} 
@@ -117,8 +145,8 @@ export function CurriculumPage() {
                         />
                       </div>
                       <div>
-                        <h3 className="font-display text-lg text-foreground mb-1 leading-tight">{certTitle}</h3>
-                        <span className="text-muted-foreground text-sm uppercase tracking-wider font-semibold">{item.issuer}</span>
+                        <h3 className="font-display text-base text-foreground mb-1 leading-snug">{certTitle}</h3>
+                        <span className="text-base font-mono text-primary uppercase font-semibold">{item.issuer}</span>
                       </div>
                     </div>
                   );
@@ -127,19 +155,23 @@ export function CurriculumPage() {
             </section>
           </div>
 
-          <div className="md:col-span-1 space-y-12">
-            <div className="sticky top-32">
-              <h2 className="flex items-center font-display text-3xl mb-6 text-primary">
-                <Code className="w-6 h-6 mr-3" />
-                Skills
-              </h2>
-              <div className="flex flex-wrap gap-2">
+          {/* Sidebar Column: Skills & Summary */}
+          <div className="lg:col-span-1 space-y-8 sticky top-28">
+            <div className="liquid-glass p-8 rounded-3xl border border-white/10 space-y-6">
+              <div className="flex items-center gap-2.5 border-b border-white/10 pb-4">
+                <Code className="w-5 h-5 text-primary shrink-0" strokeWidth={1.5} />
+                <h3 className="text-2xl font-display text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>
+                  Competenze
+                </h3>
+              </div>
+
+              <div className="flex flex-wrap gap-2.5">
                 {cvData.skills.map((skill: any, idx: number) => {
                   const skillName = getLocalized(skill);
                   return (
                     <span 
                       key={idx} 
-                      className="liquid-glass border border-white/10 rounded-full px-4 py-2 text-sm text-foreground/90"
+                      className="bg-white/5 border border-white/10 hover:border-primary/40 rounded-full px-4 py-2 text-base text-foreground transition-all hover:scale-105"
                     >
                       {skillName}
                     </span>
@@ -147,10 +179,26 @@ export function CurriculumPage() {
                 })}
               </div>
             </div>
+
+            {/* Quick Contact Box */}
+            <div className="liquid-glass p-8 rounded-3xl border border-primary/30 text-center space-y-4">
+              <h3 className="text-2xl font-display text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>
+                Hai un progetto da proporre?
+              </h3>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                Parliamone per capire insieme la soluzione migliore.
+              </p>
+              <Link
+                to="/stima-progetto"
+                className="liquid-glass rounded-full px-8 py-3.5 text-foreground font-medium hover:scale-[1.03] transition-transform text-base inline-block shadow-lg"
+              >
+                Inizia ora
+              </Link>
+            </div>
           </div>
         </div>
-
       </main>
+
       <Footer />
     </>
   );

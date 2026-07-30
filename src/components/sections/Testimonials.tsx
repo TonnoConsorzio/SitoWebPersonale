@@ -4,16 +4,21 @@ import config from '../../data/config.json';
 
 export function Testimonials() {
   const { t, i18n } = useTranslation();
-  const currentLang = (i18n.language || 'it') as 'it' | 'en';
+  const currentLang = (i18n.language || 'it').startsWith('en') ? 'en' : 'it';
   const { ref, isInView } = useInView({ threshold: 0.1, triggerOnce: true });
   const testimonials = config.testimonials;
 
   return (
     <section ref={ref as any} className="py-24 px-8 max-w-7xl mx-auto">
       <div className={`mb-16 ${isInView ? 'animate-fade-rise' : 'opacity-0'}`}>
-        <h2 className="text-4xl md:text-5xl font-display text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>
+        <h2 className="text-4xl md:text-5xl font-display text-foreground mb-4" style={{ fontFamily: "'Instrument Serif', serif" }}>
           {t('testimonials.title')}
         </h2>
+        {t('testimonials.subtitle') && (
+          <p className="text-muted-foreground text-lg max-w-3xl leading-relaxed">
+            {t('testimonials.subtitle')}
+          </p>
+        )}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

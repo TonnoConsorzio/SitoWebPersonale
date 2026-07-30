@@ -2,73 +2,103 @@
   {
     "id": "web",
     "icon": "globe",
+    "path": "/servizi/siti-web",
     "title": {
-      "it": "Siti Web",
+      "it": "Siti web",
       "en": "Websites"
     },
     "description": {
-      "it": "Design e sviluppo di siti che raccontano chi sei, non solo cosa vendi.",
-      "en": "Design and development of sites that tell who you are, not just what you sell."
+      "it": "Siti veloci e su misura che raccontano chi sei e aiutano le persone a scegliere te.",
+      "en": "Fast and custom websites that tell who you are and help people choose you."
+    },
+    "cta": {
+      "it": "Scopri i siti web",
+      "en": "Discover websites"
     }
   },
   {
     "id": "app",
     "icon": "layout",
+    "path": "/servizi/gestionali-web-app",
     "title": {
-      "it": "Gestionali & App",
-      "en": "Apps & Mgmt"
+      "it": "Gestionali e app",
+      "en": "Management & apps"
     },
     "description": {
-      "it": "Strumenti su misura per ottimizzare il tuo flusso di lavoro.",
-      "en": "Custom tools to optimize your workflow."
+      "it": "Strumenti personalizzati per organizzare dati, attività e processi di lavoro.",
+      "en": "Custom tools to organize data, activities, and work processes."
+    },
+    "cta": {
+      "it": "Scopri i gestionali",
+      "en": "Discover management tools"
     }
   },
   {
     "id": "brand",
     "icon": "layers",
+    "path": "/servizi/grafica-identita",
     "title": {
-      "it": "Grafica & Identità",
-      "en": "Graphics & Identity"
+      "it": "Grafica e identità",
+      "en": "Graphics & identity"
     },
     "description": {
-      "it": "Identità visiva coerente, creata da un esperto con background già formato (senza costi aggiuntivi).",
-      "en": "Consistent visual identity, created by an expert with a strong background (no extra costs)."
+      "it": "Logo e identità visiva coerente per rendere il tuo progetto riconoscibile.",
+      "en": "Logo and coherent visual identity to make your project recognizable."
+    },
+    "cta": {
+      "it": "Scopri il branding",
+      "en": "Discover branding"
     }
   },
   {
     "id": "social",
     "icon": "network",
+    "path": "/servizi/social-media",
     "title": {
-      "it": "Social Media",
-      "en": "Social Media"
+      "it": "Social media",
+      "en": "Social media"
     },
     "description": {
-      "it": "Gestione strategica per costruire una community e raccontare il tuo valore.",
-      "en": "Strategic management to build a community and tell your value."
+      "it": "Strategia e contenuti per raccontare il tuo valore e costruire una community.",
+      "en": "Strategy and content to showcase your value and build a community."
+    },
+    "cta": {
+      "it": "Scopri la gestione social",
+      "en": "Discover social management"
     }
   },
   {
     "id": "infra",
     "icon": "server",
+    "path": "/servizi/infrastrutture",
     "title": {
       "it": "Infrastrutture",
       "en": "Infrastructure"
     },
     "description": {
-      "it": "Setup server e architetture Docker per garantire stabilità e performance.",
-      "en": "Server setup and Docker architectures to ensure stability and performance."
+      "it": "Hosting, server e ambienti Docker configurati per stabilità, sicurezza e prestazioni.",
+      "en": "Hosting, servers, and Docker environments configured for stability, security, and performance."
+    },
+    "cta": {
+      "it": "Scopri le infrastrutture",
+      "en": "Discover infrastructure"
     }
   },
   {
     "id": "automation",
     "icon": "settings",
+    "path": "/servizi/automazioni",
     "title": {
       "it": "Automazioni",
       "en": "Automations"
     },
     "description": {
-      "it": "Sviluppo di flussi per automatizzare task ripetitivi e far risparmiare tempo.",
-      "en": "Development of workflows to automate repetitive tasks and save time."
+      "it": "Flussi che eliminano attività ripetitive, riducono gli errori e fanno risparmiare tempo.",
+      "en": "Workflows that eliminate repetitive tasks, reduce errors, and save time."
+    },
+    "cta": {
+      "it": "Scopri le automazioni",
+      "en": "Discover automations"
     }
   }
 ]

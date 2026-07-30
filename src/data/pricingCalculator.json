@@ -2,12 +2,12 @@
   {
     "id": "website",
     "category": {
-      "it": "Sito Web",
+      "it": "Sito web",
       "en": "Website"
     },
     "description": {
-      "it": "Design e sviluppo di siti che raccontano chi sei, non solo cosa vendi.",
-      "en": "Design and development of sites that tell who you are, not just what you sell."
+      "it": "Design e sviluppo di un sito costruito intorno ai tuoi obiettivi.",
+      "en": "Design and development of a site built around your goals."
     },
     "options": [
       {
@@ -51,12 +51,12 @@
   {
     "id": "app",
     "category": {
-      "it": "Gestionali & App",
-      "en": "Apps & Mgmt"
+      "it": "Gestionali e app",
+      "en": "Management & apps"
     },
     "description": {
-      "it": "Strumenti su misura per ottimizzare il tuo flusso di lavoro.",
-      "en": "Custom tools to optimize your workflow."
+      "it": "Strumenti su misura per semplificare e organizzare il tuo lavoro.",
+      "en": "Custom tools to simplify and organize your work."
     },
     "options": [
       {
@@ -100,12 +100,12 @@
   {
     "id": "brand",
     "category": {
-      "it": "Grafica & Brand",
-      "en": "Graphics & Brand"
+      "it": "Grafica e brand",
+      "en": "Graphics & brand"
     },
     "description": {
-      "it": "Identità visiva coerente, creata da un esperto con background già formato (senza costi aggiuntivi).",
-      "en": "Consistent visual identity, created by an expert with a strong background (no extra costs)."
+      "it": "Logo e sistema visivo coordinato per il tuo progetto.",
+      "en": "Logo and visual system tailored to your project."
     },
     "options": [
       {
@@ -149,12 +149,12 @@
   {
     "id": "social",
     "category": {
-      "it": "Social Media",
-      "en": "Social Media"
+      "it": "Social media",
+      "en": "Social media"
     },
     "description": {
-      "it": "Gestione strategica per costruire una community e raccontare il tuo valore.",
-      "en": "Strategic management to build a community and tell your value."
+      "it": "Strategia e gestione della tua comunicazione online.",
+      "en": "Strategy and management of your online communication."
     },
     "options": [
       {
@@ -198,12 +198,12 @@
   {
     "id": "infra",
     "category": {
-      "it": "Infrastrutture (Opzionale)",
-      "en": "Infrastructure (Optional)"
+      "it": "Infrastrutture — opzionale",
+      "en": "Infrastructure — optional"
     },
     "description": {
-      "it": "Setup server e architetture Docker per garantire stabilità e performance.",
-      "en": "Server setup and Docker architectures to ensure stability and performance."
+      "it": "Hosting, server e ambienti Docker per pubblicare il progetto.",
+      "en": "Hosting, servers, and Docker environments to publish the project."
     },
     "options": [
       {
@@ -227,8 +227,8 @@
       "en": "Copywriting"
     },
     "description": {
-      "it": "Scrittura di testi persuasivi e professionali per il tuo sito web.",
-      "en": "Writing persuasive and professional texts for your website."
+      "it": "Testi chiari e professionali per comunicare meglio il tuo valore.",
+      "en": "Clear and professional texts to better communicate your value."
     },
     "options": [
       {
@@ -273,11 +273,11 @@
     "id": "seo",
     "category": {
       "it": "Ottimizzazione SEO",
-      "en": "SEO Optimization"
+      "en": "SEO optimization"
     },
     "description": {
-      "it": "Migliora la visibilità sui motori di ricerca per farti trovare dai clienti.",
-      "en": "Improve search engine visibility to get found by clients."
+      "it": "Interventi tecnici e contenuti pensati per migliorare la visibilità online.",
+      "en": "Technical improvements and content designed to enhance online visibility."
     },
     "options": [
       {
@@ -321,12 +321,12 @@
   {
     "id": "automation",
     "category": {
-      "it": "Automazioni & Workflow",
-      "en": "Automations & Workflows"
+      "it": "Automazioni e workflow",
+      "en": "Automations & workflows"
     },
     "description": {
-      "it": "Elimina i lavori ripetitivi automatizzando i processi tra i software che usi ogni giorno.",
-      "en": "Eliminate repetitive tasks by automating processes between your everyday software."
+      "it": "Collegamenti e flussi automatici tra gli strumenti che utilizzi ogni giorno.",
+      "en": "Automatic connections and flows between the tools you use every day."
     },
     "options": [
       {

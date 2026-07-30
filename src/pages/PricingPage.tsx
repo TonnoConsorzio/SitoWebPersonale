@@ -1,8 +1,8 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
-import { Navigation } from '../components/Navigation';
-import { Footer } from '../components/Footer';
-import { Check, Info } from 'lucide-react';
+import { Navigation } from '../components/sections/Navigation';
+import { Footer } from '../components/sections/Footer';
+import { Check, Info, Sparkles, ArrowRight } from 'lucide-react';
 import pricingData from '../data/pricingCalculator.json';
 import { RequestModal } from '../components/RequestModal';
 import { SEO } from '../components/SEO';
@@ -40,7 +40,6 @@ export function PricingPage() {
 
   const selectedCount = Object.keys(selectedOptions).length;
 
-  // Sconto bundle: 3% se 2 servizi, 5% se 3+ servizi
   const discountPercent = selectedCount >= 3 ? 5 : selectedCount === 2 ? 3 : 0;
 
   const { subtotal, discount, total } = useMemo(() => {
@@ -75,25 +74,52 @@ export function PricingPage() {
   return (
     <>
       <SEO 
-        title="Prezzi e Configuratore Pacchetti" 
-        description="Calcola il preventivo per il tuo sito web, gestionale o brand identity. Scegli i servizi e ottieni subito una stima dei costi. Il 10% va in donazione."
+        title="Prezzi e Stima del Progetto | Alessio Bellan" 
+        description="Calcola una stima guidata o configura le opzioni per il tuo progetto digitale. Trasparenza sui costi e il 10% in donazione ad ABBO APS."
         canonical="/prezzi"
       />
       <Navigation />
-      <main className="pt-32 pb-24 px-6 md:px-8 max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h1 className="font-display text-5xl md:text-7xl mb-6 text-primary">Crea il tuo pacchetto</h1>
-          <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            Invece di pacchetti fissi, scegli esattamente cosa ti serve. Più servizi selezioni, maggiore sarà lo sconto bundle applicato automaticamente. Trasparenza totale.
+
+      <main className="pt-28 pb-24 px-6 md:px-8 max-w-7xl mx-auto space-y-12">
+        {/* Banner Callout for Guided Estimator */}
+        <div className="liquid-glass p-6 md:p-8 rounded-3xl border border-primary/30 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="space-y-1 text-center md:text-left">
+            <div className="inline-flex items-center gap-1.5 text-xs font-mono text-primary uppercase">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>STIMA GUIDATA</span>
+            </div>
+            <h2 className="text-xl md:text-2xl font-display text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>
+              Vuoi calcolare una prima fascia di prezzo in 1 minuto?
+            </h2>
+            <p className="text-xs text-muted-foreground">
+              Rispondi alle domande del nostro stimatore guidato senza inserire l'email.
+            </p>
+          </div>
+          <Link
+            to="/stima-progetto"
+            className="liquid-glass rounded-full px-6 py-3 text-foreground font-medium hover:scale-[1.03] transition-transform text-xs shadow-lg shrink-0 flex items-center gap-2"
+          >
+            <span>Prova lo stimatore</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        <div className="text-center">
+          <h1 className="font-display text-4xl md:text-6xl mb-4 text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>
+            Listino e opzioni
+          </h1>
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+            Scegli esattamente le voci di cui hai bisogno oppure richiedi direttamente una prima stima.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          
           <div className="lg:col-span-2 space-y-12">
             {pricingData.map((category: any) => (
               <section key={category.id}>
-                <h2 className="font-display text-2xl mb-6 text-foreground border-b border-white/10 pb-4">{category.category}</h2>
+                <h2 className="font-display text-2xl mb-6 text-foreground border-b border-white/10 pb-4" style={{ fontFamily: "'Instrument Serif', serif" }}>
+                  {category.category}
+                </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {category.options.map((option: any) => {
                     const isSelected = selectedOptions[category.id] === option.id;
@@ -104,7 +130,7 @@ export function PricingPage() {
                         className={`cursor-pointer rounded-2xl p-6 transition-all duration-300 border flex flex-col ${isSelected ? 'bg-primary/10 border-primary shadow-[0_0_20px_rgba(var(--primary),0.15)]' : 'liquid-glass border-transparent hover:border-white/10'}`}
                       >
                         <div className="flex justify-between items-start mb-3">
-                          <h3 className={`font-display text-lg ${isSelected ? 'text-primary' : 'text-foreground'}`}>
+                          <h3 className={`font-display text-base font-medium ${isSelected ? 'text-primary' : 'text-foreground'}`}>
                             {option.label}
                           </h3>
                           <div className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 ml-2 ${isSelected ? 'border-primary bg-primary text-primary-foreground' : 'border-white/20'}`}>
@@ -114,7 +140,7 @@ export function PricingPage() {
                         <div className="text-xl font-bold mb-3 flex-grow">
                           €{option.price}
                         </div>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
+                        <p className="text-xs text-muted-foreground leading-relaxed">
                           {option.description}
                         </p>
                       </div>
@@ -127,10 +153,10 @@ export function PricingPage() {
 
           <div className="lg:col-span-1">
             <div className="sticky top-32 liquid-glass rounded-3xl p-8 border border-white/10">
-              <h2 className="font-display text-3xl mb-6 text-primary">Riepilogo</h2>
+              <h2 className="font-display text-2xl mb-6 text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>Riepilogo</h2>
               
               {selectedCount === 0 ? (
-                <p className="text-muted-foreground text-sm italic mb-8">Nessun servizio selezionato. Scegli le opzioni a sinistra per comporre il tuo pacchetto.</p>
+                <p className="text-muted-foreground text-xs italic mb-8">Nessun servizio selezionato. Scegli le opzioni a sinistra per comporre il tuo pacchetto.</p>
               ) : (
                 <div className="space-y-4 mb-8">
                   {Object.entries(selectedOptions).map(([catId, optId]) => {
@@ -138,9 +164,9 @@ export function PricingPage() {
                     const opt = cat?.options.find((o: any) => o.id === optId);
                     if (!cat || !opt) return null;
                     return (
-                      <div key={catId} className="flex justify-between items-center text-sm border-b border-white/5 pb-4 last:border-0 last:pb-0">
+                      <div key={catId} className="flex justify-between items-center text-xs border-b border-white/5 pb-4 last:border-0 last:pb-0">
                         <div>
-                          <div className="text-muted-foreground text-sm mb-1">{cat.category}</div>
+                          <div className="text-muted-foreground text-xs mb-1">{cat.category}</div>
                           <div className="text-foreground font-medium">{opt.label}</div>
                         </div>
                         <div className="font-mono text-foreground">€{opt.price}</div>
@@ -150,23 +176,23 @@ export function PricingPage() {
                 </div>
               )}
 
-              <div className="bg-background/50 rounded-2xl p-6 mb-8 border border-white/5">
-                <div className="flex justify-between text-sm mb-3 text-muted-foreground">
+              <div className="bg-black/40 rounded-2xl p-5 mb-8 border border-white/5 space-y-2">
+                <div className="flex justify-between text-xs text-muted-foreground">
                   <span>Subtotale</span>
                   <span>€{subtotal}</span>
                 </div>
                 {discount > 0 && (
-                  <div className="flex justify-between text-sm mb-3 text-emerald-400 font-medium">
+                  <div className="flex justify-between text-xs text-emerald-400 font-medium">
                     <span>Sconto Bundle ({discountPercent}%)</span>
                     <span>-€{discount}</span>
                   </div>
                 )}
-                <div className="flex justify-between text-2xl font-bold text-primary mt-4 pt-4 border-t border-white/10">
+                <div className="flex justify-between text-xl font-bold text-primary mt-3 pt-3 border-t border-white/10">
                   <span>Totale stimato</span>
                   <span>€{total}</span>
                 </div>
                 {total > 0 && (
-                  <div className="flex justify-between text-sm mt-3 text-emerald-400 font-medium">
+                  <div className="flex justify-between text-xs text-emerald-400 font-medium pt-1">
                     <span>In donazione (10%)</span>
                     <span>€{Math.round(total * 0.1)}</span>
                   </div>
@@ -175,7 +201,7 @@ export function PricingPage() {
 
               <button 
                 type="button"
-                className={`block text-center rounded-full w-full py-4 text-base font-medium transition-all ${selectedCount > 0 ? 'bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-[1.02] shadow-[0_0_20px_rgba(var(--primary),0.2)]' : 'bg-white/5 text-muted-foreground cursor-not-allowed'}`}
+                className={`block text-center rounded-full w-full py-3.5 text-xs font-medium transition-all ${selectedCount > 0 ? 'bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-[1.02]' : 'bg-white/5 text-muted-foreground cursor-not-allowed'}`}
                 onClick={() => {
                   if (selectedCount > 0) setIsModalOpen(true);
                 }}
@@ -183,16 +209,16 @@ export function PricingPage() {
                 Richiedi questo pacchetto
               </button>
 
-              <div className="flex items-start gap-3 mt-6 text-sm text-muted-foreground bg-primary/5 p-4 rounded-xl">
+              <div className="flex items-start gap-2.5 mt-6 text-xs text-muted-foreground bg-white/5 p-4 rounded-xl">
                 <Info className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                 <p>
-                  I prezzi sono indicativi. Dopo la tua richiesta fisseremo una call conoscitiva per confermare le tue reali necessità e stilare un preventivo ufficiale su misura.
+                  I prezzi sono indicativi. Il preventivo ufficiale viene concordato dopo una breve chiamata conoscitiva.
                 </p>
               </div>
 
-              <div className="text-center text-sm text-muted-foreground/80 mt-8">
-                <p className="mb-2 font-medium italic text-emerald-400">Il 10% del totale va in donazione</p>
-                Questo importo sostiene <a href="https://abboaps.it" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">ABBO APS</a> per aiutare e finanziare progetti educativi e laboratori di informatica dedicati ai giovani.
+              <div className="text-center text-xs text-muted-foreground/80 mt-6">
+                <p className="mb-1 font-medium text-emerald-400">Il 10% del totale va in donazione</p>
+                Sostiene <a href="https://abboaps.it" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">ABBO APS</a> per progetti educativi ed informatica.
               </div>
             </div>
           </div>

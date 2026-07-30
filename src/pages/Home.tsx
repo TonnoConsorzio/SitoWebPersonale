@@ -3,7 +3,7 @@ import { Navigation } from '../components/sections/Navigation';
 import { Hero } from '../components/sections/Hero';
 import { StatsBar } from '../components/sections/StatsBar';
 import { Services } from '../components/sections/Services';
-import { PricingCalculator } from '../components/sections/PricingCalculator';
+import { EstimatorCallout } from '../components/sections/EstimatorCallout';
 import { PricingPackages } from '../components/sections/PricingPackages';
 import { PortfolioGrid } from '../components/sections/PortfolioGrid';
 import { Testimonials } from '../components/sections/Testimonials';
@@ -30,7 +30,7 @@ export function Home() {
         <StatsBar />
         <About />
         <Services />
-        <PricingCalculator />
+        <EstimatorCallout />
         <PricingPackages />
         <PortfolioGrid />
         <Education />

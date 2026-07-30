@@ -44,7 +44,7 @@ export function Journal() {
 
       <div className={`flex flex-col items-center justify-center text-center ${isInView ? 'animate-fade-rise-delay-2' : 'opacity-0'}`}>
         
-        <p className="text-lg text-foreground mb-6">Seguimi per aggiornamenti</p>
+        <p className="text-lg text-foreground mb-6">Seguimi per gli aggiornamenti</p>
         <div className="flex gap-4">
           <a href={config.social.linkedin} target="_blank" rel="noopener noreferrer" className="liquid-glass rounded-full p-4 text-foreground hover:scale-[1.05] hover:bg-white/10 transition-all">
             <Linkedin className="w-6 h-6" strokeWidth={1.5} />

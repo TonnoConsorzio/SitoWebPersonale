@@ -17,17 +17,26 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-8 text-center flex flex-col items-center">
-        <h1 className={`text-5xl sm:text-7xl md:text-8xl font-display leading-tight mb-8 max-w-5xl ${isInView ? 'animate-fade-rise' : 'opacity-0'}`}>
-          {t('hero.title_part1')}<em className="not-italic text-muted-foreground font-display" style={{ fontFamily: "'Instrument Serif', serif" }}>{t('hero.title_highlight')}</em><br/>{t('hero.title_part2')}
+        <div className={`inline-block mb-6 px-4 py-1.5 rounded-full liquid-glass text-xs md:text-sm font-medium text-primary tracking-wide ${isInView ? 'animate-fade-rise' : 'opacity-0'}`}>
+          {t('hero.badge')}
+        </div>
+
+        <h1 className={`text-4xl sm:text-6xl md:text-7xl font-display leading-tight mb-8 max-w-5xl ${isInView ? 'animate-fade-rise' : 'opacity-0'}`}>
+          {t('hero.title_part1')}<em className="not-italic text-muted-foreground font-display" style={{ fontFamily: "'Instrument Serif', serif" }}>{t('hero.title_highlight')}</em>
         </h1>
         
-        <p className={`text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mb-12 ${isInView ? 'animate-fade-rise-delay' : 'opacity-0'}`}>
+        <p className={`text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mb-12 whitespace-pre-line ${isInView ? 'animate-fade-rise-delay' : 'opacity-0'}`}>
           {t('hero.subtitle')}
         </p>
 
-        <a href="#portfolio" className={`liquid-glass rounded-full px-8 py-4 text-foreground font-medium hover:scale-[1.03] transition-transform ${isInView ? 'animate-fade-rise-delay-2' : 'opacity-0'}`}>
-          {t('hero.cta')}
-        </a>
+        <div className={`flex flex-col sm:flex-row gap-4 items-center justify-center ${isInView ? 'animate-fade-rise-delay-2' : 'opacity-0'}`}>
+          <a href="#contatti" className="liquid-glass rounded-full px-8 py-4 text-foreground font-medium hover:scale-[1.03] transition-transform">
+            {t('hero.cta_primary')}
+          </a>
+          <a href="#portfolio" className="bg-white/5 border border-white/10 rounded-full px-8 py-4 text-muted-foreground font-medium hover:text-foreground hover:bg-white/10 transition-all">
+            {t('hero.cta_secondary')}
+          </a>
+        </div>
       </div>
     </section>
   );

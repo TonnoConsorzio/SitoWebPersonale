@@ -10,11 +10,12 @@ export function Contact() {
     <section id="contatti" ref={ref as any} className="py-24 px-8 max-w-7xl mx-auto">
       <div className={`mb-16 text-center ${isInView ? 'animate-fade-rise' : 'opacity-0'}`}>
         <h2 className="text-4xl md:text-5xl font-display text-foreground mb-4" style={{ fontFamily: "'Instrument Serif', serif" }}>{t('contact.title')}</h2>
-        <p className="text-muted-foreground text-lg">{t('contact.subtitle')}</p>
+        <p className="text-muted-foreground text-lg max-w-2xl mx-auto whitespace-pre-line leading-relaxed">{t('contact.subtitle')}</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className={`liquid-glass rounded-3xl p-8 md:p-12 ${isInView ? 'animate-fade-rise-delay' : 'opacity-0'}`}>
+          <h3 className="text-2xl font-display text-foreground mb-6" style={{ fontFamily: "'Instrument Serif', serif" }}>Modulo di contatto</h3>
           <form className="space-y-6">
             <div>
               <label htmlFor="name" className="block text-sm text-muted-foreground mb-2">{t('contact.form_name')}</label>
@@ -28,11 +29,13 @@ export function Contact() {
               <label htmlFor="service" className="block text-sm text-muted-foreground mb-2">{t('contact.form_service')}</label>
               <select id="service" className="w-full bg-input/50 border border-white/10 rounded-xl px-4 py-3 text-foreground focus:outline-none focus:border-white/30 transition-colors appearance-none">
                 <option value="">{t('contact.form_service_ph')}</option>
-                <option value="web">{t('services.web')}</option>
-                <option value="app">{t('services.app')}</option>
-                <option value="brand">{t('services.brand')}</option>
-                <option value="social">{t('services.social')}</option>
-                <option value="infra">{t('services.infra')}</option>
+                <option value="web">{t('contact.opt_web')}</option>
+                <option value="app">{t('contact.opt_app')}</option>
+                <option value="brand">{t('contact.opt_brand')}</option>
+                <option value="social">{t('contact.opt_social')}</option>
+                <option value="infra">{t('contact.opt_infra')}</option>
+                <option value="auto">{t('contact.opt_auto')}</option>
+                <option value="unsure">{t('contact.opt_unsure')}</option>
               </select>
             </div>
             <div>
@@ -48,7 +51,7 @@ export function Contact() {
         <div className={`liquid-glass rounded-3xl p-8 md:p-12 flex flex-col h-full min-h-[500px] ${isInView ? 'animate-fade-rise-delay-2' : 'opacity-0'}`}>
           <h3 className="text-2xl font-display text-foreground mb-6" style={{ fontFamily: "'Instrument Serif', serif" }}>{t('contact.cal_title')}</h3>
           <div className="flex-1 rounded-xl overflow-hidden bg-background/50 border border-white/10 relative flex flex-col items-center justify-center p-8 text-center min-h-[300px]">
-            <p className="text-muted-foreground mb-8">
+            <p className="text-muted-foreground mb-8 whitespace-pre-line leading-relaxed">
               {t('contact.cal_desc')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

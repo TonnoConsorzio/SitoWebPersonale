@@ -11,6 +11,8 @@ const CurriculumPage = lazy(() => import('./pages/CurriculumPage').then(module =
 const PortfolioPage = lazy(() => import('./pages/PortfolioPage').then(module => ({ default: module.PortfolioPage })));
 const ProjectPage = lazy(() => import('./pages/ProjectPage').then(module => ({ default: module.ProjectPage })));
 const PricingPage = lazy(() => import('./pages/PricingPage').then(module => ({ default: module.PricingPage })));
+const ProjectEstimatorPage = lazy(() => import('./pages/ProjectEstimatorPage').then(module => ({ default: module.ProjectEstimatorPage })));
+const ServicesOverviewPage = lazy(() => import('./pages/ServicesOverviewPage').then(module => ({ default: module.ServicesOverviewPage })));
 const LandingPage = lazy(() => import('./pages/LandingPage').then(module => ({ default: module.LandingPage })));
 const ArticlePage = lazy(() => import('./pages/ArticlePage').then(module => ({ default: module.ArticlePage })));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then(module => ({ default: module.NotFoundPage })));
@@ -30,6 +32,8 @@ export default function App() {
               <Route path="/portfolio" element={<PortfolioPage />} />
               <Route path="/portfolio/:id" element={<ProjectPage />} />
               <Route path="/prezzi" element={<PricingPage />} />
+              <Route path="/stima-progetto" element={<ProjectEstimatorPage />} />
+              <Route path="/servizi" element={<ServicesOverviewPage />} />
               <Route path="/servizi/:id" element={<LandingPage />} />
               <Route path="/journal/:slug" element={<ArticlePage />} />
               <Route path="*" element={<NotFoundPage />} />

@@ -1,33 +1,79 @@
 [
   {
     "name": { "it": "Presenza Digitale", "en": "Digital Presence" },
-    "price": "790€",
-    "originalPrice": "880€",
-    "savings": { "it": "Risparmio 90€", "en": "Save 90€" },
+    "price": "790 €",
+    "originalPrice": "880 €",
+    "savings": { "it": "Risparmi 90 €", "en": "Save 90 €" },
+    "description": {
+      "it": "",
+      "en": ""
+    },
     "features": {
-      "it": ["Sito Essenziale", "Logo"],
-      "en": ["Essential Site", "Logo"]
+      "it": [
+        "Sito Essenziale",
+        "Logo"
+      ],
+      "en": [
+        "Essential Website",
+        "Logo"
+      ]
+    },
+    "cta": {
+      "it": "Richiedi informazioni",
+      "en": "Request information"
     }
   },
   {
     "name": { "it": "Crescita", "en": "Growth" },
-    "price": "2.030€",
-    "originalPrice": "2.255€",
-    "savings": { "it": "Risparmio 225€", "en": "Save 225€" },
+    "price": "2.030 €",
+    "originalPrice": "2.255 €",
+    "savings": { "it": "Risparmi 225 €", "en": "Save 225 €" },
     "featured": true,
+    "description": {
+      "it": "",
+      "en": ""
+    },
     "features": {
-      "it": ["Sito Standard", "Brand Kit", "Setup Server"],
-      "en": ["Standard Site", "Brand Kit", "Server Setup"]
+      "it": [
+        "Sito Standard",
+        "Brand Kit",
+        "Configurazione server"
+      ],
+      "en": [
+        "Standard Website",
+        "Brand Kit",
+        "Server configuration"
+      ]
+    },
+    "cta": {
+      "it": "Richiedi informazioni",
+      "en": "Request information"
     }
   },
   {
     "name": { "it": "Full Experience", "en": "Full Experience" },
-    "price": "4.450€",
-    "originalPrice": "4.950€",
-    "savings": { "it": "Risparmio 500€", "en": "Save 500€" },
+    "price": "4.450 €",
+    "originalPrice": "4.950 €",
+    "savings": { "it": "Risparmi 500 €", "en": "Save 500 €" },
+    "description": {
+      "it": "",
+      "en": ""
+    },
     "features": {
-      "it": ["Sito Su Misura", "Identità Completa", "Gestionale Base"],
-      "en": ["Custom Site", "Full Identity", "Basic Management App"]
+      "it": [
+        "Sito su misura",
+        "Identità completa",
+        "Gestionale base"
+      ],
+      "en": [
+        "Custom Website",
+        "Complete Identity",
+        "Basic Management Tool"
+      ]
+    },
+    "cta": {
+      "it": "Richiedi informazioni",
+      "en": "Request information"
     }
   }
 ]

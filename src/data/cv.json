@@ -2,24 +2,30 @@
   "education": [
     {
       "title": {
-        "it": "IFTS Marketing & Intelligenza Artificiale",
+        "it": "IFTS Marketing e Intelligenza Artificiale",
         "en": "IFTS Marketing & Artificial Intelligence"
       },
-      "school": "Fondazione AMMI",
+      "school": {
+        "it": "Essence Academy",
+        "en": "Essence Academy"
+      },
       "period": {
-        "it": "ott 2026 - mag 2027",
-        "en": "Oct 2026 - May 2027"
+        "it": "In partenza: ottobre 2026 – maggio 2027",
+        "en": "Starting: October 2026 – May 2027"
       }
     },
     {
       "title": {
-        "it": "Tecnico Di Gestione delle reti e impianti TLC, IFTS System administration",
-        "en": "TLC Network & Systems Management Technician, IFTS System Administration"
+        "it": "IFTS Tecnico per la gestione delle reti e degli impianti TLC",
+        "en": "IFTS TLC Network & Systems Management Technician"
       },
-      "school": "Galdus Formazione",
+      "school": {
+        "it": "System Administration | Galdus Formazione",
+        "en": "System Administration | Galdus Formazione"
+      },
       "period": {
-        "it": "ott 2025 - mag 2026",
-        "en": "Oct 2025 - May 2026"
+        "it": "Ottobre 2025 – maggio 2026",
+        "en": "October 2025 – May 2026"
       }
     },
     {
@@ -27,10 +33,13 @@
         "it": "Tecnico Grafico Ipermediale",
         "en": "Hypermedia Graphic Technician"
       },
-      "school": "E.C.Fo.P",
+      "school": {
+        "it": "E.C.Fo.P",
+        "en": "E.C.Fo.P"
+      },
       "period": {
-        "it": "set 2024 - giu 2025",
-        "en": "Sep 2024 - Jun 2025"
+        "it": "Settembre 2024 – giugno 2025",
+        "en": "September 2024 – June 2025"
       }
     },
     {
@@ -38,10 +47,13 @@
         "it": "Operatore Grafico Multimediale",
         "en": "Multimedia Graphic Operator"
       },
-      "school": "E.C.Fo.P",
+      "school": {
+        "it": "E.C.Fo.P",
+        "en": "E.C.Fo.P"
+      },
       "period": {
-        "it": "set 2021 - giu 2024",
-        "en": "Sep 2021 - Jun 2024"
+        "it": "Settembre 2021 – giugno 2024",
+        "en": "September 2021 – June 2024"
       }
     }
   ],
@@ -55,16 +67,20 @@
       "en": "Marketing"
     },
     {
-      "it": "AI",
-      "en": "AI"
+      "it": "Intelligenza artificiale",
+      "en": "Artificial intelligence"
     },
     {
-      "it": "Sviluppo Siti Web",
-      "en": "Web Development"
+      "it": "Sviluppo web",
+      "en": "Web development"
     },
     {
       "it": "Grafica",
-      "en": "Graphic Design"
+      "en": "Graphics"
+    },
+    {
+      "it": "Automazioni",
+      "en": "Automations"
     }
   ]
 }

@@ -8,31 +8,38 @@ export function FAQ() {
   const { ref, isInView } = useInView({ threshold: 0.1, triggerOnce: true });
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
-  const faqs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(i => ({
+  // 5 core commercial FAQs for maximum clarity
+  const faqIndices = [1, 3, 4, 7, 10];
+
+  const faqs = faqIndices.map(i => ({
     question: t(`faq.q${i}`),
     answer: t(`faq.a${i}`)
   }));
 
   return (
-    <section id="faq" ref={ref as any} className="py-24 px-8 max-w-4xl mx-auto">
-      <div className={`mb-16 text-center ${isInView ? 'animate-fade-rise' : 'opacity-0'}`}>
-        <h2 className="text-4xl md:text-5xl font-display text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>{t('faq.title')}</h2>
+    <section id="faq" ref={ref as any} className="py-24 px-6 md:px-8 max-w-4xl mx-auto">
+      <div className={`mb-12 text-center ${isInView ? 'animate-fade-rise' : 'opacity-0'}`}>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>
+          Domande frequenti
+        </h2>
       </div>
 
-      <div className={`liquid-glass rounded-3xl p-6 md:p-8 ${isInView ? 'animate-fade-rise-delay' : 'opacity-0'}`}>
+      <div className={`liquid-glass rounded-3xl p-6 md:p-8 border border-white/10 ${isInView ? 'animate-fade-rise-delay' : 'opacity-0'}`}>
         {faqs.map((faq, idx) => (
-          <div key={idx} className="border-b border-white/5 last:border-0">
+          <div key={idx} className="border-b border-white/10 last:border-0">
             <button
               onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
-              className="w-full py-6 flex items-center justify-between text-left focus:outline-none"
+              className="w-full py-5 flex items-center justify-between text-left focus:outline-none"
             >
-              <h3 className="text-2xl font-display text-foreground pr-8" style={{ fontFamily: "'Instrument Serif', serif" }}>{faq.question}</h3>
-              <ChevronDown className={`w-6 h-6 text-muted-foreground shrink-0 transition-transform duration-300 ${openIdx === idx ? 'rotate-180' : ''}`} />
+              <h3 className="text-lg md:text-xl font-display text-foreground pr-6" style={{ fontFamily: "'Instrument Serif', serif" }}>
+                {faq.question}
+              </h3>
+              <ChevronDown className={`w-5 h-5 text-muted-foreground shrink-0 transition-transform duration-300 ${openIdx === idx ? 'rotate-180' : ''}`} />
             </button>
             <div 
-              className={`overflow-hidden transition-all duration-300 ease-in-out ${openIdx === idx ? 'max-h-96 opacity-100 pb-6' : 'max-h-0 opacity-0'}`}
+              className={`overflow-hidden transition-all duration-300 ease-in-out ${openIdx === idx ? 'max-h-[300px] opacity-100 pb-5' : 'max-h-0 opacity-0'}`}
             >
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground text-sm leading-relaxed whitespace-pre-line max-w-[65ch]">
                 {faq.answer}
               </p>
             </div>

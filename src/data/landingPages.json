@@ -1,214 +1,129 @@
 {
   "siti-web": {
-    "titleTag": "Siti Web su Misura a Monza, Milano, Lecco, Bergamo | Da 350€",
-    "metaDescription": "Sviluppo siti web che raccontano chi sei, non solo cosa vendi. PMI, associazioni, professionisti in Lombardia. Preventivo in 48 ore.",
-    "h1": "Un sito web non è una vetrina. È il modo in cui qualcuno ti conosce prima ancora di stringerti la mano.",
-    "intro": "Progetto e sviluppo siti web per PMI, associazioni e professionisti a Monza e Brianza, Milano, Lecco e Bergamo, partendo da 350€ per una landing e da 700€ per un sito completo con CMS. Ma il prezzo è solo la parte misurabile — quello che consegno è un sito che racconta la storia di chi lo possiede, non solo l'elenco dei suoi servizi.",
+    "titleTag": "Siti Web su Misura | Monza, Milano, Lecco, Bergamo",
+    "metaDescription": "Sviluppo siti web veloci e trasparenti per professionisti e PMI in Lombardia. Da 350€.",
+    "h1": "Un sito web chiaro per spiegare cosa fai.",
+    "intro": "Sviluppo siti web veloci e strutturati per professionisti, PMI ed associazioni a Monza, Milano, Lecco e Bergamo. Partiamo da 350€ per landing page ed 700€ per siti multipagina completi.",
     "sections": [
       {
-        "title": "Quanto costa un sito web professionale?",
-        "content": "Tre fasce, a seconda di cosa serve davvero: **Essenziale** (350-450€, una pagina, ideale per chi ha bisogno di esistere online in fretta), **Standard** (700-950€, 3-5 pagine, CMS gestibile in autonomia, SEO base — la scelta più comune), **Su misura** (da 1.500€, design completamente originale, multilingua, integrazioni come booking o e-commerce). Ogni fascia include hosting e setup tecnico di base."
+        "title": "Costi indicativi",
+        "content": "**Essenziale** (350-450€, una pagina, ideale per iniziare), **Standard** (700-950€, 3-5 pagine con gestione contenuti — la scelta più comune), **Su misura** (da 1.500€, design e funzioni personalizzate). Ognuno include setup tecnico e hosting base."
       },
       {
-        "title": "Perché un sito che \"racconta\" invece di un sito che \"elenca\"",
-        "content": "La maggior parte dei siti di PMI e associazioni sono cataloghi: elenco servizi, elenco prodotti, form contatti. Funzionano, ma non restano in mente. Il mio approccio parte da una domanda diversa: cosa rende diversa questa attività da un'altra che fa la stessa cosa? Quella risposta diventa il filo conduttore del sito — nel testo, nelle immagini, nel modo in cui le sezioni si susseguono. Non è decorazione: è quello che fa sì che un visitatore si ricordi di te."
+        "title": "Perché un sito sintetico funziona meglio",
+        "content": "Un sito sovraccarico di testo fa scappare i visitatori. Progetto layout puliti dove ogni sezione risponde a una domanda precisa e guida verso il contatto."
       },
       {
-        "title": "Quanto tempo serve per realizzare un sito web?",
-        "content": "Un sito Essenziale è pronto in 1-2 settimane. Uno Standard richiede 3-4 settimane. Un progetto Su misura, con contenuti multilingua o integrazioni complesse, va da 6 settimane in su — te lo dico con precisione nel preventivo, non con un generico \"dipende\"."
-      },
-      {
-        "title": "Un sito serve anche a un'associazione, non solo a un'azienda?",
-        "content": "Sì, e con priorità diverse: dove un'azienda cerca conversioni, un'associazione cerca fiducia — trasparenza su come vengono usati i fondi, facilità di iscrizione, racconto di chi beneficia delle attività. Ho sviluppato siti in entrambi i contesti e so che le due cose non si costruiscono allo stesso modo, anche se la tecnologia sotto è la stessa."
+        "title": "Tempi di consegna",
+        "content": "Landing page pronte in 1-2 settimane. Siti completi in 3-4 settimane."
       }
     ],
     "faq": [
-      {"question": "Il prezzo include il dominio e l'hosting?", "answer": "Il setup tecnico di base è incluso nella fascia Standard e Su misura. Dominio e hosting continuativo hanno un costo separato, indicato chiaramente nel preventivo."},
-      {"question": "Posso modificare i contenuti da solo dopo la consegna?", "answer": "Sì, dalla fascia Standard in su il sito ha un CMS pensato per essere aggiornato senza saper programmare."},
-      {"question": "Lavori solo con siti nuovi o anche restyling di siti esistenti?", "answer": "Entrambi. Un restyling parte generalmente dalla fascia Standard, con uno sconto se si riusa struttura o contenuti esistenti."},
-      {"question": "Il sito sarà visibile su Google?", "answer": "Ogni sito include una base SEO tecnica. Il posizionamento nel tempo dipende anche da contenuti e concorrenza."},
-      {"question": "Fate anche siti e-commerce?", "answer": "Sì, nella fascia Su misura, con gestione prodotti, pagamenti e logistica configurata sulle esigenze reali del cliente."}
+      {"question": "Il prezzo include hosting e dominio?", "answer": "Il setup iniziale è incluso. Dominio e hosting annuale hanno costi chiari indicati nel preventivo."},
+      {"question": "Posso aggiornare i contenuti in autonomia?", "answer": "Sì, nei siti multipagina integro un pannello semplice senza bisogno di competenze tecniche."},
+      {"question": "Il sito sarà ottimizzato per smartphone?", "answer": "Sì, tutti i progetti sono responsive e velocissimi su mobile."}
     ],
-    "cta": "Richiedi un preventivo per il tuo sito entro 48 ore."
+    "cta": "Richiedi una stima per il tuo sito."
   },
   "gestionali": {
-    "titleTag": "Gestionali e App su Misura per PMI | Monza, Milano, Lecco, Bergamo",
-    "metaDescription": "Strumenti costruiti sul tuo flusso di lavoro reale, non software generico adattato a forza. Da 500€, preventivo su misura in 48 ore.",
-    "h1": "Il software dovrebbe adattarsi a come lavori. Quasi mai succede. Io lo costruisco perché succeda.",
-    "intro": "Sviluppo gestionali e applicazioni su misura per PMI, associazioni e professionisti a Monza e Brianza, Milano, Lecco e Bergamo, a partire da 500€ per un micro-tool con una funzione specifica. La differenza rispetto a un software standard non è la tecnologia: è che parto da come lavori davvero tu, non da come lavora la media dei tuoi concorrenti.",
+    "titleTag": "Gestionali su Misura per PMI | Monza, Milano, Lecco, Bergamo",
+    "metaDescription": "Software ed app web costruite sul tuo flusso di lavoro reale. Da 500€.",
+    "h1": "Software gestionali adattati a come lavori.",
+    "intro": "Sviluppo pannelli gestionali e web app per PMI ed associazioni a Monza, Milano, Lecco e Bergamo. Partiamo da 500€ per micro-tool specifici.",
     "sections": [
       {
-        "title": "Quanto costa un gestionale su misura?",
-        "content": "Tre fasce di complessità: **Micro-tool** (500-900€, una funzione precisa — es. gestione prenotazioni o inventario semplice), **Gestionale base** (1.200-2.000€, CRUD completo, login, dashboard, un tipo di utente), **Gestionale avanzato** (da 2.500€, più ruoli, integrazioni esterne, notifiche, reportistica). Il prezzo esatto dipende dal flusso di lavoro reale, quindi parto sempre da una prima chiamata gratuita per capire cosa serve davvero prima di preventivare."
+        "title": "Costi ed opzioni",
+        "content": "**Micro-tool** (500-900€, una funzione specifica es. prenotazioni), **Gestionale base** (1.200-2.000€, archivi, login e generazione PDF), **Gestionale avanzato** (da 2.500€, più ruoli ed integrazioni API)."
       },
       {
-        "title": "Meglio un software su misura o uno standard già pronto?",
-        "content": "Uno standard costa meno all'inizio ma ti fa lavorare come vuole lui — moduli che non usi, altri che mancano, workaround manuali che diventano abitudine. Un software su misura costa di più in partenza ma elimina esattamente i passaggi che oggi ti fanno perdere tempo. La domanda giusta non è \"quanto costa\" ma \"quante ore al mese perdo aggirando i limiti di quello che ho già\"."
-      },
-      {
-        "title": "Quanto tempo serve per sviluppare un gestionale personalizzato?",
-        "content": "Un micro-tool è pronto in 2-3 settimane. Un gestionale base richiede 4-6 settimane. Un gestionale avanzato, con più ruoli e integrazioni, va da 8 settimane in su — con un piano di consegna a milestone, non un'unica consegna finale a sorpresa."
-      },
-      {
-        "title": "Un'associazione ha bisogno di un gestionale come un'azienda?",
-        "content": "Spesso di più: gestione soci, tesseramento, iscrizioni a eventi, tracciamento donazioni — sono processi che nelle associazioni finiscono per vivere su fogli Excel sparsi, con margine d'errore alto. Ho costruito strumenti proprio per questo tipo di esigenza, quindi non parto da zero quando il cliente è un'associazione."
+        "title": "Perché scegliere un software su misura",
+        "content": "I gestionali generici sono pieni di pulsanti inutili. Uno strumento su misura include solo ciò che usate davvero ogni giorno."
       }
     ],
     "faq": [
-      {"question": "Serve competenza tecnica da parte mia per usare il gestionale?", "answer": "No, l'interfaccia è pensata per chi lo usa ogni giorno. Nella consegna è incluso un breve onboarding."},
-      {"question": "Cosa succede se dopo un anno mi serve una funzione in più?", "answer": "Il gestionale è costruito in modo modulare per permettere aggiunte future. Le modifiche successive si preventivano a parte."},
-      {"question": "I miei dati restano di mia proprietà?", "answer": "Sì, sempre. Il gestionale gira su un'infrastruttura controllata dal cliente, non su piattaforme terze."},
-      {"question": "Posso partire con un micro-tool e crescere dopo?", "answer": "Sì, si può partire da una funzione critica e espandere solo dove serve davvero."},
-      {"question": "Fate manutenzione dopo la consegna?", "answer": "Sì, con un canone mensile separato per aggiornamenti, backup e monitoraggio."}
+      {"question": "Serve installare programmi sul computer?", "answer": "No, si accede direttamente da browser su qualsiasi PC o tablet."},
+      {"question": "I dati sono riservati?", "answer": "Sì, il database resta al 100% di tua proprietà su server protetto."}
     ],
-    "cta": "Descrivi il tuo flusso di lavoro, ti rispondo con una prima valutazione entro 48 ore."
+    "cta": "Descrivi le tue esigenze per ricevere una stima."
   },
   "grafica": {
-    "titleTag": "Logo e Brand Identity a Monza, Milano, Lecco, Bergamo | Da 150€",
-    "metaDescription": "Loghi e identità visive che raccontano la tua storia, non solo il tuo nome. PMI, associazioni, professionisti. Prima bozza in una settimana.",
-    "h1": "Un logo non è un disegno. È la prima frase della tua storia che qualcuno legge senza leggerla.",
-    "intro": "Progettiamo loghi e identità visive per PMI, associazioni e professionisti a Monza e Brianza, Milano, Lecco e Bergamo, a partire da 150€ per un logo con due proposte. Il servizio grafico è curato da un socio dedicato interamente al brand design, quindi ogni progetto ha un focus specifico, non è un'aggiunta veloce a un sito web.",
+    "titleTag": "Logo e Brand Identity | Monza, Milano, Lecco, Bergamo",
+    "metaDescription": "Loghi e grafiche essenziali per rendere riconoscibile il tuo progetto. Da 150€.",
+    "h1": "Identità visiva chiara per la tua attività.",
+    "intro": "Progettiamo loghi e brand kit essenziali per professionisti ed associazioni. Da 150€ con vettoriali inclusi.",
     "sections": [
       {
-        "title": "Quanto costa un logo professionale?",
-        "content": "**Logo Start** (150-200€: due proposte, due revisioni, palette colori), **Brand Kit** (350-450€: logo + palette + font + biglietto da visita/carta intestata digitale — la scelta più richiesta), **Identità completa** (600-800€: brand kit + linee guida + template social + firma email). Ogni fascia parte da una breve intervista su chi sei e cosa vuoi comunicare, non da un questionario generico."
-      },
-      {
-        "title": "Cosa include davvero un brand kit completo",
-        "content": "Non solo il logo: la palette colori, la tipografia coerente, le regole minime per non snaturare l'identità nel tempo (dimensioni, spazi, varianti). È quello che permette a chi lavora con te — un tipografo, un social media manager, un fornitore — di riprodurre la tua identità senza doverti chiedere ogni volta \"che font uso?\"."
-      },
-      {
-        "title": "Quanto tempo serve per creare un'identità visiva?",
-        "content": "Un Logo Start è pronto in una settimana dalla prima bozza. Un Brand Kit richiede 2-3 settimane. Un'Identità completa, con linee guida e template, va da 3-4 settimane — con una revisione intermedia per allinearci prima della consegna finale."
-      },
-      {
-        "title": "Perché un'associazione ha bisogno di un'identità visiva coerente quanto un'azienda?",
-        "content": "Perché la fiducia si costruisce anche visivamente: un'associazione con materiali coerenti (logo, colori, template eventi) comunica serietà a soci e donatori tanto quanto un bilancio trasparente. Abbiamo lavorato anche su identità per realtà no-profit, con la stessa cura riservata a un brand commerciale."
+        "title": "Pacchetti grafica",
+        "content": "**Logo Start** (150-200€: due proposte e revisioni), **Brand Kit** (350-450€: logo, palette colori, font e modelli coordinati)."
       }
     ],
     "faq": [
-      {"question": "Quante proposte di logo ricevo?", "answer": "Nel Logo Start, due proposte iniziali e due round di revisione. Nelle fasce superiori le revisioni sono incluse fino alla consegna finale concordata."},
-      {"question": "Ricevo i file sorgente modificabili?", "answer": "Sì, sempre — vettoriali più le versioni pronte per web e stampa."},
-      {"question": "Posso richiedere solo il logo senza il resto del brand kit?", "answer": "Sì, il Logo Start è pensato proprio per questo. Il Brand Kit si può aggiungere in un secondo momento."},
-      {"question": "Il logo funziona anche su sfondi scuri?", "answer": "Sì, ogni logo consegnato include le varianti principali per usi diversi."},
-      {"question": "Fate anche materiali stampati oltre al digitale?", "answer": "Sì, biglietti da visita e carta intestata sono inclusi dal Brand Kit in su."}
+      {"question": "Riceverò i file vettoriali?", "answer": "Sì, sempre in formato SVG, PDF ed immagini ad alta risoluzione."}
     ],
-    "cta": "Raccontaci la tua attività, ti proponiamo la prima bozza entro una settimana."
+    "cta": "Richiedi la tua prima bozza grafica."
   },
   "social": {
-    "titleTag": "Gestione Social Media per Aziende e Associazioni | Monza, Milano, Lecco, Bergamo",
-    "metaDescription": "Contenuti e presenza costante sui social, senza che tu debba pensarci. Da 250€/mese. Prenota una chiamata di 15 minuti.",
-    "h1": "I social non perdonano il silenzio. Noi ci pensiamo, così tu puoi occuparti del resto.",
-    "intro": "Gestiamo i social media di PMI, associazioni e professionisti a Monza e Brianza, Milano, Lecco e Bergamo, con abbonamenti mensili a partire da 250€. Non pubblichiamo contenuti a caso per riempire un calendario: ogni post racconta un pezzo della tua storia, con l'obiettivo di costruire una community che si riconosce in te, non solo di generare numeri.",
+    "titleTag": "Gestione Social Media per Aziende | Monza, Milano",
+    "metaDescription": "Piani editoriali e gestione social costante. Da 250€/mese.",
+    "h1": "Gestione social costante e senza fronzoli.",
+    "intro": "Curiamo i canali social di professionisti ed attività locali con piani mensili da 250€.",
     "sections": [
       {
-        "title": "Quanto costa la gestione social media in abbonamento mensile?",
-        "content": "**Base** (250-300€/mese: 8 post/mese, 1 canale, senza ads), **Standard** (450-550€/mese: 12-16 post/mese, 2 canali, stories, report mensile — la scelta più richiesta), **Full** (da 800€/mese: gestione ads e community management inclusi). L'impegno minimo è di 3 mesi, perché i social funzionano con continuità, non con singoli post isolati."
-      },
-      {
-        "title": "Quanti post al mese servono davvero per un'attività locale?",
-        "content": "Dipende dall'obiettivo: per mantenere presenza e credibilità bastano 8 post/mese ben curati. Per costruire crescita attiva servono 12-16 post con stories e interazione continua. Postare di più senza una strategia dietro produce solo rumore — la quantità conta meno della coerenza nel tempo."
-      },
-      {
-        "title": "Conviene gestire i social in autonomia o affidarli a un professionista?",
-        "content": "In autonomia funziona finché è sostenibile nel tempo: il problema arriva quando il lavoro quotidiano assorbe tutto e i social diventano la prima cosa a saltare. Affidarli non significa perdere il controllo — restiamo allineati con report mensili — significa smettere di doverci pensare ogni giorno."
-      },
-      {
-        "title": "La gestione social serve anche a un'associazione, non solo a un'azienda?",
-        "content": "Sì, spesso con un obiettivo diverso: non solo vendita ma partecipazione — far sapere quando c'è un evento, mostrare l'impatto reale delle attività, coinvolgere nuovi soci. Abbiamo gestito canali social sia per realtà commerciali sia per associazioni no-profit, e sappiamo che il tono giusto cambia a seconda del contesto."
+        "title": "Piani mensili",
+        "content": "**Base** (250-300€/mese: 8 post/mese), **Standard** (450-550€/mese: 12-16 post/mese con grafiche e report)."
       }
     ],
     "faq": [
-      {"question": "Chi crea i contenuti, io o voi?", "answer": "Li creiamo noi, partendo da materiale fornito dal cliente o generato appositamente per il piano editoriale concordato."},
-      {"question": "Posso vedere i contenuti prima della pubblicazione?", "answer": "Sì, ogni piano editoriale mensile viene condiviso e approvato prima della pubblicazione."},
-      {"question": "Cosa succede se voglio disdire prima dei 3 mesi minimi?", "answer": "L'impegno minimo è di 3 mesi; oltre questo periodo il rinnovo è mese per mese, senza vincoli."},
-      {"question": "La gestione ads è inclusa nel pacchetto Standard?", "answer": "No, è inclusa solo nel pacchetto Full. Nello Standard le campagne ads si preventivano a parte."},
-      {"question": "Su quali piattaforme lavorate?", "answer": "Principalmente Instagram e Facebook; altri canali si valutano caso per caso in base al target."}
+      {"question": "Devo approvare i post in anticipo?", "answer": "Sì, inviamo il piano editoriale mensile per la conferma prima di ogni pubblicazione."}
     ],
-    "cta": "Prenota una chiamata di 15 minuti per valutare il pacchetto più adatto alla tua attività."
+    "cta": "Prenota una chiamata informativa."
   },
   "infrastrutture": {
-    "titleTag": "Setup Hosting, Server e Docker | Monza, Milano, Lecco, Bergamo",
-    "metaDescription": "Infrastruttura fatta bene una volta sola, non rattoppata ogni volta che qualcosa si rompe. Setup da 300€, manutenzione da 50€/mese.",
-    "h1": "Un sito veloce non basta se l'infrastruttura dietro è fragile. Noi costruiamo la parte che nessuno vede, ma tutti sentono.",
-    "intro": "Configuriamo hosting, server e ambienti Docker per PMI, associazioni e professionisti a Monza e Brianza, Milano, Lecco e Bergamo, con un setup una tantum da 300€ e manutenzione mensile opzionale da 50€. Che tu abbia già un sito o un gestionale, o li stia facendo realizzare da noi, questo servizio garantisce che quello che c'è sopra funzioni davvero, in modo stabile, non solo il giorno del lancio.",
+    "titleTag": "Setup Server, Hosting e Docker | Monza, Milano",
+    "metaDescription": "Setup sistemistico di server cloud, Docker e certificati SSL. Da 300€.",
+    "h1": "Server ed hosting configurati con ordine.",
+    "intro": "Configuriamo VPS, container Docker e certificati di sicurezza per far girare i tuoi siti e gestionali in modo stabile.",
     "sections": [
       {
-        "title": "Quanto costa il setup di un'infrastruttura hosting/Docker?",
-        "content": "Il setup una tantum (300-500€) include configurazione server, containerizzazione Docker, deploy, dominio e certificato SSL. La manutenzione mensile (50-100€) copre aggiornamenti di sicurezza, backup automatici e monitoraggio continuo. Se il setup fa parte di un pacchetto sito/gestionale più grande, è spesso già incluso o scontato."
-      },
-      {
-        "title": "Perché serve manutenzione mensile e non basta il setup iniziale?",
-        "content": "Un'infrastruttura configurata bene oggi si degrada nel tempo se non viene aggiornata: vulnerabilità di sicurezza, backup mai testati, certificati SSL in scadenza. La manutenzione non è un costo ricorrente inutile — è quello che evita che un problema piccolo (un aggiornamento saltato) diventi un problema grande (un sito offline per giorni)."
-      },
-      {
-        "title": "Cosa succede se il mio sito è già online ma senza un'infrastruttura solida?",
-        "content": "Molti siti \"funzionano\" finché non arriva un picco di traffico, un attacco automatizzato, o semplicemente il tempo che rende obsoleti componenti mai aggiornati. Facciamo una valutazione gratuita dell'infrastruttura esistente e ti diciamo con chiarezza cosa rischi e cosa ha senso sistemare subito rispetto a cosa può aspettare."
-      },
-      {
-        "title": "Serve competenza tecnica da parte mia per gestire tutto questo?",
-        "content": "No. Il punto del servizio è esattamente togliere questo pensiero da chi non se ne deve occupare. Ricevi accessi e documentazione essenziale, ma la gestione quotidiana resta nostra, con report periodici se richiesto."
+        "title": "Costi di configurazione",
+        "content": "Setup una tantum (300-500€) per server, Docker e SSL. Manutenzione e backup opzionali da 50€/mese."
       }
     ],
     "faq": [
-      {"question": "Il servizio è disponibile anche senza che abbiate fatto il mio sito?", "answer": "Sì, valutiamo e configuriamo infrastrutture anche per siti o gestionali sviluppati da altri."},
-      {"question": "Cosa include esattamente la manutenzione mensile?", "answer": "Aggiornamenti di sicurezza, backup automatici periodici, monitoraggio uptime e rinnovo certificati SSL."},
-      {"question": "Quanto tempo serve per il setup iniziale?", "answer": "Da 2 a 5 giorni lavorativi, a seconda della complessità richiesta."},
-      {"question": "Cosa succede in caso di problema urgente?", "answer": "Con un contratto di manutenzione attivo si interviene con priorità; senza contratto l'intervento si preventiva come urgenza a parte."},
-      {"question": "Posso migrare da un altro hosting senza perdere dati?", "answer": "Sì, la migrazione fa parte del setup iniziale, con backup di sicurezza prima di ogni intervento."}
+      {"question": "Fornite la documentazione degli accessi?", "answer": "Sì, inviamo un prospetto completo con tutte le credenziali e istruzioni."}
     ],
-    "cta": "Fai valutare gratuitamente la tua infrastruttura attuale."
+    "cta": "Richiedi una verifica della tua infrastruttura."
   },
   "automazioni": {
-    "titleTag": "Automazioni Aziendali e Workflow | Monza, Milano, Lecco, Bergamo",
-    "metaDescription": "Elimina i lavori ripetitivi automatizzando i processi tra i software che usi ogni giorno. Da 350€, preventivo in 48 ore.",
-    "h1": "Il tuo tempo vale più del copia-incolla tra un programma e l'altro. Automatizzalo.",
-    "intro": "Sviluppiamo automazioni e flussi di lavoro su misura per PMI, associazioni e professionisti a Monza e Brianza, Milano, Lecco e Bergamo, a partire da 350€. Colleghiamo i software che usi già per far scorrere i dati in automatico, senza errori umani e senza perdere ore ogni settimana.",
+    "titleTag": "Automazioni Aziendali | Monza, Milano",
+    "metaDescription": "Collega i tuoi strumenti ed elimina i lavori manuali. Da 350€.",
+    "h1": "Automatizza i passaggi ripetitivi.",
+    "intro": "Creiamo collegamenti automatici tra form, email, fogli calcolatori e gestionali a partire da 350€.",
     "sections": [
       {
-        "title": "Quanto costa automatizzare un processo aziendale?",
-        "content": "**Micro-Automazione** (350-500€: connessione semplice es. form dal sito -> CRM -> email di benvenuto), **Flusso Integrato** (850-1.200€: sincronizzazione tra 2-3 software es. e-commerce, fatturazione e notifiche team), **Ecosistema Avanzato** (da 1.600€: logiche condizionali complesse, integrazione AI per smistamento dati, bot aziendali su misura)."
-      },
-      {
-        "title": "Perché automatizzare invece di fare le cose a mano?",
-        "content": "Ogni volta che tu o i tuoi collaboratori ricopiate dati manualmente tra Excel, email, gestionale e fatturazione, rischiate errori e sprecate ore. L'automazione lavora 24/7 in background, non dimentica nulla e libera tempo per le attività che fanno crescere davvero l'azienda."
-      },
-      {
-        "title": "Bisogna cambiare i software che usiamo già?",
-        "content": "No, nella maggior parte dei casi colleghiamo esattamente gli strumenti che utilizzi già (Google Workspace, WhatsApp, Notion, Zapier/Make, CRM, software di fatturazione). Creiamo il ponte che li fa parlare tra loro."
+        "title": "Esempi di flussi",
+        "content": "Invio automatico PDF da form, sincronizzazione iscrizioni, avvisi di scadenza automatici via email o Telegram."
       }
     ],
     "faq": [
-      {"question": "Devo pagare un abbonamento ricorrente?", "answer": "Il nostro sviluppo è una tantum. Potrebbe servire un piccolo piano per la piattaforma di integrazione (es. Make o Zapier) se i volumi sono alti."},
-      {"question": "Cosa succede se un software aggiorna le sue API?", "answer": "Costruiamo le integrazioni seguendo gli standard ufficiali per garantire stabilità nel tempo e offriamo assistenza per eventuali adeguamenti."},
-      {"question": "È sicuro trasferire i dati aziendali in automatico?", "answer": "Sì, tutti i flussi utilizzano connessioni crittografate sicure e rispettano le normative sulla privacy e GDPR."}
+      {"question": "Devo cambiare i programmi che uso?", "answer": "No, colleghiamo direttamente i software che stai già utilizzando."}
     ],
-    "cta": "Raccontaci quali operazioni ti fanno perdere più tempo, ti risponderemo con una soluzione entro 48 ore."
+    "cta": "Raccontaci quali passaggi vuoi automatizzare."
   },
   "automation": {
-    "titleTag": "Automazioni Aziendali e Workflow | Monza, Milano, Lecco, Bergamo",
-    "metaDescription": "Elimina i lavori ripetitivi automatizzando i processi tra i software che usi ogni giorno. Da 350€, preventivo in 48 ore.",
-    "h1": "Il tuo tempo vale più del copia-incolla tra un programma e l'altro. Automatizzalo.",
-    "intro": "Sviluppiamo automazioni e flussi di lavoro su misura per PMI, associazioni e professionisti a Monza e Brianza, Milano, Lecco e Bergamo, a partire da 350€. Colleghiamo i software che usi già per far scorrere i dati in automatico, senza errori umani e senza perdere ore ogni settimana.",
+    "titleTag": "Automazioni Aziendali | Monza, Milano",
+    "metaDescription": "Collega i tuoi strumenti ed elimina i lavori manuali. Da 350€.",
+    "h1": "Automatizza i passaggi ripetitivi.",
+    "intro": "Creiamo collegamenti automatici tra form, email, fogli calcolatori e gestionali a partire da 350€.",
     "sections": [
       {
-        "title": "Quanto costa automatizzare un processo aziendale?",
-        "content": "**Micro-Automazione** (350-500€: connessione semplice es. form dal sito -> CRM -> email di benvenuto), **Flusso Integrato** (850-1.200€: sincronizzazione tra 2-3 software es. e-commerce, fatturazione e notifiche team), **Ecosistema Avanzato** (da 1.600€: logiche condizionali complesse, integrazione AI per smistamento dati, bot aziendali su misura)."
-      },
-      {
-        "title": "Perché automatizzare invece di fare le cose a mano?",
-        "content": "Ogni volta che tu o i tuoi collaboratori ricopiate dati manualmente tra Excel, email, gestionale e fatturazione, rischiate errori e sprecate ore. L'automazione lavora 24/7 in background, non dimentica nulla e libera tempo per le attività che fanno crescere davvero l'azienda."
-      },
-      {
-        "title": "Bisogna cambiare i software che usiamo già?",
-        "content": "No, nella maggior parte dei casi colleghiamo esattamente gli strumenti che utilizzi già (Google Workspace, WhatsApp, Notion, Zapier/Make, CRM, software di fatturazione). Creiamo il ponte che li fa parlare tra loro."
+        "title": "Esempi di flussi",
+        "content": "Invio automatico PDF da form, sincronizzazione iscrizioni, avvisi di scadenza automatici via email o Telegram."
       }
     ],
     "faq": [
-      {"question": "Devo pagare un abbonamento ricorrente?", "answer": "Il nostro sviluppo è una tantum. Potrebbe servire un piccolo piano per la piattaforma di integrazione (es. Make o Zapier) se i volumi sono alti."},
-      {"question": "Cosa succede se un software aggiorna le sue API?", "answer": "Costruiamo le integrazioni seguendo gli standard ufficiali per garantire stabilità nel tempo e offriamo assistenza per eventuali adeguamenti."},
-      {"question": "È sicuro trasferire i dati aziendali in automatico?", "answer": "Sì, tutti i flussi utilizzano connessioni crittografate sicure e rispettano le normative sulla privacy e GDPR."}
+      {"question": "Devo cambiare i programmi che uso?", "answer": "No, colleghiamo direttamente i software che stai già utilizzando."}
     ],
-    "cta": "Raccontaci quali operazioni ti fanno perdere più tempo, ti risponderemo con una soluzione entro 48 ore."
+    "cta": "Raccontaci quali passaggi vuoi automatizzare."
   }
 }

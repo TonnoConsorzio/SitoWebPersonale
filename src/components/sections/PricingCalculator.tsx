@@ -69,7 +69,7 @@ export function PricingCalculator() {
 
   const total = categories.reduce((acc, cat) => {
     const selectedIndex = selections[cat.id];
-    if (selectedIndex === null) return acc;
+    if (selectedIndex === null || selectedIndex === undefined) return acc;
     const option = cat.options[selectedIndex];
     return acc + (option ? option.price : 0);
   }, 0);
@@ -82,7 +82,7 @@ export function PricingCalculator() {
     let msg = "Ciao Alessio! Ho appena configurato un preventivo sul tuo sito:\n\nServizi selezionati:\n";
     categories.forEach(cat => {
       const selectedIndex = selections[cat.id];
-      if (selectedIndex !== null) {
+      if (selectedIndex !== null && selectedIndex !== undefined) {
         const option = cat.options[selectedIndex];
         const catName = cat.name?.[currentLang] || cat.name?.['it'] || '';
         const optName = option?.name?.[currentLang] || option?.name?.['it'] || '';
@@ -103,37 +103,41 @@ export function PricingCalculator() {
   return (
     <section id="prezzi" ref={ref as any} className="py-24 px-8 max-w-7xl mx-auto">
       <div className={`text-center mb-12 ${isInView ? 'animate-fade-rise' : 'opacity-0'}`}>
-        <h2 className="text-4xl md:text-5xl font-display text-foreground mb-4" style={{ fontFamily: "'Instrument Serif', serif" }}>{t('pricing_calc.title')}</h2>
-        <p className="text-muted-foreground text-lg">{t('pricing_calc.subtitle')}</p>
+        <h2 className="text-4xl md:text-5xl font-display text-foreground mb-4" style={{ fontFamily: "'Instrument Serif', serif" }}>
+          {t('pricing_calc.title')}
+        </h2>
+        <p className="text-muted-foreground text-lg max-w-2xl mx-auto whitespace-pre-line leading-relaxed">
+          {t('pricing_calc.subtitle')}
+        </p>
       </div>
 
       <div className={`liquid-glass rounded-3xl p-6 md:p-8 ${isInView ? 'animate-fade-rise-delay' : 'opacity-0'}`}>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-6 mb-8">
           {categories.map(category => {
             const selectedIndex = selections[category.id];
-            const currentOption = selectedIndex !== null ? category.options[selectedIndex] : null;
+            const currentOption = (selectedIndex !== null && selectedIndex !== undefined) ? category.options[selectedIndex] : null;
             const catName = category.name?.[currentLang] || category.name?.['it'] || '';
             const catDesc = category.description?.[currentLang] || category.description?.['it'] || '';
 
             return (
-              <div key={category.id} className="relative flex flex-col">
+              <div key={category.id} className="relative flex flex-col liquid-glass p-5 rounded-2xl border border-white/5">
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex flex-col">
-                    <h3 className="text-xl font-medium text-foreground">
+                    <h3 className="text-lg font-medium text-foreground">
                       {catName}
                     </h3>
                     {catDesc && (
-                      <p className="text-xs text-muted-foreground mt-1 max-w-[280px]">
+                      <p className="text-xs text-muted-foreground mt-1 max-w-[260px]">
                         {catDesc}
                       </p>
                     )}
                   </div>
-                  <span className={`font-display text-3xl transition-opacity ${currentOption ? 'text-primary opacity-100' : 'text-muted-foreground opacity-30'}`} style={{ fontFamily: "'Instrument Serif', serif" }}>
+                  <span className={`font-display text-2xl transition-opacity shrink-0 ml-2 ${currentOption ? 'text-primary opacity-100' : 'text-muted-foreground opacity-30'}`} style={{ fontFamily: "'Instrument Serif', serif" }}>
                     {currentOption ? `€${currentOption.price}` : '€0'}
                   </span>
                 </div>
                 
-                <div className="flex-1 flex flex-col justify-end mt-auto pt-4">
+                <div className="flex-1 flex flex-col justify-end mt-auto pt-2">
                   <div className="flex flex-col gap-2 mb-4">
                     <div className="flex bg-white/5 p-1.5 rounded-2xl border border-white/10 relative overflow-hidden">
                       {category.options.map((opt, i) => {
@@ -202,7 +206,7 @@ export function PricingCalculator() {
             )}
           </AnimatePresence>
 
-          <p className="text-center text-muted-foreground text-sm max-w-md mb-8">
+          <p className="text-center text-muted-foreground text-sm max-w-md mb-8 whitespace-pre-line leading-relaxed">
             {t('pricing_calc.disclaimer')}
           </p>
           <button 

@@ -1,15 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, MessageCircle, X } from 'lucide-react';
 import { CONTACT_CONFIG } from '../config/constants';
 
 interface RequestModalProps {
   isOpen: boolean;
   onClose: () => void;
-  selectedServices: Array<{ category: string; label: string; price: number }>;
-  total: number;
+  selectedServices?: Array<{ category: string; label: string; price: number }>;
+  total?: number;
+  initialService?: string;
+  initialNotes?: string;
 }
 
-export function RequestModal({ isOpen, onClose, selectedServices, total }: RequestModalProps) {
+export function RequestModal({
+  isOpen,
+  onClose,
+  selectedServices = [],
+  total = 0,
+  initialService = '',
+  initialNotes = ''
+}: RequestModalProps) {
   const [step, setStep] = useState<1 | 2>(1);
   const [method, setMethod] = useState<'email' | 'whatsapp' | null>(null);
   
@@ -19,6 +28,12 @@ export function RequestModal({ isOpen, onClose, selectedServices, total }: Reque
     phone: '',
     notes: ''
   });
+
+  useEffect(() => {
+    if (initialNotes) {
+      setFormData((prev) => ({ ...prev, notes: initialNotes }));
+    }
+  }, [initialNotes]);
 
   const [errors, setErrors] = useState<Record<string, string>>({});
 
@@ -55,20 +70,25 @@ export function RequestModal({ isOpen, onClose, selectedServices, total }: Reque
   };
 
   const generateMessageText = () => {
+    if (initialNotes.trim()) {
+      return `Nome: ${formData.name || '[NOME]'}\nEmail: ${formData.email}\nTelefono: ${formData.phone}\n\n${initialNotes}`;
+    }
+
     const servicesList = selectedServices.map(s => `- ${s.category}: ${s.label} (€${s.price})`).join('\n');
     const donation = Math.round(total * 0.1);
     
-    let text = `Richiesta pacchetto da ${formData.name || '[NOME]'}\n\n`;
-    text += `Servizi selezionati:\n${servicesList}\n\n`;
-    text += `Totale stimato: ${total}€\n`;
-    text += `Di cui il 10% (circa ${donation}€) va in donazione ad ABBO APS.\n\n`;
+    let text = `Richiesta preventivo da ${formData.name || '[NOME]'}\n\n`;
+    if (servicesList) {
+      text += `Servizi selezionati:\n${servicesList}\n\n`;
+      text += `Totale stimato: ${total}€\n`;
+      text += `Di cui il 10% (circa ${donation}€) va in donazione ad ABBO APS.\n\n`;
+    }
     
     if (formData.notes.trim()) {
       text += `Note: ${formData.notes.trim()}\n\n`;
     }
     
-    text += `I prezzi sono indicativi. Il prezzo può ovviamente variare in base alle esigenze specifiche: dopo la richiesta fisseremo una call conoscitiva per confermare le reali necessità e stilare un preventivo ufficiale su misura.`;
-    
+    text += `Vorrei prenotare una breve chiamata per parlarne insieme.`;
     return text;
   };
 
@@ -76,7 +96,7 @@ export function RequestModal({ isOpen, onClose, selectedServices, total }: Reque
     const text = generateMessageText();
     if (method === 'email') {
       const encodedBody = encodeURIComponent(text).replace(/%0A/g, '%0D%0A');
-      const subject = encodeURIComponent(`Richiesta pacchetto - ${formData.name || '[NOME]'}`);
+      const subject = encodeURIComponent(`Richiesta preventivo - ${formData.name || '[NOME]'}`);
       return `mailto:${CONTACT_CONFIG.email}?subject=${subject}&body=${encodedBody}`;
     } else {
       const encodedText = encodeURIComponent(text);
@@ -100,169 +120,127 @@ export function RequestModal({ isOpen, onClose, selectedServices, total }: Reque
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-sm animate-fade-in">
-      <div className="bg-secondary/90 border border-white/10 rounded-3xl w-full max-w-md overflow-hidden shadow-2xl relative">
-        <button 
-          onClick={onClose}
-          className="absolute top-4 right-4 w-12 h-12 flex items-center justify-center text-muted-foreground hover:text-foreground bg-white/5 rounded-full hover:bg-white/10 transition-colors z-10"
-          aria-label="Chiudi"
-          type="button"
-        >
-          <X className="w-5 h-5" />
-        </button>
-
-        <div className="p-6 md:p-8">
-          {step === 1 && (
-            <div className="animate-fade-rise">
-              <h2 className="font-display text-2xl text-foreground mb-2">Come preferisci essere contattato?</h2>
-              <p className="text-muted-foreground mb-8 text-base leading-relaxed">
-                Scegli il canale che preferisci per inviare la richiesta. Non salveremo nessun dato.
-              </p>
-              
-              <div className="flex flex-col gap-4">
-                <button
-                  type="button"
-                  onClick={() => handleMethodSelect('whatsapp')}
-                  className="flex items-center gap-4 w-full p-5 rounded-2xl border border-[#25D366]/30 bg-[#25D366]/10 hover:bg-[#25D366]/20 transition-colors text-left group min-h-[64px]"
-                >
-                  <div className="w-12 h-12 rounded-full bg-[#25D366]/20 text-[#25D366] flex items-center justify-center shrink-0">
-                    <MessageCircle className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <div className="font-medium text-foreground text-lg">WhatsApp</div>
-                    <div className="text-sm text-muted-foreground">Risposta rapida</div>
-                  </div>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => handleMethodSelect('email')}
-                  className="flex items-center gap-4 w-full p-5 rounded-2xl border border-primary/30 bg-primary/10 hover:bg-primary/20 transition-colors text-left group min-h-[64px]"
-                >
-                  <div className="w-12 h-12 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0">
-                    <Mail className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <div className="font-medium text-foreground text-lg">Email</div>
-                    <div className="text-sm text-muted-foreground">Più formale</div>
-                  </div>
-                </button>
-              </div>
-            </div>
-          )}
-
-          {step === 2 && (
-            <div className="animate-fade-rise">
-              <div className="flex items-center gap-3 mb-6">
-                <button 
-                  type="button"
-                  onClick={() => setStep(1)}
-                  className="text-sm text-muted-foreground hover:text-foreground underline decoration-white/20 min-h-[48px] px-2 -ml-2"
-                >
-                  Indietro
-                </button>
-              </div>
-              
-              <h2 className="font-display text-2xl text-foreground mb-6">
-                I tuoi dettagli per {method === 'whatsapp' ? 'WhatsApp' : "l'Email"}
-              </h2>
-
-              <form onSubmit={(e) => e.preventDefault()} className="space-y-5">
-                <div>
-                  <label htmlFor="name" className="block text-base font-medium text-foreground/90 mb-1.5">
-                    Nome <span className="text-red-400">*</span>
-                  </label>
-                  <input
-                    id="name"
-                    type="text"
-                    name="name"
-                    autoComplete="name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className={`w-full bg-background border ${errors.name ? 'border-red-400 focus:border-red-400' : 'border-white/10 focus:border-primary'} rounded-xl px-4 py-3.5 text-base text-foreground focus:outline-none focus:ring-1 ${errors.name ? 'focus:ring-red-400' : 'focus:ring-primary'} transition-colors`}
-                    placeholder="Il tuo nome"
-                  />
-                  {errors.name && <p className="text-red-400 text-sm mt-1.5">{errors.name}</p>}
-                </div>
-
-                {method === 'email' && (
-                  <div>
-                    <label htmlFor="email" className="block text-base font-medium text-foreground/90 mb-1.5">
-                      Email <span className="text-red-400">*</span>
-                    </label>
-                    <input
-                      id="email"
-                      type="email"
-                      name="email"
-                      autoComplete="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className={`w-full bg-background border ${errors.email ? 'border-red-400 focus:border-red-400' : 'border-white/10 focus:border-primary'} rounded-xl px-4 py-3.5 text-base text-foreground focus:outline-none focus:ring-1 ${errors.email ? 'focus:ring-red-400' : 'focus:ring-primary'} transition-colors`}
-                      placeholder="tua@email.it"
-                    />
-                    {errors.email && <p className="text-red-400 text-sm mt-1.5">{errors.email}</p>}
-                  </div>
-                )}
-
-                {method === 'whatsapp' && (
-                  <div>
-                    <label htmlFor="phone" className="block text-base font-medium text-foreground/90 mb-1.5">
-                      Telefono <span className="text-red-400">*</span>
-                    </label>
-                    <input
-                      id="phone"
-                      type="tel"
-                      inputMode="tel"
-                      name="tel"
-                      autoComplete="tel"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className={`w-full bg-background border ${errors.phone ? 'border-red-400 focus:border-red-400' : 'border-white/10 focus:border-primary'} rounded-xl px-4 py-3.5 text-base text-foreground focus:outline-none focus:ring-1 ${errors.phone ? 'focus:ring-red-400' : 'focus:ring-primary'} transition-colors`}
-                      placeholder="+39 333 1234567"
-                    />
-                    {errors.phone && <p className="text-red-400 text-sm mt-1.5">{errors.phone}</p>}
-                  </div>
-                )}
-
-                <div>
-                  <label htmlFor="notes" className="block text-base font-medium text-foreground/90 mb-1.5">
-                    Note aggiuntive <span className="text-muted-foreground font-normal">(opzionale)</span>
-                  </label>
-                  <textarea
-                    id="notes"
-                    value={formData.notes}
-                    onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                    className="w-full bg-background border border-white/10 rounded-xl px-4 py-3.5 text-base text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors min-h-[100px] resize-y"
-                    placeholder="Hai esigenze particolari? Scrivile qui"
-                  />
-                </div>
-
-                <div className="pt-4">
-                  <a
-                    href={getActionLink()}
-                    onClick={handleLinkClick}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground rounded-full px-6 py-4 text-base font-medium hover:scale-[1.02] transition-transform min-h-[56px] shadow-lg shadow-primary/20"
-                  >
-                    {method === 'whatsapp' ? (
-                      <>
-                        <MessageCircle className="w-5 h-5" /> Invia su WhatsApp
-                      </>
-                    ) : (
-                      <>
-                        <Mail className="w-5 h-5" /> Invia via Email
-                      </>
-                    )}
-                  </a>
-                  <p className="text-center text-xs text-muted-foreground mt-4 leading-relaxed">
-                    Il messaggio verrà preparato nella tua app. L'invio non è automatico.
-                  </p>
-                </div>
-              </form>
-            </div>
-          )}
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-rise">
+      <div className="relative w-full max-w-lg liquid-glass rounded-3xl p-6 md:p-8 border border-white/10 shadow-2xl space-y-6">
+        
+        {/* Header */}
+        <div className="flex items-center justify-between border-b border-white/10 pb-4">
+          <div>
+            <h3 className="text-xl font-display text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>
+              Invia richiesta preventivo
+            </h3>
+            {initialService && (
+              <p className="text-xs font-mono text-primary mt-1">{initialService}</p>
+            )}
+          </div>
+          <button
+            onClick={onClose}
+            className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <X className="w-5 h-5" />
+          </button>
         </div>
+
+        {/* Step 1: Choose Contact Method */}
+        {step === 1 && (
+          <div className="space-y-4">
+            <p className="text-xs text-muted-foreground">Come preferisci inviarmi i dati della stima?</p>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <button
+                type="button"
+                onClick={() => handleMethodSelect('whatsapp')}
+                className="p-5 rounded-2xl liquid-glass border border-white/10 hover:border-emerald-500/40 hover:bg-emerald-500/10 flex flex-col items-center justify-center gap-3 transition-all group"
+              >
+                <MessageCircle className="w-8 h-8 text-emerald-400 group-hover:scale-110 transition-transform" />
+                <span className="text-sm font-medium text-foreground">Invia su WhatsApp</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => handleMethodSelect('email')}
+                className="p-5 rounded-2xl liquid-glass border border-white/10 hover:border-primary/40 hover:bg-primary/10 flex flex-col items-center justify-center gap-3 transition-all group"
+              >
+                <Mail className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
+                <span className="text-sm font-medium text-foreground">Invia via Email</span>
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Step 2: Contact Form */}
+        {step === 2 && (
+          <form className="space-y-4">
+            <div className="space-y-1">
+              <label className="text-xs font-medium text-muted-foreground">Nome *</label>
+              <input
+                type="text"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                placeholder="Il tuo nome"
+                className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary"
+              />
+              {errors.name && <p className="text-[11px] text-red-400">{errors.name}</p>}
+            </div>
+
+            {method === 'email' && (
+              <div className="space-y-1">
+                <label className="text-xs font-medium text-muted-foreground">Email *</label>
+                <input
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  placeholder="La tua email"
+                  className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary"
+                />
+                {errors.email && <p className="text-[11px] text-red-400">{errors.email}</p>}
+              </div>
+            )}
+
+            {method === 'whatsapp' && (
+              <div className="space-y-1">
+                <label className="text-xs font-medium text-muted-foreground">Telefono *</label>
+                <input
+                  type="tel"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  placeholder="+39 333 1234567"
+                  className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary"
+                />
+                {errors.phone && <p className="text-[11px] text-red-400">{errors.phone}</p>}
+              </div>
+            )}
+
+            <div className="space-y-1">
+              <label className="text-xs font-medium text-muted-foreground">Note aggiuntive (opzionale)</label>
+              <textarea
+                rows={3}
+                value={formData.notes}
+                onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+                placeholder="Aggiungi eventuali dettagli o tempistiche desiderate..."
+                className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary resize-none"
+              />
+            </div>
+
+            <div className="flex items-center justify-between pt-4 border-t border-white/10">
+              <button
+                type="button"
+                onClick={() => setStep(1)}
+                className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+              >
+                ← Cambia metodo
+              </button>
+
+              <a
+                href={getActionLink()}
+                onClick={handleLinkClick}
+                className="bg-primary text-primary-foreground rounded-full px-6 py-2.5 text-xs font-medium hover:scale-105 transition-transform"
+              >
+                Conferma ed invia
+              </a>
+            </div>
+          </form>
+        )}
       </div>
     </div>
   );
