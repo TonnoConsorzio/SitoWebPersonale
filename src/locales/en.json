@@ -5,16 +5,18 @@
     "portfolio": "Portfolio",
     "journal": "Journal",
     "pricing": "Pricing",
+    "estimator": "Project Estimator",
+    "get_estimate": "Get an estimate",
     "faq": "FAQ",
     "contact": "Contact",
     "start_project": "Start a project"
   },
   "hero": {
-    "badge": "Web development, management apps & automations",
-    "title_part1": "Every project tells a story. ",
-    "title_highlight": "Let's build yours.",
+    "badge": "Web development & custom automations",
+    "title_part1": "Websites and web apps to ",
+    "title_highlight": "simplify your work.",
     "title_part2": "",
-    "subtitle": "Custom websites, management tools, and automations for freelancers and small organizations.",
+    "subtitle": "Fast custom websites, admin panels, and workflow automations for freelancers and small businesses.",
     "cta_primary": "Start a project",
     "cta_secondary": "Explore projects"
   },
@@ -29,18 +31,45 @@
   "about": {
     "title": "About me",
     "subtitle": "",
-    "p1": "I build websites, web apps, and workflow automations to help professionals and small teams simplify their daily work.",
-    "p2": "I am president and co-founder of ABBO APS, a non-profit association for digital education.",
-    "p3": "",
+    "p1": "I am Alessio Bellan, a freelance web developer and president of ABBO APS, a non-profit association for digital education.",
+    "p2": "I help professionals, associations, and small businesses create fast websites, simple admin panels, and custom automations.",
+    "p3": "I work directly with you to turn real operational problems into simple, reliable tools.",
     "p4": "",
     "p5": "",
-    "cta": "How I work",
-    "box_title": "Non-profit donation",
-    "box_text": "10% of every project fee supports ABBO APS."
+    "cta": "Let's talk",
+    "box_title": "Social impact",
+    "box_text": "10% of every project fee supports free digital education workshops by ABBO APS."
   },
   "services": {
     "title": "Core Services",
-    "subtitle": "Essential digital tools and websites built without bloat."
+    "subtitle": "Digital tools designed around how you work, built without unnecessary bloat."
+  },
+  "estimator": {
+    "nav_link": "Project Estimator",
+    "get_estimate": "Get an estimate",
+    "hero_title": "Let's start from what you need.",
+    "hero_subtitle": "Answer a few quick questions to get an initial estimated price range.",
+    "step_of": "Step {{current}} of {{total}}",
+    "select_service_title": "What do you want to build?",
+    "select_service_sub": "Select a category to get started.",
+    "btn_back": "Back",
+    "btn_restart": "Restart",
+    "btn_continue": "Continue",
+    "result_suggested": "Recommended service",
+    "result_range_intro": "The project could range between",
+    "result_per_month": "/ month",
+    "result_analysis_needed": "For this type of project, a brief discovery call is recommended to clarify requirements.",
+    "summary_title": "Summary of choices",
+    "included_title": "What this could include",
+    "factors_title": "Factors that could affect the cost:",
+    "btn_email": "Send via Email",
+    "btn_whatsapp": "Send via WhatsApp",
+    "btn_calendar": "Book a call",
+    "callout_title": "How much could it cost?",
+    "callout_sub": "Answer a few quick questions to get an initial estimated price range for your project.",
+    "callout_preview_badge": "Estimated Range",
+    "callout_preview_label": "Price range:",
+    "callout_preview_sub": "Calculated based on your selected answers."
   },
   "pricing_calc": {
     "title": "Project Estimate Calculator",
@@ -48,30 +77,30 @@
     "select_config": "Select a configuration",
     "no_plan": "Select a plan",
     "estimate_label": "Estimated cost",
-    "donation_text": "(10% of total) goes to",
+    "donation_text": "(10% of total) goes to ABBO APS",
     "disclaimer": "Final proposal is provided after a brief discovery call.",
     "cta": "Request detailed quote",
     "modal_title": "Contact me",
     "modal_desc": "How would you like to submit your request?",
-    "whatsapp": "Send via WhatsApp",
-    "email": "Send via Email"
+    "whatsapp": "WhatsApp",
+    "email": "Email"
   },
   "pricing_packages": {
-    "title": "Main Packages",
-    "subtitle": "Ready-to-launch packages for your growth.",
+    "title": "Recommended Packages",
+    "subtitle": "Ready-to-launch solutions for your growth.",
     "recommended": "Recommended",
     "cta": "Request info",
     "savings_prefix": "You save "
   },
   "portfolio_grid": {
     "title": "Recent Work",
-    "subtitle": "A selection of recent projects.",
+    "subtitle": "A selection of projects built for real clients.",
     "view_all": "View full portfolio",
     "cta": "View project"
   },
   "education": {
-    "title": "Education & Background",
-    "subtitle": "Technical background in development, AI, and design.",
+    "title": "Background & Skills",
+    "subtitle": "Continuous learning across web development, AI, and design.",
     "skills_title": "Key Skills",
     "view_full": "View full resume"
   },
@@ -83,34 +112,24 @@
     "subtitle": ""
   },
   "journal": {
-    "title": "Journal"
+    "title": "Journal & Articles"
   },
   "faq": {
     "title": "Frequently Asked Questions",
-    "q1": "How long does it take?",
-    "a1": "1-2 weeks for landing pages up to 4-6 weeks for full management apps.",
-    "q2": "How many revisions are included?",
-    "a2": "All necessary adjustments within the agreed scope during the first week.",
-    "q3": "Will I own the domain?",
-    "a3": "Yes. Domain and content remain 100% your property.",
-    "q4": "What happens after launch?",
-    "a4": "First month of technical support is included free for any bug fixes.",
-    "q5": "What changes between tiers?",
-    "a5": "Higher tiers allow more time for custom features and refined details.",
-    "q6": "Do you build e-commerce?",
-    "a6": "Yes. We evaluate e-commerce projects based on catalog size and logistics.",
-    "q7": "How do payments work?",
-    "a7": "Deposit at project start, balance upon delivery with invoice.",
-    "q8": "Do I need to provide copy and images?",
-    "a8": "You can provide them or I can write copy under a separate quote.",
-    "q9": "Are minor edits free?",
-    "a9": "Minor fixes within 30 minutes post-delivery are free.",
-    "q10": "Who do you work with?",
-    "a10": "Freelancers, associations, and small businesses looking for clear solutions."
+    "q1": "How long does a project take?",
+    "a1": "1 to 2 weeks for landing pages or simple sites up to 4-6 weeks for custom management apps.",
+    "q2": "How do post-launch revisions work?",
+    "a2": "The first month includes free support for any bug fixes.",
+    "q3": "Will I own the domain and data?",
+    "a3": "Yes. Domain, code, and data remain 100% your property.",
+    "q4": "Do I need to provide copy and images?",
+    "a4": "You can provide them or I can help you structure and write them.",
+    "q5": "How are payments split?",
+    "a5": "Typically 50% deposit at start and 50% upon final delivery."
   },
   "contact": {
-    "title": "Let's talk",
-    "subtitle": "Tell me about your project to see where to start.",
+    "title": "Start a project",
+    "subtitle": "Tell me what you want to build or what problem you want to solve.",
     "form_name": "Name",
     "form_name_ph": "Your name",
     "form_email": "Email",
@@ -124,20 +143,21 @@
     "opt_social": "Social media",
     "opt_ai": "AI Training",
     "opt_infra": "Infrastructure",
-    "form_msg": "Message",
-    "form_msg_ph": "Briefly describe your project...",
-    "form_submit": "Send message",
-    "booking_title": "Book a call",
-    "booking_desc": "Select a date and time on calendar.",
-    "booking_btn": "Open Google Calendar",
-    "vcard_btn": "Download Contact (vCard)"
+    "opt_unsure": "Other / Not sure",
+    "form_message": "Message",
+    "form_message_ph": "Briefly describe your project...",
+    "form_submit": "Send request",
+    "cal_title": "Prefer a quick call?",
+    "cal_desc": "Book a 15-minute slot directly on Google Calendar.",
+    "cal_cta": "Book a call",
+    "download_vcard": "Save contact (vCard)"
   },
   "footer": {
-    "description": "Building websites, management apps, and automations for professionals and small teams.",
-    "donation": "10% of every project supports",
+    "description": "Building custom websites, web apps, and automations for freelancers and small teams.",
+    "donation": "10% of every project supports ABBO APS.",
     "services": "Services",
     "info": "Information",
     "rights": "All rights reserved.",
-    "made_with": "Crafted with React & TailwindCSS"
+    "made_with": "Designed and built by Alessio Bellan."
   }
 }

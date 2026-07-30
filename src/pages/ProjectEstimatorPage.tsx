@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { SEO } from '../components/SEO';
 import { Navigation } from '../components/sections/Navigation';
 import { Footer } from '../components/sections/Footer';
+import { useTranslation } from 'react-i18next';
 import {
   ServiceType,
   ESTIMATOR_QUESTIONS,
@@ -15,20 +16,37 @@ import { EstimatorOption } from '../components/estimator/EstimatorOption';
 
 import { ArrowLeft, ArrowRight, RefreshCw } from 'lucide-react';
 
-const SERVICE_OPTIONS: { id: ServiceType; title: string; description: string }[] = [
-  { id: 'siti-web', title: 'Sito web', description: 'Landing page, siti essenziali, aziendali o e-commerce.' },
-  { id: 'gestionali-web-app', title: 'Gestionale o web app', description: 'Pannelli su misura per dati, soci, iscrizioni e processi.' },
-  { id: 'automazioni', title: 'Automazione', description: 'Flussi automatici per ridurre compiti manuali e ripetitivi.' },
-  { id: 'grafica-identita', title: 'Identità visiva', description: 'Logo, palette colori, tipografia e brand kit.' },
-  { id: 'social-media', title: 'Gestione social', description: 'Piano editoriale, copy e grafiche per comunicare con costanza.' },
-  { id: 'formazione-ai', title: 'Formazione AI', description: 'Corsi ed esercitazioni pratiche sull’uso dell’intelligenza artificiale.' },
-  { id: 'infrastrutture', title: 'Infrastruttura o hosting', description: 'Setup server cloud, Docker, domini e certificati SSL.' },
-  { id: 'non-sicuro', title: 'Non sono ancora sicuro', description: 'Domande orientate ai tuoi problemi principali per capire da dove partire.' }
-];
-
 const STORAGE_KEY = 'bellan_estimator_state_v1';
 
 export function ProjectEstimatorPage() {
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language?.startsWith('en') ? 'en' : 'it';
+
+  const SERVICE_OPTIONS: { id: ServiceType; title: string; description: string }[] = useMemo(() => {
+    if (currentLang === 'en') {
+      return [
+        { id: 'siti-web', title: 'Websites', description: 'Landing pages, essential sites, business portals or e-commerce.' },
+        { id: 'gestionali-web-app', title: 'Management & Web Apps', description: 'Custom panels for data, members, registrations, and workflows.' },
+        { id: 'automazioni', title: 'Automations', description: 'Automated flows to eliminate repetitive manual tasks.' },
+        { id: 'grafica-identita', title: 'Brand & Visual Identity', description: 'Logos, color palettes, typography, and brand kits.' },
+        { id: 'social-media', title: 'Social Media Management', description: 'Editorial planning, copywriting, and visual assets for social channels.' },
+        { id: 'formazione-ai', title: 'AI Training', description: 'Practical workshops and training on leveraging artificial intelligence.' },
+        { id: 'infrastrutture', title: 'Infrastructure & Hosting', description: 'Cloud server setups, Docker, domains, and SSL certificates.' },
+        { id: 'non-sicuro', title: 'Not sure yet', description: 'Problem-oriented questions to help identify where to start.' }
+      ];
+    }
+    return [
+      { id: 'siti-web', title: 'Sito web', description: 'Landing page, siti essenziali, aziendali o e-commerce.' },
+      { id: 'gestionali-web-app', title: 'Gestionale o web app', description: 'Pannelli su misura per dati, soci, iscrizioni e processi.' },
+      { id: 'automazioni', title: 'Automazione', description: 'Flussi automatici per ridurre compiti manuali e ripetitivi.' },
+      { id: 'grafica-identita', title: 'Identità visiva', description: 'Logo, palette colori, tipografia e brand kit.' },
+      { id: 'social-media', title: 'Gestione social', description: 'Piano editoriale, copy e grafiche per comunicare con costanza.' },
+      { id: 'formazione-ai', title: 'Formazione AI', description: 'Corsi ed esercitazioni pratiche sull’uso dell’intelligenza artificiale.' },
+      { id: 'infrastrutture', title: 'Infrastruttura o hosting', description: 'Setup server cloud, Docker, domini e certificati SSL.' },
+      { id: 'non-sicuro', title: 'Non sono ancora sicuro', description: 'Domande orientate ai tuoi problemi principali per capire da dove partire.' }
+    ];
+  }, [currentLang]);
+
   const [selectedService, setSelectedService] = useState<ServiceType | null>(() => {
     try {
       const saved = sessionStorage.getItem(STORAGE_KEY);
@@ -136,8 +154,8 @@ export function ProjectEstimatorPage() {
   return (
     <>
       <SEO
-        title="Stima il costo del tuo progetto | Alessio Bellan"
-        description="Rispondi a poche domande e ottieni una prima fascia di prezzo indicativa per siti web, gestionali, automazioni e branding."
+        title={`${t('estimator.nav_link')} | Alessio Bellan`}
+        description={t('estimator.hero_subtitle')}
         canonical="/stima-progetto"
       />
       <Navigation />
@@ -146,10 +164,10 @@ export function ProjectEstimatorPage() {
         {/* HERO SECTION */}
         <section className="px-6 md:px-8 max-w-3xl mx-auto text-center space-y-4 mb-10">
           <h1 className="text-3xl sm:text-5xl font-display text-foreground leading-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>
-            Partiamo da quello che ti serve.
+            {t('estimator.hero_title')}
           </h1>
-          <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-            Rispondi a poche domande per ottenere una prima fascia indicativa.
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+            {t('estimator.hero_subtitle')}
           </p>
         </section>
 
@@ -171,9 +189,9 @@ export function ProjectEstimatorPage() {
               <div className="space-y-6 animate-fade-rise">
                 <div className="space-y-1 text-center sm:text-left">
                   <h2 className="text-2xl font-display text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>
-                    Cosa vuoi realizzare?
+                    {t('estimator.select_service_title')}
                   </h2>
-                  <p className="text-xs text-muted-foreground">Seleziona una voce per iniziare.</p>
+                  <p className="text-base text-muted-foreground">{t('estimator.select_service_sub')}</p>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -203,30 +221,30 @@ export function ProjectEstimatorPage() {
                 />
 
                 {/* Step Controls */}
-                <div className="flex items-center justify-between pt-6 border-t border-white/10 text-xs">
+                <div className="flex items-center justify-between pt-6 border-t border-white/10 text-base">
                   <button
                     onClick={handleBack}
-                    className="liquid-glass rounded-full px-5 py-2.5 text-foreground hover:bg-white/10 transition-colors flex items-center gap-2"
+                    className="liquid-glass rounded-full px-6 py-3 text-foreground hover:bg-white/10 transition-colors flex items-center gap-2"
                   >
                     <ArrowLeft className="w-4 h-4" />
-                    <span>Indietro</span>
+                    <span>{t('estimator.btn_back')}</span>
                   </button>
 
                   <div className="flex items-center gap-4">
                     <button
                       onClick={handleRestart}
-                      className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5"
+                      className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
                     >
-                      <RefreshCw className="w-3.5 h-3.5" />
-                      <span>Ricomincia</span>
+                      <RefreshCw className="w-4 h-4" />
+                      <span>{t('estimator.btn_restart')}</span>
                     </button>
 
                     {currentQuestion.multiSelect && (
                       <button
                         onClick={() => setStepIndex((prev) => prev + 1)}
-                        className="bg-primary text-primary-foreground rounded-full px-6 py-2.5 font-medium hover:scale-105 transition-transform flex items-center gap-2"
+                        className="bg-primary text-primary-foreground rounded-full px-7 py-3 font-medium hover:scale-105 transition-transform flex items-center gap-2"
                       >
-                        <span>Continua</span>
+                        <span>{t('estimator.btn_continue')}</span>
                         <ArrowRight className="w-4 h-4" />
                       </button>
                     )}

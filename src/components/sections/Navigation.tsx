@@ -26,11 +26,11 @@ export function Navigation() {
           <span className="hidden sm:inline">Alessio Bellan</span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-7 text-xs sm:text-sm text-muted-foreground">
+        <div className="hidden md:flex items-center gap-7 text-base text-muted-foreground">
           <a href="#" onClick={(e) => handleScrollTo(e, 'home')} className="hover:text-foreground transition-colors">{t('nav.home')}</a>
           <Link to="/servizi" className="hover:text-foreground transition-colors">{t('nav.services')}</Link>
-          <Link to="/stima-progetto" className="hover:text-foreground transition-colors">Stima Progetto</Link>
-          <a href="#portfolio" onClick={(e) => handleScrollTo(e, 'portfolio')} className="hover:text-foreground transition-colors">{t('nav.portfolio')}</a>
+          <Link to="/stima-progetto" className="hover:text-foreground transition-colors">{t('nav.estimator')}</Link>
+          <Link to="/portfolio" className="hover:text-foreground transition-colors">{t('nav.portfolio')}</Link>
           <a href="#prezzi" onClick={(e) => handleScrollTo(e, 'prezzi')} className="hover:text-foreground transition-colors">{t('nav.pricing')}</a>
           <a href="#faq" onClick={(e) => handleScrollTo(e, 'faq')} className="hover:text-foreground transition-colors">{t('nav.faq')}</a>
           <a href="#contatti" onClick={(e) => handleScrollTo(e, 'contatti')} className="hover:text-foreground transition-colors">{t('nav.contact')}</a>
@@ -54,9 +54,9 @@ export function Navigation() {
           </div>
           <Link 
             to="/stima-progetto" 
-            className="liquid-glass rounded-full px-4 sm:px-6 min-h-[40px] sm:min-h-[48px] flex items-center justify-center text-xs sm:text-sm text-foreground hover:scale-[1.03] transition-transform cursor-pointer"
+            className="liquid-glass rounded-full px-5 py-2.5 min-h-[44px] flex items-center justify-center text-base font-medium text-foreground hover:scale-[1.03] transition-transform cursor-pointer"
           >
-            Ottieni una stima
+            {t('nav.get_estimate')}
           </Link>
         </div>
       </div>

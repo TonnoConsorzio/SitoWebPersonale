@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 interface EstimatorProgressProps {
   currentStep: number;
   totalSteps: number;
@@ -5,12 +7,12 @@ interface EstimatorProgressProps {
 }
 
 export function EstimatorProgress({ currentStep, totalSteps, phaseName }: EstimatorProgressProps) {
-  const percentage = Math.round((currentStep / totalSteps) * 100);
+  const { t } = useTranslation();
 
   return (
     <div className="space-y-3 font-mono text-base">
       <div className="flex items-center justify-between text-muted-foreground">
-        <span>Passaggio {currentStep} di {totalSteps}</span>
+        <span>{t('estimator.step_of', { current: currentStep, total: totalSteps })}</span>
         {phaseName && <span className="text-primary font-medium">{phaseName}</span>}
       </div>
 

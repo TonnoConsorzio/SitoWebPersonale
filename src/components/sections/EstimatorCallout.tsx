@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useInView } from '../../hooks/useInView';
 import { ArrowRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export function EstimatorCallout() {
+  const { t } = useTranslation();
   const { ref, isInView } = useInView({ threshold: 0.1, triggerOnce: true });
 
   return (
@@ -12,11 +14,11 @@ export function EstimatorCallout() {
         {/* Content Side */}
         <div className="space-y-4 max-w-[65ch] relative z-10 text-center lg:text-left">
           <h2 className="text-3xl sm:text-5xl font-display text-foreground leading-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>
-            Quanto può costare?
+            {t('estimator.callout_title')}
           </h2>
 
           <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-            Rispondi a poche domande per ottenere una prima fascia indicativa per il tuo progetto.
+            {t('estimator.callout_sub')}
           </p>
 
           <div className="pt-2 flex justify-center lg:justify-start">
@@ -24,7 +26,7 @@ export function EstimatorCallout() {
               to="/stima-progetto"
               className="liquid-glass rounded-full px-8 py-4 text-foreground font-medium hover:scale-[1.03] transition-transform text-base shadow-xl flex items-center gap-2"
             >
-              <span>Ottieni una stima</span>
+              <span>{t('estimator.get_estimate')}</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
@@ -34,7 +36,7 @@ export function EstimatorCallout() {
         <div className="w-full lg:max-w-md liquid-glass p-6 rounded-2xl border border-white/10 space-y-4 relative z-10 font-mono text-base">
           <div className="flex items-center justify-between text-muted-foreground pb-3 border-b border-white/10">
             <span>Passaggio 2 di 4</span>
-            <span className="text-primary">Stima orientativa</span>
+            <span className="text-primary">{t('estimator.callout_preview_badge')}</span>
           </div>
 
           {/* Segmented bar preview */}
@@ -46,12 +48,12 @@ export function EstimatorCallout() {
           </div>
 
           <div className="p-5 rounded-xl bg-black/40 border border-white/5 space-y-2">
-            <span className="text-base text-muted-foreground uppercase">Fascia indicativa:</span>
+            <span className="text-base text-muted-foreground uppercase">{t('estimator.callout_preview_label')}</span>
             <div className="text-2xl md:text-3xl font-display text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>
               1.200 € – 1.800 €
             </div>
             <p className="text-base text-muted-foreground font-sans leading-relaxed">
-              Calcolata in base alle risposte fornite.
+              {t('estimator.callout_preview_sub')}
             </p>
           </div>
         </div>

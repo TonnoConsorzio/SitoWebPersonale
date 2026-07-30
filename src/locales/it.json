@@ -5,6 +5,8 @@
     "portfolio": "Portfolio",
     "journal": "Journal",
     "pricing": "Prezzi",
+    "estimator": "Stima Progetto",
+    "get_estimate": "Ottieni una stima",
     "faq": "FAQ",
     "contact": "Contatti",
     "start_project": "Inizia un progetto"
@@ -34,13 +36,40 @@
     "p3": "Lavoro direttamente con te: ascolto le esigenze della tua attività e le trasformo in strumenti utili.",
     "p4": "",
     "p5": "",
-    "cta": "Parliamo del tuo progetto",
+    "cta": "Parliamone",
     "box_title": "Impatto sociale",
     "box_text": "Il 10% del compenso di ogni progetto sostiene i corsi gratuiti di ABBO APS."
   },
   "services": {
     "title": "Servizi principali",
-    "subtitle": "Tre soluzioni concrete per far crescere la tua attività ed eliminare il lavoro ripetitivo."
+    "subtitle": "Strumenti digitali progettati sul tuo modo di lavorare, costruiti senza codice superfluo."
+  },
+  "estimator": {
+    "nav_link": "Stima Progetto",
+    "get_estimate": "Ottieni una stima",
+    "hero_title": "Partiamo da quello che ti serve.",
+    "hero_subtitle": "Rispondi a poche domande per ottenere una prima fascia indicativa.",
+    "step_of": "Passaggio {{current}} di {{total}}",
+    "select_service_title": "Cosa vuoi realizzare?",
+    "select_service_sub": "Seleziona una voce per iniziare.",
+    "btn_back": "Indietro",
+    "btn_restart": "Ricomincia",
+    "btn_continue": "Continua",
+    "result_suggested": "Servizio consigliato",
+    "result_range_intro": "Il progetto potrebbe rientrare tra",
+    "result_per_month": "/ mese",
+    "result_analysis_needed": "Per questa tipologia è consigliata una breve analisi per definire i dettagli.",
+    "summary_title": "Riepilogo configurazione",
+    "included_title": "Cosa potrebbe includere",
+    "factors_title": "Cosa può far variare il prezzo:",
+    "btn_email": "Invia via Email",
+    "btn_whatsapp": "Invia su WhatsApp",
+    "btn_calendar": "Prenota una chiamata",
+    "callout_title": "Quanto può costare?",
+    "callout_sub": "Rispondi a poche domande per ottenere una prima fascia indicativa per il tuo progetto.",
+    "callout_preview_badge": "Stima orientativa",
+    "callout_preview_label": "Fascia indicativa:",
+    "callout_preview_sub": "Calcolata in base alle risposte fornite."
   },
   "pricing_calc": {
     "title": "Calcola una stima del tuo progetto",
@@ -58,22 +87,22 @@
   },
   "pricing_packages": {
     "title": "Pacchetti consigliati",
-    "subtitle": "Soluzioni bilanciate per esigenze frequenti.",
+    "subtitle": "Soluzioni pronte per farti partire subito.",
     "recommended": "Consigliato",
     "cta": "Richiedi informazioni",
     "savings_prefix": "Risparmi "
   },
   "portfolio_grid": {
-    "title": "Progetti recenti",
-    "subtitle": "Alcuni lavori realizzati per clienti e associazioni.",
-    "view_all": "Vedi tutto il portfolio",
-    "cta": "Apri scheda"
+    "title": "Ultimi Progetti",
+    "subtitle": "Una selezione di lavori realizzati per clienti reali.",
+    "view_all": "Visualizza tutti i progetti",
+    "cta": "Scopri il progetto"
   },
   "education": {
-    "title": "Formazione e competenze",
-    "subtitle": "Competenze tecniche e pratiche maturate sul campo.",
-    "skills_title": "Competenze principali",
-    "view_full": "Vedi curriculum"
+    "title": "Percorso e competenze",
+    "subtitle": "Formazione continua tra sviluppo web, AI e grafica.",
+    "skills_title": "Competenze chiave",
+    "view_full": "Vedi curriculum completo"
   },
   "certifications": {
     "title": "Certificazioni"
@@ -90,7 +119,7 @@
     "q1": "Quanto tempo serve per realizzare un progetto?",
     "a1": "Da 1 a 2 settimane per un sito semplice o una landing page, fino a 4-6 settimane per gestionali su misura.",
     "q2": "Come funzionano le modifiche dopo la consegna?",
-    "a2": "Il primo mese include assistenza gratuita per eventuali correzioni. Poi puoi scegliere interventi a consumo o un canone mensile.",
+    "a2": "Il primo mese include assistenza gratuita per eventuali correzioni.",
     "q3": "Il dominio e i dati saranno miei?",
     "a3": "Sì. Dominio, codice e dati restano al 100% di tua proprietà.",
     "q4": "Devo fornire io i testi e i materiali?",
