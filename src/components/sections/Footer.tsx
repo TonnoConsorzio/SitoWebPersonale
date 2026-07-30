@@ -52,8 +52,8 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col md:items-end md:ml-auto">
-          <a href="mailto:info@alessiobellan.it" className="text-foreground hover:text-muted-foreground transition-colors mb-6 text-xl">
-            info@alessiobellan.it
+          <a href="mailto:email@alessiobellan.it" className="text-foreground hover:text-muted-foreground transition-colors mb-6 text-xl">
+            email@alessiobellan.it
           </a>
           <div className="flex gap-4">
             <a href={config.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Profilo LinkedIn" className="text-muted-foreground hover:text-foreground transition-colors">

@@ -34,7 +34,7 @@ ${result.summaryItems.map(item => `- ${item}`).join('\n')}
 
 Vorrei concordare una chiamata conoscitiva.`;
 
-  const mailtoUrl = `mailto:info@alessiobellan.it?subject=${encodeURIComponent(currentLang === 'en' ? `Estimate request: ${serviceTitle}` : `Richiesta stima: ${serviceTitle}`)}&body=${encodeURIComponent(summaryText)}`;
+  const mailtoUrl = `mailto:email@alessiobellan.it?subject=${encodeURIComponent(currentLang === 'en' ? `Estimate request: ${serviceTitle}` : `Richiesta stima: ${serviceTitle}`)}&body=${encodeURIComponent(summaryText)}`;
   const whatsappUrl = `https://wa.me/${config.social.whatsapp}?text=${encodeURIComponent(summaryText)}`;
 
   return (

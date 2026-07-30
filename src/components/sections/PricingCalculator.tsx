@@ -98,7 +98,7 @@ export function PricingCalculator() {
   };
 
   const whatsappLink = `https://wa.me/${config.social.whatsapp}?text=${generateMessage()}`;
-  const emailLink = `mailto:info@alessiobellan.it?subject=Richiesta%20Preventivo&body=${generateMessage()}`;
+  const emailLink = `mailto:email@alessiobellan.it?subject=Richiesta%20Preventivo&body=${generateMessage()}`;
 
   return (
     <section id="prezzi" ref={ref as any} className="py-24 px-8 max-w-7xl mx-auto">
