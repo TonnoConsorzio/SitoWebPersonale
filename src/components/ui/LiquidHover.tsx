@@ -24,6 +24,7 @@ export function LiquidHover({
   const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const canvas = canvasRef.current;
     const container = containerRef.current;
     if (!canvas || !container) return;

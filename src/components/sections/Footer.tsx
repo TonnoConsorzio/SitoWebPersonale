@@ -21,7 +21,7 @@ export function Footer() {
           </p>
           <p className="text-base text-muted-foreground/80 leading-relaxed pt-1">
             Il 10% di ogni progetto sostiene{' '}
-            <a href="https://abboaps.it" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 underline hover:text-foreground font-medium text-foreground">
+            <a href="https://abboaps.org" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 underline hover:text-foreground font-medium text-foreground">
               <img src="./media/brand/abbo-logo-bianco.svg" alt="ABBO APS" className="h-4 w-auto inline shrink-0" height="16" />
               <span>ABBO APS</span>
             </a>.
@@ -44,7 +44,7 @@ export function Footer() {
               <li><a href="#about" onClick={(e) => handleScrollTo(e, 'about')} className="hover:text-foreground transition-colors">Chi sono</a></li>
               <li><a href="#portfolio" onClick={(e) => handleScrollTo(e, 'portfolio')} className="hover:text-foreground transition-colors">Portfolio</a></li>
               <li><a href="#journal" onClick={(e) => handleScrollTo(e, 'journal')} className="hover:text-foreground transition-colors">Journal</a></li>
-              <li><a href="#prezzi" onClick={(e) => handleScrollTo(e, 'prezzi')} className="hover:text-foreground transition-colors">Prezzi</a></li>
+              <li><Link to="/prezzi" className="hover:text-foreground transition-colors">Prezzi</Link></li>
               <li><a href="#faq" onClick={(e) => handleScrollTo(e, 'faq')} className="hover:text-foreground transition-colors">FAQ</a></li>
               <li><a href="#contatti" onClick={(e) => handleScrollTo(e, 'contatti')} className="hover:text-foreground transition-colors">Contatti</a></li>
             </ul>
@@ -77,9 +77,9 @@ export function Footer() {
             <p className="text-muted-foreground">{t('footer.made_with')}</p>
           </div>
         </div>
-        <div className="flex gap-6">
-          <a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a>
-          <a href="#" className="hover:text-foreground transition-colors">Cookie Policy</a>
+        <div className="flex gap-6 text-muted-foreground/60">
+          <span>Privacy Policy</span>
+          <span>Cookie Policy</span>
         </div>
       </div>
     </footer>

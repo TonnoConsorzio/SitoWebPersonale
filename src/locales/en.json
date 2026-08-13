@@ -3,27 +3,29 @@
     "home": "Home",
     "services": "Services",
     "portfolio": "Portfolio",
+    "agencies": "For agencies",
     "journal": "Journal",
     "pricing": "Pricing",
     "estimator": "Project Estimator",
-    "get_estimate": "Get an estimate",
+    "get_estimate": "Tell me about the project",
     "faq": "FAQ",
     "contact": "Contact",
     "start_project": "Start a project"
   },
   "hero": {
     "badge": "Web development & custom automations",
-    "title_part1": "Websites and web apps to ",
-    "title_highlight": "simplify your work.",
+    "title_part1": "Websites and automations that ",
+    "title_highlight": "make work simpler.",
     "title_part2": "",
-    "subtitle": "Fast custom websites, admin panels, and workflow automations for freelancers and small businesses.",
-    "cta_primary": "Start a project",
-    "cta_secondary": "Explore projects"
+    "subtitle": "I design and build fast websites, landing pages, and automations for professionals, associations, and small teams. Fewer manual steps, fewer technical complications.",
+    "cta_primary": "Tell me about the project",
+    "cta_secondary": "View the work",
+    "microline": "Essential Website €890 · Automation Sprint from €490"
   },
   "stats": {
-    "projects_num": "12+",
+    "projects_num": "11+",
     "projects_label": "Completed projects",
-    "experience_num": "5+",
+    "experience_num": "4+",
     "experience_label": "Years experience",
     "donation_num": "10%",
     "donation_label": "Donated to ABBO APS"
@@ -128,8 +130,8 @@
     "a5": "Typically 50% deposit at start and 50% upon final delivery."
   },
   "contact": {
-    "title": "Start a project",
-    "subtitle": "Tell me what you want to build or what problem you want to solve.",
+    "title": "Tell me the problem. I’ll handle the technology.",
+    "subtitle": "Describe what you want to improve and I’ll reply with the most sensible next step.",
     "form_name": "Name",
     "form_name_ph": "Your name",
     "form_email": "Email",

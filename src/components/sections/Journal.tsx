@@ -23,8 +23,8 @@ export function Journal() {
         <h2 className="text-4xl md:text-5xl font-display text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>Journal</h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
-        {articles.map((article, idx) => (
+      <div className="grid grid-cols-1 gap-6 mb-24 max-w-3xl">
+        {articles.slice(0, 1).map((article, idx) => (
           <Link 
             key={idx}
             to={`/journal/${article.slug}`}

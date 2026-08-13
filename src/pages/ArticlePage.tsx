@@ -44,6 +44,7 @@ export function ArticlePage() {
       <SEO 
         title={`${article.metadata.title} | Alessio Bellan Journal`}
         description={article.metadata.excerpt}
+        canonical={`/journal/${slug}`}
       />
       <Navigation />
       

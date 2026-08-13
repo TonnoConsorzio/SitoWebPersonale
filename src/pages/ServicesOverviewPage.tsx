@@ -21,6 +21,12 @@ export function ServicesOverviewPage() {
   const { ref, isInView } = useInView({ threshold: 0.1, triggerOnce: true });
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const data = servicesData.overview;
+  const primaryOrder = ['siti-web', 'automazioni', 'gestionali-web-app'];
+  const orderedServices = [...data.grid].sort((a, b) => {
+    const aIndex = primaryOrder.indexOf(a.id);
+    const bIndex = primaryOrder.indexOf(b.id);
+    return (aIndex === -1 ? primaryOrder.length : aIndex) - (bIndex === -1 ? primaryOrder.length : bIndex);
+  });
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -73,12 +79,12 @@ export function ServicesOverviewPage() {
         <section className="px-6 md:px-8 max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-5xl font-display text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>
-              I 7 Servizi
+              I servizi principali
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {data.grid.map((item) => {
+            {orderedServices.map((item) => {
               const Icon = iconMap[item.id] || Globe;
               const isHovered = hoveredCard === item.id;
 

@@ -19,6 +19,7 @@ urls.push({ loc: `${domain}/`, priority: '1.0', changefreq: 'weekly' });
 urls.push({ loc: `${domain}/curriculum`, priority: '0.5', changefreq: 'monthly' });
 urls.push({ loc: `${domain}/portfolio`, priority: '0.5', changefreq: 'monthly' });
 urls.push({ loc: `${domain}/prezzi`, priority: '0.5', changefreq: 'monthly' });
+urls.push({ loc: `${domain}/agenzie`, priority: '0.7', changefreq: 'monthly' });
 
 // Hub service pages
 Object.keys(landingPagesData).forEach(id => {

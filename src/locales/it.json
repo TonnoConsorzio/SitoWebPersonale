@@ -3,27 +3,29 @@
     "home": "Home",
     "services": "Servizi",
     "portfolio": "Portfolio",
+    "agencies": "Per agenzie",
     "journal": "Journal",
     "pricing": "Prezzi",
     "estimator": "Stima Progetto",
-    "get_estimate": "Ottieni una stima",
+    "get_estimate": "Raccontami il progetto",
     "faq": "FAQ",
     "contact": "Contatti",
     "start_project": "Inizia un progetto"
   },
   "hero": {
     "badge": "Sviluppo web e automazioni su misura",
-    "title_part1": "Siti web e gestionali per ",
-    "title_highlight": "semplificare il tuo lavoro.",
+    "title_part1": "Siti web e automazioni che ",
+    "title_highlight": "semplificano il lavoro.",
     "title_part2": "",
-    "subtitle": "Sviluppo siti veloci, pannelli amministrativi e automazioni per professionisti e piccole realtà. Meno attività manuali, dati sotto il tuo controllo.",
-    "cta_primary": "Inizia un progetto",
-    "cta_secondary": "Vedi i lavori"
+    "subtitle": "Progetto e sviluppo siti veloci, landing page e automazioni per professionisti, associazioni e piccole realtà. Meno passaggi manuali, meno complicazioni tecniche.",
+    "cta_primary": "Raccontami il progetto",
+    "cta_secondary": "Vedi i lavori",
+    "microline": "Sito Essenziale 890 € · Automation Sprint da 490 €"
   },
   "stats": {
-    "projects_num": "12+",
+    "projects_num": "11+",
     "projects_label": "Progetti consegnati",
-    "experience_num": "5+",
+    "experience_num": "4+",
     "experience_label": "Anni sul campo",
     "donation_num": "10%",
     "donation_label": "Donato ad ABBO APS"
@@ -42,7 +44,7 @@
   },
   "services": {
     "title": "Servizi principali",
-    "subtitle": "Strumenti digitali progettati sul tuo modo di lavorare, costruiti senza codice superfluo."
+    "subtitle": "Strumenti digitali progettati sul tuo modo di lavorare, senza funzioni che non userai."
   },
   "estimator": {
     "nav_link": "Stima Progetto",
@@ -128,8 +130,8 @@
     "a5": "Di norma 50% di acconto all'avvio e 50% al collaudo finale prima della pubblicazione."
   },
   "contact": {
-    "title": "Inizia un progetto",
-    "subtitle": "Raccontami cosa vuoi realizzare o quale problema vuoi risolvere.",
+    "title": "Raccontami il problema. Alla tecnologia penso io.",
+    "subtitle": "Descrivi cosa vuoi migliorare e ti rispondo con il prossimo passo più sensato.",
     "form_name": "Nome",
     "form_name_ph": "Il tuo nome",
     "form_email": "Email",

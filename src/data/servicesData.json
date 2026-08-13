@@ -3,7 +3,7 @@
     "url": "/servizi",
     "badge": "SERVIZI",
     "title1": "Tecnologia essenziale.",
-    "title2": "Risultati concreti.",
+    "title2": "Strumenti utili.",
     "subtitle": "Siti web, gestionali, automazioni ed identità visive per il tuo lavoro.",
     "heroCta": "Inizia un progetto",
     "introTitle": "Soluzioni su misura",
@@ -32,7 +32,7 @@
         "desc": "Elimina operazioni manuali ripetitive tra i tuoi strumenti.",
         "linkText": "Scopri le automazioni →",
         "path": "/servizi/automazioni",
-        "shortPhrase": "Meno lavoro manuale, zero errori."
+        "shortPhrase": "Meno lavoro manuale, meno errori."
       },
       {
         "id": "grafica-identita",
@@ -61,7 +61,7 @@
       {
         "id": "infrastrutture",
         "title": "Infrastrutture",
-        "desc": "Hosting, server e Docker configurati per la massima stabilità.",
+        "desc": "Hosting, server e Docker configurati e documentati.",
         "linkText": "Scopri le infrastrutture →",
         "path": "/servizi/infrastrutture",
         "shortPhrase": "Ambienti sicuri e documentati."
@@ -163,7 +163,7 @@
     "id": "automazioni",
     "badge": "AUTOMAZIONI",
     "title1": "Meno lavoro manuale,",
-    "title2": "zero errori.",
+    "title2": "meno passaggi.",
     "subtitle": "Collego i tuoi strumenti per recuperare ore di lavoro ogni settimana.",
     "ctaPrimary": "Parliamone",
     "introTitle": "Elimina le attività ripetitive",
@@ -176,7 +176,7 @@
     ],
     "benefits": [
       { "title": "Tempo", "desc": "Ore liberate da compiti meccanici." },
-      { "title": "Precisione", "desc": "Zero errori di trascrizione dati." },
+      { "title": "Precisione", "desc": "Meno errori quando trasferisci i dati." },
       { "title": "Continuità", "desc": "Flussi attivi 24/7 in automatico." }
     ],
     "process": [

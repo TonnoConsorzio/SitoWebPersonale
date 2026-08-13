@@ -17,7 +17,7 @@ export function Services() {
   const { t } = useTranslation();
   const { ref, isInView } = useInView({ threshold: 0.1, triggerOnce: true });
 
-  // 3 Primary Featured Services
+  // Priorità commerciale: siti, automazioni, strumenti su misura.
   const primaryServices = [
     {
       id: 'web',
@@ -28,31 +28,31 @@ export function Services() {
       cta: 'Scopri i siti web'
     },
     {
+      id: 'automation',
+      icon: 'automation',
+      path: '/servizi/automazioni',
+      title: 'Automazioni',
+      desc: 'Flussi che eliminano operazioni manuali e riducono gli errori.',
+      cta: 'Scopri le automazioni'
+    },
+    {
       id: 'app',
       icon: 'app',
       path: '/servizi/gestionali-web-app',
       title: 'Gestionali e web app',
       desc: 'Software essenziali per organizzare dati, iscrizioni e processi di lavoro.',
       cta: 'Scopri i gestionali'
-    },
+    }
+  ];
+
+  // Servizi secondari, presenti ma meno prominenti.
+  const secondaryServices = [
     {
       id: 'ai',
       icon: 'ai',
       path: '/servizi/formazione-ai',
       title: 'Formazione e AI',
-      desc: 'Corsi ed esercitazioni pratiche per usare l’intelligenza artificiale nel lavoro.',
-      cta: 'Scopri la formazione'
-    }
-  ];
-
-  // 4 Secondary Services (cards with 16px minimum text)
-  const secondaryServices = [
-    {
-      id: 'automation',
-      icon: 'automation',
-      path: '/servizi/automazioni',
-      title: 'Automazioni',
-      desc: 'Flussi che eliminano operazioni manuali e riducono gli errori.'
+      desc: 'Uso pratico dell’intelligenza artificiale nel lavoro.'
     },
     {
       id: 'brand',
@@ -82,10 +82,10 @@ export function Services() {
       {/* Header */}
       <div className={`text-center max-w-[65ch] mx-auto space-y-4 ${isInView ? 'animate-fade-rise' : 'opacity-0'}`}>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>
-          Servizi principali
+          Quello che serve davvero.
         </h2>
         <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-          Strumenti digitali progettati sul tuo modo di lavorare, costruiti senza codice superfluo.
+          Partiamo dal problema, poi scegliamo lo strumento più semplice per risolverlo.
         </p>
       </div>
 

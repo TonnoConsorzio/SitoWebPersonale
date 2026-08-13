@@ -1,84 +1,82 @@
-import { Check } from 'lucide-react';
 import { useInView } from '../../hooks/useInView';
-import { useTranslation } from 'react-i18next';
-import packagesData from '../../data/pricingPackages.json';
+import { Link } from 'react-router-dom';
+
+const offers = [
+  {
+    name: 'Sito Essenziale',
+    price: '890 €',
+    description: 'Un sito chiaro per presentare la tua attività e ricevere richieste.',
+    included: ['Fino a 5 pagine', 'Versione responsive', 'Modulo di contatto', 'Configurazione tecnica e pubblicazione', 'Ottimizzazione tecnica di base'],
+    timing: '7–10 giorni',
+    note: 'Perimetro standard e definito. Testi, foto e branding li fornisci tu. E-commerce, CMS, login, gestionali e funzioni avanzate sono esclusi. Include 2 cicli di modifica.',
+    cta: 'Verifica il tuo progetto'
+  },
+  {
+    name: 'Automation Sprint',
+    price: 'da 490 €',
+    description: 'Eliminiamo un’attività manuale dal tuo lavoro.',
+    included: ['Analisi del processo', '1 flusso automatico', '2–3 strumenti standard', 'Test del flusso', '14 giorni per correggere eventuali bug'],
+    timing: '3–7 giorni',
+    note: 'Se automatizzarlo non conviene, te lo dico prima di iniziare.',
+    cta: 'Raccontami cosa fai a mano'
+  }
+];
 
 export function PricingPackages() {
-  const { t, i18n } = useTranslation();
-  const currentLang = (i18n.language?.startsWith('en') ? 'en' : 'it') as 'it' | 'en';
   const { ref, isInView } = useInView({ threshold: 0.1, triggerOnce: true });
 
-  const packages = packagesData;
-
   return (
-    <section id="pacchetti" ref={ref as any} className="py-24 px-8 max-w-7xl mx-auto">
+    <section id="pacchetti" ref={ref as any} className="py-24 px-6 md:px-8 max-w-7xl mx-auto">
       <div className={`text-center mb-16 ${isInView ? 'animate-fade-rise' : 'opacity-0'}`}>
         <h2 className="text-4xl md:text-5xl font-display text-foreground mb-4" style={{ fontFamily: "'Instrument Serif', serif" }}>
-          {t('pricing_packages.title')}
+          Partiamo da qualcosa di concreto.
         </h2>
-        <p className="text-muted-foreground text-lg max-w-2xl mx-auto whitespace-pre-line leading-relaxed">
-          {t('pricing_packages.subtitle')}
+        <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
+          Tre modi semplici per iniziare, con perimetro, tempi e aspettative chiari.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {packages.map((pkg: any, idx: number) => {
-          const name = pkg.name?.[currentLang] || pkg.name?.['it'] || '';
-          const description = pkg.description?.[currentLang] || pkg.description?.['it'] || '';
-          const featuresList = pkg.features?.[currentLang] || pkg.features?.['it'] || [];
-          const ctaBtnText = pkg.cta?.[currentLang] || pkg.cta?.['it'] || t('pricing_packages.cta');
-          const savingsText = pkg.savings?.[currentLang] || pkg.savings?.['it'] || '';
-
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {offers.map((offer, idx) => {
           return (
             <div 
-              key={idx} 
-              className={`liquid-glass rounded-3xl p-8 flex flex-col justify-between ${pkg.featured ? 'border border-primary/40 shadow-[0_0_30px_rgba(255,255,255,0.05)] bg-white/10' : ''} ${isInView ? 'animate-fade-rise' : 'opacity-0'}`}
+              key={offer.name}
+              className={`liquid-glass rounded-2xl p-7 md:p-8 flex flex-col justify-between border border-white/10 ${isInView ? 'animate-fade-rise' : 'opacity-0'}`}
               style={{ animationDelay: `${0.1 * idx}s` }}
             >
               <div>
-                {pkg.featured && (
-                  <div className="bg-primary text-primary-foreground px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest w-max mb-6">
-                    {t('pricing_packages.recommended')}
-                  </div>
-                )}
-                <h3 className="text-2xl font-medium text-foreground mb-2">{name}</h3>
-                <div className="mb-6 flex flex-wrap items-baseline gap-2">
-                  <span className="text-4xl font-display text-primary">{pkg.price}</span>
-                  {pkg.originalPrice && (
-                    <span className="text-lg text-muted-foreground/60 line-through font-display">{pkg.originalPrice}</span>
-                  )}
-                  {savingsText && (
-                    <span className="w-full text-xs font-semibold text-emerald-400 bg-emerald-400/10 px-3 py-1 rounded-full w-fit mt-1">
-                      {savingsText}
-                    </span>
-                  )}
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-3">
+                  <h3 className="text-3xl font-display text-foreground">{offer.name}</h3>
+                  <span className="text-3xl font-display text-primary">{offer.price}</span>
                 </div>
-                {description && (
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-6 border-b border-white/10 pb-6">
-                    {description}
-                  </p>
-                )}
+                <p className="text-base text-muted-foreground leading-relaxed mb-6 max-w-[52ch]">{offer.description}</p>
                 
-                <ul className="space-y-4 mb-8">
-                  {featuresList.map((feat: string, fidx: number) => (
-                    <li key={fidx} className="flex items-start gap-3 text-muted-foreground text-sm">
-                      <Check className="w-5 h-5 text-primary shrink-0" strokeWidth={1.5} />
+                <ul className="space-y-3 mb-7 border-y border-white/10 py-5">
+                  {offer.included.map((feat) => (
+                    <li key={feat} className="flex items-start gap-3 text-base text-muted-foreground">
+                      <span className="text-primary" aria-hidden="true">✓</span>
                       <span className="text-foreground/90">{feat}</span>
                     </li>
                   ))}
                 </ul>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-2">{offer.note}</p>
+                <p className="text-sm text-primary font-medium">Tempi indicativi: {offer.timing}</p>
               </div>
               
-              <a href="#contatti" className={`block text-center w-full rounded-full py-4 font-medium transition-transform hover:scale-[1.02] ${
-                pkg.featured 
-                  ? 'bg-primary text-primary-foreground hover:bg-primary/90' 
-                  : 'liquid-glass text-foreground hover:bg-white/10'
-              }`}>
-                {ctaBtnText}
+              <a href="#contatti" className="mt-8 block text-center w-full bg-primary text-primary-foreground rounded-full py-4 font-medium hover:bg-primary/90 transition-colors">
+                {offer.cta}
               </a>
             </div>
           );
         })}
+      </div>
+
+      <div className={`mt-6 border border-white/10 rounded-2xl p-6 md:p-7 flex flex-col md:flex-row md:items-center md:justify-between gap-5 ${isInView ? 'animate-fade-rise-delay' : 'opacity-0'}`}>
+        <div>
+          <h3 className="text-2xl font-display text-foreground mb-2">Pilot Web White Label</h3>
+          <p className="text-base text-muted-foreground leading-relaxed max-w-[60ch]">Per agenzie e studi che cercano uno sviluppatore affidabile dietro le quinte.</p>
+        </div>
+        <Link to="/agenzie" className="shrink-0 text-primary font-medium hover:text-foreground transition-colors">Scopri il lavoro white label</Link>
       </div>
     </section>
   );

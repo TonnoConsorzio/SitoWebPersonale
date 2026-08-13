@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useScrollTo } from '../../hooks/useScrollTo';
-import { Linkedin, Instagram } from 'lucide-react';
+import { Linkedin, Instagram, Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import config from '../../data/config.json';
@@ -8,6 +8,7 @@ import config from '../../data/config.json';
 export function Navigation() {
   const { t, i18n } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const handleScrollTo = useScrollTo();
 
   useEffect(() => {
@@ -27,11 +28,9 @@ export function Navigation() {
         </Link>
 
         <div className="hidden md:flex items-center gap-7 text-base text-muted-foreground">
-          <a href="#" onClick={(e) => handleScrollTo(e, 'home')} className="hover:text-foreground transition-colors">{t('nav.home')}</a>
           <Link to="/servizi" className="hover:text-foreground transition-colors">{t('nav.services')}</Link>
-          <Link to="/stima-progetto" className="hover:text-foreground transition-colors">{t('nav.estimator')}</Link>
           <Link to="/portfolio" className="hover:text-foreground transition-colors">{t('nav.portfolio')}</Link>
-          <a href="#prezzi" onClick={(e) => handleScrollTo(e, 'prezzi')} className="hover:text-foreground transition-colors">{t('nav.pricing')}</a>
+          <Link to="/agenzie" className="hover:text-foreground transition-colors">{t('nav.agencies')}</Link>
           <a href="#faq" onClick={(e) => handleScrollTo(e, 'faq')} className="hover:text-foreground transition-colors">{t('nav.faq')}</a>
           <a href="#contatti" onClick={(e) => handleScrollTo(e, 'contatti')} className="hover:text-foreground transition-colors">{t('nav.contact')}</a>
         </div>
@@ -58,8 +57,26 @@ export function Navigation() {
           >
             {t('nav.get_estimate')}
           </Link>
+          <button
+            type="button"
+            aria-label={menuOpen ? 'Chiudi menu' : 'Apri menu'}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((open) => !open)}
+            className="md:hidden min-h-[44px] min-w-[44px] flex items-center justify-center text-foreground"
+          >
+            {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
       </div>
+      {menuOpen && (
+        <div className="md:hidden border-t border-white/10 mt-4 px-4 pt-4 pb-2 space-y-1 bg-background/95">
+          <Link onClick={() => setMenuOpen(false)} to="/servizi" className="block py-3 text-muted-foreground">{t('nav.services')}</Link>
+          <Link onClick={() => setMenuOpen(false)} to="/portfolio" className="block py-3 text-muted-foreground">{t('nav.portfolio')}</Link>
+          <Link onClick={() => setMenuOpen(false)} to="/agenzie" className="block py-3 text-muted-foreground">{t('nav.agencies')}</Link>
+          <a onClick={(e) => { setMenuOpen(false); handleScrollTo(e, 'faq'); }} href="#faq" className="block py-3 text-muted-foreground">{t('nav.faq')}</a>
+          <a onClick={(e) => { setMenuOpen(false); handleScrollTo(e, 'contatti'); }} href="#contatti" className="block py-3 text-muted-foreground">{t('nav.contact')}</a>
+        </div>
+      )}
     </nav>
   );
 }

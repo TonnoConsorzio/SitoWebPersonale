@@ -35,14 +35,14 @@ export function StatsBar() {
       <div className="liquid-glass rounded-2xl flex flex-col md:flex-row justify-around items-center py-8 px-4 gap-8 md:gap-0">
         <div className="text-center">
           <div className="text-5xl font-display text-primary mb-2">
-            <Counter end={12} suffix="+" />
+            <Counter end={11} suffix="+" />
           </div>
           <div className="text-sm text-muted-foreground uppercase tracking-widest">{t('stats.projects_label')}</div>
         </div>
         <div className="hidden md:block w-px h-16 bg-white/10"></div>
         <div className="text-center">
           <div className="text-5xl font-display text-primary mb-2">
-            <Counter end={5} suffix="+" />
+            <Counter end={4} suffix="+" />
           </div>
           <div className="text-sm text-muted-foreground uppercase tracking-widest">{t('stats.experience_label')}</div>
         </div>
