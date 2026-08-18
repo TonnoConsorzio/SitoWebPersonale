@@ -3,10 +3,11 @@ import { Helmet } from 'react-helmet-async';
 export function GlobalSchema() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "Person",
     "name": "Alessio Bellan",
-    "image": "https://alessiobellan.it/og-image.jpg",
-    "description": "Freelance specializzato in siti web, gestionali su misura, grafica & identità visiva, social media management, e infrastrutture Docker.",
+    "image": "https://alessiobellan.it/media/brand/foto-profilo.JPG",
+    "jobTitle": "Freelance web developer e digital designer",
+    "description": "Alessio Bellan progetta siti web, automazioni, gestionali e strumenti digitali per piccole aziende, professionisti e associazioni.",
     "url": "https://alessiobellan.it",
     "telephone": "+393755532010",
     "email": "email@alessiobellan.it",
@@ -28,7 +29,7 @@ export function GlobalSchema() {
         "name": "Bergamo"
       }
     ],
-    "priceRange": "€€",
+    "knowsAbout": ["Siti web", "Automazioni", "Gestionali web", "Formazione digitale", "Infrastrutture Docker"],
     "sameAs": [
       "https://wa.me/393755532010"
     ]

@@ -1,58 +1,20 @@
-import { useInView } from '../../hooks/useInView';
-import { Linkedin, Instagram, ArrowRight } from 'lucide-react';
-import config from '../../data/config.json';
-import { useEffect, useState } from 'react';
+import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { Article, getAllArticles } from '../../utils/markdown';
 
 export function Journal() {
-  const { ref, isInView } = useInView({ threshold: 0.1, triggerOnce: true });
   const [articles, setArticles] = useState<Article[]>([]);
 
   useEffect(() => {
-    async function fetchArticles() {
-      const data = await getAllArticles();
-      setArticles(data);
-    }
-    fetchArticles();
+    getAllArticles().then(setArticles);
   }, []);
 
   return (
-    <section id="journal" ref={ref as any} className="py-24 px-8 max-w-7xl mx-auto">
-      <div className={`mb-16 ${isInView ? 'animate-fade-rise' : 'opacity-0'}`}>
-        <h2 className="text-4xl md:text-5xl font-display text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>Journal</h2>
-      </div>
-
-      <div className="grid grid-cols-1 gap-6 mb-24 max-w-3xl">
-        {articles.slice(0, 1).map((article, idx) => (
-          <Link 
-            key={idx}
-            to={`/journal/${article.slug}`}
-            className={`liquid-glass rounded-2xl p-8 flex flex-col justify-between group cursor-pointer ${isInView ? 'animate-fade-rise' : 'opacity-0'}`}
-            style={{ animationDelay: `${0.1 * idx}s` }}
-          >
-            <div>
-              <h3 className="text-2xl font-display text-foreground mb-4 group-hover:text-primary transition-colors" style={{ fontFamily: "'Instrument Serif', serif" }}>{article.metadata.title}</h3>
-              <p className="text-muted-foreground leading-relaxed mb-8">{article.metadata.excerpt}</p>
-            </div>
-            <div className="flex items-center text-sm font-medium text-foreground">
-              Leggi <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </Link>
-        ))}
-      </div>
-
-      <div className={`flex flex-col items-center justify-center text-center ${isInView ? 'animate-fade-rise-delay-2' : 'opacity-0'}`}>
-        
-        <p className="text-lg text-foreground mb-6">Seguimi per gli aggiornamenti</p>
-        <div className="flex gap-4">
-          <a href={config.social.linkedin} target="_blank" rel="noopener noreferrer" className="liquid-glass rounded-full p-4 text-foreground hover:scale-[1.05] hover:bg-white/10 transition-all">
-            <Linkedin className="w-6 h-6" strokeWidth={1.5} />
-          </a>
-          <a href={config.social.instagram} target="_blank" rel="noopener noreferrer" className="liquid-glass rounded-full p-4 text-foreground hover:scale-[1.05] hover:bg-white/10 transition-all">
-            <Instagram className="w-6 h-6" strokeWidth={1.5} />
-          </a>
-        </div>
+    <section id="journal" className="mx-auto max-w-[1440px] px-5 py-20 md:px-8 md:py-28" aria-labelledby="journal-title">
+      <div className="grid gap-6 md:grid-cols-[0.7fr_1.3fr] md:items-end"><p className="mono-label text-foreground/60">Pensieri utili</p><h2 id="journal-title" className="display-font text-5xl leading-[0.95] tracking-tight md:text-7xl">Journal.</h2></div>
+      <div className="mt-12 border-t-2 border-foreground">
+        {articles.slice(0, 3).map((article) => <Link key={article.slug} to={`/journal/${article.slug}`} className="group flex min-h-24 flex-col justify-between gap-4 border-b border-foreground/25 py-5 transition-colors hover:bg-primary/30 md:flex-row md:items-center"><div><p className="mono-label text-foreground/55">Articolo</p><h3 className="mt-2 text-xl font-bold">{article.metadata.title}</h3></div><span className="inline-flex min-h-11 items-center gap-2 text-sm font-bold">Leggi <ArrowUpRight size={17} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true" /></span></Link>)}
       </div>
     </section>
   );

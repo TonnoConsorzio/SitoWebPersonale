@@ -1,0 +1,22 @@
+[
+  {
+    "project": "alessiobellan.it",
+    "macrostructure": "Cinematic scene stack",
+    "tone": "cinematic personal brand",
+    "anchorHue": "disciplined brand yellow",
+    "genre": "atmospheric-editorial",
+    "preEmit": {
+      "distinctiveness": 5,
+      "hierarchy": 5,
+      "emotion": 5,
+      "spacing": 5,
+      "responsiveness": 5,
+      "voice": 5
+    },
+    "notes": [
+      "Native WebGL procedural engine persists across scenes and falls back to SVG.",
+      "Homepage keeps exactly two primary booking CTAs: hero and final contact.",
+      "Existing routes, forms, real project assets and personal photo are preserved."
+    ]
+  }
+]

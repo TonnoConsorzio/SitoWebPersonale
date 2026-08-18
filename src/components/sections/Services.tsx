@@ -1,173 +1,79 @@
-import { Globe, Layout, Settings, Layers, Network, Bot, Server, ArrowRight } from 'lucide-react';
-import { useInView } from '../../hooks/useInView';
-import { useTranslation } from 'react-i18next';
+import { useEffect, useRef, useState } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ScrollUnderline } from '../ScrollUnderline';
 
-const iconMap: Record<string, any> = {
-  web: Globe,
-  app: Layout,
-  ai: Bot,
-  automation: Settings,
-  brand: Layers,
-  social: Network,
-  infra: Server
-};
+const groups = [
+  { title: 'Farti scegliere', services: 'Siti web · Identità', description: 'Per far capire in fretta chi sei, cosa fai e perché dovrebbero contattarti.', path: '/servizi/siti-web', cta: 'Siti e identità' },
+  { title: 'Farti risparmiare tempo', emphasis: 'risparmiare tempo', services: 'Automazioni · Gestionali · Web app', description: 'Per togliere di mezzo passaggi manuali, doppioni e strumenti che non si parlano.', path: '/servizi/automazioni', cta: 'Automazioni e software' },
+  { title: 'Darti autonomia', emphasis: 'autonomia', services: 'Formazione · Infrastruttura', description: 'Per capire meglio gli strumenti che usi e dipendere meno dagli altri.', path: '/servizi/formazione-ai', cta: 'Formazione e infrastruttura' }
+];
 
 export function Services() {
-  const { t } = useTranslation();
-  const { ref, isInView } = useInView({ threshold: 0.1, triggerOnce: true });
+  const [active, setActive] = useState(0);
+  const [leaving, setLeaving] = useState<number | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const activeRef = useRef(0);
+  const leaveTimer = useRef<number | undefined>(undefined);
 
-  // Priorità commerciale: siti, automazioni, strumenti su misura.
-  const primaryServices = [
-    {
-      id: 'web',
-      icon: 'web',
-      path: '/servizi/siti-web',
-      title: 'Siti web',
-      desc: 'Siti veloci, chiari e su misura per raccontare la tua storia e raccogliere contatti.',
-      cta: 'Scopri i siti web'
-    },
-    {
-      id: 'automation',
-      icon: 'automation',
-      path: '/servizi/automazioni',
-      title: 'Automazioni',
-      desc: 'Flussi che eliminano operazioni manuali e riducono gli errori.',
-      cta: 'Scopri le automazioni'
-    },
-    {
-      id: 'app',
-      icon: 'app',
-      path: '/servizi/gestionali-web-app',
-      title: 'Gestionali e web app',
-      desc: 'Software essenziali per organizzare dati, iscrizioni e processi di lavoro.',
-      cta: 'Scopri i gestionali'
-    }
-  ];
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    gsap.registerPlugin(ScrollTrigger);
+    const trigger = ScrollTrigger.create({
+      trigger: section,
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: true,
+      onUpdate: (self) => {
+        const next = Math.min(groups.length - 1, Math.floor(self.progress * groups.length));
+        if (next === activeRef.current) return;
+        setLeaving(activeRef.current);
+        activeRef.current = next;
+        setActive(next);
+        window.clearTimeout(leaveTimer.current);
+        leaveTimer.current = window.setTimeout(() => setLeaving(null), 620);
+      }
+    });
+    ScrollTrigger.refresh();
+    return () => {
+      trigger.kill();
+      window.clearTimeout(leaveTimer.current);
+    };
+  }, []);
 
-  // Servizi secondari, presenti ma meno prominenti.
-  const secondaryServices = [
-    {
-      id: 'ai',
-      icon: 'ai',
-      path: '/servizi/formazione-ai',
-      title: 'Formazione e AI',
-      desc: 'Uso pratico dell’intelligenza artificiale nel lavoro.'
-    },
-    {
-      id: 'brand',
-      icon: 'brand',
-      path: '/servizi/grafica-identita',
-      title: 'Grafica e identità',
-      desc: 'Logo, colori e sistemi visivi per farti riconoscere subito.'
-    },
-    {
-      id: 'social',
-      icon: 'social',
-      path: '/servizi/social-media',
-      title: 'Social media',
-      desc: 'Piano editoriale e contenuti brevi per comunicare con costanza.'
-    },
-    {
-      id: 'infra',
-      icon: 'infra',
-      path: '/servizi/infrastrutture',
-      title: 'Infrastrutture',
-      desc: 'Server cloud, Docker e domini per far girare i tuoi progetti.'
-    }
-  ];
+  useEffect(() => {
+    document.documentElement.dataset.threadSubstage = String(active);
+    return () => { delete document.documentElement.dataset.threadSubstage; };
+  }, [active]);
 
   return (
-    <section id="servizi" ref={ref as any} className="py-24 md:py-32 px-6 md:px-8 max-w-7xl mx-auto space-y-12">
-      {/* Header */}
-      <div className={`text-center max-w-[65ch] mx-auto space-y-4 ${isInView ? 'animate-fade-rise' : 'opacity-0'}`}>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>
-          Quello che serve davvero.
-        </h2>
-        <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-          Partiamo dal problema, poi scegliamo lo strumento più semplice per risolverlo.
-        </p>
-      </div>
-
-      {/* 3 Main Featured Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-        {primaryServices.map((service, idx) => {
-          const Icon = iconMap[service.icon] || Globe;
-
-          return (
-            <div 
-              key={service.id} 
-              className={`liquid-glass rounded-3xl p-8 flex flex-col justify-between min-h-[320px] group border border-white/10 hover:border-primary/40 transition-all ${isInView ? 'animate-fade-rise' : 'opacity-0'}`} 
-              style={{ animationDelay: `${0.1 * idx}s` }}
-            >
+    <section ref={sectionRef} id="servizi" data-scroll-theme="paper" data-thread-stage="services" className="scene scene--services" aria-labelledby="servizi-title">
+      <div className="scene__container services-scene__layout">
+        <div className="services-scene__lead">
+          <h2 id="servizi-title">Dimmi cosa <ScrollUnderline>non funziona.</ScrollUnderline><br />Il servizio lo scegliamo dopo.</h2>
+        </div>
+        <div className="services-scene__chapters">
+          {groups.map((group, index) => (
+            <article key={group.title} className={`service-chapter ${active === index ? 'is-active' : ''} ${leaving === index ? 'is-leaving' : ''}`}>
               <div>
-                <div className="p-3.5 rounded-2xl bg-white/5 w-fit mb-6 border border-white/10 text-primary group-hover:scale-110 transition-transform">
-                  <Icon className="w-7 h-7" strokeWidth={1.5} />
-                </div>
-                <h3 className="text-2xl font-display text-foreground mb-3" style={{ fontFamily: "'Instrument Serif', serif" }}>
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground text-base leading-relaxed mb-6">
-                  {service.desc}
-                </p>
+                <h3>{group.emphasis ? <ServiceTitle title={group.title} emphasis={group.emphasis} /> : group.title}</h3>
+                <p className="service-chapter__services">{group.services}</p>
+                <p className="service-chapter__description">{group.description}</p>
+                <Link to={group.path} className="text-link">{group.cta} <ArrowUpRight size={17} aria-hidden="true" /></Link>
               </div>
-
-              <div className="pt-4 border-t border-white/10 mt-auto">
-                <Link 
-                  to={service.path} 
-                  className="inline-flex items-center text-base font-medium text-foreground hover:text-primary transition-colors group-hover:translate-x-1 duration-300"
-                >
-                  <span>{service.cta}</span>
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      {/* 4 Secondary Cards with 16px text */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {secondaryServices.map((service, idx) => {
-          const Icon = iconMap[service.icon] || Settings;
-
-          return (
-            <Link
-              key={service.id}
-              to={service.path}
-              className={`liquid-glass p-6 rounded-3xl border border-white/10 hover:border-primary/30 transition-all group flex flex-col justify-between space-y-3 ${isInView ? 'animate-fade-rise' : 'opacity-0'}`}
-              style={{ animationDelay: `${0.1 * (idx + 3)}s` }}
-            >
-              <div className="flex items-center gap-3">
-                <div className="p-3 rounded-2xl bg-white/5 text-primary border border-white/10 group-hover:scale-105 transition-transform">
-                  <Icon className="w-5 h-5" strokeWidth={1.5} />
-                </div>
-                <h4 className="font-display font-medium text-foreground text-lg group-hover:text-primary transition-colors" style={{ fontFamily: "'Instrument Serif', serif" }}>
-                  {service.title}
-                </h4>
-              </div>
-              <p className="text-base text-muted-foreground leading-relaxed">
-                {service.desc}
-              </p>
-              <div className="text-base text-primary font-medium flex items-center gap-1 pt-2">
-                <span>Scopri</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-          );
-        })}
-      </div>
-
-      {/* Large Bottom Button to View All Services */}
-      <div className="text-center pt-4">
-        <Link 
-          to="/servizi" 
-          className="inline-flex items-center gap-3 liquid-glass border border-white/10 hover:border-primary/40 rounded-full px-10 py-4 text-foreground font-medium hover:scale-[1.03] transition-transform text-base shadow-xl"
-        >
-          <span>Visualizza tutti i servizi</span>
-          <ArrowRight className="w-5 h-5 text-primary" />
-        </Link>
+            </article>
+          ))}
+          <div className={`services-scene__footer ${active === groups.length - 1 ? 'is-visible' : ''}`}><Link to="/servizi" className="text-link">Vedi tutti i servizi <ArrowUpRight size={17} aria-hidden="true" /></Link></div>
+        </div>
       </div>
     </section>
   );
+}
+
+function ServiceTitle({ title, emphasis }: { title: string; emphasis: string }) {
+  const [before, after] = title.split(emphasis);
+  return <>{before}<ScrollUnderline>{emphasis}</ScrollUnderline>{after}</>;
 }

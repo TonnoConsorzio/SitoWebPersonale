@@ -23,7 +23,7 @@
     "microline": "Sito Essenziale 890 € · Automation Sprint da 490 €"
   },
   "stats": {
-    "projects_num": "11+",
+    "projects_num": "",
     "projects_label": "Progetti consegnati",
     "experience_num": "4+",
     "experience_label": "Anni sul campo",
@@ -96,7 +96,7 @@
   },
   "portfolio_grid": {
     "title": "Ultimi Progetti",
-    "subtitle": "Una selezione di lavori realizzati per clienti reali.",
+    "subtitle": "Una selezione di progetti raccontati attraverso problema, vincoli e soluzione.",
     "view_all": "Visualizza tutti i progetti",
     "cta": "Scopri il progetto"
   },

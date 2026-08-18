@@ -1,62 +1,12 @@
+import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useInView } from '../../hooks/useInView';
-import { ArrowRight } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 
 export function EstimatorCallout() {
-  const { t } = useTranslation();
-  const { ref, isInView } = useInView({ threshold: 0.1, triggerOnce: true });
-
   return (
-    <section ref={ref as any} className="py-24 px-6 md:px-8 max-w-7xl mx-auto">
-      <div className={`liquid-glass p-8 md:p-12 rounded-3xl border border-white/10 relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-8 ${isInView ? 'animate-fade-rise' : 'opacity-0'}`}>
-        
-        {/* Content Side */}
-        <div className="space-y-4 max-w-[65ch] relative z-10 text-center lg:text-left">
-          <h2 className="text-3xl sm:text-5xl font-display text-foreground leading-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>
-            {t('estimator.callout_title')}
-          </h2>
-
-          <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-            {t('estimator.callout_sub')}
-          </p>
-
-          <div className="pt-2 flex justify-center lg:justify-start">
-            <Link
-              to="/stima-progetto"
-              className="liquid-glass rounded-full px-8 py-4 text-foreground font-medium hover:scale-[1.03] transition-transform text-base shadow-xl flex items-center gap-2"
-            >
-              <span>{t('estimator.get_estimate')}</span>
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
-        </div>
-
-        {/* Visual Abstract Preview Card Side */}
-        <div className="w-full lg:max-w-md liquid-glass p-6 rounded-2xl border border-white/10 space-y-4 relative z-10 font-mono text-base">
-          <div className="flex items-center justify-between text-muted-foreground pb-3 border-b border-white/10">
-            <span>Passaggio 2 di 4</span>
-            <span className="text-primary">{t('estimator.callout_preview_badge')}</span>
-          </div>
-
-          {/* Segmented bar preview */}
-          <div className="flex gap-1.5">
-            <div className="h-2 flex-1 bg-primary rounded-full" />
-            <div className="h-2 flex-1 bg-primary rounded-full" />
-            <div className="h-2 flex-1 bg-white/10 rounded-full" />
-            <div className="h-2 flex-1 bg-white/10 rounded-full" />
-          </div>
-
-          <div className="p-5 rounded-xl bg-black/40 border border-white/5 space-y-2">
-            <span className="text-base text-muted-foreground uppercase">{t('estimator.callout_preview_label')}</span>
-            <div className="text-2xl md:text-3xl font-display text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>
-              1.200 € – 1.800 €
-            </div>
-            <p className="text-base text-muted-foreground font-sans leading-relaxed">
-              {t('estimator.callout_preview_sub')}
-            </p>
-          </div>
-        </div>
+    <section className="mx-auto max-w-[1440px] px-5 py-20 md:px-8 md:py-24" aria-labelledby="stima-title">
+      <div className="grid gap-8 border-2 border-foreground bg-foreground p-6 text-background shadow-[8px_8px_0_#FBCF15] md:grid-cols-[1fr_0.75fr] md:p-10">
+        <div><p className="mono-label mb-5 text-primary">Se vuoi un numero prima della call</p><h2 id="stima-title" className="display-font max-w-3xl text-5xl leading-[0.95] md:text-7xl">Fai una prima stima.</h2><p className="mt-6 max-w-[52ch] text-background/70">Poche domande, linguaggio normale, fascia indicativa immediata. Nessuna email obbligatoria prima del risultato.</p><Link to="/stima-progetto" className="btn-primary mt-8 px-6 py-3">Apri lo stimatore <ArrowUpRight className="ml-2" size={18} aria-hidden="true" /></Link></div>
+        <div className="self-end border-t border-background/30 pt-5 md:border-l md:border-t-0 md:pl-8 md:pt-0"><p className="mono-label text-primary">Il risultato</p><p className="display-font mt-5 text-4xl">Orientativo.</p><p className="mt-3 max-w-[30ch] text-sm leading-relaxed text-background/65">La fascia serve a capire se siamo vicini. Il prezzo definitivo arriva dopo aver visto il progetto.</p></div>
       </div>
     </section>
   );

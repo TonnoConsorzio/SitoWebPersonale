@@ -3,7 +3,8 @@ import { HelmetProvider } from 'react-helmet-async';
 import { lazy, Suspense } from 'react';
 import { ScrollToTop } from './components/ScrollToTop';
 import { GlobalSchema } from './components/GlobalSchema';
-import { MouseEffects } from './components/ui/MouseEffects';
+import { ThemeController } from './components/ThemeController';
+import { RouteWipe } from './components/RouteWipe';
 
 // Lazy loaded pages
 const Home = lazy(() => import('./pages/Home').then(module => ({ default: module.Home })));
@@ -24,8 +25,9 @@ export default function App() {
       <Router>
         <ScrollToTop />
         <GlobalSchema />
-        <MouseEffects />
-        <div className="min-h-screen bg-background font-body text-foreground selection:bg-white/10 selection:text-white">
+        <RouteWipe />
+        <div className="site-shell min-h-screen bg-background font-body text-foreground">
+          <ThemeController />
           <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-background"><div className="w-8 h-8 rounded-full border-2 border-primary border-t-transparent animate-spin"></div></div>}>
             <Routes>
               <Route path="/" element={<Home />} />

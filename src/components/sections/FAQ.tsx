@@ -1,66 +1,34 @@
 import { useState } from 'react';
-import { useInView } from '../../hooks/useInView';
-import { ChevronDown } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
 
+const faqs = [
+  ['Non so esattamente cosa mi serve. È un problema?', 'No. Non devi arrivare con il nome della tecnologia o un capitolato di trenta pagine. Raccontami cosa vuoi ottenere o cosa oggi non funziona. La parte tecnica viene dopo.'],
+  ['Perché dovrei scegliere te invece di un’agenzia?', 'Con me parli direttamente con la persona che pensa e costruisce il progetto. Meno passaggi, più confronto. Se il tuo progetto richiede una struttura più grande di quella che posso offrirti, te lo dico.'],
+  ['Dominio, codice e dati restano miei?', 'Sì. Il progetto non deve diventare un modo per tenerti legato a me.'],
+  ['Ci saranno costi mensili?', 'Se servono hosting, domini, software o servizi esterni, te li dico prima. Niente abbonamenti che compaiono dopo la consegna.'],
+  ['Devo usare per forza una soluzione personalizzata?', 'No. Se WordPress, un software esistente o uno strumento già pronto risolve bene il problema, ha poco senso costruirne uno da zero. Custom non significa automaticamente migliore.'],
+  ['Mi terrai aggiornato durante il progetto?', 'Sì. Preferisco mostrarti cosa sta succedendo mentre lavoriamo piuttosto che sparire e presentarti tutto alla fine.'],
+  ['E dopo la consegna?', 'Decidiamo insieme quanta autonomia vuoi. Posso continuare a seguirti oppure lasciarti documentazione, accessi e strumenti per gestire ciò che puoi gestire da solo.'],
+  ['Quanto tempo serve?', 'Dipende dal progetto. Un sito semplice può richiedere circa 1–2 settimane. Un progetto più complesso o un gestionale può richiedere 4–6 settimane o più. Prima di iniziare definiamo tempi e passaggi.']
+];
+
 export function FAQ() {
-  const { t } = useTranslation();
-  const { ref, isInView } = useInView({ threshold: 0.1, triggerOnce: true });
-  const [openIdx, setOpenIdx] = useState<number | null>(null);
-
-  // 5 core commercial FAQs for maximum clarity
-  const faqIndices = [1, 2, 3, 4, 5];
-
-  const faqs = faqIndices.map(i => ({
-    question: t(`faq.q${i}`),
-    answer: t(`faq.a${i}`)
-  }));
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: { '@type': 'Answer', text: faq.answer }
-    }))
-  };
+  const [openIndex, setOpenIndex] = useState(0);
+  const schema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(([question, answer]) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } })) };
 
   return (
     <>
-      <Helmet>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
-      <section id="faq" ref={ref as any} className="py-24 px-6 md:px-8 max-w-4xl mx-auto">
-      <div className={`mb-12 text-center ${isInView ? 'animate-fade-rise' : 'opacity-0'}`}>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>
-          Domande frequenti
-        </h2>
-      </div>
-
-      <div className={`liquid-glass rounded-3xl p-6 md:p-8 border border-white/10 ${isInView ? 'animate-fade-rise-delay' : 'opacity-0'}`}>
-        {faqs.map((faq, idx) => (
-          <div key={idx} className="border-b border-white/10 last:border-0">
-            <button
-              onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
-              className="w-full min-h-[64px] py-5 flex items-center justify-between text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-              aria-expanded={openIdx === idx}
-            >
-              <h3 className="text-lg md:text-xl font-display text-foreground pr-6" style={{ fontFamily: "'Instrument Serif', serif" }}>
-                {faq.question}
-              </h3>
-              <ChevronDown className={`w-5 h-5 text-muted-foreground shrink-0 transition-transform duration-300 ${openIdx === idx ? 'rotate-180' : ''}`} />
-            </button>
-            <div 
-              className={`overflow-hidden transition-all duration-300 ease-in-out ${openIdx === idx ? 'max-h-[300px] opacity-100 pb-5' : 'max-h-0 opacity-0'}`}
-            >
-              <p className="text-muted-foreground text-sm leading-relaxed whitespace-pre-line max-w-[65ch]">
-                {faq.answer}
-              </p>
-            </div>
+      <Helmet><script type="application/ld+json">{JSON.stringify(schema)}</script></Helmet>
+      <section id="faq" data-scroll-theme="dark" className="scene scene--faq" aria-labelledby="faq-title">
+        <div className="scene__container faq-scene__layout">
+          <div className="faq-scene__intro"><h2 id="faq-title">Domande sensate.<br /><span>Risposte senza giri strani.</span></h2></div>
+          <div className="faq-scene__list">
+            {faqs.map(([question, answer], index) => {
+              const isOpen = openIndex === index;
+              return <div key={question} className={`faq-scene__item ${isOpen ? 'is-open' : ''}`}><h3><button type="button" aria-expanded={isOpen} aria-controls={`faq-answer-${index}`} onClick={() => setOpenIndex(isOpen ? -1 : index)}>{question}<span className="faq-scene__icon" aria-hidden="true">+</span></button></h3><div id={`faq-answer-${index}`} className="faq-scene__answer-wrap"><p className="faq-scene__answer">{answer}</p></div></div>;
+            })}
           </div>
-        ))}
-      </div>
+        </div>
       </section>
     </>
   );

@@ -23,7 +23,7 @@
     "microline": "Essential Website €890 · Automation Sprint from €490"
   },
   "stats": {
-    "projects_num": "11+",
+    "projects_num": "",
     "projects_label": "Completed projects",
     "experience_num": "4+",
     "experience_label": "Years experience",
@@ -96,7 +96,7 @@
   },
   "portfolio_grid": {
     "title": "Recent Work",
-    "subtitle": "A selection of projects built for real clients.",
+    "subtitle": "A selection of projects told through problem, constraints, and solution.",
     "view_all": "View full portfolio",
     "cta": "View project"
   },

@@ -42,7 +42,7 @@ export function Services() {
               
               <div className="mt-auto pt-6">
                 <Link to={`/servizi/${service.id}`} className="text-sm font-medium text-primary hover:text-primary/80 transition-colors flex items-center gap-1 w-fit">
-                  Scopri di più <span aria-hidden="true">&rarr;</span>
+                  Guarda come funziona <span aria-hidden="true">&rarr;</span>
                 </Link>
               </div>
             </div>

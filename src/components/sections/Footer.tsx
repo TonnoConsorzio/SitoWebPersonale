@@ -1,86 +1,21 @@
-import { Instagram, Linkedin } from 'lucide-react';
-import config from '../../data/config.json';
-import { useScrollTo } from '../../hooks/useScrollTo';
-import { useTranslation } from 'react-i18next';
+import { Instagram, Linkedin, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import config from '../../data/config.json';
 
 export function Footer() {
-  const { t } = useTranslation();
-  const handleScrollTo = useScrollTo();
-
   return (
-    <footer className="mt-24 liquid-glass rounded-t-3xl border-b-0 px-8 py-12 max-w-7xl mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-        <div className="max-w-sm space-y-3">
-          <a href="#/" onClick={(e) => handleScrollTo(e, 'home')} className="flex items-center gap-2 text-3xl font-display text-foreground block mb-2">
-            <img src="./media/brand/logo.svg" alt="Alessio Bellan Logo" className="h-10 w-10" width="40" height="40" />
-            <span>Alessio Bellan</span>
-          </a>
-          <p className="text-muted-foreground text-base leading-relaxed">
-            {t('footer.description')}
-          </p>
-          <p className="text-base text-muted-foreground/80 leading-relaxed pt-1">
-            Il 10% di ogni progetto sostiene{' '}
-            <a href="https://abboaps.org" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 underline hover:text-foreground font-medium text-foreground">
-              <img src="./media/brand/abbo-logo-bianco.svg" alt="ABBO APS" className="h-4 w-auto inline shrink-0" height="16" />
-              <span>ABBO APS</span>
-            </a>.
-          </p>
-        </div>
-
-        <div className="flex flex-col sm:flex-row gap-12 sm:gap-24 md:col-span-1 justify-center">
+    <footer className="experience-footer">
+      <div className="scene__container">
+        <div className="experience-footer__grid">
           <div>
-            <h4 className="font-medium text-foreground mb-4 text-base uppercase tracking-widest">{t('footer.services')}</h4>
-            <ul className="space-y-3 text-base text-muted-foreground">
-              <li><Link to="/servizi" className="hover:text-foreground transition-colors">Servizi</Link></li>
-              <li><Link to="/servizi/gestionali-web-app" className="hover:text-foreground transition-colors">Gestionali</Link></li>
-              <li><Link to="/servizi/grafica-identita" className="hover:text-foreground transition-colors">Grafica</Link></li>
-              <li><Link to="/servizi/social-media" className="hover:text-foreground transition-colors">Social media</Link></li>
-            </ul>
+            <Link to="/" className="inline-flex items-center gap-3 text-2xl font-bold"><img src="/media/brand/logo-nav.webp" alt="" className="h-9 w-9" width="36" height="36" /> Alessio Bellan</Link>
+            <p className="mt-6 max-w-[38ch] text-[color:rgba(242,238,229,.65)]">Idee fuori di testa. Soluzioni con i piedi per terra.</p>
+            <p className="mt-5 max-w-[42ch] text-sm text-[color:rgba(242,238,229,.5)]">Il 10% del compenso di ogni progetto sostiene ABBO APS.</p>
           </div>
-          <div>
-            <h4 className="font-medium text-foreground mb-4 text-base uppercase tracking-widest">{t('footer.info')}</h4>
-            <ul className="space-y-3 text-base text-muted-foreground">
-              <li><a href="#about" onClick={(e) => handleScrollTo(e, 'about')} className="hover:text-foreground transition-colors">Chi sono</a></li>
-              <li><a href="#portfolio" onClick={(e) => handleScrollTo(e, 'portfolio')} className="hover:text-foreground transition-colors">Portfolio</a></li>
-              <li><a href="#journal" onClick={(e) => handleScrollTo(e, 'journal')} className="hover:text-foreground transition-colors">Journal</a></li>
-              <li><Link to="/prezzi" className="hover:text-foreground transition-colors">Prezzi</Link></li>
-              <li><a href="#faq" onClick={(e) => handleScrollTo(e, 'faq')} className="hover:text-foreground transition-colors">FAQ</a></li>
-              <li><a href="#contatti" onClick={(e) => handleScrollTo(e, 'contatti')} className="hover:text-foreground transition-colors">Contatti</a></li>
-            </ul>
-          </div>
+          <div><h2 className="mono-label mb-4 text-[color:var(--experience-yellow)]">Esplora</h2><nav className="flex flex-col items-start gap-2 text-sm"><a href="/#servizi" className="min-h-11 inline-flex items-center">Servizi</a><a href="/#progetti" className="min-h-11 inline-flex items-center">Progetti</a><Link to="/prezzi" className="min-h-11 inline-flex items-center">Prezzi</Link><Link to="/curriculum" className="min-h-11 inline-flex items-center">Chi sono</Link></nav></div>
+          <div><h2 className="mono-label mb-4 text-[color:var(--experience-yellow)]">Parliamo</h2><a href="mailto:email@alessiobellan.it" className="inline-flex min-h-11 items-center text-sm underline decoration-[var(--experience-yellow)] decoration-2 underline-offset-4">email@alessiobellan.it <ArrowUpRight className="ml-2" size={15} aria-hidden="true" /></a><div className="mt-5 flex gap-4"><a href={config.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="inline-flex min-h-11 min-w-11 items-center justify-center border border-[color:rgba(242,238,229,.3)]"><Linkedin size={18} /></a><a href={config.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="inline-flex min-h-11 min-w-11 items-center justify-center border border-[color:rgba(242,238,229,.3)]"><Instagram size={18} /></a></div></div>
         </div>
-
-        <div className="flex flex-col md:items-end md:ml-auto">
-          <a href="mailto:email@alessiobellan.it" className="text-foreground hover:text-muted-foreground transition-colors mb-6 text-xl">
-            email@alessiobellan.it
-          </a>
-          <div className="flex gap-4">
-            <a href={config.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Profilo LinkedIn" className="text-muted-foreground hover:text-foreground transition-colors">
-              <Linkedin className="w-6 h-6" />
-            </a>
-            <a href={config.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Profilo Instagram" className="text-muted-foreground hover:text-foreground transition-colors">
-              <Instagram className="w-6 h-6" />
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-base text-muted-foreground/80 gap-4 md:gap-0">
-        <div className="flex flex-col gap-1 items-center md:items-start">
-          <div className="flex flex-col md:flex-row gap-2 md:gap-4 items-center">
-            <p>© 2026 Alessio Bellan. {t('footer.rights')}</p>
-            <span className="hidden md:inline">•</span>
-            <p>P. IVA 14824790969</p>
-          </div>
-          <div className="mt-2 text-center md:text-left">
-            <p className="text-muted-foreground">{t('footer.made_with')}</p>
-          </div>
-        </div>
-        <div className="flex gap-6 text-muted-foreground/60">
-          <span>Privacy Policy</span>
-          <span>Cookie Policy</span>
-        </div>
+        <div className="experience-footer__bottom"><p>© 2026 Alessio Bellan · P. IVA 14824790969</p><p>Progettato e sviluppato da Alessio Bellan.</p></div>
       </div>
     </footer>
   );
