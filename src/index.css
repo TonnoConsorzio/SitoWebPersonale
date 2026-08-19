@@ -54,7 +54,7 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-.site-shell { min-height: 100svh; overflow-x: clip; background: var(--scroll-bg); transition: background-color 420ms var(--ease-in-out); }
+.site-shell { min-height: 100svh; overflow-x: visible; background: var(--scroll-bg); transition: background-color 420ms var(--ease-in-out); }
 .display-font { font-family: var(--font-display); }
 .mono-label {
   font-family: var(--font-mono);
@@ -91,7 +91,7 @@ section { scroll-margin-top: 96px; }
   width: 100%;
   min-height: 48px;
   border: 1px solid #5d5a53;
-  border-radius: 0;
+  border-radius: var(--radius-control);
   background: #fffdf5;
   padding: 0.75rem 1rem;
   color: #050505;

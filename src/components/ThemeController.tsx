@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 
 export function ThemeController() {
   useEffect(() => {
+    let frame = 0;
     const update = () => {
       const sections = Array.from(document.querySelectorAll<HTMLElement>('[data-scroll-theme]'))
         .filter((section) => section !== document.documentElement);
@@ -13,23 +14,27 @@ export function ThemeController() {
           return bounds.top <= pivot && bounds.bottom > pivot;
         })
         .at(-1) ?? sections.find((section) => section.getBoundingClientRect().bottom > 0) ?? sections[0];
-      document.documentElement.dataset.scrollTheme = active.dataset.scrollTheme ?? 'paper';
-      document.documentElement.dataset.threadStage = active.dataset.threadStage ?? 'none';
+      const theme = active.dataset.scrollTheme ?? 'paper';
+      if (document.documentElement.dataset.scrollTheme !== theme) document.documentElement.dataset.scrollTheme = theme;
     };
-    const observer = new MutationObserver(update);
+    const schedule = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        update();
+      });
+    };
+    const observer = new MutationObserver(schedule);
     observer.observe(document.body, { childList: true, subtree: true });
-    window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update, { passive: true });
-    const interval = window.setInterval(update, 120);
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule, { passive: true });
     update();
     return () => {
       observer.disconnect();
-      window.removeEventListener('scroll', update);
-      window.removeEventListener('resize', update);
-      window.clearInterval(interval);
+      if (frame) window.cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', schedule);
       delete document.documentElement.dataset.scrollTheme;
-        delete document.documentElement.dataset.threadStage;
-        delete document.documentElement.dataset.threadSubstage;
     };
   }, []);
 

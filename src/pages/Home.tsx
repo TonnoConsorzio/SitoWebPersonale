@@ -1,7 +1,6 @@
 import { SEO } from '../components/SEO';
 import { Navigation } from '../components/sections/Navigation';
 import { Hero } from '../components/sections/Hero';
-import { StatsBar } from '../components/sections/StatsBar';
 import { Services } from '../components/sections/Services';
 import { FormationSection } from '../components/sections/FormationSection';
 import { PricingPackages } from '../components/sections/PricingPackages';
@@ -12,21 +11,22 @@ import { ProcessSection } from '../components/sections/ProcessSection';
 import { FAQ } from '../components/sections/FAQ';
 import { Contact } from '../components/sections/Contact';
 import { Footer } from '../components/sections/Footer';
-import { lazy, Suspense } from 'react';
-import { ThreadLoadingFallback } from '../components/ThreadLoadingFallback';
-
-const ThreadCanvas = lazy(() => import('../components/ThreadCanvas').then((module) => ({ default: module.ThreadCanvas })));
+import { StatsBar } from '../components/sections/StatsBar';
+import { TunaScene } from '../components/scenes/TunaScene';
+import { useTranslation } from 'react-i18next';
 
 export function Home() {
+  const { i18n } = useTranslation();
+  const english = i18n.language.startsWith('en');
   return (
     <div className="experience-page">
       <SEO 
-        title="Alessio Bellan | Siti web e automazioni su misura"
-        description="Siti web, landing page e automazioni per professionisti, associazioni e piccole realtà. Meno passaggi manuali, meno complicazioni tecniche."
+        title={english ? 'Alessio Bellan | Custom websites and automations' : 'Alessio Bellan | Siti web e automazioni su misura'}
+        description={english ? 'Websites, landing pages and automations for professionals, associations and small businesses. Fewer manual steps, fewer technical complications.' : 'Siti web, landing page e automazioni per professionisti, associazioni e piccole realtà. Meno passaggi manuali, meno complicazioni tecniche.'}
         canonical="/"
       />
       <Navigation />
-      <div className="thread-layer"><Suspense fallback={<ThreadLoadingFallback />}><ThreadCanvas /></Suspense></div>
+      <TunaScene />
       <main id="contenuto" className="experience-main">
         <Hero />
         <StatsBar />

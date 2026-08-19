@@ -1,14 +1,17 @@
 :root {
-  --color-brand-yellow: #fbcf15;
-  --color-ink: #0a0a0a;
-  --color-dark-surface: #111111;
-  --color-warm-white: #f3f0e8;
-  --color-warm-secondary: #e7e2d8;
-  --color-text-muted: #6f6c66;
-  --color-line: color-mix(in srgb, var(--color-ink) 16%, transparent);
-  --color-line-dark: color-mix(in srgb, var(--color-warm-white) 24%, transparent);
-  --font-display: 'Bricolage Grotesque', ui-sans-serif, sans-serif;
-  --font-body: 'Instrument Sans', ui-sans-serif, sans-serif;
+  --color-brand-yellow: #FBCF15;
+  --color-ink: #0A0A0A;
+  --color-dark-surface: #111214;
+  --color-warm-white: #F1ECE2;
+  --color-warm-secondary: #E4DDD0;
+  --color-text-muted: #716D66;
+  --color-highlight: rgba(255,255,255,.72);
+  --color-warm-shadow: rgba(68,58,43,.14);
+  --color-line: rgba(68,58,43,.14);
+  --color-line-dark: rgba(241,236,226,.24);
+  --color-white: #ffffff;
+  --font-display: 'Schibsted Grotesk Variable', ui-sans-serif, sans-serif;
+  --font-body: 'Instrument Sans Variable', ui-sans-serif, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -24,11 +27,15 @@
   --space-24: 6rem;
   --space-32: 8rem;
   --space-40: 10rem;
-  --page-gutter: clamp(1.5rem, 3vw, 3.5rem);
-  --page-max: 90rem;
+  --page-gutter: clamp(1.75rem, 3.2vw, 3.5rem);
+  --page-max: 92.5rem;
+  --grid-gutter: clamp(1.25rem, 1.8vw, 1.875rem);
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-slow: cubic-bezier(0.16, 1, 0.3, 1);
   --dur-fast: 220ms;
   --dur-main: 620ms;
-  --radius-control: 0.5rem;
+  --radius-control: 1rem;
+  --shadow-clay: 12px 12px 28px rgba(70,60,45,.14), -10px -10px 24px rgba(255,255,255,.70), inset 1px 1px 0 rgba(255,255,255,.65);
+  --shadow-clay-soft: 7px 8px 18px rgba(70,60,45,.12), -6px -6px 16px rgba(255,255,255,.62), inset 1px 1px 0 rgba(255,255,255,.65);
+  --shadow-clay-inset: inset 4px 4px 10px rgba(77,66,50,.12), inset -4px -4px 10px rgba(255,255,255,.62);
 }

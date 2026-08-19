@@ -1,46 +1,45 @@
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import portfolio from '../../data/portfolio.json';
 import { useScrollProgress } from '../../hooks/useScrollProgress';
+import { useHomeCopy } from '../../hooks/useHomeCopy';
 
-const projects = [
-  {
-    id: 2,
-    label: 'Digital Heroes',
-    title: 'Meno dipendenza da Eventbrite. Più controllo.',
-    description: 'Una piattaforma per gestire eventi, iscrizioni e biglietti con un sistema proprietario.',
-    image: portfolio[1].image,
-    cta: 'Guarda Digital Heroes'
-  },
-  {
-    id: 3,
-    label: 'ABBO APS',
-    title: 'Un gestionale pensato per l’associazione. Non adattato a forza.',
-    description: 'È in sviluppo per riunire la gestione interna e sostituire strumenti generici, tra cui un servizio da 79 € al mese.',
-    image: portfolio[2].image,
-    cta: 'Guarda il progetto'
-  }
-];
+type Project = { id: number; label: string; title: string; description: string; previewImages: string[]; category: string; cta: string; open: string };
 
-type Project = (typeof projects)[number];
+function ProjectPreview({ project }: { project: Project }) {
+  return (
+    <Link to={`/portfolio/${project.id}`} className="project-preview" aria-label={project.open}>
+      <span className="project-preview__stage">
+        {project.previewImages.map((image, index) => (
+          <span key={`${image}-${index}`} className={`project-preview__layer project-preview__layer--${index + 1}`}>
+            <img src={image} alt="" loading={project.id === 2 && index === 1 ? 'eager' : 'lazy'} decoding="async" />
+          </span>
+        ))}
+      </span>
+    </Link>
+  );
+}
 
-function ProjectScene({ project }: { project: Project }) {
-  const ref = useScrollProgress<HTMLAnchorElement>();
+function ProjectScene({ project, index }: { project: Project; index: number }) {
+  const ref = useScrollProgress<HTMLElement>();
 
   return (
-    <article className="project-scene">
-      <div className="project-scene__sticky">
-        <div className="project-scene__grid">
-          <div className="project-scene__copy">
-            <p className="project-scene__label eyebrow">{project.label}</p>
+    <article ref={ref} className={`project-scene project-scene--${index + 1}`}>
+      <div className="project-card">
+        <ProjectPreview project={project} />
+        <div className="project-card__content">
+          <div className="project-card__heading">
+            <p className="project-scene__label">{project.label}</p>
             <h3>{project.title}</h3>
             <p>{project.description}</p>
+          </div>
+          <div className="project-card__footer">
+            <ul className="project-card__tags" aria-label={project.category}>
+              <li>{project.category}</li>
+            </ul>
             <Link to={`/portfolio/${project.id}`} className="text-link text-link--light">{project.cta} <ArrowUpRight size={17} aria-hidden="true" /></Link>
           </div>
-          <Link ref={ref} to={`/portfolio/${project.id}`} className="project-scene__visual-wrap" aria-label={`Apri il progetto ${project.label}`}>
-            <span className="project-scene__visual-depth" aria-hidden="true" />
-            <img src={project.image} alt={`Anteprima del progetto ${project.label}`} loading={project.id === 2 ? 'eager' : 'lazy'} width="1200" height="900" className="project-scene__visual" />
-          </Link>
         </div>
       </div>
     </article>
@@ -48,14 +47,28 @@ function ProjectScene({ project }: { project: Project }) {
 }
 
 export function PortfolioGrid() {
+  const { i18n } = useTranslation();
+  const copy = useHomeCopy().projects;
+  const locale: 'it' | 'en' = i18n.language.startsWith('en') ? 'en' : 'it';
+  const projects: Project[] = copy.items.map((item, index) => {
+    const source = portfolio[index + 1];
+    const previewImages = [source.image, ...source.gallery].slice(0, 3);
+    while (previewImages.length < 3) previewImages.push(source.image);
+    return { ...item, id: index + 2, previewImages, category: source.category[locale] };
+  });
+
   return (
-    <section id="progetti" data-scroll-theme="dark" data-thread-stage="projects" className="scene scene--projects" aria-labelledby="progetti-title">
+    <section id="progetti" data-scroll-theme="dark" className="scene scene--projects" aria-labelledby="progetti-title">
       <div className="scene__container projects-scene__intro">
-        <p className="eyebrow">Progetti reali</p>
-        <h2 id="progetti-title">Non ti racconto cosa potrei fare.<br /><span>Ti faccio vedere cosa sto facendo.</span></h2>
-        <Link to="/portfolio" className="text-link text-link--light">Vedi tutti i progetti <ArrowUpRight size={18} aria-hidden="true" /></Link>
+        <div>
+          <p className="section-kicker">{copy.kicker}</p>
+          <h2 id="progetti-title">{copy.introA}<br /><span>{copy.introB}</span></h2>
+        </div>
       </div>
-      {projects.map((project) => <ProjectScene key={project.id} project={project} />)}
+      <div className="projects-scene__cards">
+        {projects.map((project, index) => <ProjectScene key={project.id} project={project} index={index} />)}
+      </div>
+      <div className="scene__container projects-scene__outro"><Link to="/portfolio" className="text-link text-link--light">{copy.all} <ArrowUpRight size={18} aria-hidden="true" /></Link></div>
     </section>
   );
 }

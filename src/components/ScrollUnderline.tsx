@@ -30,11 +30,9 @@ export function ScrollUnderline({ children, className = '' }: ScrollUnderlinePro
   }, []);
 
   return (
-    <span ref={ref} className={`scroll-underline ${visible ? 'is-visible' : ''} ${className}`.trim()}>
-      <span className="scroll-underline__text">{children}</span>
-      <svg className="scroll-underline__line" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-        <path d="M1 6.4C17 4.2 30 7.2 48 5.8S77 4.8 99 5.9" pathLength="1" />
-      </svg>
-    </span>
+      <span ref={ref} className={`scroll-underline ${visible ? 'is-visible' : ''} ${className}`.trim()}>
+        <span className="scroll-underline__text">{children}</span>
+        <span className="scroll-underline__line" aria-hidden="true" />
+      </span>
   );
 }

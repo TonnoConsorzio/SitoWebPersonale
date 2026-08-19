@@ -18,5 +18,24 @@
       "Homepage keeps exactly two primary booking CTAs: hero and final contact.",
       "Existing routes, forms, real project assets and personal photo are preserved."
     ]
+  },
+  {
+    "project": "alessiobellan.it",
+    "macrostructure": "hardware cinematic stack",
+    "tone": "retro industrial clay",
+    "anchorHue": "#FBCF15",
+    "genre": "studied-DNA (source: visual reconstruction brief)",
+    "preEmit": {
+      "philosophy": 5,
+      "hierarchy": 5,
+      "execution": 4,
+      "specificity": 5,
+      "restraint": 5,
+      "variety": 4
+    },
+    "notes": [
+      "Reconstructed the existing scene order and locked Italian homepage copy.",
+      "Kept the retro computer and Tuna as the only three-dimensional assets, with reduced-motion fallbacks and browser QA."
+    ]
   }
 ]

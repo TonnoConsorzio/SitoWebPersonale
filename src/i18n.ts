@@ -14,10 +14,19 @@ i18n
       it: { translation: itTranslations },
     },
     fallbackLng: 'it', // Fallback to Italian if detection fails or language is not supported
+    supportedLngs: ['it', 'en'],
+    detection: {
+      order: ['localStorage'],
+      caches: ['localStorage'],
+    },
     debug: false,
     interpolation: {
       escapeValue: false, // React already escapes values
     },
   });
+
+i18n.on('languageChanged', (language) => {
+  document.documentElement.lang = language.startsWith('en') ? 'en' : 'it';
+});
 
 export default i18n;

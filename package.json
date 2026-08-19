@@ -12,8 +12,9 @@
     "lint": "tsc --noEmit"
   },
   "dependencies": {
+    "@fontsource-variable/instrument-sans": "^5.3.0",
+    "@fontsource-variable/schibsted-grotesk": "^5.3.0",
     "@google/genai": "^2.4.0",
-    "@react-three/drei": "^10.7.8",
     "@react-three/fiber": "^9.7.0",
     "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.1.14",
@@ -41,6 +42,7 @@
   "devDependencies": {
     "@types/express": "^4.17.21",
     "@types/node": "^22.14.0",
+    "@types/three": "^0.185.4",
     "autoprefixer": "^10.4.21",
     "esbuild": "^0.25.0",
     "gh-pages": "^6.3.0",

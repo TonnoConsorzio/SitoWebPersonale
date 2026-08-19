@@ -18,7 +18,7 @@ export function useScrollProgress<T extends HTMLElement>() {
       element.style.setProperty('--scene-progress', String(normalized));
       element.style.setProperty('--scene-wrap-y', `${(0.5 - normalized) * 10}vh`);
       element.style.setProperty('--scene-media-y', `${(0.5 - normalized) * 6}vh`);
-      element.style.setProperty('--scene-media-scale', String(0.88 + normalized * 0.12));
+      element.style.setProperty('--scene-media-scale', String(1.035 + normalized * 0.025));
     };
     const schedule = () => {
       if (!frame) frame = window.requestAnimationFrame(paint);

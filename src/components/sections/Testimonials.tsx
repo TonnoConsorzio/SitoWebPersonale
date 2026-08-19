@@ -2,9 +2,11 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import config from '../../data/config.json';
+import { useHomeCopy } from '../../hooks/useHomeCopy';
 
 export function Testimonials() {
   const { i18n } = useTranslation();
+  const copy = useHomeCopy().testimonials;
   const [active, setActive] = useState(0);
   const lang = i18n.language.startsWith('en') ? 'en' : 'it';
   const testimonial = config.testimonials[active];
@@ -16,11 +18,11 @@ export function Testimonials() {
     <section data-scroll-theme="paper" className="scene scene--testimonials" aria-labelledby="testimonials-title">
       <div className="scene__container testimonials-scene__layout">
         <div>
-          <p className="eyebrow">Persone con cui ho lavorato</p>
-          <h2 id="testimonials-title" className="mt-6 font-[var(--font-display)] text-[clamp(3.3rem,6.3vw,7rem)] leading-[.87] tracking-[-.06em]">Meglio far parlare loro.</h2>
-          <div className="testimonials-scene__controls mt-10">
-            <button type="button" onClick={() => move(-1)} aria-label="Testimonianza precedente"><ArrowLeft size={18} aria-hidden="true" /></button>
-            <button type="button" onClick={() => move(1)} aria-label="Testimonianza successiva"><ArrowRight size={18} aria-hidden="true" /></button>
+          <p className="eyebrow">{copy.eyebrow}</p>
+          <h2 id="testimonials-title">{copy.title}</h2>
+          <div className="testimonials-scene__controls">
+            <button type="button" onClick={() => move(-1)} aria-label={copy.previous}><ArrowLeft size={18} aria-hidden="true" /></button>
+            <button type="button" onClick={() => move(1)} aria-label={copy.next}><ArrowRight size={18} aria-hidden="true" /></button>
           </div>
         </div>
         <figure className="testimonials-scene__quote" aria-live="polite">

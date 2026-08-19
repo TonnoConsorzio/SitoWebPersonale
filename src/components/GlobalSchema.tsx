@@ -1,6 +1,9 @@
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 export function GlobalSchema() {
+  const { i18n } = useTranslation();
+  const lang = i18n.language.startsWith('en') ? 'en' : 'it';
   const schema = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -37,7 +40,7 @@ export function GlobalSchema() {
 
   return (
     <Helmet>
-      <html lang="it" />
+      <html lang={lang} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <script type="application/ld+json">
         {JSON.stringify(schema)}
