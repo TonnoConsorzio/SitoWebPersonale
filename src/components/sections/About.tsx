@@ -1,9 +1,12 @@
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ScrollUnderline } from '../ScrollUnderline';
 import { useHomeCopy } from '../../hooks/useHomeCopy';
 
 export function About() {
   const copy = useHomeCopy().about;
+  const target = copy.title.includes('problemi storti') ? 'problemi storti.' : 'crooked problems.';
+  const [titleBefore, titleAfter] = copy.title.split(target);
   return (
     <section id="about" data-scroll-theme="paper" className="scene scene--about" aria-labelledby="about-title">
       <div className="scene__container about-scene__layout">
@@ -11,8 +14,7 @@ export function About() {
           <img src="/media/brand/foto_profilo_firma.jpg" alt={copy.portraitAlt} width="3389" height="3392" loading="lazy" />
         </div>
         <div className="about-scene__copy">
-          <p className="eyebrow">{copy.eyebrow}</p>
-          <h2 id="about-title">{copy.title}</h2>
+          <h2 id="about-title">{titleBefore}<ScrollUnderline>{target}</ScrollUnderline>{titleAfter}</h2>
           <div>
             {copy.paragraphs.map((paragraph, index) => <p key={paragraph}>{index === 4 ? <strong>{paragraph}</strong> : paragraph}</p>)}
           </div>

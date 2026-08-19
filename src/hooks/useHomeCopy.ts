@@ -5,27 +5,27 @@ export const homeCopy = {
     nav: { services: 'Servizi', projects: 'Progetti', pricing: 'Prezzi', about: 'Chi sono', journal: 'Journal', skip: 'Vai al contenuto', changeLanguage: 'Cambia lingua', openMenu: 'Apri menu', closeMenu: 'Chiudi menu' },
     hero: {
       titleA: 'Idee', titleAEmphasis: 'fuori di testa.', titleB: 'Soluzioni', titleBMiddle: 'con i', titleBEmphasis: 'piedi per terra.',
-      eyebrow: 'Siti web · Automazioni · Formazione', copyA: 'Per piccole aziende e associazioni.', copyB: 'Se un sito non convince, un processo ti rallenta o uno strumento non basta più, partiamo da lì.', note: 'Se basta una soluzione semplice, te lo dico.',
+      typewriter: ['Siti web', 'Automazioni', 'Gestionali e web app', 'Formazione', 'Identità visiva', 'Infrastrutture'], staticTypewriter: 'siti web, automazioni, formazione e strumenti digitali.',
       book: 'Prenota 15 minuti', projects: 'Guarda i progetti', sceneLabel: 'Computer retro interattivo'
     },
     projects: {
-      kicker: 'Progetti reali', introA: 'Non ti racconto cosa potrei fare.', introB: 'Ti faccio vedere cosa sto facendo.', all: 'Vedi tutti i progetti',
+      introA: 'Non ti racconto cosa potrei fare.', introB: 'Ti faccio vedere cosa sto facendo.', cta: 'Guarda il progetto', all: 'Vedi tutti i progetti',
       items: [
         { label: 'Digital Heroes', title: 'Meno dipendenza da Eventbrite. Più controllo.', description: 'Una piattaforma per gestire eventi, iscrizioni e biglietti con un sistema proprietario.', cta: 'Guarda Digital Heroes', open: 'Apri il progetto Digital Heroes', alt: 'Anteprima completa del progetto Digital Heroes' },
         { label: 'ABBO APS', title: 'Un gestionale pensato per l’associazione. Non adattato a forza.', description: 'È in sviluppo per riunire la gestione interna e sostituire strumenti generici, tra cui un servizio da 79 € al mese.', cta: 'Guarda il progetto', open: 'Apri il progetto ABBO APS', alt: 'Anteprima completa del progetto ABBO APS' }
       ]
     },
     services: {
-      eyebrow: 'Non devi sapere cosa comprare', titleA: 'Dimmi cosa', titleEmphasis: 'non funziona.', titleB: 'Il servizio lo scegliamo dopo.', all: 'Vedi tutti i servizi',
+      titleA: 'Dimmi cosa', titleEmphasis: 'non funziona.', titleB: 'Il servizio lo scegliamo dopo.', all: 'Vedi tutti i servizi',
       groups: [
         { title: 'Farti scegliere', services: 'Siti web · Identità', description: 'Per far capire in fretta chi sei, cosa fai e perché dovrebbero contattarti.', cta: 'Siti e identità', path: '/servizi/siti-web' },
         { title: 'Farti risparmiare tempo', emphasis: 'risparmiare tempo', services: 'Automazioni · Gestionali · Web app', description: 'Per togliere di mezzo passaggi manuali, doppioni e strumenti che non si parlano.', cta: 'Automazioni e software', path: '/servizi/automazioni' },
         { title: 'Darti autonomia', emphasis: 'autonomia', services: 'Formazione · Infrastruttura', description: 'Per capire meglio gli strumenti che usi e dipendere meno dagli altri.', cta: 'Formazione e infrastruttura', path: '/servizi/formazione-ai' }
       ]
     },
-    formation: { eyebrow: 'Formazione', title: 'Qualcosa che puoi usare il giorno dopo.', copyA: 'AI e strumenti digitali spiegati attraverso esempi, esercizi e problemi reali.', copyB: 'Niente sfilata di tool. L’obiettivo è capire cosa ti serve e imparare a usarlo davvero.', cta: 'Scopri la formazione' },
+    formation: { title: 'Qualcosa che puoi usare il giorno dopo.', copyA: 'AI e strumenti digitali spiegati attraverso esempi, esercizi e problemi reali.', copyB: 'Niente sfilata di tool. L’obiettivo è capire cosa ti serve e imparare a usarlo davvero.', cta: 'Scopri la formazione' },
     process: {
-      eyebrow: 'Come lavoriamo', titleEmphasisA: 'Non sparisco', titleMiddle: 'per tre settimane.', titleB: 'È', titleEmphasisB: 'parte del servizio.', footer: 'Niente ostaggi digitali.', book: 'Prenota 15 minuti',
+      titleEmphasisA: 'Non sparisco', titleMiddle: 'per tre settimane.', titleB: 'È', titleEmphasisB: 'parte del servizio.', footer: 'Niente ostaggi digitali.', book: 'Prenota 15 minuti',
       steps: [
         ['01', 'Mi racconti il problema', 'Quindici minuti. Niente presentazioni infinite.'],
         ['02', 'Ti dico cosa farei', 'Cosa costruire, cosa evitare, quanto può costare e quanto tempo serve.'],
@@ -34,7 +34,7 @@ export const homeCopy = {
       ]
     },
     pricing: {
-      eyebrow: 'Prezzi', titleEmphasis: 'Prezzi chiari.', titleB: 'Prima di iniziare.', introA: 'Tre pacchetti per esigenze abbastanza comuni.', introB: 'Se il tuo progetto non entra in una casella, non lo forziamo dentro: facciamo un preventivo.', footnote: 'Nessuno dei tre? Meglio non comprare un pacchetto sbagliato.', contact: 'Parliamone', book: 'Prenota 15 minuti',
+      titleEmphasis: 'Prezzi chiari.', titleB: 'Prima di iniziare.', footnote: 'Nessuno dei tre? Meglio non comprare un pacchetto sbagliato.', contact: 'Parliamone', book: 'Prenota 15 minuti',
       packages: [
         { name: 'PARTENZA', oldPrice: '880 €', price: '790 €', saving: 'Risparmi 90 €', features: ['Sito Essenziale', 'Logo'] },
         { name: 'CRESCITA', oldPrice: '2.255 €', price: '2.030 €', saving: 'Risparmi 225 €', features: ['Sito Standard', 'Brand Kit', 'Configurazione server'] },
@@ -42,11 +42,11 @@ export const homeCopy = {
       ]
     },
     about: {
-      eyebrow: 'Alessio Bellan', title: 'Mi piacciono i problemi storti.', portraitAlt: 'Ritratto di Alessio Bellan',
+      title: 'Mi piacciono i problemi storti.', portraitAlt: 'Ritratto di Alessio Bellan',
       paragraphs: ['Progetto e sviluppo siti, automazioni e strumenti digitali.', 'Se una soluzione semplice basta, non ti vendo quella complicata.', 'Se invece la soluzione non esiste, provo a costruirla.', 'E c’è una regola a cui tengo parecchio:', 'Durante il progetto sai cosa sta succedendo.', 'Non sparisco con la tua idea per tornare settimane dopo con qualcosa che non riconosci.'],
       cta: 'Conosciamoci', abboTitle: 'Una parte del mio lavoro tiene in piedi anche qualcos’altro.', abboCopyA: 'Il', abboEmphasis: '10% del compenso di ogni progetto', abboCopyB: 'sostiene ABBO APS, l’associazione non profit per l’educazione digitale che ho cofondato e presiedo.', abboCta: 'Conosci ABBO APS'
     },
-    testimonials: { eyebrow: 'Persone con cui ho lavorato', title: 'Meglio far parlare loro.', previous: 'Testimonianza precedente', next: 'Testimonianza successiva' },
+    testimonials: { title: 'Meglio far parlare loro.', previous: 'Testimonianza precedente', next: 'Testimonianza successiva' },
     faq: {
       titleA: 'Domande sensate.', titleB: 'Risposte senza giri strani.',
       items: [
@@ -61,7 +61,7 @@ export const homeCopy = {
       ]
     },
     contact: {
-      eyebrow: 'Hai qualcosa da sistemare?', title: 'Non devi conoscere già la soluzione.', copy: 'Raccontami il problema. In 15 minuti capiamo se posso aiutarti e quale potrebbe essere la strada giusta.', book: 'Prenota 15 minuti', metaA: 'Se non sono la persona adatta,', metaEmphasis: 'te lo dico.', metaB: '15 minuti. Nessuna pressione commerciale.',
+      title: 'Non devi conoscere già la soluzione.', copy: 'Raccontami il problema. In 15 minuti capiamo se posso aiutarti e quale potrebbe essere la strada giusta.', book: 'Prenota 15 minuti', metaA: 'Se non sono la persona adatta,', metaEmphasis: 'te lo dico.', metaB: '15 minuti. Nessuna pressione commerciale.',
       name: 'Nome', namePlaceholder: 'Il tuo nome…', email: 'Email', emailPlaceholder: 'nome@azienda.it…', service: 'Cosa vuoi sistemare?', servicePlaceholder: 'Scegli una voce', services: ['Sito web', 'Automazione', 'Gestionale o web app', 'Formazione', 'Identità o social', 'Non lo so ancora'], message: 'Raccontami in breve', messagePlaceholder: 'Cosa succede oggi? Cosa vorresti cambiare?…', submit: 'Prepara email', sent: 'Si è aperto il tuo programma email. Controlla destinatario e contenuto prima di inviare.', subject: 'Richiesta progetto da'
     },
     footer: { tagline: 'Idee fuori di testa. Soluzioni con i piedi per terra.', donation: 'Il 10% del compenso di ogni progetto sostiene ABBO APS.', explore: 'Esplora', talk: 'Parliamo', services: 'Servizi', projects: 'Progetti', pricing: 'Prezzi', about: 'Chi sono', built: 'Progettato e sviluppato da Alessio Bellan.' }
@@ -70,27 +70,27 @@ export const homeCopy = {
     nav: { services: 'Services', projects: 'Projects', pricing: 'Pricing', about: 'About', journal: 'Journal', skip: 'Skip to content', changeLanguage: 'Change language', openMenu: 'Open menu', closeMenu: 'Close menu' },
     hero: {
       titleA: 'Bold', titleAEmphasis: 'ideas.', titleB: 'Grounded', titleBMiddle: '', titleBEmphasis: 'solutions.',
-      eyebrow: 'Websites · Automation · Training', copyA: 'For small businesses and associations.', copyB: 'If a website does not convince, a process slows you down, or a tool is no longer enough, we start there.', note: 'If a simple solution is enough, I will tell you.',
+      typewriter: ['Websites', 'Automation', 'Admin tools and web apps', 'Training', 'Visual identity', 'Infrastructure'], staticTypewriter: 'websites, automation, training and digital tools.',
       book: 'Book 15 minutes', projects: 'See projects', sceneLabel: 'Interactive retro computer'
     },
     projects: {
-      kicker: 'Real projects', introA: 'I won’t tell you what I could do.', introB: 'I’ll show you what I’m doing.', all: 'See all projects',
+      introA: 'I won’t tell you what I could do.', introB: 'I’ll show you what I’m doing.', cta: 'See the project', all: 'See all projects',
       items: [
         { label: 'Digital Heroes', title: 'Less dependence on Eventbrite. More control.', description: 'A platform to manage events, registrations and tickets through a proprietary system.', cta: 'See Digital Heroes', open: 'Open the Digital Heroes project', alt: 'Full preview of the Digital Heroes project' },
         { label: 'ABBO APS', title: 'An admin tool designed for the association. Not forced to fit.', description: 'It is being built to bring internal operations together and replace generic tools, including a €79/month service.', cta: 'See the project', open: 'Open the ABBO APS project', alt: 'Full preview of the ABBO APS project' }
       ]
     },
     services: {
-      eyebrow: 'You do not need to know what to buy', titleA: 'Tell me what', titleEmphasis: 'is not working.', titleB: 'We choose the service after that.', all: 'See all services',
+      titleA: 'Tell me what', titleEmphasis: 'is not working.', titleB: 'We choose the service after that.', all: 'See all services',
       groups: [
         { title: 'Help people choose you', services: 'Websites · Identity', description: 'So people quickly understand who you are, what you do and why they should contact you.', cta: 'Websites and identity', path: '/servizi/siti-web' },
         { title: 'Save you time', emphasis: 'time', services: 'Automations · Admin tools · Web apps', description: 'To remove manual steps, duplicate work and tools that do not speak to each other.', cta: 'Automation and software', path: '/servizi/automazioni' },
         { title: 'Give you autonomy', emphasis: 'autonomy', services: 'Training · Infrastructure', description: 'So you understand the tools you use and depend less on other people.', cta: 'Training and infrastructure', path: '/servizi/formazione-ai' }
       ]
     },
-    formation: { eyebrow: 'Training', title: 'Something you can use the day after.', copyA: 'AI and digital tools explained through examples, exercises and real problems.', copyB: 'No parade of tools. The point is to understand what you need and learn to use it for real.', cta: 'Explore training' },
+    formation: { title: 'Something you can use the day after.', copyA: 'AI and digital tools explained through examples, exercises and real problems.', copyB: 'No parade of tools. The point is to understand what you need and learn to use it for real.', cta: 'Explore training' },
     process: {
-      eyebrow: 'How we work', titleEmphasisA: 'I do not disappear', titleMiddle: 'for three weeks.', titleB: 'It is', titleEmphasisB: 'part of the service.', footer: 'No digital hostages.', book: 'Book 15 minutes',
+      titleEmphasisA: 'I do not disappear', titleMiddle: 'for three weeks.', titleB: 'It is', titleEmphasisB: 'part of the service.', footer: 'No digital hostages.', book: 'Book 15 minutes',
       steps: [
         ['01', 'You tell me the problem', 'Fifteen minutes. No endless presentations.'],
         ['02', 'I tell you what I would do', 'What to build, what to avoid, what it may cost and how long it may take.'],
@@ -99,7 +99,7 @@ export const homeCopy = {
       ]
     },
     pricing: {
-      eyebrow: 'Pricing', titleEmphasis: 'Clear pricing.', titleB: 'Before we start.', introA: 'Three packages for fairly common needs.', introB: 'If your project does not fit a box, we do not force it into one: we make a quote.', footnote: 'None of the three? Better not buy the wrong package.', contact: 'Let’s talk', book: 'Book 15 minutes',
+      titleEmphasis: 'Clear pricing.', titleB: 'Before we start.', footnote: 'None of the three? Better not buy the wrong package.', contact: 'Let’s talk', book: 'Book 15 minutes',
       packages: [
         { name: 'START', oldPrice: '€880', price: '€790', saving: 'Save €90', features: ['Essential website', 'Logo'] },
         { name: 'GROWTH', oldPrice: '€2,255', price: '€2,030', saving: 'Save €225', features: ['Standard website', 'Brand kit', 'Server setup'] },
@@ -107,11 +107,11 @@ export const homeCopy = {
       ]
     },
     about: {
-      eyebrow: 'Alessio Bellan', title: 'I like crooked problems.', portraitAlt: 'Portrait of Alessio Bellan',
+      title: 'I like crooked problems.', portraitAlt: 'Portrait of Alessio Bellan',
       paragraphs: ['I design and build websites, automations and digital tools.', 'If a simple solution is enough, I will not sell you a complicated one.', 'If the solution does not exist, I try to build it.', 'And there is one rule I care about:', 'During the project, you know what is happening.', 'I do not disappear with your idea only to return weeks later with something you do not recognise.'],
       cta: 'Get to know me', abboTitle: 'Part of my work also keeps something else going.', abboCopyA: 'The', abboEmphasis: '10% of every project fee', abboCopyB: 'supports ABBO APS, the non-profit digital education association I co-founded and chair.', abboCta: 'Meet ABBO APS'
     },
-    testimonials: { eyebrow: 'People I have worked with', title: 'Better let them speak.', previous: 'Previous testimonial', next: 'Next testimonial' },
+    testimonials: { title: 'Better let them speak.', previous: 'Previous testimonial', next: 'Next testimonial' },
     faq: {
       titleA: 'Sensible questions.', titleB: 'Straight answers.',
       items: [
@@ -126,7 +126,7 @@ export const homeCopy = {
       ]
     },
     contact: {
-      eyebrow: 'Have something to fix?', title: 'You do not need to know the solution already.', copy: 'Tell me the problem. In 15 minutes, we will understand whether I can help and what a sensible route could be.', book: 'Book 15 minutes', metaA: 'If I am not the right person,', metaEmphasis: 'I will tell you.', metaB: '15 minutes. No sales pressure.',
+      title: 'You do not need to know the solution already.', copy: 'Tell me the problem. In 15 minutes, we will understand whether I can help and what a sensible route could be.', book: 'Book 15 minutes', metaA: 'If I am not the right person,', metaEmphasis: 'I will tell you.', metaB: '15 minutes. No sales pressure.',
       name: 'Name', namePlaceholder: 'Your name…', email: 'Email', emailPlaceholder: 'name@company.com…', service: 'What do you want to fix?', servicePlaceholder: 'Choose an option', services: ['Website', 'Automation', 'Admin tool or web app', 'Training', 'Identity or social', 'I do not know yet'], message: 'Tell me briefly', messagePlaceholder: 'What happens today? What would you change?…', submit: 'Prepare email', sent: 'Your email app has opened. Check the recipient and content before sending.', subject: 'Project request from'
     },
     footer: { tagline: 'Bold ideas. Grounded solutions.', donation: '10% of every project fee supports ABBO APS.', explore: 'Explore', talk: 'Let’s talk', services: 'Services', projects: 'Projects', pricing: 'Pricing', about: 'About', built: 'Designed and built by Alessio Bellan.' }

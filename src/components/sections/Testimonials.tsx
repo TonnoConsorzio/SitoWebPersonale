@@ -18,7 +18,6 @@ export function Testimonials() {
     <section data-scroll-theme="paper" className="scene scene--testimonials" aria-labelledby="testimonials-title">
       <div className="scene__container testimonials-scene__layout">
         <div>
-          <p className="eyebrow">{copy.eyebrow}</p>
           <h2 id="testimonials-title">{copy.title}</h2>
           <div className="testimonials-scene__controls">
             <button type="button" onClick={() => move(-1)} aria-label={copy.previous}><ArrowLeft size={18} aria-hidden="true" /></button>

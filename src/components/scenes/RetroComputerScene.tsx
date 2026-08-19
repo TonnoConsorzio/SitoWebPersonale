@@ -40,14 +40,24 @@ function Computer({ sectionRef, reducedMotion }: RetroComputerSceneProps & { red
     return clone;
   }, [gltf.scene]);
   const root = useRef<THREE.Group>(null);
+  const pointer = useRef({ x: 0, y: 0 });
   const scroll = useHeroScroll(sectionRef);
+
+  useEffect(() => {
+    const updatePointer = (event: PointerEvent) => {
+      pointer.current.x = (event.clientX / window.innerWidth) * 2 - 1;
+      pointer.current.y = -((event.clientY / window.innerHeight) * 2 - 1);
+    };
+    window.addEventListener('pointermove', updatePointer, { passive: true });
+    return () => window.removeEventListener('pointermove', updatePointer);
+  }, []);
 
   useFrame((state, delta) => {
     if (!root.current || reducedMotion) return;
     const progress = scroll.current;
-    root.current.rotation.x = THREE.MathUtils.damp(root.current.rotation.x, -0.12 + state.pointer.y * 0.055, 3.6, delta);
-    root.current.rotation.y = THREE.MathUtils.damp(root.current.rotation.y, -0.62 + state.pointer.x * 0.075 - progress * 0.18, 3.6, delta);
-    root.current.rotation.z = THREE.MathUtils.damp(root.current.rotation.z, state.pointer.x * -0.025, 3.6, delta);
+    root.current.rotation.x = THREE.MathUtils.damp(root.current.rotation.x, -0.12 + pointer.current.y * 0.055, 3.6, delta);
+    root.current.rotation.y = THREE.MathUtils.damp(root.current.rotation.y, -0.62 + pointer.current.x * 0.075 - progress * 0.18, 3.6, delta);
+    root.current.rotation.z = THREE.MathUtils.damp(root.current.rotation.z, pointer.current.x * -0.025, 3.6, delta);
     root.current.position.y = THREE.MathUtils.damp(root.current.position.y, -0.04 - progress * 0.22, 3.2, delta);
     root.current.position.x = THREE.MathUtils.damp(root.current.position.x, progress * -0.14, 3.2, delta);
     const scale = THREE.MathUtils.damp(root.current.scale.x, 1.5 * (1 - progress * 0.04), 3.2, delta);

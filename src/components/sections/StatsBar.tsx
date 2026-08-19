@@ -4,7 +4,7 @@ export function StatsBar() {
       <div className="scene__container trust-scene__items">
         <p>Parli direttamente con me.</p>
         <p>Ti tengo aggiornato.</p>
-        <p>Codice e dati sono tuoi.</p>
+        <p>Sai cosa resta tuo e cosa dipende da servizi esterni.</p>
       </div>
     </section>
   );

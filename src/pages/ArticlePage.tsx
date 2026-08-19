@@ -79,7 +79,7 @@ export function ArticlePage() {
             </div>
           </header>
           
-          <div className="prose prose-invert prose-lg max-w-none prose-headings:font-display prose-headings:font-normal prose-a:text-primary hover:prose-a:text-primary/80 prose-img:rounded-xl">
+          <div className="article-body prose prose-lg max-w-none prose-headings:font-display prose-headings:font-normal prose-a:text-primary hover:prose-a:text-primary/80">
             <ReactMarkdown remarkPlugins={[remarkGfm]}>
               {article.content}
             </ReactMarkdown>

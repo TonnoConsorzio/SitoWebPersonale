@@ -22,7 +22,6 @@ export function Contact() {
     <section id="contatti" data-scroll-theme="yellow" className="scene scene--contact" aria-labelledby="contatti-title">
       <div className="scene__container contact-scene__layout">
         <div className="contact-scene__copy">
-          <p className="eyebrow">{copy.eyebrow}</p>
           <h2 id="contatti-title">{copy.title}</h2>
           <p>{copy.copy}</p>
           <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="experience-button">{copy.book} <ArrowUpRight size={17} aria-hidden="true" /></a>

@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { ArrowLeft, Plus, User, ExternalLink, X } from 'lucide-react';
+import { Plus, User, ExternalLink, X } from 'lucide-react';
 import portfolio from '../data/portfolio.json';
 import { Footer } from '../components/sections/Footer';
+import { Navigation } from '../components/sections/Navigation';
 import { useTranslation } from 'react-i18next';
 import { SEO } from '../components/SEO';
 
@@ -43,17 +44,7 @@ export function ProjectPage() {
         canonical={`/portfolio/${id}`}
       />
 
-      <nav className="fixed top-0 inset-x-0 z-50 py-6 bg-background/80 backdrop-blur-md border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 md:px-8 flex flex-row justify-between items-center">
-          <Link to="/portfolio" className="text-base font-medium text-muted-foreground hover:text-foreground flex items-center transition-colors">
-            <ArrowLeft className="w-4 h-4 mr-2" /> Torna al portfolio
-          </Link>
-          <Link to="/" className="flex items-center gap-2 text-2xl font-display text-foreground">
-            <img src="/media/brand/logo-nav.webp" alt="Alessio Bellan Logo" className="h-8 w-auto" width="32" height="32" />
-            <span>Alessio Bellan</span>
-          </Link>
-        </div>
-      </nav>
+      <Navigation />
 
       <main className="pt-32 pb-24 px-6 md:px-8 max-w-7xl mx-auto space-y-12">
         <div className="animate-fade-rise">

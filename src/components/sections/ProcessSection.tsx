@@ -52,8 +52,7 @@ export function ProcessSection() {
     <section ref={sectionRef} id="processo" data-scroll-theme="dark" className="scene scene--process" aria-labelledby="processo-title">
       <div className="scene__container process-scene__layout">
         <div className="process-scene__intro">
-          <p className="eyebrow">{copy.eyebrow}</p>
-          <h2 id="processo-title"><span><ScrollUnderline>{copy.titleEmphasisA}</ScrollUnderline><br />{copy.titleMiddle}</span><span>{copy.titleB} <ScrollUnderline>{copy.titleEmphasisB}</ScrollUnderline></span></h2>
+          <h2 id="processo-title"><span className="process-heading__line"><ScrollUnderline>{copy.titleEmphasisA}</ScrollUnderline> {copy.titleMiddle}</span><span className="process-heading__line">{copy.titleB} <ScrollUnderline>{copy.titleEmphasisB}</ScrollUnderline></span></h2>
         </div>
         <ol className="process-scene__steps">
           <svg className="process-scene__path" viewBox="0 0 56 800" preserveAspectRatio="none" aria-hidden="true" focusable="false">

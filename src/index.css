@@ -80,13 +80,62 @@ section { scroll-margin-top: 96px; }
 }
 .surface,
 .liquid-glass {
-  background: var(--color-warm-white);
+  background: var(--color-warm-secondary);
   border: 1px solid var(--color-line);
-  box-shadow: none;
+  border-radius: var(--radius-control);
+  box-shadow: var(--shadow-clay-soft);
   position: relative;
   overflow: hidden;
+  color: var(--color-ink);
+  transition: box-shadow var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out), transform var(--dur-short) var(--ease-out);
 }
 .liquid-glass::before { display: none; }
+.clay-panel {
+  background: var(--color-warm-secondary);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-control);
+  box-shadow: var(--shadow-clay-soft);
+}
+.clay-action {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius-control);
+  background: var(--color-brand-yellow);
+  box-shadow: var(--shadow-clay-soft);
+  color: var(--color-ink);
+  font-weight: 700;
+  transition: box-shadow var(--dur-short) var(--ease-out), transform var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out);
+}
+.clay-action:hover { box-shadow: var(--shadow-clay); transform: translateY(-1px); }
+.clay-action:active { box-shadow: var(--shadow-clay-inset); transform: translateY(1px); }
+.portfolio-card {
+  background: var(--color-warm-secondary);
+  border-color: var(--color-line);
+  box-shadow: var(--shadow-clay);
+}
+.portfolio-card:hover { border-color: var(--color-brand-yellow); }
+.article-body { color: var(--color-ink); }
+.article-body :where(h2, h3, h4, strong) { color: var(--color-ink); }
+.article-body :where(p, li, blockquote) { color: var(--color-text-muted); }
+.article-body :where(blockquote) { border-color: var(--color-brand-yellow); }
+.article-body :where(code) { border-radius: 0.5rem; background: var(--color-warm-secondary); color: var(--color-ink); }
+.article-body :where(pre) { overflow-x: auto; border: 1px solid var(--color-line); border-radius: var(--radius-control); background: var(--color-dark-surface); box-shadow: var(--shadow-clay-soft); }
+.article-body :where(img) { border-radius: var(--radius-control); box-shadow: var(--shadow-clay-soft); }
+.site-shell [style*="Instrument Serif"] { font-family: var(--font-display) !important; font-style: normal; }
+.site-shell a.bg-primary,
+.site-shell button.bg-primary { border: 1px solid var(--color-ink); box-shadow: var(--shadow-clay-soft); }
+.site-shell a.bg-primary:hover,
+.site-shell button.bg-primary:hover { box-shadow: var(--shadow-clay); transform: translateY(-1px); }
+.site-shell input,
+.site-shell select,
+.site-shell textarea { border-radius: var(--radius-control); }
+@media (max-width: 44rem) {
+  .portfolio-card__media { aspect-ratio: 4 / 3; }
+}
 .contact-field {
   width: 100%;
   min-height: 48px;

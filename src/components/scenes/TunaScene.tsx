@@ -1,4 +1,5 @@
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
+import { createPortal } from 'react-dom';
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader, type GLTF } from 'three/addons/loaders/GLTFLoader.js';
@@ -46,9 +47,8 @@ function TunaModel() {
   return <group ref={root} scale={1.35} rotation={[0.05, Math.PI / 2, -0.08]}><primitive object={scene} /></group>;
 }
 
-export function TunaScene() {
+export function MascotLayer() {
   const [enabled, setEnabled] = useState(false);
-  const [overHero, setOverHero] = useState(true);
   const [overContact, setOverContact] = useState(false);
 
   useEffect(() => {
@@ -62,10 +62,6 @@ export function TunaScene() {
 
   useEffect(() => {
     const update = () => {
-      const hero = document.querySelector('.scene--hero');
-      if (!hero) return;
-      const bounds = hero.getBoundingClientRect();
-      setOverHero(bounds.top <= window.innerHeight * 0.45 && bounds.bottom > window.innerHeight * 0.45);
       const contact = document.querySelector('.scene--contact');
       if (contact) {
         const contactBounds = contact.getBoundingClientRect();
@@ -83,14 +79,17 @@ export function TunaScene() {
 
   if (!enabled) return null;
 
-  return (
-    <aside className={`tuna-overlay ${overHero ? 'is-over-hero' : ''} ${overContact ? 'is-over-contact' : ''}`.trim()} aria-hidden="true">
+  return createPortal(
+    <aside className={`tuna-overlay ${overContact ? 'is-over-contact' : ''}`.trim()} aria-hidden="true">
       <Canvas className="tuna-canvas" dpr={[1, 1.25]} camera={{ position: [0, 0, 7.4], fov: 32 }} gl={{ alpha: true, antialias: true, powerPreference: 'high-performance' }}>
         <ambientLight intensity={1.7} />
         <directionalLight position={[3, 4, 4]} intensity={2.2} />
         <directionalLight position={[-3, -1, 2]} intensity={0.65} color="#fbcf15" />
         <Suspense fallback={null}><TunaModel /></Suspense>
       </Canvas>
-    </aside>
+    </aside>,
+    document.body,
   );
 }
+
+export const TunaScene = MascotLayer;

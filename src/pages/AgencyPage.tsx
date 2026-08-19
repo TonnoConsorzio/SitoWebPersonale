@@ -70,7 +70,7 @@ export function AgencyPage() {
               <h2 className="text-4xl md:text-5xl font-display text-foreground mb-5" style={{ fontFamily: "'Instrument Serif', serif" }}>Un primo incarico piccolo, per capire come lavoriamo.</h2>
               <p className="text-base text-muted-foreground leading-relaxed max-w-[60ch]">Un progetto circoscritto, con consegna e responsabilità definite. Se il modo di lavorare funziona, possiamo costruire una collaborazione più stabile.</p>
             </div>
-            <div className="border border-primary/40 rounded-2xl p-7">
+            <div className="clay-panel border-primary/40 p-7">
               <div className="text-4xl font-display text-primary mb-3">390 €</div>
               <p className="text-base text-foreground mb-6">Pilot Web White Label</p>
               <p className="text-sm text-muted-foreground leading-relaxed mb-7">Per una landing o una pagina web con perimetro concordato. Il prezzo vale per il pilot standard, non per progetti complessi.</p>

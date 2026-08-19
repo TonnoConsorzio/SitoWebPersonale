@@ -9,10 +9,8 @@ export function PricingPackages() {
       <div className="scene__container">
         <div className="pricing-scene__intro">
           <div>
-            <p className="eyebrow">{copy.eyebrow}</p>
             <h2 id="prezzi-title"><ScrollUnderline>{copy.titleEmphasis}</ScrollUnderline><br />{copy.titleB}</h2>
           </div>
-          <div className="pricing-scene__support"><p>{copy.introA}</p><p>{copy.introB}</p></div>
         </div>
         <div className="pricing-rows">
           {copy.packages.map((pkg) => (

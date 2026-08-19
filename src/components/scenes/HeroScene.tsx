@@ -49,13 +49,23 @@ function useScrollProgress(sectionRef: RefObject<HTMLElement | null>) {
 function Engine({ sectionRef }: HeroSceneProps) {
   const root = useRef<THREE.Group>(null);
   const meshes = useRef<Array<THREE.Mesh | null>>([]);
+  const pointer = useRef({ x: 0, y: 0 });
   const { progress, reduced } = useScrollProgress(sectionRef);
+
+  useEffect(() => {
+    const updatePointer = (event: PointerEvent) => {
+      pointer.current.x = (event.clientX / window.innerWidth) * 2 - 1;
+      pointer.current.y = -((event.clientY / window.innerHeight) * 2 - 1);
+    };
+    window.addEventListener('pointermove', updatePointer, { passive: true });
+    return () => window.removeEventListener('pointermove', updatePointer);
+  }, []);
 
   useFrame((state, delta) => {
     if (!root.current) return;
     const scroll = progress.current;
-    const pointerX = reduced.current ? 0 : state.pointer.x * 0.07;
-    const pointerY = reduced.current ? 0 : state.pointer.y * 0.06;
+    const pointerX = reduced.current ? 0 : pointer.current.x * 0.07;
+    const pointerY = reduced.current ? 0 : pointer.current.y * 0.06;
     const drift = reduced.current ? 0 : Math.sin(state.clock.elapsedTime * 0.35) * 0.035;
 
     root.current.rotation.x = THREE.MathUtils.damp(root.current.rotation.x, -0.18 + pointerY, 4, delta);
