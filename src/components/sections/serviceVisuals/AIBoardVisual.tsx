@@ -15,16 +15,36 @@ export function AIBoardVisual({ compact = false }: { compact?: boolean }) {
     <div className={`ai-board-visual w-full liquid-glass rounded-2xl border border-white/10 p-6 overflow-hidden shadow-2xl relative space-y-6 ${compact ? 'ai-board-visual--compact' : ''}`.trim()}>
 
       {/* Selectable Prompt Use Cases */}
-      <div className="grid grid-cols-3 gap-2">
+      <div className="ai-board-visual__tabs" role="tablist" aria-label="Esempi di utilizzo">
         {prompts.map((p, i) => (
           <button
             key={i}
+            type="button"
             onClick={() => setSelectedPrompt(i)}
-            className={`p-2.5 rounded-lg border text-left text-xs font-medium transition-all ${
-            selectedPrompt === i
-                ? 'bg-primary/20 border-primary text-foreground'
-                : 'bg-white/5 border-white/10 text-muted-foreground hover:text-foreground'
-            }`}
+            id={`formation-tab-${i}`}
+            role="tab"
+            aria-selected={selectedPrompt === i}
+            aria-controls="formation-prompt-panel"
+            tabIndex={selectedPrompt === i ? 0 : -1}
+            onKeyDown={(event) => {
+              const nextIndex =
+                event.key === 'ArrowRight' || event.key === 'ArrowDown'
+                  ? (i + 1) % prompts.length
+                  : event.key === 'ArrowLeft' || event.key === 'ArrowUp'
+                    ? (i - 1 + prompts.length) % prompts.length
+                    : event.key === 'Home'
+                      ? 0
+                      : event.key === 'End'
+                        ? prompts.length - 1
+                        : -1;
+
+              if (nextIndex >= 0) {
+                event.preventDefault();
+                setSelectedPrompt(nextIndex);
+                document.getElementById(`formation-tab-${nextIndex}`)?.focus();
+              }
+            }}
+            className={`ai-board-visual__tab ${selectedPrompt === i ? 'is-active' : ''}`}
           >
             {p.title}
           </button>
@@ -32,12 +52,17 @@ export function AIBoardVisual({ compact = false }: { compact?: boolean }) {
       </div>
 
       {/* Interactive Prompt & Result Box */}
-      <div className="p-4 rounded-xl bg-black/40 border border-white/10 space-y-3 font-mono text-xs">
+      <div
+        id="formation-prompt-panel"
+        role="tabpanel"
+        aria-labelledby={`formation-tab-${selectedPrompt}`}
+        className="ai-board-visual__prompt-panel p-4 rounded-xl space-y-3 font-mono text-xs"
+      >
         <div>
-          <div className="text-[10px] text-muted-foreground uppercase tracking-widest mb-1 flex items-center gap-1.5">
+          <div className="ai-board-visual__prompt-label uppercase tracking-widest mb-1 flex items-center gap-1.5">
             <Terminal className="w-3.5 h-3.5 text-primary" /> Prompt di esempio
           </div>
-          <p className="text-foreground/90 bg-white/5 p-3 rounded-lg border border-white/5">
+          <p className="ai-board-visual__prompt-text p-3 rounded-lg">
             "{prompts[selectedPrompt].input}"
           </p>
         </div>
@@ -47,8 +72,8 @@ export function AIBoardVisual({ compact = false }: { compact?: boolean }) {
           <span>Risultato elaborato</span>
         </div>
 
-          <div className="bg-primary/10 border border-primary/30 p-3 rounded-lg text-foreground flex items-start gap-2">
-            <CheckCircle className="w-4 h-4 shrink-0 mt-0.5" />
+        <div className="ai-board-visual__result p-3 rounded-lg flex items-start gap-2">
+          <CheckCircle className="w-4 h-4 shrink-0 mt-0.5" aria-hidden="true" />
           <span>{prompts[selectedPrompt].result}</span>
         </div>
       </div>

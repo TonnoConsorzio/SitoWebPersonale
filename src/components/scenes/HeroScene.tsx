@@ -116,7 +116,7 @@ export function StaticEngine() {
 }
 
 export function HeroScene({ sectionRef }: HeroSceneProps) {
-  const [webgl, setWebgl] = useState(true);
+  const [webgl, setWebgl] = useState<boolean | null>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -129,7 +129,7 @@ export function HeroScene({ sectionRef }: HeroSceneProps) {
     return () => media.removeEventListener('change', update);
   }, []);
 
-  if (!webgl || reducedMotion) return <StaticEngine />;
+  if (webgl === null || !webgl || reducedMotion) return <StaticEngine />;
 
   return (
     <Canvas className="procedural-canvas" dpr={[1, 1.65]} camera={{ position: [0, 0, 5.35], fov: 32 }} gl={{ alpha: true, antialias: true, powerPreference: 'high-performance' }} fallback={<StaticEngine />}>

@@ -4,12 +4,13 @@ import { useHomeCopy } from '../../hooks/useHomeCopy';
 
 export function PricingPackages() {
   const copy = useHomeCopy().pricing;
+  const [titlePrefix, titleTarget] = copy.titleEmphasis.split(/\s(.+)/);
   return (
     <section id="prezzi" data-scroll-theme="paper" className="scene scene--pricing" aria-labelledby="prezzi-title">
       <div className="scene__container">
         <div className="pricing-scene__intro">
           <div>
-            <h2 id="prezzi-title"><ScrollUnderline>{copy.titleEmphasis}</ScrollUnderline><br />{copy.titleB}</h2>
+            <h2 id="prezzi-title">{titlePrefix} <ScrollUnderline>{titleTarget}</ScrollUnderline><br />{copy.titleB}</h2>
           </div>
         </div>
         <div className="pricing-rows">

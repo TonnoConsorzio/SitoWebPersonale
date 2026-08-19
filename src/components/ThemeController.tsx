@@ -6,7 +6,10 @@ export function ThemeController() {
     const update = () => {
       const sections = Array.from(document.querySelectorAll<HTMLElement>('[data-scroll-theme]'))
         .filter((section) => section !== document.documentElement);
-      if (!sections.length) return;
+      if (!sections.length) {
+        if (document.documentElement.dataset.scrollTheme !== 'paper') document.documentElement.dataset.scrollTheme = 'paper';
+        return;
+      }
       const pivot = Math.min(window.innerHeight * 0.35, 360);
       const active = sections
         .filter((section) => {

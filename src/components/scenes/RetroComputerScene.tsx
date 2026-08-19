@@ -72,7 +72,7 @@ export function ComputerFallback() {
 }
 
 export function RetroComputerScene({ sectionRef }: RetroComputerSceneProps) {
-  const [webgl, setWebgl] = useState(true);
+  const [webgl, setWebgl] = useState<boolean | null>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -85,7 +85,7 @@ export function RetroComputerScene({ sectionRef }: RetroComputerSceneProps) {
     return () => media.removeEventListener('change', update);
   }, []);
 
-  if (!webgl) return <ComputerFallback />;
+  if (!webgl || reducedMotion) return <ComputerFallback />;
 
   return (
     <Canvas className="computer-canvas" dpr={[1, 1.5]} frameloop={reducedMotion ? 'demand' : 'always'} shadows camera={{ position: [0, 0.1, 5.7], fov: 34 }} gl={{ alpha: true, antialias: true, powerPreference: 'high-performance', toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.15 }} fallback={<ComputerFallback />}>

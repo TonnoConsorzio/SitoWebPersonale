@@ -88,9 +88,17 @@ function TypewriterLine({ phrases, staticText }: { phrases: readonly string[]; s
     return () => { cancelled = true; window.clearTimeout(timer); };
   }, [phrases, reducedMotion, staticText]);
 
-  return (
+  return reducedMotion ? (
     <>
-      <span className="hero-typewriter hero-typewriter--visual" aria-hidden="true">Posso fare: <span className="hero-typewriter__dynamic">{text}<i /></span></span>
+      <span className="hero-typewriter hero-typewriter--visual is-static" aria-hidden="true">Posso fare: {staticText}</span>
+      <span className="sr-only">Posso fare: {staticText}</span>
+    </>
+  ) : (
+    <>
+      <span className="hero-typewriter hero-typewriter--visual" aria-hidden="true">
+        <span className="hero-typewriter__prefix">Posso fare:</span>
+        <span className="hero-typewriter__dynamic">{text}<i aria-hidden="true" /></span>
+      </span>
       <span className="sr-only">Posso fare: {staticText}</span>
     </>
   );
