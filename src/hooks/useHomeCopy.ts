@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 export const homeCopy = {
   it: {
+    notice: { title: 'Il sito è ancora in costruzione.', copy: 'Torna più tardi: sto sistemando le ultime parti.', holidayLabel: 'Ferie', holiday: 'Dal 24 al 30 agosto sono in ferie.', returnDate: 'Torno operativo il 31 agosto.', enter: 'Entra nel sito' },
     nav: { services: 'Servizi', projects: 'Progetti', pricing: 'Prezzi', about: 'Chi sono', journal: 'Journal', skip: 'Vai al contenuto', changeLanguage: 'Cambia lingua', openMenu: 'Apri menu', closeMenu: 'Chiudi menu' },
     hero: {
       titleA: 'Idee', titleAEmphasis: 'fuori di testa.', titleB: 'Soluzioni', titleBMiddle: 'con i', titleBEmphasis: 'piedi per terra.',
@@ -67,6 +68,7 @@ export const homeCopy = {
     footer: { tagline: 'Idee fuori di testa. Soluzioni con i piedi per terra.', donation: 'Il 10% del compenso di ogni progetto sostiene ABBO APS.', explore: 'Esplora', talk: 'Parliamo', services: 'Servizi', projects: 'Progetti', pricing: 'Prezzi', about: 'Chi sono', built: 'Progettato e sviluppato da Alessio Bellan.' }
   },
   en: {
+    notice: { title: 'The site is still under construction.', copy: 'Come back later: I am finishing the last pieces.', holidayLabel: 'Holiday', holiday: 'I am on holiday from August 24 to 30.', returnDate: 'I return on August 31.', enter: 'Enter the site' },
     nav: { services: 'Services', projects: 'Projects', pricing: 'Pricing', about: 'About', journal: 'Journal', skip: 'Skip to content', changeLanguage: 'Change language', openMenu: 'Open menu', closeMenu: 'Close menu' },
     hero: {
       titleA: 'Bold', titleAEmphasis: 'ideas.', titleB: 'Grounded', titleBMiddle: '', titleBEmphasis: 'solutions.',
