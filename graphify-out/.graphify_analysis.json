@@ -1,0 +1,606 @@
+{
+  "communities": {
+    "0": [
+      "autoprefixer",
+      "esbuild",
+      "gh_pages",
+      "package",
+      "package_dependencies_vite",
+      "package_devdependencies",
+      "package_devdependencies_autoprefixer",
+      "package_devdependencies_esbuild",
+      "package_devdependencies_gh_pages",
+      "package_devdependencies_tailwindcss",
+      "package_devdependencies_tsx",
+      "package_devdependencies_types_express",
+      "package_devdependencies_types_node",
+      "package_devdependencies_types_three",
+      "package_devdependencies_typescript",
+      "package_devdependencies_vite",
+      "package_name",
+      "package_private",
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_clean",
+      "package_scripts_deploy",
+      "package_scripts_dev",
+      "package_scripts_lint",
+      "package_scripts_preview",
+      "package_type",
+      "package_version",
+      "tailwindcss",
+      "tsx",
+      "types_express",
+      "types_node",
+      "types_three",
+      "typescript",
+      "vite"
+    ],
+    "1": [
+      "src_components_about",
+      "src_components_about_about",
+      "src_components_certifications",
+      "src_components_certifications_certifications",
+      "src_components_contact",
+      "src_components_contact_contact",
+      "src_components_curriculumpreview",
+      "src_components_curriculumpreview_curriculumpreview",
+      "src_components_hero",
+      "src_components_hero_hero",
+      "src_components_portfolio",
+      "src_components_portfolio_portfolio",
+      "src_components_pricing",
+      "src_components_pricing_plans",
+      "src_components_pricing_pricing",
+      "src_components_references",
+      "src_components_references_references",
+      "src_components_sections_certifications",
+      "src_components_sections_certifications_certifications",
+      "src_components_sections_education",
+      "src_components_sections_education_education",
+      "src_components_sections_pricingcalculator",
+      "src_components_sections_pricingcalculator_animatedtotal",
+      "src_components_sections_pricingcalculator_categories",
+      "src_components_sections_pricingcalculator_pricingcalculator",
+      "src_components_services",
+      "src_components_services_iconmap",
+      "src_components_services_services",
+      "src_hooks_useinview",
+      "src_hooks_useinview_useinview",
+      "src_pages_servicesoverviewpage_servicesoverviewpage"
+    ],
+    "2": [
+      "src_components_scrollunderline",
+      "src_components_scrollunderline_scrollunderline",
+      "src_components_scrollunderline_scrollunderlineprops",
+      "src_components_sections_about",
+      "src_components_sections_about_about",
+      "src_components_sections_contact",
+      "src_components_sections_contact_contact",
+      "src_components_sections_faq",
+      "src_components_sections_faq_faq",
+      "src_components_sections_formationsection",
+      "src_components_sections_formationsection_formationsection",
+      "src_components_sections_hero",
+      "src_components_sections_hero_hero",
+      "src_components_sections_hero_typewriterline",
+      "src_components_sections_pricingpackages",
+      "src_components_sections_pricingpackages_pricingpackages",
+      "src_components_sections_processsection",
+      "src_components_sections_processsection_processemphasis",
+      "src_components_sections_processsection_processsection",
+      "src_components_sections_services",
+      "src_components_sections_services_services",
+      "src_components_sections_services_servicetitle",
+      "src_components_sections_statsbar",
+      "src_components_sections_statsbar_statsbar",
+      "src_components_sections_testimonials",
+      "src_components_sections_testimonials_testimonials",
+      "src_hooks_usehomecopy",
+      "src_hooks_usehomecopy_homecopy",
+      "src_hooks_usehomecopy_usehomecopy",
+      "src_pages_home",
+      "src_pages_home_home"
+    ],
+    "3": [
+      "src_components_sections_footer",
+      "src_components_sections_footer_footer",
+      "src_components_sections_navigation",
+      "src_components_sections_navigation_navigation",
+      "src_components_seo",
+      "src_components_seo_seo",
+      "src_components_seo_seoprops",
+      "src_hooks_usescrollto",
+      "src_hooks_usescrollto_usescrollto",
+      "src_pages_agencypage",
+      "src_pages_agencypage_agencypage",
+      "src_pages_agencypage_steps",
+      "src_pages_agencypage_trustpoints",
+      "src_pages_articlepage",
+      "src_pages_articlepage_articlepage",
+      "src_pages_curriculumpage",
+      "src_pages_curriculumpage_curriculumpage",
+      "src_pages_notfoundpage",
+      "src_pages_notfoundpage_notfoundpage",
+      "src_pages_portfoliopage",
+      "src_pages_portfoliopage_portfoliopage",
+      "src_pages_pricingpage",
+      "src_pages_pricingpage_pricingpage",
+      "src_pages_projectpage",
+      "src_pages_projectpage_projectpage",
+      "src_pages_servicesoverviewpage",
+      "src_pages_servicesoverviewpage_iconmap"
+    ],
+    "4": [
+      "src_app",
+      "src_app_agencypage",
+      "src_app_app",
+      "src_app_articlepage",
+      "src_app_curriculumpage",
+      "src_app_home",
+      "src_app_landingpage",
+      "src_app_notfoundpage",
+      "src_app_portfoliopage",
+      "src_app_pricingpage",
+      "src_app_projectestimatorpage",
+      "src_app_projectpage",
+      "src_app_servicesoverviewpage",
+      "src_components_brandmark",
+      "src_components_brandmark_brandmark",
+      "src_components_brandmark_brandmarkprops",
+      "src_components_constructionnotice",
+      "src_components_constructionnotice_constructionnotice",
+      "src_components_globalschema",
+      "src_components_globalschema_globalschema",
+      "src_components_scrolltotop",
+      "src_components_scrolltotop_scrolltotop",
+      "src_components_themecontroller",
+      "src_components_themecontroller_themecontroller",
+      "src_i18n",
+      "src_main"
+    ],
+    "5": [
+      "src_components_estimator_estimatoroption",
+      "src_components_estimator_estimatoroption_estimatoroption",
+      "src_components_estimator_estimatoroption_estimatoroptionprops",
+      "src_components_estimator_estimatorprogress",
+      "src_components_estimator_estimatorprogress_estimatorprogress",
+      "src_components_estimator_estimatorprogress_estimatorprogressprops",
+      "src_components_estimator_estimatorquestion",
+      "src_components_estimator_estimatorquestion_estimatorquestion",
+      "src_components_estimator_estimatorquestion_estimatorquestionprops",
+      "src_components_estimator_estimatorresult",
+      "src_components_estimator_estimatorresult_estimatorresult",
+      "src_components_estimator_estimatorresult_estimatorresultprops",
+      "src_config_projectestimator",
+      "src_config_projectestimator_calculateestimate",
+      "src_config_projectestimator_estimateresult",
+      "src_config_projectestimator_estimator_questions",
+      "src_config_projectestimator_estimatorstate",
+      "src_config_projectestimator_question",
+      "src_config_projectestimator_questionoption",
+      "src_config_projectestimator_servicetype",
+      "src_pages_projectestimatorpage",
+      "src_pages_projectestimatorpage_projectestimatorpage"
+    ],
+    "6": [
+      "ref_dom",
+      "ref_dom_iterable",
+      "ref_es2022",
+      "tsconfig",
+      "tsconfig_compileroptions",
+      "tsconfig_compileroptions_allowimportingtsextensions",
+      "tsconfig_compileroptions_allowjs",
+      "tsconfig_compileroptions_experimentaldecorators",
+      "tsconfig_compileroptions_isolatedmodules",
+      "tsconfig_compileroptions_jsx",
+      "tsconfig_compileroptions_lib",
+      "tsconfig_compileroptions_module",
+      "tsconfig_compileroptions_moduledetection",
+      "tsconfig_compileroptions_moduleresolution",
+      "tsconfig_compileroptions_noemit",
+      "tsconfig_compileroptions_paths",
+      "tsconfig_compileroptions_skiplibcheck",
+      "tsconfig_compileroptions_target",
+      "tsconfig_compileroptions_usedefineforclassfields"
+    ],
+    "7": [
+      "src_components_sections_servicevisuals_aiboardvisual",
+      "src_components_sections_servicevisuals_aiboardvisual_aiboardvisual",
+      "src_components_sections_servicevisuals_aiboardvisual_formationprompts",
+      "src_components_sections_servicevisuals_appdashboardvisual",
+      "src_components_sections_servicevisuals_appdashboardvisual_appdashboardvisual",
+      "src_components_sections_servicevisuals_automationflowvisual",
+      "src_components_sections_servicevisuals_automationflowvisual_automationflowvisual",
+      "src_components_sections_servicevisuals_browserwireframevisual",
+      "src_components_sections_servicevisuals_browserwireframevisual_browserwireframevisual",
+      "src_components_sections_servicevisuals_kinetictypographyvisual",
+      "src_components_sections_servicevisuals_kinetictypographyvisual_kinetictypographyvisual",
+      "src_components_sections_servicevisuals_socialfeedvisual",
+      "src_components_sections_servicevisuals_socialfeedvisual_socialfeedvisual",
+      "src_components_sections_servicevisuals_terminalinfravisual",
+      "src_components_sections_servicevisuals_terminalinfravisual_terminalinfravisual",
+      "src_pages_landingpage",
+      "src_pages_landingpage_landingpage",
+      "src_pages_landingpage_visualmap"
+    ],
+    "8": [
+      "src_components_scenes_heroscene",
+      "src_components_scenes_heroscene_engine",
+      "src_components_scenes_heroscene_heroscene",
+      "src_components_scenes_heroscene_herosceneprops",
+      "src_components_scenes_heroscene_pieces",
+      "src_components_scenes_heroscene_staticengine",
+      "src_components_scenes_heroscene_usescrollprogress",
+      "src_components_scenes_heroscene_vector",
+      "src_components_scenes_servicesscene",
+      "src_components_scenes_servicesscene_module",
+      "src_components_scenes_servicesscene_modules",
+      "src_components_scenes_servicesscene_sculpture",
+      "src_components_scenes_servicesscene_servicesscene",
+      "src_components_scenes_servicesscene_vector"
+    ],
+    "9": [
+      "src_components_sections_portfoliogrid",
+      "src_components_sections_portfoliogrid_portfoliogrid",
+      "src_components_sections_projectcarousel",
+      "src_components_sections_projectcarousel_getimagepath",
+      "src_components_sections_projectcarousel_locale",
+      "src_components_sections_projectcarousel_portfolioitem",
+      "src_components_sections_projectcarousel_projectcarousel",
+      "src_components_sections_projectcarousel_projecthref",
+      "src_components_sections_projectcarousel_relativeindex",
+      "src_hooks_usescrollprogress",
+      "src_hooks_usescrollprogress_usescrollprogress"
+    ],
+    "10": [
+      "src_components_scenes_tunascene",
+      "src_components_scenes_tunascene_choosewaypoint",
+      "src_components_scenes_tunascene_dampangle",
+      "src_components_scenes_tunascene_getexclusionrects",
+      "src_components_scenes_tunascene_mascotlayer",
+      "src_components_scenes_tunascene_safe_points",
+      "src_components_scenes_tunascene_screenpoint",
+      "src_components_scenes_tunascene_tunamodel",
+      "src_components_scenes_tunascene_tunastate"
+    ],
+    "11": [
+      "src_components_sections_journal",
+      "src_components_sections_journal_journal",
+      "src_utils_markdown",
+      "src_utils_markdown_article",
+      "src_utils_markdown_articlemetadata",
+      "src_utils_markdown_getallarticles",
+      "src_utils_markdown_getarticlebyslug",
+      "src_utils_markdown_parsefrontmatter"
+    ],
+    "12": [
+      "clsx",
+      "lucide_react",
+      "package_dependencies",
+      "package_dependencies_clsx",
+      "package_dependencies_lucide_react",
+      "package_dependencies_react_i18next",
+      "react_i18next"
+    ],
+    "13": [
+      "scripts_generate_sitemap",
+      "scripts_generate_sitemap_dirname",
+      "scripts_generate_sitemap_filename",
+      "scripts_generate_sitemap_geolandingpagesdata",
+      "scripts_generate_sitemap_landingpagesdata",
+      "scripts_generate_sitemap_urls"
+    ],
+    "14": [
+      "src_components_scenes_retrocomputerscene",
+      "src_components_scenes_retrocomputerscene_computer",
+      "src_components_scenes_retrocomputerscene_computerfallback",
+      "src_components_scenes_retrocomputerscene_retrocomputerscene",
+      "src_components_scenes_retrocomputerscene_retrocomputersceneprops",
+      "src_components_scenes_retrocomputerscene_useheroscroll"
+    ],
+    "15": [
+      "src_components_ui_mouseeffects",
+      "src_components_ui_mouseeffects_effect",
+      "src_components_ui_mouseeffects_interactionmode",
+      "src_components_ui_mouseeffects_mouseeffects",
+      "src_components_ui_mouseeffects_particle",
+      "src_components_ui_mouseeffects_props"
+    ],
+    "16": [
+      "src_components_requestmodal",
+      "src_components_requestmodal_requestmodal",
+      "src_components_requestmodal_requestmodalprops",
+      "src_config_constants",
+      "src_config_constants_contact_config"
+    ],
+    "17": [
+      "src_components_navigation",
+      "src_components_navigation_navigation",
+      "src_lib_utils",
+      "src_lib_utils_cn"
+    ],
+    "18": [
+      "src_components_ui_liquidhover",
+      "src_components_ui_liquidhover_liquidhover",
+      "src_components_ui_liquidhover_liquidhoverprops"
+    ],
+    "19": [
+      "dotenv",
+      "package_dependencies_dotenv"
+    ],
+    "20": [
+      "express",
+      "package_dependencies_express"
+    ],
+    "21": [
+      "fontsource_variable_instrument_sans",
+      "package_dependencies_fontsource_variable_instrument_sans"
+    ],
+    "22": [
+      "fontsource_variable_schibsted_grotesk",
+      "package_dependencies_fontsource_variable_schibsted_grotesk"
+    ],
+    "23": [
+      "google_genai",
+      "package_dependencies_google_genai"
+    ],
+    "24": [
+      "gsap",
+      "package_dependencies_gsap"
+    ],
+    "25": [
+      "i18next",
+      "package_dependencies_i18next"
+    ],
+    "26": [
+      "i18next_browser_languagedetector",
+      "package_dependencies_i18next_browser_languagedetector"
+    ],
+    "27": [
+      "motion",
+      "package_dependencies_motion"
+    ],
+    "28": [
+      "package_dependencies_react",
+      "react"
+    ],
+    "29": [
+      "package_dependencies_react_dom",
+      "react_dom"
+    ],
+    "30": [
+      "package_dependencies_react_helmet_async",
+      "react_helmet_async"
+    ],
+    "31": [
+      "package_dependencies_react_markdown",
+      "react_markdown"
+    ],
+    "32": [
+      "package_dependencies_react_router",
+      "react_router"
+    ],
+    "33": [
+      "package_dependencies_react_router_dom",
+      "react_router_dom"
+    ],
+    "34": [
+      "package_dependencies_react_three_fiber",
+      "react_three_fiber"
+    ],
+    "35": [
+      "package_dependencies_remark_gfm",
+      "remark_gfm"
+    ],
+    "36": [
+      "package_dependencies_tailwind_merge",
+      "tailwind_merge"
+    ],
+    "37": [
+      "package_dependencies_tailwindcss_typography",
+      "tailwindcss_typography"
+    ],
+    "38": [
+      "package_dependencies_tailwindcss_vite",
+      "tailwindcss_vite"
+    ],
+    "39": [
+      "package_dependencies_three",
+      "three"
+    ],
+    "40": [
+      "package_dependencies_vitejs_plugin_react",
+      "vitejs_plugin_react"
+    ],
+    "41": [
+      "src_components_footer",
+      "src_components_footer_footer"
+    ],
+    "42": [
+      "src_components_sections_cookiebanner",
+      "src_components_sections_cookiebanner_cookiebanner"
+    ],
+    "43": [
+      "src_components_sections_estimatorcallout",
+      "src_components_sections_estimatorcallout_estimatorcallout"
+    ],
+    "44": [
+      "src_components_sections_floatingwhatsapp",
+      "src_components_sections_floatingwhatsapp_floatingwhatsapp"
+    ],
+    "45": [
+      "src_components_sections_mobilebookingbar",
+      "src_components_sections_mobilebookingbar_mobilebookingbar"
+    ],
+    "46": [
+      "src_vite_env_d"
+    ],
+    "47": [
+      "vite_config"
+    ]
+  },
+  "cohesion": {
+    "0": 0.058823529411764705,
+    "1": 0.11612903225806452,
+    "2": 0.16559139784946236,
+    "3": 0.18233618233618235,
+    "4": 0.09538461538461539,
+    "5": 0.16017316017316016,
+    "6": 0.10526315789473684,
+    "7": 0.1568627450980392,
+    "8": 0.16483516483516483,
+    "9": 0.2909090909090909,
+    "10": 0.3055555555555556,
+    "11": 0.42857142857142855,
+    "12": 0.2857142857142857,
+    "13": 0.3333333333333333,
+    "14": 0.4,
+    "15": 0.3333333333333333,
+    "16": 0.5,
+    "17": 0.8333333333333334,
+    "18": 0.6666666666666666,
+    "19": 1.0,
+    "20": 1.0,
+    "21": 1.0,
+    "22": 1.0,
+    "23": 1.0,
+    "24": 1.0,
+    "25": 1.0,
+    "26": 1.0,
+    "27": 1.0,
+    "28": 1.0,
+    "29": 1.0,
+    "30": 1.0,
+    "31": 1.0,
+    "32": 1.0,
+    "33": 1.0,
+    "34": 1.0,
+    "35": 1.0,
+    "36": 1.0,
+    "37": 1.0,
+    "38": 1.0,
+    "39": 1.0,
+    "40": 1.0,
+    "41": 1.0,
+    "42": 1.0,
+    "43": 1.0,
+    "44": 1.0,
+    "45": 1.0,
+    "46": 1.0,
+    "47": 1.0
+  },
+  "gods": [
+    {
+      "id": "src_hooks_useinview_useinview",
+      "label": "useInView()",
+      "degree": 29
+    },
+    {
+      "id": "src_hooks_usehomecopy_usehomecopy",
+      "label": "useHomeCopy()",
+      "degree": 27
+    },
+    {
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 15
+    },
+    {
+      "id": "src_components_sections_navigation_navigation",
+      "label": "Navigation()",
+      "degree": 14
+    },
+    {
+      "id": "src_components_sections_footer_footer",
+      "label": "Footer()",
+      "degree": 13
+    },
+    {
+      "id": "src_components_seo_seo",
+      "label": "SEO()",
+      "degree": 11
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 7
+    },
+    {
+      "id": "src_components_scrollunderline_scrollunderline",
+      "label": "ScrollUnderline()",
+      "degree": 7
+    },
+    {
+      "id": "src_components_sections_projectcarousel_projectcarousel",
+      "label": "ProjectCarousel()",
+      "degree": 7
+    },
+    {
+      "id": "src_utils_markdown_getallarticles",
+      "label": "getAllArticles()",
+      "degree": 5
+    }
+  ],
+  "surprises": [
+    {
+      "source": "LandingPage()",
+      "target": "useInView()",
+      "source_files": [
+        "src/pages/LandingPage.tsx",
+        "src/hooks/useInView.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities; peripheral node `LandingPage()` unexpectedly reaches hub `useInView()`"
+    },
+    {
+      "source": "About()",
+      "target": "useInView()",
+      "source_files": [
+        "src/components/About.tsx",
+        "src/hooks/useInView.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "peripheral node `About()` unexpectedly reaches hub `useInView()`"
+    },
+    {
+      "source": "Certifications()",
+      "target": "useInView()",
+      "source_files": [
+        "src/components/Certifications.tsx",
+        "src/hooks/useInView.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "peripheral node `Certifications()` unexpectedly reaches hub `useInView()`"
+    },
+    {
+      "source": "ConstructionNotice()",
+      "target": "useHomeCopy()",
+      "source_files": [
+        "src/components/ConstructionNotice.tsx",
+        "src/hooks/useHomeCopy.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "Contact()",
+      "target": "useInView()",
+      "source_files": [
+        "src/components/Contact.tsx",
+        "src/hooks/useInView.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "peripheral node `Contact()` unexpectedly reaches hub `useInView()`"
+    }
+  ],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}

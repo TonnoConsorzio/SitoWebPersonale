@@ -30,7 +30,6 @@ export function ProjectPage() {
   };
 
   const title = getLocalized(project.title);
-  const category = getLocalized(project.category);
   const description = getLocalized(project.description);
   const problem = getLocalized(project.problem);
   const solution = getLocalized(project.solution);
@@ -49,7 +48,6 @@ export function ProjectPage() {
       <main className="pt-32 pb-24 px-6 md:px-8 max-w-7xl mx-auto space-y-12">
         <div className="animate-fade-rise">
           <div className="flex flex-col justify-center items-center gap-4 mb-12 text-center max-w-3xl mx-auto">
-            <span className="text-base uppercase tracking-widest text-primary font-mono font-bold">{category}</span>
             <h1 className="text-4xl sm:text-6xl md:text-7xl font-display text-foreground leading-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>
               {title}
             </h1>

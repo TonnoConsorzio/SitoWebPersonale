@@ -31,7 +31,6 @@ export function AgencyPage() {
 
       <main className="pt-32 pb-24">
         <section className="px-6 md:px-8 max-w-5xl mx-auto pb-24">
-          <p className="text-sm uppercase tracking-[0.18em] text-primary mb-6">Per agenzie e studi</p>
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-display leading-tight max-w-4xl mb-7">
             Uno sviluppatore web affidabile, dietro le quinte.
           </h1>
@@ -46,7 +45,6 @@ export function AgencyPage() {
         <section className="px-6 md:px-8 max-w-7xl mx-auto border-y border-white/10 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-12 items-start">
             <div>
-              <p className="text-sm uppercase tracking-[0.18em] text-primary mb-4">Come funziona</p>
               <h2 className="text-4xl md:text-5xl font-display text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>Un passaggio chiaro dall’incarico alla consegna.</h2>
             </div>
             <div className="space-y-0">
@@ -66,7 +64,6 @@ export function AgencyPage() {
         <section className="px-6 md:px-8 max-w-7xl mx-auto py-20">
           <div className="grid grid-cols-1 md:grid-cols-[1fr_0.8fr] gap-12 items-start">
             <div>
-              <p className="text-sm uppercase tracking-[0.18em] text-primary mb-4">Pilot Web White Label</p>
               <h2 className="text-4xl md:text-5xl font-display text-foreground mb-5" style={{ fontFamily: "'Instrument Serif', serif" }}>Un primo incarico piccolo, per capire come lavoriamo.</h2>
               <p className="text-base text-muted-foreground leading-relaxed max-w-[60ch]">Un progetto circoscritto, con consegna e responsabilità definite. Se il modo di lavorare funziona, possiamo costruire una collaborazione più stabile.</p>
             </div>

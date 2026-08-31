@@ -79,7 +79,7 @@ export function CurriculumPage() {
                       </span>
                     </div>
 
-                    <div className="text-base font-mono text-muted-foreground uppercase tracking-wider">
+                    <div className="text-base font-medium text-muted-foreground">
                       {item.company}
                     </div>
 

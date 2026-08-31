@@ -15,7 +15,6 @@ export function PricingPage() {
       <Navigation />
       <main className="pt-28 pb-12">
         <header className="px-6 md:px-8 max-w-4xl mx-auto text-center pb-4">
-          <p className="text-sm uppercase tracking-[0.18em] text-primary mb-5">Prezzi chiari</p>
           <h1 className="text-5xl md:text-6xl font-display text-foreground mb-5">Parti dal bisogno, non dal pacchetto.</h1>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-[60ch] mx-auto">Le proposte qui sotto hanno un perimetro preciso. Se il tuo progetto è diverso, preparo una stima dopo averlo capito.</p>
         </header>

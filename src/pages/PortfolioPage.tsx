@@ -42,7 +42,6 @@ export function PortfolioPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {portfolio.map((project: any, idx: number) => {
             const title = getLocalized(project.title);
-            const category = getLocalized(project.category);
             const description = getLocalized(project.description);
 
             return (
@@ -61,7 +60,6 @@ export function PortfolioPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/65 to-transparent opacity-85 group-hover:opacity-95 transition-opacity duration-500" />
                   
                   <div className="absolute inset-x-0 bottom-0 p-5 md:p-8 flex flex-col justify-end">
-                    <span className="text-sm md:text-base uppercase tracking-widest text-primary mb-2 font-bold font-mono">{category}</span>
                     <h2 className="text-2xl md:text-4xl font-display text-white mb-2 md:mb-3" style={{ fontFamily: "'Instrument Serif', serif" }}>
                       {title}
                     </h2>

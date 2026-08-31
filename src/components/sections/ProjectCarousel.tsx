@@ -11,7 +11,7 @@ type PortfolioItem = (typeof portfolio)[number];
 
 const getImagePath = (image: string) => image.replace(/^\.\//, '/');
 const projectHref = (project: PortfolioItem) => `/portfolio/${project.id}`;
-const relativeIndex = (index: number, activeIndex: number, total: number) => (index - activeIndex + total) % total;
+const relativeIndex = (index: number, activeIndex: number) => index - activeIndex;
 
 export function ProjectCarousel() {
   const { i18n } = useTranslation();
@@ -21,24 +21,35 @@ export function ProjectCarousel() {
   const stageRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [copyIndex, setCopyIndex] = useState(0);
   const [isChanging, setIsChanging] = useState(false);
   const changeTimer = useRef<number | undefined>(undefined);
+  const copyTimer = useRef<number | undefined>(undefined);
   const projects = portfolio;
 
-  const change = (direction: number) => {
-    setActiveIndex((current) => (current + direction + projects.length) % projects.length);
+  const changeTo = (index: number) => {
+    const nextIndex = Math.min(projects.length - 1, Math.max(0, index));
+    if (nextIndex === activeIndex) return;
+    setActiveIndex(nextIndex);
     setIsChanging(true);
     window.clearTimeout(changeTimer.current);
+    window.clearTimeout(copyTimer.current);
+    copyTimer.current = window.setTimeout(() => setCopyIndex(nextIndex), 120);
     changeTimer.current = window.setTimeout(() => setIsChanging(false), 760);
     window.requestAnimationFrame(() => stageRef.current?.focus());
   };
 
+  const change = (direction: number) => changeTo(activeIndex + direction);
+
   const select = (index: number) => {
     if (index === activeIndex) return;
-    change(relativeIndex(index, activeIndex, projects.length) === 1 ? 1 : -1);
+    changeTo(index);
   };
 
-  useEffect(() => () => window.clearTimeout(changeTimer.current), []);
+  useEffect(() => () => {
+    window.clearTimeout(changeTimer.current);
+    window.clearTimeout(copyTimer.current);
+  }, []);
 
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
@@ -75,40 +86,40 @@ export function ProjectCarousel() {
       >
         <div className="project-stage__slides">
           {projects.map((project, index) => {
-            const distance = relativeIndex(index, activeIndex, projects.length);
+            const distance = relativeIndex(index, activeIndex);
             const title = project.title[locale];
             const image = getImagePath(project.image);
             const href = projectHref(project);
 
             return (
-              <article key={project.id} className={`project-stage__slide project-stage__slide--${distance} ${distance === 0 ? 'is-active' : ''}`.trim()} aria-hidden={distance > 2 ? true : undefined}>
+              <article key={project.id} className={`project-stage__slide ${distance === 0 ? 'is-active' : ''}`.trim()} data-relative-index={distance} aria-hidden={Math.abs(distance) > 2 ? true : undefined}>
                 {distance === 0 ? (
                   <Link to={href} className="project-stage__active-media" aria-label={`Apri il progetto ${title}`}>
                     <img src={image} alt={title} loading="eager" decoding="async" />
                   </Link>
                 ) : (
-                  <button type="button" className="project-stage__preview" onClick={() => select(index)} tabIndex={distance <= 2 ? 0 : -1} aria-label={`Seleziona il progetto ${title}`}>
+                  <button type="button" className="project-stage__preview" onClick={() => select(index)} tabIndex={Math.abs(distance) <= 2 ? 0 : -1} aria-label={`Seleziona il progetto ${title}`}>
                     <img src={image} alt="" loading={distance <= 2 ? 'eager' : 'lazy'} decoding="async" />
                   </button>
                 )}
 
-                {distance === 0 && (
-                  <div className="project-stage__content" aria-live="polite">
-                    <p className="project-stage__category">{project.category[locale]}</p>
-                    <h3>{title}</h3>
-                    <p className="project-stage__description">{project.description[locale]}</p>
-                    <Link to={href} className="text-link text-link--light">{copy.cta} <ArrowUpRight size={17} aria-hidden="true" /></Link>
-                  </div>
-                )}
               </article>
             );
           })}
         </div>
 
+        <div className="project-stage__content" aria-live="polite">
+          <div key={copyIndex} className="project-stage__copy">
+            <h3>{projects[copyIndex].title[locale]}</h3>
+            <p className="project-stage__description">{projects[copyIndex].description[locale]}</p>
+            <Link to={projectHref(projects[copyIndex])} className="text-link text-link--light">{copy.cta} <ArrowUpRight size={17} aria-hidden="true" /></Link>
+          </div>
+        </div>
+
         <div className="project-stage__controls" aria-label="Controlli progetti">
-          <button type="button" onClick={() => change(-1)} aria-label="Progetto precedente"><ArrowLeft size={20} aria-hidden="true" /></button>
+          <button type="button" onClick={() => change(-1)} disabled={activeIndex === 0} aria-label="Progetto precedente"><ArrowLeft size={20} aria-hidden="true" /></button>
           <span aria-live="polite">{String(activeIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}</span>
-          <button type="button" onClick={() => change(1)} aria-label="Progetto successivo"><ArrowRight size={20} aria-hidden="true" /></button>
+          <button type="button" onClick={() => change(1)} disabled={activeIndex === projects.length - 1} aria-label="Progetto successivo"><ArrowRight size={20} aria-hidden="true" /></button>
         </div>
       </div>
 

@@ -12,7 +12,7 @@ export function AIBoardVisual({ compact = false }: { compact?: boolean }) {
   const prompts = formationPrompts;
 
   return (
-    <div className={`ai-board-visual w-full liquid-glass rounded-2xl border border-white/10 p-6 overflow-hidden shadow-2xl relative space-y-6 ${compact ? 'ai-board-visual--compact' : ''}`.trim()}>
+    <div className={`ai-board-visual ${compact ? 'ai-board-visual--compact' : ''}`.trim()}>
 
       {/* Selectable Prompt Use Cases */}
       <div className="ai-board-visual__tabs" role="tablist" aria-label="Esempi di utilizzo">
@@ -56,24 +56,24 @@ export function AIBoardVisual({ compact = false }: { compact?: boolean }) {
         id="formation-prompt-panel"
         role="tabpanel"
         aria-labelledby={`formation-tab-${selectedPrompt}`}
-        className="ai-board-visual__prompt-panel p-4 rounded-xl space-y-3 font-mono text-xs"
+        className="ai-board-visual__prompt-panel"
       >
         <div>
-          <div className="ai-board-visual__prompt-label uppercase tracking-widest mb-1 flex items-center gap-1.5">
-            <Terminal className="w-3.5 h-3.5 text-primary" /> Prompt di esempio
+          <div className="ai-board-visual__prompt-label">
+            <Terminal aria-hidden="true" /> Prompt di esempio
           </div>
-          <p className="ai-board-visual__prompt-text p-3 rounded-lg">
-            "{prompts[selectedPrompt].input}"
+          <p className="ai-board-visual__prompt-text">
+            “{prompts[selectedPrompt].input}”
           </p>
         </div>
 
-        <div className="flex items-center gap-2 text-primary text-[11px] pt-1">
-          <ArrowRight className="w-3.5 h-3.5" />
+        <div className="ai-board-visual__result-label">
+          <ArrowRight aria-hidden="true" />
           <span>Risultato elaborato</span>
         </div>
 
-        <div className="ai-board-visual__result p-3 rounded-lg flex items-start gap-2">
-          <CheckCircle className="w-4 h-4 shrink-0 mt-0.5" aria-hidden="true" />
+        <div key={selectedPrompt} className="ai-board-visual__result">
+          <CheckCircle aria-hidden="true" />
           <span>{prompts[selectedPrompt].result}</span>
         </div>
       </div>

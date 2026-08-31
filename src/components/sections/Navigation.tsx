@@ -45,7 +45,6 @@ export function Navigation() {
             {scrollLink('progetti', copy.projects)}
             <Link to="/prezzi" className="experience-nav__link">{copy.pricing}</Link>
             {scrollLink('about', copy.about)}
-            <Link to="/journal/primo-articolo" className="experience-nav__link">{copy.journal}</Link>
           </div>
 
           <div className="flex items-center gap-3">
@@ -63,7 +62,6 @@ export function Navigation() {
               {scrollLink('progetti', copy.projects)}
               <Link onClick={() => setMenuOpen(false)} to="/prezzi" className="experience-nav__link">{copy.pricing}</Link>
               {scrollLink('about', copy.about)}
-              <Link onClick={() => setMenuOpen(false)} to="/journal/primo-articolo" className="experience-nav__link">{copy.journal}</Link>
               <button type="button" onClick={toggleLanguage} className="mt-5 min-h-11 border-b border-foreground text-xs font-bold tracking-[0.12em] transition-colors hover:border-primary hover:text-primary">{i18n.language.startsWith('it') ? 'English' : 'Italiano'}</button>
             </div>
           </div>
