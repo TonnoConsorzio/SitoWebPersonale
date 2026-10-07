@@ -72,7 +72,10 @@ export function ProjectCarousel() {
   return (
     <section ref={sectionRef} id="progetti" data-scroll-theme="dark" className="scene scene--projects" aria-labelledby="progetti-title">
       <div className="scene__container projects-scene__intro">
-        <h2 id="progetti-title">{copy.introA}<br /><span>{copy.introB}</span></h2>
+        <h2 id="progetti-title">
+          <span className="projects-scene__intro-a">{copy.introA}</span>
+          <span className="projects-scene__intro-b">{copy.introB}</span>
+        </h2>
       </div>
 
       <div

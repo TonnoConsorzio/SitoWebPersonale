@@ -1352,3 +1352,31 @@ textarea.experience-field { min-height: 11.25rem; }
     margin-top: 3rem;
   }
 }
+
+/* Projects intro: share the long statement across the available width. */
+.projects-scene__intro > h2 {
+  grid-column: 1 / -1;
+  display: grid;
+  max-width: none;
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  gap: var(--grid-gutter);
+}
+
+.projects-scene__intro > h2 > span {
+  display: block;
+}
+
+.projects-scene__intro > h2 > .projects-scene__intro-a {
+  color: var(--color-warm-white);
+}
+
+.projects-scene__intro > h2 > .projects-scene__intro-b {
+  color: var(--color-brand-yellow);
+}
+
+@media (max-width: 63.99rem) {
+  .projects-scene__intro > h2 {
+    grid-template-columns: 1fr;
+    gap: .25em;
+  }
+}
