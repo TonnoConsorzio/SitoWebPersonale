@@ -1,104 +1,50 @@
-# DESIGN.md: Lusion-inspired direction for Alessio Bellan
+# Design — Alessio Bellan
 
-## Source
+Sistema visivo per il sito personale e commerciale. Il sistema usa una direzione cinematografica editoriale, crema caldo, nero, giallo disciplinato e un Impossible Engine procedurale persistente.
 
-- URL: https://lusion.co/
-- Capture date: 2026-08-15
-- Evidence: public page content inspected through web fallback; Firecrawl collection pending `FIRECRAWL_API_KEY`.
-- Scope: extract interaction and composition patterns only. Do not reuse Lusion copy, logos, project media, or proprietary code.
+## Genere
 
-## Reference Screenshot
+Atmospheric editorial con struttura commerciale leggibile.
 
-No local screenshot was created. The Firecrawl CLI and API key are not configured in this workspace. Use the source URL for visual comparison when the key is available.
+## Macrostruttura
 
-## Design Summary
+- Pagine marketing: scorrimento narrativo a scene, con un oggetto procedurale che cambia stato tra caos, lavoro, sistema, processo e risoluzione.
+- Portfolio: showcase sticky con lavoro reale, immagini in proiezione e testo breve.
+- Contenuti: Long Document, con testo continuo e gerarchie brevi.
 
-Lusion presents itself as a visual production studio. The page starts with a strong 3D/interactive premise, invites continued scrolling, introduces the approach, then uses featured work as proof before ending with a large collaborative CTA. The useful lesson is pacing: one visual idea per scene, short text, and work before service detail.
+## Tema
 
-For Alessio, keep the same pacing discipline but use a different identity: warm cream, black, disciplined brand yellow, fluid editorial depth, direct Italian copy, real project assets, and a persistent lightweight procedural engine with a static SVG fallback.
+- Background: `#f2eee5`
+- Foreground: `#111113`
+- Paper strong: `#e9e3d8`
+- Accent: `#fbcf15`
+- Border: linee sottili, mai poster o ombre rigide
+- Focus: `#111113` con offset visibile
 
-## Design Tokens
+## Tipografia
 
-### Colors
+- Display: Bricolage Grotesque, 600–700.
+- Corpo: Instrument Sans, 400–700.
+- Testo: 16–18px, interlinea 1.5–1.7, larghezza massima 65ch.
 
-- `paper`: `#f2eee5`, primary page surface.
-- `paper-strong`: `#e9e3d8`, secondary surface.
-- `ink`: `#111113`, text and dark scenes.
-- `brand-yellow`: `#fbcf15`, opening and closing scene, focus accent, and active states.
-- `muted-ink`: `#5d5a53`, supporting text only where contrast remains sufficient.
+## Spaziatura e movimento
 
-### Typography
+- Sezioni ampie, blocchi brevi, griglia usata solo quando aiuta il confronto.
+- Movimento sobrio. WebGL nativo leggero per l’engine, SVG statico se WebGL non è disponibile.
+- Scroll scrub controllato solo sulle immagini dei progetti; niente scroll hijacking, bounce o fade-up ripetuti.
+- `prefers-reduced-motion`: transizioni e animazioni ridotte a un cambio di opacità.
 
-- Display: Bricolage Grotesque, 700–800, tight line-height.
-- Body: Instrument Sans, 400–700, readable measure between 45 and 70ch.
-- Outlier: IBM Plex Mono for short labels only.
-- No italic headings. No gradient text.
+## Voce CTA
 
-### Spacing And Layout
+- Primaria: “Raccontami il progetto” o una variante concreta legata al contesto.
+- Secondaria: “Vedi i lavori”.
+- Niente promesse generiche, metriche inventate o prezzi barrati.
 
-- Max content width: `1440px`.
-- Mobile gutters: `20px`; desktop gutters: `32px`.
-- Major sections: `80px` mobile, `112px` desktop vertical padding.
-- Borders: thin lines only; no poster frames or hard offset shadows.
-- Radius: restrained 2–4px on interactive controls and imagery.
-- Macrostructure: cinematic scene stack. The engine stays present while scenes change its geometry and visual order.
+## Regole condivise
 
-## Components
+- Conservare logo, palette, font e comportamento narrativo dell’Impossible Engine.
+- Usare dati verificabili e indicare i punti da confermare nel copy.
+- Dare priorità a Sito Essenziale, Automation Sprint e Pilot Web White Label.
+- Focus tastiera sempre visibile, target interattivi di almeno 44px, contrasto WCAG 2.2 AA.
 
-- Hero: warm cream scene, large direct headline, object intersecting the type, one booking CTA, procedural Impossible Engine.
-- Navigation: fixed, restrained, no booking button. Mobile menu expands to a full-height sheet.
-- Trust strip: short factual statements, no invented numbers or logos.
-- Work showcase: real project images, offset editorial rhythm, short proof copy.
-- Services: three chapters in one reading column, not repeated rounded cards.
-- Process: four numbered stages with a persistent label column.
-- Pricing: typographic package system with actual prices; no “popular” badge or scarcity language.
-- FAQ: one-open-at-a-time button accordion, visible focus, JSON-LD preserved.
-- Final CTA: yellow scene with the second and last `Prenota 15 minuti` action.
-
-## Page Patterns
-
-1. Hero and visual premise.
-2. Trust strip.
-3. Real work.
-4. Service chapters.
-5. Formation.
-6. Process.
-7. Prices.
-8. About and ABBO APS.
-9. Authentic testimonials.
-10. FAQ.
-11. Final contact scene.
-12. Minimal footer.
-
-The page uses section-level theme transitions, not scroll-jacking. On mobile, columns collapse, sticky behavior reduces, and the engine loses pointer tilt.
-
-## Motion And Fallbacks
-
-- Scroll and theme state update the procedural WebGL engine through `data-engine-stage`.
-- Pointer tilt runs only for non-touch pointers.
-- WebGL is progressively enhanced and degrades to the visible SVG composition.
-- `prefers-reduced-motion` removes tilt, transitions, smooth scrolling, and parallax-like movement.
-- No WebGL dependency is required. The SVG composition is the immediate fallback and remains visible if a heavier 3D stack is unavailable.
-
-## Content Style
-
-Keep the supplied Italian copy unchanged. Use short labels, concrete verbs, and real project evidence. Do not add agency jargon, fake metrics, fake testimonials, or descriptive filler around the visual system.
-
-## Agent Build Instructions
-
-1. Borrow Lusion’s scene pacing, not its assets or wording.
-2. Keep Alessio’s yellow/black/paper identity dominant.
-3. Let the project work carry credibility before explaining services.
-4. Use 2.5D or static SVG before adding a WebGL runtime.
-5. Preserve routes, forms, SEO, alt text, keyboard access, and reduced-motion behavior.
-6. Any new reference site must get its own evidence section before changing the visual system.
-
-## Rerun Inputs
-
-```text
-workflow: firecrawl-website-design-clone
-source_url: https://lusion.co/
-target_stack: React + Vite + Tailwind CSS
-output: DESIGN.md
-status: fallback evidence; Firecrawl API key required for branding, images, and screenshot artifacts
-```
+/* Hallmark · genre: atmospheric-editorial · macrostructure: Feature Stack · design-system: design.md · designed-as-app */
