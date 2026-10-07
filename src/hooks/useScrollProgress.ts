@@ -1,38 +1,27 @@
 import { useEffect, useRef } from 'react';
+import { useMotionValueEvent, useReducedMotion, useScroll } from 'motion/react';
+
+function paintProgress(element: HTMLElement, progress: number) {
+  element.style.setProperty('--scene-progress', String(progress));
+  element.style.setProperty('--scene-wrap-y', `${(0.5 - progress) * 10}vh`);
+  element.style.setProperty('--scene-media-y', `${(0.5 - progress) * 6}vh`);
+  element.style.setProperty('--scene-media-scale', String(1.035 + progress * 0.025));
+}
 
 export function useScrollProgress<T extends HTMLElement>() {
   const ref = useRef<T>(null);
+  const reducedMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
 
-  useEffect(() => {
+  useMotionValueEvent(scrollYProgress, 'change', (value) => {
     const element = ref.current;
     if (!element) return;
+    paintProgress(element, reducedMotion ? 1 : value);
+  });
 
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    let frame = 0;
-
-    const paint = () => {
-      frame = 0;
-      const bounds = element.getBoundingClientRect();
-      const progress = Math.min(1, Math.max(0, (window.innerHeight * 0.85 - bounds.top) / (bounds.height + window.innerHeight * 0.35)));
-      const normalized = reducedMotion.matches ? 1 : progress;
-      element.style.setProperty('--scene-progress', String(normalized));
-      element.style.setProperty('--scene-wrap-y', `${(0.5 - normalized) * 10}vh`);
-      element.style.setProperty('--scene-media-y', `${(0.5 - normalized) * 6}vh`);
-      element.style.setProperty('--scene-media-scale', String(1.035 + normalized * 0.025));
-    };
-    const schedule = () => {
-      if (!frame) frame = window.requestAnimationFrame(paint);
-    };
-
-    schedule();
-    window.addEventListener('scroll', schedule, { passive: true });
-    window.addEventListener('resize', schedule, { passive: true });
-    return () => {
-      if (frame) window.cancelAnimationFrame(frame);
-      window.removeEventListener('scroll', schedule);
-      window.removeEventListener('resize', schedule);
-    };
-  }, []);
+  useEffect(() => {
+    if (ref.current) paintProgress(ref.current, reducedMotion ? 1 : scrollYProgress.get());
+  }, [reducedMotion, scrollYProgress]);
 
   return ref;
 }

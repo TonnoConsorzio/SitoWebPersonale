@@ -1,14 +1,10 @@
 {
   "siti-web": {
     "titleTag": "Siti Web su Misura | Monza, Milano, Lecco, Bergamo",
-    "metaDescription": "Sviluppo siti web veloci e trasparenti per professionisti e PMI in Lombardia. Da 350€.",
+    "metaDescription": "Sviluppo siti web veloci e trasparenti per professionisti e PMI in Lombardia.",
     "h1": "Un sito web chiaro per spiegare cosa fai.",
-    "intro": "Sviluppo siti web veloci e strutturati per professionisti, PMI ed associazioni a Monza, Milano, Lecco e Bergamo. Partiamo da 350€ per landing page ed 700€ per siti multipagina completi.",
+    "intro": "Sviluppo siti web veloci e strutturati per professionisti, PMI ed associazioni a Monza, Milano, Lecco e Bergamo. Partiamo ",
     "sections": [
-      {
-        "title": "Costi indicativi",
-        "content": "**Essenziale** (350-450€, una pagina, ideale per iniziare), **Standard** (700-950€, 3-5 pagine con gestione contenuti — la scelta più comune), **Su misura** (da 1.500€, design e funzioni personalizzate). Ognuno include setup tecnico e hosting base."
-      },
       {
         "title": "Perché un sito sintetico funziona meglio",
         "content": "Un sito sovraccarico di testo fa scappare i visitatori. Progetto layout puliti dove ogni sezione risponde a una domanda precisa e guida verso il contatto."
@@ -19,86 +15,87 @@
       }
     ],
     "faq": [
-      {"question": "Il prezzo include hosting e dominio?", "answer": "Il setup iniziale è incluso. Dominio e hosting annuale hanno costi chiari indicati nel preventivo."},
-      {"question": "Posso aggiornare i contenuti in autonomia?", "answer": "Sì, nei siti multipagina integro un pannello semplice senza bisogno di competenze tecniche."},
-      {"question": "Il sito sarà ottimizzato per smartphone?", "answer": "Sì, tutti i progetti sono responsive e velocissimi su mobile."}
+      {
+        "question": "Posso aggiornare i contenuti in autonomia?",
+        "answer": "Sì, nei siti multipagina integro un pannello semplice senza bisogno di competenze tecniche."
+      },
+      {
+        "question": "Il sito sarà ottimizzato per smartphone?",
+        "answer": "Sì, tutti i progetti sono responsive e velocissimi su mobile."
+      }
     ],
-    "cta": "Richiedi una stima per il tuo sito."
+    "cta": "Parliamo del tuo progetto."
   },
   "gestionali": {
     "titleTag": "Gestionali su Misura per PMI | Monza, Milano, Lecco, Bergamo",
-    "metaDescription": "Software ed app web costruite sul tuo flusso di lavoro reale. Da 500€.",
+    "metaDescription": "Software ed app web costruite sul tuo flusso di lavoro reale.",
     "h1": "Software gestionali adattati a come lavori.",
-    "intro": "Sviluppo pannelli gestionali e web app per PMI ed associazioni a Monza, Milano, Lecco e Bergamo. Partiamo da 500€ per micro-tool specifici.",
+    "intro": "Sviluppo pannelli gestionali e web app per PMI ed associazioni a Monza, Milano, Lecco e Bergamo. Partiamo ",
     "sections": [
-      {
-        "title": "Costi ed opzioni",
-        "content": "**Micro-tool** (500-900€, una funzione specifica es. prenotazioni), **Gestionale base** (1.200-2.000€, archivi, login e generazione PDF), **Gestionale avanzato** (da 2.500€, più ruoli ed integrazioni API)."
-      },
       {
         "title": "Perché scegliere un software su misura",
         "content": "I gestionali generici sono pieni di pulsanti inutili. Uno strumento su misura include solo ciò che usate davvero ogni giorno."
       }
     ],
     "faq": [
-      {"question": "Serve installare programmi sul computer?", "answer": "No, si accede direttamente da browser su qualsiasi PC o tablet."},
-      {"question": "I dati sono riservati?", "answer": "Sì, il database resta al 100% di tua proprietà su server protetto."}
+      {
+        "question": "Serve installare programmi sul computer?",
+        "answer": "No, si accede direttamente da browser su qualsiasi PC o tablet."
+      },
+      {
+        "question": "I dati sono riservati?",
+        "answer": "Sì, il database resta al 100% di tua proprietà su server protetto."
+      }
     ],
-    "cta": "Descrivi le tue esigenze per ricevere una stima."
+    "cta": "Parliamo delle tue esigenze."
   },
   "grafica": {
     "titleTag": "Logo e Brand Identity | Monza, Milano, Lecco, Bergamo",
-    "metaDescription": "Loghi e grafiche essenziali per rendere riconoscibile il tuo progetto. Da 150€.",
+    "metaDescription": "Loghi e grafiche essenziali per rendere riconoscibile il tuo progetto.",
     "h1": "Identità visiva chiara per la tua attività.",
-    "intro": "Progettiamo loghi e brand kit essenziali per professionisti ed associazioni. Da 150€ con vettoriali inclusi.",
-    "sections": [
-      {
-        "title": "Pacchetti grafica",
-        "content": "**Logo Start** (150-200€: due proposte e revisioni), **Brand Kit** (350-450€: logo, palette colori, font e modelli coordinati)."
-      }
-    ],
+    "intro": "Progettiamo loghi e brand kit essenziali per professionisti ed associazioni. ",
+    "sections": [],
     "faq": [
-      {"question": "Riceverò i file vettoriali?", "answer": "Sì, sempre in formato SVG, PDF ed immagini ad alta risoluzione."}
+      {
+        "question": "Riceverò i file vettoriali?",
+        "answer": "Sì, sempre in formato SVG, PDF ed immagini ad alta risoluzione."
+      }
     ],
     "cta": "Richiedi la tua prima bozza grafica."
   },
   "social": {
     "titleTag": "Gestione Social Media per Aziende | Monza, Milano",
-    "metaDescription": "Piani editoriali e gestione social costante. Da 250€/mese.",
+    "metaDescription": "Piani editoriali e gestione social costante.",
     "h1": "Gestione social costante e senza fronzoli.",
-    "intro": "Curiamo i canali social di professionisti ed attività locali con piani mensili da 250€.",
-    "sections": [
-      {
-        "title": "Piani mensili",
-        "content": "**Base** (250-300€/mese: 8 post/mese), **Standard** (450-550€/mese: 12-16 post/mese con grafiche e report)."
-      }
-    ],
+    "intro": "Curiamo i canali social di professionisti ed attività locali ",
+    "sections": [],
     "faq": [
-      {"question": "Devo approvare i post in anticipo?", "answer": "Sì, inviamo il piano editoriale mensile per la conferma prima di ogni pubblicazione."}
+      {
+        "question": "Devo approvare i post in anticipo?",
+        "answer": "Sì, inviamo il piano editoriale mensile per la conferma prima di ogni pubblicazione."
+      }
     ],
     "cta": "Prenota una chiamata informativa."
   },
   "infrastrutture": {
     "titleTag": "Setup Server, Hosting e Docker | Monza, Milano",
-    "metaDescription": "Setup sistemistico di server cloud, Docker e certificati SSL. Da 300€.",
+    "metaDescription": "Setup sistemistico di server cloud, Docker e certificati SSL.",
     "h1": "Server ed hosting configurati con ordine.",
     "intro": "Configuriamo VPS, container Docker e certificati di sicurezza per far girare i tuoi siti e gestionali in modo stabile.",
-    "sections": [
-      {
-        "title": "Costi di configurazione",
-        "content": "Setup una tantum (300-500€) per server, Docker e SSL. Manutenzione e backup opzionali da 50€/mese."
-      }
-    ],
+    "sections": [],
     "faq": [
-      {"question": "Fornite la documentazione degli accessi?", "answer": "Sì, inviamo un prospetto completo con tutte le credenziali e istruzioni."}
+      {
+        "question": "Fornite la documentazione degli accessi?",
+        "answer": "Sì, inviamo un prospetto completo con tutte le credenziali e istruzioni."
+      }
     ],
     "cta": "Richiedi una verifica della tua infrastruttura."
   },
   "automazioni": {
     "titleTag": "Automazioni Aziendali | Monza, Milano",
-    "metaDescription": "Collega i tuoi strumenti ed elimina i lavori manuali. Da 350€.",
+    "metaDescription": "Collega i tuoi strumenti ed elimina i lavori manuali.",
     "h1": "Automatizza i passaggi ripetitivi.",
-    "intro": "Creiamo collegamenti automatici tra form, email, fogli calcolatori e gestionali a partire da 350€.",
+    "intro": "Creiamo collegamenti automatici tra form, email, fogli calcolatori e gestionali ",
     "sections": [
       {
         "title": "Esempi di flussi",
@@ -106,15 +103,18 @@
       }
     ],
     "faq": [
-      {"question": "Devo cambiare i programmi che uso?", "answer": "No, colleghiamo direttamente i software che stai già utilizzando."}
+      {
+        "question": "Devo cambiare i programmi che uso?",
+        "answer": "No, colleghiamo direttamente i software che stai già utilizzando."
+      }
     ],
     "cta": "Raccontaci quali passaggi vuoi automatizzare."
   },
   "automation": {
     "titleTag": "Automazioni Aziendali | Monza, Milano",
-    "metaDescription": "Collega i tuoi strumenti ed elimina i lavori manuali. Da 350€.",
+    "metaDescription": "Collega i tuoi strumenti ed elimina i lavori manuali.",
     "h1": "Automatizza i passaggi ripetitivi.",
-    "intro": "Creiamo collegamenti automatici tra form, email, fogli calcolatori e gestionali a partire da 350€.",
+    "intro": "Creiamo collegamenti automatici tra form, email, fogli calcolatori e gestionali ",
     "sections": [
       {
         "title": "Esempi di flussi",
@@ -122,7 +122,10 @@
       }
     ],
     "faq": [
-      {"question": "Devo cambiare i programmi che uso?", "answer": "No, colleghiamo direttamente i software che stai già utilizzando."}
+      {
+        "question": "Devo cambiare i programmi che uso?",
+        "answer": "No, colleghiamo direttamente i software che stai già utilizzando."
+      }
     ],
     "cta": "Raccontaci quali passaggi vuoi automatizzare."
   }

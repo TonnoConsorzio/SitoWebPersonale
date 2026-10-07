@@ -25,8 +25,10 @@ export function About() {
       <div id="abbo" data-scroll-theme="yellow" className="abbo-scene">
         <div className="scene__container">
           <h2>{copy.abboTitle}</h2>
-          <p>{copy.abboCopyA} <strong>{copy.abboEmphasis}</strong> {copy.abboCopyB}</p>
-          <a href="https://abboaps.org" target="_blank" rel="noopener noreferrer" className="text-link">{copy.abboCta} <ArrowUpRight size={17} aria-hidden="true" /></a>
+          <div className="abbo-scene__copy">
+            <p>{copy.abboCopyA} <strong>{copy.abboEmphasis}</strong> {copy.abboCopyB}</p>
+            <a href="https://abboaps.org" target="_blank" rel="noopener noreferrer" className="text-link">{copy.abboCta} <ArrowUpRight size={17} aria-hidden="true" /></a>
+          </div>
         </div>
       </div>
     </section>

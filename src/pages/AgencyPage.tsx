@@ -68,9 +68,9 @@ export function AgencyPage() {
               <p className="text-base text-muted-foreground leading-relaxed max-w-[60ch]">Un progetto circoscritto, con consegna e responsabilità definite. Se il modo di lavorare funziona, possiamo costruire una collaborazione più stabile.</p>
             </div>
             <div className="clay-panel border-primary/40 p-7">
-              <div className="text-4xl font-display text-primary mb-3">390 €</div>
-              <p className="text-base text-foreground mb-6">Pilot Web White Label</p>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-7">Per una landing o una pagina web con perimetro concordato. Il prezzo vale per il pilot standard, non per progetti complessi.</p>
+              <p className="text-2xl font-display text-primary mb-3">Pilot Web White Label</p>
+              <p className="text-base text-foreground mb-6">Un primo incarico circoscritto</p>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-7">Per una landing o una pagina web con perimetro concordato. Partiamo dal contesto e definiamo insieme cosa va consegnato.</p>
               <a href="mailto:email@alessiobellan.it?subject=Pilot%20Web%20White%20Label" className="block text-center bg-primary text-primary-foreground rounded-full py-4 font-medium hover:bg-primary/90 transition-colors">Candidiamo un progetto</a>
             </div>
           </div>

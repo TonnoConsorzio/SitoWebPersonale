@@ -8,6 +8,7 @@ const __dirname = path.dirname(__filename);
 // Import data
 const landingPagesData = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../src/data/landingPages.json'), 'utf8'));
 const geoLandingPagesData = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../src/data/geoLandingPages.json'), 'utf8'));
+const servicesData = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../src/data/servicesData.json'), 'utf8'));
 
 const domain = 'https://alessiobellan.it';
 const today = new Date().toISOString().split('T')[0];
@@ -18,12 +19,18 @@ let urls = [];
 urls.push({ loc: `${domain}/`, priority: '1.0', changefreq: 'weekly' });
 urls.push({ loc: `${domain}/curriculum`, priority: '0.5', changefreq: 'monthly' });
 urls.push({ loc: `${domain}/portfolio`, priority: '0.5', changefreq: 'monthly' });
-urls.push({ loc: `${domain}/prezzi`, priority: '0.5', changefreq: 'monthly' });
 urls.push({ loc: `${domain}/agenzie`, priority: '0.7', changefreq: 'monthly' });
 
-// Hub service pages
-Object.keys(landingPagesData).forEach(id => {
-  urls.push({ loc: `${domain}/servizi/${id}`, priority: '0.8', changefreq: 'monthly' });
+// Hub and canonical service pages. Keep legacy aliases discoverable while also
+// exposing the current route names used by the app.
+const servicePaths = new Set([
+  '/servizi',
+  ...Object.keys(landingPagesData).map(id => `/servizi/${id}`),
+  ...servicesData.overview.grid.map(service => service.path),
+]);
+
+servicePaths.forEach(servicePath => {
+  urls.push({ loc: `${domain}${servicePath}`, priority: servicePath === '/servizi' ? '0.9' : '0.8', changefreq: 'monthly' });
 });
 
 // Geo service pages

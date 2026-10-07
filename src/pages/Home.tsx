@@ -1,9 +1,9 @@
+import { lazy, Suspense } from 'react';
 import { SEO } from '../components/SEO';
 import { Navigation } from '../components/sections/Navigation';
 import { Hero } from '../components/sections/Hero';
 import { Services } from '../components/sections/Services';
 import { FormationSection } from '../components/sections/FormationSection';
-import { PricingPackages } from '../components/sections/PricingPackages';
 import { PortfolioGrid } from '../components/sections/PortfolioGrid';
 import { Testimonials } from '../components/sections/Testimonials';
 import { About } from '../components/sections/About';
@@ -12,8 +12,9 @@ import { FAQ } from '../components/sections/FAQ';
 import { Contact } from '../components/sections/Contact';
 import { Footer } from '../components/sections/Footer';
 import { StatsBar } from '../components/sections/StatsBar';
-import { TunaScene } from '../components/scenes/TunaScene';
 import { useTranslation } from 'react-i18next';
+
+const TunaScene = lazy(() => import('../components/scenes/TunaScene').then(({ TunaScene: scene }) => ({ default: scene })));
 
 export function Home() {
   const { i18n } = useTranslation();
@@ -26,7 +27,7 @@ export function Home() {
         canonical="/"
       />
       <Navigation />
-      <TunaScene />
+      <Suspense fallback={null}><TunaScene /></Suspense>
       <main id="contenuto" className="experience-main">
         <Hero />
         <StatsBar />
@@ -34,7 +35,6 @@ export function Home() {
         <Services />
         <FormationSection />
         <ProcessSection />
-        <PricingPackages />
         <About />
         <Testimonials />
         <FAQ />

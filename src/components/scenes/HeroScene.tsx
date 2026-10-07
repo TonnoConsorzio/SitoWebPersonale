@@ -1,4 +1,5 @@
 import { Canvas, useFrame } from '@react-three/fiber';
+import { useMotionValueEvent, useReducedMotion, useScroll } from 'motion/react';
 import { useEffect, useRef, useState, type RefObject } from 'react';
 import * as THREE from 'three';
 
@@ -21,27 +22,18 @@ const pieces: Array<{ start: Vector; end: Vector; rotation: Vector; endRotation:
 function useScrollProgress(sectionRef: RefObject<HTMLElement | null>) {
   const progress = useRef(0);
   const reduced = useRef(false);
+  const reducedMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start start', 'end start'] });
+
+  useMotionValueEvent(scrollYProgress, 'change', (value) => {
+    reduced.current = Boolean(reducedMotion);
+    progress.current = reduced.current ? 1 : THREE.MathUtils.clamp(value, 0, 1);
+  });
 
   useEffect(() => {
-    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
-    reduced.current = media.matches;
-    const update = () => {
-      const section = sectionRef.current;
-      if (!section) return;
-      const bounds = section.getBoundingClientRect();
-      // Keep the assembly scrubbed while the one-viewport hero is leaving.
-      progress.current = reduced.current ? 1 : THREE.MathUtils.clamp(-bounds.top / window.innerHeight, 0, 1);
-    };
-    update();
-    window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update, { passive: true });
-    media.addEventListener('change', update);
-    return () => {
-      window.removeEventListener('scroll', update);
-      window.removeEventListener('resize', update);
-      media.removeEventListener('change', update);
-    };
-  }, [sectionRef]);
+    reduced.current = Boolean(reducedMotion);
+    progress.current = reduced.current ? 1 : THREE.MathUtils.clamp(scrollYProgress.get(), 0, 1);
+  }, [reducedMotion, scrollYProgress]);
 
   return { progress, reduced };
 }

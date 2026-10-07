@@ -5,9 +5,6 @@
     "portfolio": "Portfolio",
     "agencies": "For agencies",
     "journal": "Journal",
-    "pricing": "Pricing",
-    "estimator": "Project Estimator",
-    "get_estimate": "Tell me about the project",
     "faq": "FAQ",
     "contact": "Contact",
     "start_project": "Start a project"
@@ -19,8 +16,7 @@
     "title_part2": "",
     "subtitle": "I design and build fast websites, landing pages, and automations for professionals, associations, and small teams. Fewer manual steps, fewer technical complications.",
     "cta_primary": "Tell me about the project",
-    "cta_secondary": "View the work",
-    "microline": "Essential Website €890 · Automation Sprint from €490"
+    "cta_secondary": "View the work"
   },
   "stats": {
     "projects_num": "",
@@ -45,54 +41,6 @@
   "services": {
     "title": "Core Services",
     "subtitle": "Digital tools designed around how you work, built without unnecessary bloat."
-  },
-  "estimator": {
-    "nav_link": "Project Estimator",
-    "get_estimate": "Get an estimate",
-    "hero_title": "Let's start from what you need.",
-    "hero_subtitle": "Answer a few quick questions to get an initial estimated price range.",
-    "step_of": "Step {{current}} of {{total}}",
-    "select_service_title": "What do you want to build?",
-    "select_service_sub": "Select a category to get started.",
-    "btn_back": "Back",
-    "btn_restart": "Restart",
-    "btn_continue": "Continue",
-    "result_suggested": "Recommended service",
-    "result_range_intro": "The project could range between",
-    "result_per_month": "/ month",
-    "result_analysis_needed": "For this type of project, a brief discovery call is recommended to clarify requirements.",
-    "summary_title": "Summary of choices",
-    "included_title": "What this could include",
-    "factors_title": "Factors that could affect the cost:",
-    "btn_email": "Send via Email",
-    "btn_whatsapp": "Send via WhatsApp",
-    "btn_calendar": "Book a call",
-    "callout_title": "How much could it cost?",
-    "callout_sub": "Answer a few quick questions to get an initial estimated price range for your project.",
-    "callout_preview_badge": "Estimated Range",
-    "callout_preview_label": "Price range:",
-    "callout_preview_sub": "Calculated based on your selected answers."
-  },
-  "pricing_calc": {
-    "title": "Project Estimate Calculator",
-    "subtitle": "Select your requirements to calculate an initial cost estimate.",
-    "select_config": "Select a configuration",
-    "no_plan": "Select a plan",
-    "estimate_label": "Estimated cost",
-    "donation_text": "(10% of total) goes to ABBO APS",
-    "disclaimer": "Final proposal is provided after a brief discovery call.",
-    "cta": "Request detailed quote",
-    "modal_title": "Contact me",
-    "modal_desc": "How would you like to submit your request?",
-    "whatsapp": "WhatsApp",
-    "email": "Email"
-  },
-  "pricing_packages": {
-    "title": "Recommended Packages",
-    "subtitle": "Ready-to-launch solutions for your growth.",
-    "recommended": "Recommended",
-    "cta": "Request info",
-    "savings_prefix": "You save "
   },
   "portfolio_grid": {
     "title": "Recent Work",
@@ -125,9 +73,7 @@
     "q3": "Will I own the domain and data?",
     "a3": "Yes. Domain, code, and data remain 100% your property.",
     "q4": "Do I need to provide copy and images?",
-    "a4": "You can provide them or I can help you structure and write them.",
-    "q5": "How are payments split?",
-    "a5": "Typically 50% deposit at start and 50% upon final delivery."
+    "a4": "You can provide them or I can help you structure and write them."
   },
   "contact": {
     "title": "Tell me the problem. I’ll handle the technology.",

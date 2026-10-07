@@ -5,9 +5,6 @@
     "portfolio": "Portfolio",
     "agencies": "Per agenzie",
     "journal": "Journal",
-    "pricing": "Prezzi",
-    "estimator": "Stima Progetto",
-    "get_estimate": "Raccontami il progetto",
     "faq": "FAQ",
     "contact": "Contatti",
     "start_project": "Inizia un progetto"
@@ -19,8 +16,7 @@
     "title_part2": "",
     "subtitle": "Progetto e sviluppo siti veloci, landing page e automazioni per professionisti, associazioni e piccole realtà. Meno passaggi manuali, meno complicazioni tecniche.",
     "cta_primary": "Raccontami il progetto",
-    "cta_secondary": "Vedi i lavori",
-    "microline": "Sito Essenziale 890 € · Automation Sprint da 490 €"
+    "cta_secondary": "Vedi i lavori"
   },
   "stats": {
     "projects_num": "",
@@ -45,54 +41,6 @@
   "services": {
     "title": "Servizi principali",
     "subtitle": "Strumenti digitali progettati sul tuo modo di lavorare, senza funzioni che non userai."
-  },
-  "estimator": {
-    "nav_link": "Stima Progetto",
-    "get_estimate": "Ottieni una stima",
-    "hero_title": "Partiamo da quello che ti serve.",
-    "hero_subtitle": "Rispondi a poche domande per ottenere una prima fascia indicativa.",
-    "step_of": "Passaggio {{current}} di {{total}}",
-    "select_service_title": "Cosa vuoi realizzare?",
-    "select_service_sub": "Seleziona una voce per iniziare.",
-    "btn_back": "Indietro",
-    "btn_restart": "Ricomincia",
-    "btn_continue": "Continua",
-    "result_suggested": "Servizio consigliato",
-    "result_range_intro": "Il progetto potrebbe rientrare tra",
-    "result_per_month": "/ mese",
-    "result_analysis_needed": "Per questa tipologia è consigliata una breve analisi per definire i dettagli.",
-    "summary_title": "Riepilogo configurazione",
-    "included_title": "Cosa potrebbe includere",
-    "factors_title": "Cosa può far variare il prezzo:",
-    "btn_email": "Invia via Email",
-    "btn_whatsapp": "Invia su WhatsApp",
-    "btn_calendar": "Prenota una chiamata",
-    "callout_title": "Quanto può costare?",
-    "callout_sub": "Rispondi a poche domande per ottenere una prima fascia indicativa per il tuo progetto.",
-    "callout_preview_badge": "Stima orientativa",
-    "callout_preview_label": "Fascia indicativa:",
-    "callout_preview_sub": "Calcolata in base alle risposte fornite."
-  },
-  "pricing_calc": {
-    "title": "Calcola una stima del tuo progetto",
-    "subtitle": "Seleziona le opzioni che ti servono per ottenere una stima orientativa.",
-    "select_config": "Seleziona una configurazione",
-    "no_plan": "Seleziona un piano",
-    "estimate_label": "Stima indicativa",
-    "donation_text": "(il 10% del totale) sostenere ABBO APS",
-    "disclaimer": "La stima definitiva viene concordata dopo una breve chiamata conoscitiva.",
-    "cta": "Richiedi una stima",
-    "modal_title": "Contattami",
-    "modal_desc": "Come preferisci inviare la richiesta?",
-    "whatsapp": "WhatsApp",
-    "email": "Email"
-  },
-  "pricing_packages": {
-    "title": "Pacchetti consigliati",
-    "subtitle": "Soluzioni pronte per farti partire subito.",
-    "recommended": "Consigliato",
-    "cta": "Richiedi informazioni",
-    "savings_prefix": "Risparmi "
   },
   "portfolio_grid": {
     "title": "Ultimi Progetti",
@@ -125,9 +73,7 @@
     "q3": "Il dominio e i dati saranno miei?",
     "a3": "Sì. Dominio, codice e dati restano al 100% di tua proprietà.",
     "q4": "Devo fornire io i testi e i materiali?",
-    "a4": "Puoi fornirli tu oppure posso aiutarti a strutturarli e scriverli.",
-    "q5": "Come sono suddivisi i pagamenti?",
-    "a5": "Di norma 50% di acconto all'avvio e 50% al collaudo finale prima della pubblicazione."
+    "a4": "Puoi fornirli tu oppure posso aiutarti a strutturarli e scriverli."
   },
   "contact": {
     "title": "Raccontami il problema. Alla tecnologia penso io.",

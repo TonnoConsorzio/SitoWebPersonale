@@ -1,179 +1,74 @@
 import { useEffect, useState } from 'react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Navigation } from '../components/sections/Navigation';
 import { Footer } from '../components/sections/Footer';
 import { SEO } from '../components/SEO';
-import { useInView } from '../hooks/useInView';
+import { useScrollTo } from '../hooks/useScrollTo';
 import servicesData from '../data/servicesData.json';
-import { Globe, Layout, Settings, Layers, Network, Bot, Server, ArrowRight } from 'lucide-react';
 
-const iconMap: Record<string, any> = {
-  'siti-web': Globe,
-  'gestionali-web-app': Layout,
-  'automazioni': Settings,
-  'grafica-identita': Layers,
-  'social-media': Network,
-  'formazione-ai': Bot,
-  'infrastrutture': Server
-};
+const problems = [
+  { id: 'choose', label: 'Voglio farmi scegliere meglio', services: ['siti-web', 'grafica-identita', 'grafica'] },
+  { id: 'time', label: 'Sto perdendo tempo', services: ['automazioni', 'gestionali-web-app'] },
+  { id: 'tools', label: 'Voglio usare meglio gli strumenti', services: ['formazione-ai', 'infrastrutture'] },
+  { id: 'voice', label: 'Non riesco a mantenere la comunicazione', services: ['social-media', 'grafica'] }
+];
 
 export function ServicesOverviewPage() {
-  const { ref, isInView } = useInView({ threshold: 0.1, triggerOnce: true });
-  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const [activeProblem, setActiveProblem] = useState(problems[0].id);
+  const handleScrollTo = useScrollTo();
   const data = servicesData.overview;
-  const primaryOrder = ['siti-web', 'automazioni', 'gestionali-web-app'];
-  const orderedServices = [...data.grid].sort((a, b) => {
-    const aIndex = primaryOrder.indexOf(a.id);
-    const bIndex = primaryOrder.indexOf(b.id);
-    return (aIndex === -1 ? primaryOrder.length : aIndex) - (bIndex === -1 ? primaryOrder.length : bIndex);
-  });
+  const serviceRows = [...data.grid, { id: 'grafica', title: 'Grafica', desc: 'Materiali visuali per presentare meglio quello che fai.', linkText: 'Scopri la grafica', path: '/servizi/grafica', shortPhrase: 'Materiali chiari, con una direzione.' }];
+  const active = problems.find((problem) => problem.id === activeProblem) || problems[0];
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <>
-      <SEO 
-        title="Servizi | Alessio Bellan"
-        description="Siti web, gestionali, automazioni, grafica, social media, formazione AI e infrastrutture per il tuo lavoro."
-        canonical="/servizi"
-      />
+    <div className="service-index-page">
+      <SEO title="Servizi | Alessio Bellan" description="Siti web, gestionali, automazioni, grafica, social media, formazione e infrastrutture per il tuo lavoro." canonical="/servizi" />
       <Navigation />
 
-      <main className="relative pt-28 pb-24 overflow-hidden space-y-16">
-        {/* Hero Section */}
-        <section className="relative min-h-[50vh] flex items-center justify-center px-6 md:px-8 py-12">
-          <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-display leading-tight mb-6">
-              {data.title1} <br />
-              <em className="not-italic text-muted-foreground font-display" style={{ fontFamily: "'Instrument Serif', serif" }}>{data.title2}</em>
-            </h1>
-
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl mb-8">
-              {data.subtitle}
-            </p>
-
-            <Link
-              to="/stima-progetto" 
-              className="liquid-glass rounded-full px-8 py-3.5 text-foreground font-medium hover:scale-[1.03] transition-transform text-sm shadow-xl"
-            >
-              {data.heroCta}
-            </Link>
+      <main>
+        <section className="service-index-page__hero">
+          <div className="scene__container">
+            <p className="service-index-page__eyebrow">Servizi</p>
+            <h1>Da quale problema partiamo?</h1>
+            <p>Non devi arrivare con il nome del servizio. Raccontami cosa oggi ti fa perdere tempo, chiarezza o occasioni.</p>
+            <a href="#contatti" onClick={(event) => handleScrollTo(event, 'contatti')} className="experience-button">Prenota 15 minuti <ArrowRight size={17} aria-hidden="true" /></a>
           </div>
         </section>
 
-        {/* Introduzione Section */}
-        <section ref={ref as any} className="px-6 md:px-8 max-w-4xl mx-auto">
-          <div className={`liquid-glass rounded-3xl p-8 md:p-10 text-center space-y-4 ${isInView ? 'animate-fade-rise' : 'opacity-0'}`}>
-            <h2 className="text-3xl md:text-4xl font-display text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>
-              {data.introTitle}
-            </h2>
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-              {data.introText1} {data.introText2}
-            </p>
-          </div>
-        </section>
-
-        {/* Griglia dei Servizi Interattiva */}
-        <section className="px-6 md:px-8 max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-display text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>
-              I servizi principali
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {orderedServices.map((item) => {
-              const Icon = iconMap[item.id] || Globe;
-              const isHovered = hoveredCard === item.id;
-
-              return (
-                <div
-                  key={item.id}
-                  onMouseEnter={() => setHoveredCard(item.id)}
-                  onMouseLeave={() => setHoveredCard(null)}
-                  className={`liquid-glass p-8 rounded-3xl flex flex-col justify-between min-h-[300px] border transition-all duration-300 group relative overflow-hidden ${
-                    isHovered
-                      ? 'border-primary/50 scale-[1.01] bg-white/10'
-                      : 'border-white/10 hover:border-primary/30'
-                  }`}
-                >
-                  <div>
-                    <div className="p-3.5 rounded-2xl bg-white/5 w-fit mb-6 border border-white/10 text-primary group-hover:scale-110 transition-transform">
-                      <Icon className="w-7 h-7" strokeWidth={1.5} />
-                    </div>
-
-                    <h3 className="text-2xl font-display text-foreground mb-3" style={{ fontFamily: "'Instrument Serif', serif" }}>
-                      {item.title}
-                    </h3>
-
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                      {item.desc}
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-white/10 mt-auto">
-                    <Link
-                      to={item.path}
-                      className="inline-flex items-center text-sm font-medium text-foreground hover:text-primary transition-colors group-hover:translate-x-1 duration-300"
-                    >
-                      <span>{item.linkText}</span>
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </section>
-
-        {/* Metodo Section */}
-        <section className="px-6 md:px-8 max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-display text-foreground mb-3" style={{ fontFamily: "'Instrument Serif', serif" }}>
-              Metodo di Lavoro
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {data.method.map((step, idx) => (
-              <div key={idx} className="liquid-glass p-6 rounded-3xl flex flex-col justify-between min-h-[220px] border border-white/10 relative">
-                <span className="text-3xl font-display font-bold text-primary/40 mb-3">{step.step}</span>
-                <div>
-                  <h3 className="text-lg font-display text-foreground mb-2" style={{ fontFamily: "'Instrument Serif', serif" }}>
-                    {step.title}
-                  </h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    {step.desc}
-                  </p>
-                </div>
+        <section className="service-index-page__finder">
+          <div className="scene__container service-index-page__finder-grid">
+            <div className="service-index-page__finder-intro"><p className="service-index-page__eyebrow">Orientamento</p><h2>Partiamo dal lavoro reale.</h2><p>Scegli la situazione più vicina a quella che stai vivendo. È un punto di partenza, non un quiz.</p></div>
+            <div className="service-index-page__finder-panel">
+              <div className="service-index-page__problem-list" role="tablist" aria-label="Problemi da risolvere">
+                {problems.map((problem) => <button key={problem.id} type="button" role="tab" aria-selected={activeProblem === problem.id} className={activeProblem === problem.id ? 'is-active' : ''} onClick={() => setActiveProblem(problem.id)}>{problem.label}<ArrowRight size={17} aria-hidden="true" /></button>)}
               </div>
-            ))}
-          </div>
-        </section>
-
-        {/* CTA Finale Section */}
-        <section className="px-6 md:px-8 max-w-4xl mx-auto text-center">
-          <div className="liquid-glass rounded-3xl p-8 md:p-10 text-center space-y-4 border border-primary/30">
-            <h2 className="text-3xl md:text-4xl font-display text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>
-              {data.ctaTitle}
-            </h2>
-            <p className="text-muted-foreground text-sm md:text-base max-w-md mx-auto">
-              {data.ctaText}
-            </p>
-            <div className="pt-2">
-              <Link 
-                to="/stima-progetto" 
-                className="liquid-glass rounded-full px-8 py-3.5 text-foreground font-medium hover:scale-[1.03] transition-transform text-sm inline-block"
-              >
-                {data.ctaBtn}
-              </Link>
+              <div className="service-index-page__finder-result" role="tabpanel"><span>Da qui possiamo parlare di</span><div>{active.services.map((id) => { const item = serviceRows.find((service) => service.id === id); return item ? <Link key={id} to={item.path}>{item.title}<ArrowRight size={15} aria-hidden="true" /></Link> : null; })}</div></div>
             </div>
           </div>
         </section>
+
+        <section className="service-index-page__services">
+          <div className="scene__container">
+            <div className="service-index-page__section-head"><p className="service-index-page__eyebrow">Tutti i servizi</p><h2>Strumenti diversi, problemi concreti.</h2></div>
+            <ol className="service-index-page__service-list">
+              {serviceRows.map((item, index) => <li key={item.id}><span>{String(index + 1).padStart(2, '0')}</span><div><h3>{item.title}</h3><p>{item.shortPhrase || item.desc}</p></div><Link to={item.path} aria-label={`Scopri ${item.title}`}>Scopri <ArrowRight size={17} aria-hidden="true" /></Link></li>)}
+            </ol>
+          </div>
+        </section>
+
+        <section className="service-index-page__method">
+          <div className="scene__container service-index-page__method-grid"><div><p className="service-index-page__eyebrow">Metodo</p><h2>Prima il contesto. Poi lo strumento.</h2></div><ol>{data.method.map((step) => <li key={step.step}><span>{step.step}</span><div><h3>{step.title}</h3><p>{step.desc}</p></div></li>)}</ol></div>
+        </section>
+
+        <section className="service-index-page__cta"><div className="scene__container"><p className="service-index-page__eyebrow">Non sai quale ti serve?</p><h2>Partiamo da quello che oggi non funziona.</h2><a href="#contatti" onClick={(event) => handleScrollTo(event, 'contatti')} className="experience-button experience-button--light">Prenota 15 minuti <ArrowRight size={17} aria-hidden="true" /></a></div></section>
       </main>
 
       <Footer />
-    </>
+    </div>
   );
 }

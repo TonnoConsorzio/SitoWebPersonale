@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import portfolio from '../data/portfolio.json';
 import { Footer } from '../components/sections/Footer';
@@ -10,70 +11,24 @@ export function PortfolioPage() {
   const { i18n } = useTranslation();
   const currentLang = (i18n.language?.startsWith('en') ? 'en' : 'it') as 'it' | 'en';
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  useEffect(() => { window.scrollTo(0, 0); }, []);
 
-  const getLocalized = (val: any) => {
-    if (!val) return '';
-    if (typeof val === 'string') return val;
-    return val[currentLang] || val['it'] || val['en'] || '';
+  const getLocalized = (value: any) => {
+    if (!value) return '';
+    if (typeof value === 'string') return value;
+    return value[currentLang] || value.it || value.en || '';
   };
 
   return (
-    <div className="min-h-screen bg-background selection:bg-primary/30 selection:text-primary">
-      <SEO 
-        title="Portfolio e Progetti | Alessio Bellan"
-        description="Esplora la galleria dei lavori realizzati per professionisti, associazioni e piccole realtà."
-        canonical="/portfolio"
-      />
+    <div className="case-index-page">
+      <SEO title="Portfolio e Progetti | Alessio Bellan" description="Progetti realizzati per professionisti, associazioni e attività locali." canonical="/portfolio" />
       <Navigation />
 
-      <main className="pt-32 pb-24 px-6 md:px-8 max-w-7xl mx-auto space-y-16">
-        <div className="text-center max-w-2xl mx-auto space-y-4">
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-display text-foreground leading-tight" style={{ fontFamily: "'Instrument Serif', serif" }}>
-            Portfolio e Progetti
-          </h1>
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-            Una selezione di progetti realizzati per professionisti, associazioni ed attività locali.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-          {portfolio.map((project: any, idx: number) => {
-            const title = getLocalized(project.title);
-            const description = getLocalized(project.description);
-
-            return (
-              <Link 
-                key={project.id} 
-                to={`/portfolio/${project.id}`}
-                className="portfolio-card group relative flex flex-col rounded-3xl overflow-hidden border transition-all duration-500 animate-fade-rise"
-                style={{ animationDelay: `${0.1 * idx}s` }}
-              >
-                <div className="portfolio-card__media relative w-full aspect-video overflow-hidden bg-secondary">
-                  <img 
-                    src={project.image} 
-                    alt={title} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/65 to-transparent opacity-85 group-hover:opacity-95 transition-opacity duration-500" />
-                  
-                  <div className="absolute inset-x-0 bottom-0 p-5 md:p-8 flex flex-col justify-end">
-                    <h2 className="text-2xl md:text-4xl font-display text-white mb-2 md:mb-3" style={{ fontFamily: "'Instrument Serif', serif" }}>
-                      {title}
-                    </h2>
-                    <p className="text-sm md:text-base text-gray-300 leading-relaxed">
-                      {description}
-                    </p>
-                  </div>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
+      <main>
+        <section className="case-index-page__hero"><div className="scene__container"><p className="case-index-page__eyebrow">Portfolio</p><h1>Quello che sto costruendo.</h1><p>Progetti reali, con problemi e vincoli reali. Ogni lavoro racconta una parte del modo in cui collaboro.</p></div></section>
+        <section className="case-index-page__list"><div className="scene__container">{portfolio.map((project: any, index: number) => { const title = getLocalized(project.title); const category = getLocalized(project.category); const description = getLocalized(project.description); return <Link key={project.id} to={`/portfolio/${project.id}`} className="case-index-page__project"><div className="case-index-page__project-media"><img src={project.image} alt={title} loading={index === 0 ? 'eager' : 'lazy'} /></div><div className="case-index-page__project-copy"><span>{String(index + 1).padStart(2, '0')} · {category}</span><h2>{title}</h2><p>{description}</p><strong>Apri il progetto <ArrowUpRight size={17} aria-hidden="true" /></strong></div></Link>; })}</div></section>
       </main>
-      
+
       <Footer />
     </div>
   );

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useMotionValueEvent, useScroll } from 'motion/react';
 import { useScrollTo } from '../../hooks/useScrollTo';
 import { useTranslation } from 'react-i18next';
 import { useHomeCopy } from '../../hooks/useHomeCopy';
@@ -12,15 +13,13 @@ export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const handleScrollTo = useScrollTo();
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, 'change', (value) => setScrolled(value > 24));
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 24);
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+    setScrolled(scrollY.get() > 24);
+  }, [scrollY]);
 
   const scrollLink = (id: string, label: string) => (
     <a href={`#${id}`} onClick={(event) => { setMenuOpen(false); handleScrollTo(event, id); }} className="experience-nav__link">
@@ -35,15 +34,14 @@ export function Navigation() {
       <a href="#contenuto" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-primary focus:px-4 focus:py-3 focus:font-bold">{copy.skip}</a>
       <nav className={`experience-nav ${scrolled ? 'is-scrolled' : ''}`} aria-label="Alessio Bellan">
         <div className="experience-nav__inner">
-          <Link to="/" className="group inline-flex min-h-11 items-center gap-2.5" aria-label="Alessio Bellan, home">
-            <BrandMark />
-            <span className="hidden text-lg font-bold tracking-tight sm:inline">Alessio Bellan</span>
+          <Link to="/" className="experience-nav__brand group inline-flex min-h-11 items-center gap-2.5" aria-label="Alessio Bellan, home">
+            <BrandMark size={30} />
+            <span className="text-[.92rem] font-bold tracking-tight">Alessio Bellan</span>
           </Link>
 
           <div className="experience-nav__links hidden lg:flex">
             {scrollLink('servizi', copy.services)}
             {scrollLink('progetti', copy.projects)}
-            <Link to="/prezzi" className="experience-nav__link">{copy.pricing}</Link>
             {scrollLink('about', copy.about)}
           </div>
 
@@ -60,7 +58,6 @@ export function Navigation() {
             <div className="flex flex-col items-start gap-2">
               {scrollLink('servizi', copy.services)}
               {scrollLink('progetti', copy.projects)}
-              <Link onClick={() => setMenuOpen(false)} to="/prezzi" className="experience-nav__link">{copy.pricing}</Link>
               {scrollLink('about', copy.about)}
               <button type="button" onClick={toggleLanguage} className="mt-5 min-h-11 border-b border-foreground text-xs font-bold tracking-[0.12em] transition-colors hover:border-primary hover:text-primary">{i18n.language.startsWith('it') ? 'English' : 'Italiano'}</button>
             </div>

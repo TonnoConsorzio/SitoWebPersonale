@@ -69,7 +69,7 @@
     ],
     "method": [
       { "step": "01", "title": "Ascolto", "desc": "Analisi delle esigenze reali." },
-      { "step": "02", "title": "Progetto", "desc": "Definizione di tempi e costi." },
+      { "step": "02", "title": "Progetto", "desc": "Definizione di tempi e responsabilità." },
       { "step": "03", "title": "Sviluppo", "desc": "Realizzazione e collaudo." },
       { "step": "04", "title": "Messa online", "desc": "Pubblicazione e assistenza." }
     ],
@@ -85,7 +85,7 @@
     "title2": "chiari e su misura.",
     "subtitle": "Spiega cosa fai e raccogli contatti senza distrazioni.",
     "ctaPrimary": "Parliamone",
-    "ctaSecondary": "Richiedi una stima",
+    "ctaSecondary": "Parliamone",
     "positioningTitle": "Chiaro e immediato",
     "positioningText1": "Un sito efficace guida il visitatore a contattarti senza fargli perdere tempo.",
     "offerings": [
@@ -156,7 +156,7 @@
       { "question": "Quanto tempo richiede?", "answer": "Da 3-4 settimane per micro-tool fino a 6-8 settimane per gestionali complessi." }
     ],
     "ctaTitle1": "Semplifichiamo il tuo lavoro.",
-    "ctaBtn": "Richiedi una stima"
+    "ctaBtn": "Parliamone"
   },
 
   "automazioni": {
@@ -297,7 +297,7 @@
     "subtitle": "Configurazione di server cloud, Docker e domini per i tuoi strumenti.",
     "ctaPrimary": "Parliamone",
     "introTitle": "Ambienti tecnici ordinati",
-    "introText": "Infrastrutture documentate con costi chiari nel tempo.",
+    "introText": "Infrastrutture documentate e semplici da gestire nel tempo.",
     "tasks": [
       "Setup server cloud e VPS",
       "Ambienti Docker e container",
@@ -311,7 +311,7 @@
       { "title": "Documentato", "desc": "Credenziali sempre a tua disposizione." }
     ],
     "process": [
-      { "step": "01", "title": "Analisi", "desc": "Stima delle risorse." },
+      { "step": "01", "title": "Analisi", "desc": "Mappatura delle risorse." },
       { "step": "02", "title": "Configurazione", "desc": "Setup server e Docker." },
       { "step": "03", "title": "Deploy", "desc": "Pubblicazione e sicurezza." },
       { "step": "04", "title": "Consegna", "desc": "Invio documentazione." }

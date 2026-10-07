@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
+import { useMotionValueEvent, useScroll } from 'motion/react';
 export function MobileBookingBar() {
   const [visible, setVisible] = useState(false);
+  const { scrollY } = useScroll();
 
-  useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 420);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  useMotionValueEvent(scrollY, 'change', (value) => setVisible(value > 420));
+
+  useEffect(() => setVisible(scrollY.get() > 420), [scrollY]);
 
   if (!visible) return null;
 

@@ -1,34 +1,35 @@
 import { Canvas, useFrame, useLoader, useThree } from '@react-three/fiber';
 import { createPortal } from 'react-dom';
-import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader, type GLTF } from 'three/addons/loaders/GLTFLoader.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import { clone } from 'three/addons/utils/SkeletonUtils.js';
 
-type TunaState = 'IDLE' | 'CRUISE' | 'APPROACH' | 'RETREAT' | 'DART' | 'JUMP';
+type TunaState = 'IDLE' | 'CRUISE' | 'APPROACH' | 'RETREAT' | 'DART' | 'BREACH';
 type ScreenPoint = { x: number; y: number };
 
 const SAFE_POINTS: ScreenPoint[] = [
+  { x: .08, y: .9 }, { x: .92, y: .9 },
   { x: .84, y: .18 }, { x: .84, y: .48 }, { x: .76, y: .78 },
   { x: .52, y: .82 }, { x: .24, y: .82 }, { x: .24, y: .48 },
   { x: .52, y: .18 }, { x: .76, y: .48 },
 ];
-const INTRO_POINT: ScreenPoint = { x: .16, y: .78 };
+const INTRO_POINT: ScreenPoint = { x: .04, y: .96 };
 const TUNA_SCALE = .064;
 const TUNA_FORWARD = new THREE.Vector3(0, 0, 1);
 
 function getExclusionRects() {
   return Array.from(document.querySelectorAll<HTMLElement>(
-    '.experience-nav, .hero-scene__content, .project-stage__content, .project-stage__controls, .contact-scene__form, .faq-scene__answer, .experience-button',
+    '.experience-nav, .hero-scene__content, .hero-scene__stage, .project-stage__content, .project-stage__controls, .contact-scene__form, .faq-scene__answer, .experience-button',
   )).map((element) => element.getBoundingClientRect());
 }
 
 function chooseWaypoint(previous?: ScreenPoint) {
   const width = window.innerWidth;
   const height = window.innerHeight;
-  const paddingX = width * .08;
-  const paddingY = height * .08;
+  const paddingX = Math.min(112, Math.max(32, width * .035));
+  const paddingY = Math.min(72, Math.max(28, height * .055));
   const rects = getExclusionRects();
   const safe = SAFE_POINTS.filter(({ x, y }) => {
     const pointX = x * width;
@@ -56,7 +57,7 @@ function createSwimmingPath(start: THREE.Vector3, end: THREE.Vector3, state: Tun
   return new THREE.CatmullRomCurve3([start, controlA, controlB, end], false, 'centripetal', .5);
 }
 
-function TunaModel({ reducedMotion, petMode }: { reducedMotion: boolean; petMode: boolean }) {
+function TunaModel({ reducedMotion, petMode, onReady }: { reducedMotion: boolean; petMode: boolean; onReady: () => void }) {
   const gltf = useLoader(GLTFLoader, '/media/models/tuna.glb', (loader) => loader.setMeshoptDecoder(MeshoptDecoder)) as GLTF;
   const scene = useMemo(() => clone(gltf.scene), [gltf.scene]);
   const mixer = useMemo(() => new THREE.AnimationMixer(scene), [scene]);
@@ -74,6 +75,7 @@ function TunaModel({ reducedMotion, petMode }: { reducedMotion: boolean; petMode
   const targetQuaternion = useMemo(() => new THREE.Quaternion(), []);
   const { camera, size } = useThree();
   const isMobile = size.width < 700;
+  const introPoint = useMemo(() => isMobile ? { x: .17, y: .96 } : INTRO_POINT, [isMobile]);
 
   const screenToWorld = useCallback((point: ScreenPoint) => {
     const perspectiveCamera = camera as THREE.PerspectiveCamera;
@@ -101,12 +103,13 @@ function TunaModel({ reducedMotion, petMode }: { reducedMotion: boolean; petMode
     targetPoint.current = point;
     state.current = nextState;
     stateDeadline.current = now + duration;
-  }, [screenToWorld]);
+    playClip(nextState === 'DART' ? 'Swimming_Fast' : nextState === 'BREACH' ? 'Out_Of_Water' : nextState === 'APPROACH' ? 'Swimming_Impulse' : 'Swimming_Normal');
+  }, [playClip, screenToWorld]);
 
-  useEffect(() => {
-    current.current.copy(screenToWorld(INTRO_POINT));
-    currentPoint.current = INTRO_POINT;
-    targetPoint.current = INTRO_POINT;
+  useLayoutEffect(() => {
+    current.current.copy(screenToWorld(introPoint));
+    currentPoint.current = introPoint;
+    targetPoint.current = introPoint;
     path.current = null;
     state.current = 'IDLE';
     if (root.current) {
@@ -114,7 +117,11 @@ function TunaModel({ reducedMotion, petMode }: { reducedMotion: boolean; petMode
       root.current.quaternion.setFromUnitVectors(TUNA_FORWARD, new THREE.Vector3(1, 0, 0));
       root.current.scale.setScalar(TUNA_SCALE);
     }
-  }, [screenToWorld]);
+  }, [introPoint, screenToWorld]);
+
+  useEffect(() => {
+    onReady();
+  }, [onReady]);
 
   useEffect(() => {
     if (reducedMotion) {
@@ -150,8 +157,8 @@ function TunaModel({ reducedMotion, petMode }: { reducedMotion: boolean; petMode
         const next = chooseWaypoint(currentPoint.current);
         const event = now >= nextEventAt.current;
         const roll = Math.random();
-        const nextState: TunaState = !isMobile && event && roll > .88 ? 'JUMP' : event && roll > .72 ? 'DART' : event && roll > .52 ? 'APPROACH' : 'CRUISE';
-        const duration = nextState === 'JUMP' ? 1.4 : nextState === 'DART' ? 1.25 : nextState === 'APPROACH' ? 5.5 : 7 + Math.random() * 4;
+        const nextState: TunaState = !isMobile && event && roll > .88 ? 'BREACH' : event && roll > .72 ? 'DART' : event && roll > .52 ? 'APPROACH' : 'CRUISE';
+        const duration = nextState === 'BREACH' ? 1.4 : nextState === 'DART' ? 1.25 : nextState === 'APPROACH' ? 5.5 : 7 + Math.random() * 4;
         startPath(next, nextState, now, duration);
         if (event) nextEventAt.current = now + 22 + Math.random() * 18;
       }
@@ -161,7 +168,7 @@ function TunaModel({ reducedMotion, petMode }: { reducedMotion: boolean; petMode
       const point = path.current.getPointAt(progress);
       const tangent = path.current.getTangentAt(Math.min(progress, .999)).normalize();
       root.current.position.copy(point);
-      if (state.current === 'JUMP') root.current.position.y += Math.sin(progress * Math.PI) * .18;
+      if (state.current === 'BREACH') root.current.position.y += Math.sin(progress * Math.PI) * .18;
       targetQuaternion.setFromUnitVectors(TUNA_FORWARD, tangent);
       root.current.quaternion.slerp(targetQuaternion, 1 - Math.exp(-3.2 * delta));
 
@@ -184,7 +191,7 @@ function TunaModel({ reducedMotion, petMode }: { reducedMotion: boolean; petMode
     root.current.scale.setScalar(THREE.MathUtils.damp(root.current.scale.x, scaleTarget, 2.2, delta));
   });
 
-  return <group ref={root}><primitive object={scene} /></group>;
+  return <group ref={root} scale={TUNA_SCALE}><primitive object={scene} /></group>;
 }
 
 export function MascotLayer() {
@@ -193,6 +200,8 @@ export function MascotLayer() {
   const [pageVisible, setPageVisible] = useState(true);
   const [introduced, setIntroduced] = useState(false);
   const [zone, setZone] = useState('hero');
+  const [tunaReady, setTunaReady] = useState(false);
+  const handleTunaReady = useCallback(() => setTunaReady(true), []);
 
   useEffect(() => {
     const canvas = document.createElement('canvas');
@@ -212,34 +221,26 @@ export function MascotLayer() {
   }, []);
 
   useEffect(() => {
-    let frame = 0;
-    const updateZone = () => {
-      frame = 0;
-      const center = window.innerHeight * .45;
-      const next = [
-        ['progetti', 'projects'],
-        ['formazione', 'formation'],
-        ['processo', 'process'],
-        ['contatti', 'contact'],
-      ].find(([id]) => {
-        const section = document.getElementById(id);
-        if (!section) return false;
-        const rect = section.getBoundingClientRect();
-        return rect.top <= center && rect.bottom >= center;
-      })?.[1] ?? 'hero';
+    const zoneById: Record<string, string> = {
+      progetti: 'projects',
+      formazione: 'formation',
+      processo: 'process',
+      contatti: 'contact',
+    };
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      const next = visible ? zoneById[(visible.target as HTMLElement).id] ?? 'hero' : 'hero';
       setZone((current) => current === next ? current : next);
-    };
-    const handleScroll = () => {
-      if (!frame) frame = window.requestAnimationFrame(updateZone);
-    };
-    updateZone();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
-      if (frame) window.cancelAnimationFrame(frame);
-    };
+    }, { rootMargin: '-42% 0px -42% 0px', threshold: [0, 0.5, 1] });
+
+    Object.keys(zoneById).forEach((id) => {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   const activate = () => {
@@ -251,12 +252,12 @@ export function MascotLayer() {
   if (webgl !== true) return null;
 
   return createPortal(
-    <aside className="tuna-overlay" data-tuna-state={reducedMotion ? 'STATIC' : introduced ? 'PET' : 'INTRO'} data-tuna-zone={zone} aria-label="Tonno, mascotte interattiva">
+    <aside className={`tuna-overlay${tunaReady ? ' is-ready' : ''}`} data-tuna-state={reducedMotion ? 'STATIC' : introduced ? 'PET' : 'INTRO'} data-tuna-zone={zone} aria-label="Tonno, mascotte interattiva">
       <Canvas className="tuna-canvas" frameloop={reducedMotion || !pageVisible ? 'demand' : 'always'} dpr={[1, 1.5]} camera={{ position: [0, 0, 7.4], fov: 32 }} gl={{ alpha: true, antialias: true, powerPreference: 'high-performance' }}>
         <ambientLight intensity={1.7} />
         <directionalLight position={[3, 4, 4]} intensity={2.2} />
         <directionalLight position={[-3, -1, 2]} intensity={.65} color="#fbcf15" />
-        <Suspense fallback={null}><TunaModel reducedMotion={reducedMotion} petMode={introduced} /></Suspense>
+        <Suspense fallback={null}><TunaModel reducedMotion={reducedMotion} petMode={introduced} onReady={handleTunaReady} /></Suspense>
       </Canvas>
       {!introduced && (
         <div className="tuna-intro">

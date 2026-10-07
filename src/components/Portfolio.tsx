@@ -1,6 +1,4 @@
-import { Link } from 'react-router-dom';
 import { useInView } from '../hooks/useInView';
-import { ArrowRight } from 'lucide-react';
 import portfolioData from '../data/portfolio.json';
 
 export function Portfolio() {
@@ -14,13 +12,6 @@ export function Portfolio() {
         <h2 className={`font-display text-4xl sm:text-5xl text-primary ${isInView ? 'animate-fade-rise' : 'opacity-0'}`}>
           Progetti in evidenza
         </h2>
-        <Link 
-          to="/portfolio"
-          className={`flex items-center gap-2 text-foreground hover:text-primary transition-colors ${isInView ? 'animate-fade-rise-delay' : 'opacity-0'}`}
-        >
-          <span>Vedi tutti i progetti</span>
-          <ArrowRight className="w-4 h-4" />
-        </Link>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

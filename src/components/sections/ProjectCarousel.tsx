@@ -12,6 +12,7 @@ type PortfolioItem = (typeof portfolio)[number];
 const getImagePath = (image: string) => image.replace(/^\.\//, '/');
 const projectHref = (project: PortfolioItem) => `/portfolio/${project.id}`;
 const relativeIndex = (index: number, activeIndex: number) => index - activeIndex;
+const projectMediaSize = { width: 1600, height: 1000 };
 
 export function ProjectCarousel() {
   const { i18n } = useTranslation();
@@ -95,11 +96,11 @@ export function ProjectCarousel() {
               <article key={project.id} className={`project-stage__slide ${distance === 0 ? 'is-active' : ''}`.trim()} data-relative-index={distance} aria-hidden={Math.abs(distance) > 2 ? true : undefined}>
                 {distance === 0 ? (
                   <Link to={href} className="project-stage__active-media" aria-label={`Apri il progetto ${title}`}>
-                    <img src={image} alt={title} loading="eager" decoding="async" />
+                    <img {...projectMediaSize} src={image} alt={title} loading="eager" decoding="async" />
                   </Link>
                 ) : (
                   <button type="button" className="project-stage__preview" onClick={() => select(index)} tabIndex={Math.abs(distance) <= 2 ? 0 : -1} aria-label={`Seleziona il progetto ${title}`}>
-                    <img src={image} alt="" loading={distance <= 2 ? 'eager' : 'lazy'} decoding="async" />
+                    <img {...projectMediaSize} src={image} alt="" loading={distance <= 2 ? 'eager' : 'lazy'} decoding="async" />
                   </button>
                 )}
 
@@ -123,7 +124,6 @@ export function ProjectCarousel() {
         </div>
       </div>
 
-      <div className="scene__container projects-scene__outro"><Link to="/portfolio" className="text-link text-link--light">{copy.all} <ArrowUpRight size={18} aria-hidden="true" /></Link></div>
     </section>
   );
 }
