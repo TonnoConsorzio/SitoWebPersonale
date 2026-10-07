@@ -1,10 +1,9 @@
 import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
-import { lazy, Suspense, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ScrollUnderline } from '../ScrollUnderline';
+import { RetroComputerScene } from '../scenes/RetroComputerScene';
 import { useHomeCopy } from '../../hooks/useHomeCopy';
 import { useScrollTo } from '../../hooks/useScrollTo';
-
-const RetroComputerScene = lazy(() => import('../scenes/RetroComputerScene').then(({ RetroComputerScene: scene }) => ({ default: scene })));
 
 const bookingUrl = 'https://calendar.app.google/GLseASBXvsbYPY5m7';
 
@@ -32,9 +31,7 @@ export function Hero() {
           </div>
         </div>
         <div className="hero-scene__stage" aria-label={copy.sceneLabel}>
-          <Suspense fallback={<div className="computer-fallback" aria-hidden="true"><span className="computer-fallback__screen" /><span className="computer-fallback__base" /><span className="computer-fallback__key" /></div>}>
-            <RetroComputerScene sectionRef={sectionRef} />
-          </Suspense>
+          <RetroComputerScene sectionRef={sectionRef} />
         </div>
       </div>
     </section>

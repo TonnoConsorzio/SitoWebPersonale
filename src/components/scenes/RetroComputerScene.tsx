@@ -6,9 +6,12 @@ import { GLTFLoader, type GLTF } from 'three/addons/loaders/GLTFLoader.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 
 type RetroComputerSceneProps = { sectionRef: RefObject<HTMLElement | null> };
+const retroComputerModel = '/media/models/retro-computer.glb';
+
+useLoader.preload(GLTFLoader, retroComputerModel, (loader) => loader.setMeshoptDecoder(MeshoptDecoder));
 
 function Computer({ scroll, reducedMotion, onReady }: { scroll: MotionValue<number>; reducedMotion: boolean; onReady: () => void }) {
-  const gltf = useLoader(GLTFLoader, '/media/models/retro-computer.glb', (loader) => loader.setMeshoptDecoder(MeshoptDecoder)) as GLTF;
+  const gltf = useLoader(GLTFLoader, retroComputerModel, (loader) => loader.setMeshoptDecoder(MeshoptDecoder)) as GLTF;
   const { model, buttonParts } = useMemo(() => {
     const clone = gltf.scene.clone(true);
     const bounds = new THREE.Box3().setFromObject(clone);
@@ -90,6 +93,10 @@ export function ComputerFallback() {
   return <div className="computer-fallback" aria-hidden="true"><span className="computer-fallback__screen" /><span className="computer-fallback__base" /><span className="computer-fallback__key" /></div>;
 }
 
+export function ComputerLoadingState() {
+  return <div className="computer-loading-state" role="status" aria-live="polite"><span className="computer-loading-state__spinner" aria-hidden="true" /><span>Caricamento computer</span></div>;
+}
+
 export function RetroComputerScene({ sectionRef }: RetroComputerSceneProps) {
   const [webgl, setWebgl] = useState<boolean | null>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -107,11 +114,12 @@ export function RetroComputerScene({ sectionRef }: RetroComputerSceneProps) {
     return () => media.removeEventListener('change', update);
   }, []);
 
+  if (webgl === null) return <ComputerLoadingState />;
   if (!webgl || reducedMotion) return <ComputerFallback />;
 
   return (
     <>
-      <div className={`computer-loading-fallback${computerReady ? ' is-hidden' : ''}`} aria-hidden="true"><ComputerFallback /></div>
+      <div className={`computer-loading-fallback${computerReady ? ' is-hidden' : ''}`}><ComputerLoadingState /></div>
       <Canvas className="computer-canvas" dpr={[1, 1.5]} frameloop={reducedMotion ? 'demand' : 'always'} shadows camera={{ position: [0, 0.1, 5.7], fov: 33 }} gl={{ alpha: true, antialias: true, powerPreference: 'high-performance', toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1.15 }} fallback={<ComputerFallback />}>
         <ambientLight intensity={1.2} />
         <hemisphereLight args={['#fff8eb', '#5d554b', 1.25]} />

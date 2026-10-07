@@ -52,8 +52,10 @@
 .hero-scene__note { max-width: 24ch; margin: .25rem 0 0; color: var(--color-text-muted); font-size: .85rem; line-height: 1.4; }
 .hero-scene__stage { position: relative; z-index: 20; grid-row: 1; grid-column: 7 / span 6; min-height: clamp(32rem,40vw,40rem); margin: 0 -1.5rem 0 -3.5rem; pointer-events: auto; animation: hardware-arrive 900ms var(--ease-slow) both; }
 .computer-canvas { position: absolute !important; inset: 0; width: 100% !important; height: 100% !important; }
-.computer-loading-fallback { position: absolute; z-index: 0; inset: 0; opacity: 1; pointer-events: none; transition: opacity var(--dur-main) var(--ease-out); }
+.computer-loading-fallback { position: absolute; z-index: 1; inset: 0; display: grid; place-items: center; opacity: 1; pointer-events: none; transition: opacity var(--dur-main) var(--ease-out); }
 .computer-loading-fallback.is-hidden { opacity: 0; }
+.computer-loading-state { display: inline-flex; align-items: center; gap: .65rem; color: var(--color-text-muted); font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
+.computer-loading-state__spinner { width: .8rem; height: .8rem; border: 2px solid rgba(10,10,10,.18); border-top-color: var(--color-brand-yellow); border-radius: 50%; animation: computer-loading-spin 700ms linear infinite; }
 .computer-canvas, .computer-canvas canvas, .procedural-canvas, .procedural-canvas canvas, .tuna-canvas, .tuna-canvas canvas { display: block; width: 100% !important; height: 100% !important; outline: none; pointer-events: none !important; }
 .computer-fallback { position: absolute; inset: 14% 8% 14% 11%; transform: rotate(-7deg); }
 .computer-fallback__screen { position: absolute; inset: 0 10% 24% 0; border: .75rem solid var(--color-ink); border-radius: 1.2rem; background: var(--color-brand-yellow); box-shadow: var(--shadow-clay); }
@@ -355,6 +357,7 @@ textarea.experience-field { min-height: 8rem; }
 @media (prefers-reduced-motion: reduce) {
   .hero-scene__stage, .testimonials-scene__quote-content { animation: none; }
   .computer-fallback { transform: rotate(-4deg); }
+  .computer-loading-state__spinner { animation: none; }
   .project-preview__layer { transform: none; transition: none; }
   .process-scene__path--progress { stroke-dashoffset: 0; }
   .tuna-overlay { display: none; }
@@ -689,6 +692,8 @@ textarea.experience-field { min-height: 11.25rem; }
   .tuna-overlay { display: block; opacity: .72; }
   .tuna-intro__hitbox { display: none; }
 }
+
+@keyframes computer-loading-spin { to { transform: rotate(360deg); } }
 
 /* Final reading pass: tighter editorial hierarchy across long sections. */
 .scene--about { padding-top: clamp(4.75rem, 6vw, 6.5rem); }
@@ -1357,9 +1362,10 @@ textarea.experience-field { min-height: 11.25rem; }
 .projects-scene__intro > h2 {
   grid-column: 1 / -1;
   display: grid;
-  max-width: none;
-  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
-  gap: var(--grid-gutter);
+  width: min(100%, 70rem);
+  max-width: 70rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 2rem);
 }
 
 .projects-scene__intro > h2 > span {
@@ -1376,7 +1382,47 @@ textarea.experience-field { min-height: 11.25rem; }
 
 @media (max-width: 63.99rem) {
   .projects-scene__intro > h2 {
+    width: 100%;
+    max-width: none;
     grid-template-columns: 1fr;
     gap: .25em;
+  }
+}
+
+/* Proof cluster: make the closing sequence read as one deliberate stack. */
+.scene--about .abbo-scene {
+  position: relative;
+  z-index: 1;
+  margin-bottom: clamp(-4rem, -5vw, -2.25rem);
+}
+
+.scene--about + .scene--testimonials {
+  position: relative;
+  z-index: 2;
+  border-radius: clamp(2rem, 4vw, 3.5rem) clamp(2rem, 4vw, 3.5rem) 0 0;
+  padding-top: clamp(5.5rem, 8vw, 7.5rem);
+}
+
+.scene--testimonials + .scene--faq {
+  position: relative;
+  z-index: 3;
+  margin-top: clamp(-2.5rem, -3vw, -1.5rem);
+  border-radius: clamp(2rem, 4vw, 3.5rem) clamp(2rem, 4vw, 3.5rem) 0 0;
+  padding-top: clamp(5.5rem, 8vw, 7.5rem);
+}
+
+@media (max-width: 43.99rem) {
+  .scene--about .abbo-scene {
+    margin-bottom: -1.75rem;
+  }
+
+  .scene--about + .scene--testimonials,
+  .scene--testimonials + .scene--faq {
+    border-radius: 1.5rem 1.5rem 0 0;
+    padding-top: 4.5rem;
+  }
+
+  .scene--testimonials + .scene--faq {
+    margin-top: -1rem;
   }
 }
