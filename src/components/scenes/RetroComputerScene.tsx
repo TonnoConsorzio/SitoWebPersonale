@@ -1,4 +1,4 @@
-import { Canvas, useFrame, useLoader } from '@react-three/fiber';
+import { Canvas, useFrame, useLoader, useThree, type ThreeEvent } from '@react-three/fiber';
 import { useScroll, type MotionValue } from 'motion/react';
 import { useCallback, useEffect, useMemo, useRef, useState, Suspense, type RefObject } from 'react';
 import * as THREE from 'three';
@@ -12,7 +12,7 @@ useLoader.preload(GLTFLoader, retroComputerModel, (loader) => loader.setMeshoptD
 
 function Computer({ scroll, reducedMotion, onReady }: { scroll: MotionValue<number>; reducedMotion: boolean; onReady: () => void }) {
   const gltf = useLoader(GLTFLoader, retroComputerModel, (loader) => loader.setMeshoptDecoder(MeshoptDecoder)) as GLTF;
-  const { model, buttonParts } = useMemo(() => {
+  const { model, buttonParts, screenMaterials } = useMemo(() => {
     const clone = gltf.scene.clone(true);
     const bounds = new THREE.Box3().setFromObject(clone);
     const center = bounds.getCenter(new THREE.Vector3());
@@ -23,6 +23,7 @@ function Computer({ scroll, reducedMotion, onReady }: { scroll: MotionValue<numb
     clone.scale.setScalar(largestDimension > 0 ? 2.7 / largestDimension : 1);
 
     const buttonParts: THREE.Object3D[] = [];
+    const screenMaterials: Array<{ material: THREE.Material; baseIntensity: number }> = [];
     clone.traverse((node) => {
       if (node instanceof THREE.Mesh) {
         node.castShadow = true;
@@ -43,6 +44,7 @@ function Computer({ scroll, reducedMotion, onReady }: { scroll: MotionValue<numb
             if ('emissive' in copy && copy.emissive instanceof THREE.Color) {
               copy.emissive.set('#6a4c00');
               (copy as THREE.MeshStandardMaterial).emissiveIntensity = 0.18;
+              screenMaterials.push({ material: copy, baseIntensity: 0.18 });
             }
             return copy;
           };
@@ -53,10 +55,77 @@ function Computer({ scroll, reducedMotion, onReady }: { scroll: MotionValue<numb
       }
     });
 
-    return { model: clone, buttonParts };
+    return { model: clone, buttonParts, screenMaterials };
   }, [gltf.scene]);
   const root = useRef<THREE.Group>(null);
   const pointer = useRef({ x: 0, y: 0 });
+  const pressedButtons = useRef(new Set<THREE.Object3D>());
+  const screenPulse = useRef(0);
+  const audioContext = useRef<AudioContext | null>(null);
+  const { gl } = useThree();
+
+  const findButton = useCallback((object: THREE.Object3D | null) => {
+    let current = object;
+    while (current && current !== model) {
+      if (buttonParts.includes(current)) return current;
+      current = current.parent;
+    }
+    return null;
+  }, [buttonParts, model]);
+
+  const playClick = useCallback(() => {
+    if (reducedMotion) return;
+    const AudioContextConstructor = window.AudioContext
+      ?? (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+    if (!AudioContextConstructor) return;
+    const context = audioContext.current ?? new AudioContextConstructor();
+    audioContext.current = context;
+    if (context.state === 'suspended') void context.resume();
+
+    const now = context.currentTime;
+    const oscillator = context.createOscillator();
+    const gain = context.createGain();
+    oscillator.type = 'square';
+    oscillator.frequency.setValueAtTime(105 + Math.random() * 18, now);
+    oscillator.frequency.exponentialRampToValueAtTime(72, now + .045);
+    gain.gain.setValueAtTime(.0001, now);
+    gain.gain.exponentialRampToValueAtTime(.08 + Math.random() * .04, now + .003);
+    gain.gain.exponentialRampToValueAtTime(.0001, now + .055);
+    oscillator.connect(gain);
+    gain.connect(context.destination);
+    oscillator.start(now);
+    oscillator.stop(now + .06);
+  }, [reducedMotion]);
+
+  const handlePointerOver = useCallback((event: ThreeEvent<PointerEvent>) => {
+    if (!findButton(event.object)) return;
+    event.stopPropagation();
+    gl.domElement.style.cursor = 'pointer';
+  }, [findButton, gl]);
+
+  const handlePointerOut = useCallback((event: ThreeEvent<PointerEvent>) => {
+    const button = findButton(event.object);
+    if (!button) return;
+    event.stopPropagation();
+    pressedButtons.current.delete(button);
+    gl.domElement.style.cursor = 'default';
+  }, [findButton, gl]);
+
+  const handlePointerDown = useCallback((event: ThreeEvent<PointerEvent>) => {
+    const button = findButton(event.object);
+    if (!button) return;
+    event.stopPropagation();
+    pressedButtons.current.add(button);
+    screenPulse.current = 1;
+    playClick();
+  }, [findButton, playClick]);
+
+  const handlePointerUp = useCallback((event: ThreeEvent<PointerEvent>) => {
+    const button = findButton(event.object);
+    if (!button) return;
+    event.stopPropagation();
+    pressedButtons.current.delete(button);
+  }, [findButton]);
 
   useEffect(() => {
     onReady();
@@ -74,7 +143,7 @@ function Computer({ scroll, reducedMotion, onReady }: { scroll: MotionValue<numb
   useFrame((state, delta) => {
     if (!root.current || reducedMotion) return;
     const progress = THREE.MathUtils.clamp(scroll.get(), 0, 1);
-    root.current.rotation.x = THREE.MathUtils.damp(root.current.rotation.x, 0.3 + pointer.current.y * 0.045, 3.6, delta);
+    root.current.rotation.x = THREE.MathUtils.damp(root.current.rotation.x, 0.46 + pointer.current.y * 0.045, 3.6, delta);
     root.current.rotation.y = THREE.MathUtils.damp(root.current.rotation.y, -0.42 + pointer.current.x * 0.065 - progress * 0.18, 3.6, delta);
     root.current.rotation.z = THREE.MathUtils.damp(root.current.rotation.z, pointer.current.x * -0.025, 3.6, delta);
     root.current.position.y = THREE.MathUtils.damp(root.current.position.y, -0.04 - progress * 0.22 + Math.sin(state.clock.elapsedTime * 0.45) * 0.018, 3.2, delta);
@@ -82,11 +151,18 @@ function Computer({ scroll, reducedMotion, onReady }: { scroll: MotionValue<numb
     const scale = THREE.MathUtils.damp(root.current.scale.x, 1 - progress * 0.04, 3.2, delta);
     root.current.scale.setScalar(scale);
     buttonParts.forEach((button) => {
-      button.position.y = (button.userData.baseY as number) + Math.sin(state.clock.elapsedTime * 0.9) * 0.0015;
+      const targetY = (button.userData.baseY as number) - (pressedButtons.current.has(button) ? .012 : 0);
+      button.position.y = THREE.MathUtils.damp(button.position.y, targetY, 18, delta);
+    });
+    screenPulse.current = THREE.MathUtils.damp(screenPulse.current, 0, 10, delta);
+    screenMaterials.forEach(({ material, baseIntensity }) => {
+      if ('emissiveIntensity' in material) {
+        (material as THREE.MeshStandardMaterial).emissiveIntensity = baseIntensity + screenPulse.current * .28;
+      }
     });
   });
 
-  return <group ref={root} position={[0, -0.04, 0]} rotation={[0.3, -0.42, -0.01]}><primitive object={model} /></group>;
+  return <group ref={root} position={[0, -0.04, 0]} rotation={[0.46, -0.42, -0.01]}><primitive object={model} onPointerOver={handlePointerOver} onPointerOut={handlePointerOut} onPointerDown={handlePointerDown} onPointerUp={handlePointerUp} onPointerLeave={() => { pressedButtons.current.clear(); gl.domElement.style.cursor = 'default'; }} /></group>;
 }
 
 export function ComputerFallback() {

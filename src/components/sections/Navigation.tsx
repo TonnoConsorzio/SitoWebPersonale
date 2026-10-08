@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useMotionValueEvent, useScroll } from 'motion/react';
@@ -12,6 +12,8 @@ export function Navigation() {
   const copy = useHomeCopy().nav;
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isChangingLanguage, setIsChangingLanguage] = useState(false);
+  const languageTimer = useRef<number | undefined>(undefined);
   const handleScrollTo = useScrollTo();
   const { scrollY } = useScroll();
 
@@ -21,13 +23,28 @@ export function Navigation() {
     setScrolled(scrollY.get() > 24);
   }, [scrollY]);
 
+  useEffect(() => () => window.clearTimeout(languageTimer.current), []);
+
   const scrollLink = (id: string, label: string) => (
     <a href={`#${id}`} onClick={(event) => { setMenuOpen(false); handleScrollTo(event, id); }} className="experience-nav__link">
       {label}
     </a>
   );
 
-  const toggleLanguage = () => i18n.changeLanguage(i18n.language.startsWith('it') ? 'en' : 'it');
+  const activeLanguage = i18n.language.startsWith('en') ? 'en' : 'it';
+  const changeLanguage = (language: 'it' | 'en') => {
+    if (language === activeLanguage) return;
+    setIsChangingLanguage(true);
+    window.clearTimeout(languageTimer.current);
+    void i18n.changeLanguage(language);
+    languageTimer.current = window.setTimeout(() => setIsChangingLanguage(false), 190);
+  };
+  const languageSwitch = (className = '') => (
+    <div className={['experience-nav__language', isChangingLanguage && 'is-switching', className].filter(Boolean).join(' ')} role="group" aria-label={copy.changeLanguage}>
+      <button type="button" className={activeLanguage === 'it' ? 'is-active' : ''} onClick={() => changeLanguage('it')} aria-pressed={activeLanguage === 'it'}>IT</button>
+      <button type="button" className={activeLanguage === 'en' ? 'is-active' : ''} onClick={() => changeLanguage('en')} aria-pressed={activeLanguage === 'en'}>EN</button>
+    </div>
+  );
 
   return (
     <>
@@ -46,7 +63,7 @@ export function Navigation() {
           </div>
 
           <div className="flex items-center gap-3">
-            <button type="button" onClick={toggleLanguage} className="hidden min-h-11 min-w-11 items-center justify-center border-b border-current text-xs font-bold tracking-[0.12em] transition-colors hover:border-[var(--experience-yellow)] hover:text-[var(--experience-muted)] lg:inline-flex" aria-label={copy.changeLanguage}>{i18n.language.startsWith('it') ? 'EN' : 'IT'}</button>
+            <div className="hidden lg:block">{languageSwitch()}</div>
             <button type="button" onClick={() => setMenuOpen((open) => !open)} className="experience-nav__menu lg:hidden" aria-label={menuOpen ? copy.closeMenu : copy.openMenu} aria-expanded={menuOpen} aria-controls="mobile-menu">
               {menuOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
             </button>
@@ -59,7 +76,7 @@ export function Navigation() {
               {scrollLink('servizi', copy.services)}
               {scrollLink('progetti', copy.projects)}
               {scrollLink('about', copy.about)}
-              <button type="button" onClick={toggleLanguage} className="mt-5 min-h-11 border-b border-foreground text-xs font-bold tracking-[0.12em] transition-colors hover:border-primary hover:text-primary">{i18n.language.startsWith('it') ? 'English' : 'Italiano'}</button>
+              {languageSwitch('experience-nav__language--mobile')}
             </div>
           </div>
         )}

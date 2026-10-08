@@ -74,7 +74,6 @@ export function ProjectCarousel() {
       <div className="scene__container projects-scene__intro">
         <h2 id="progetti-title">
           <span className="projects-scene__intro-a">{copy.introA}</span>
-          <span className="projects-scene__intro-b">{copy.introB}</span>
         </h2>
       </div>
 
@@ -125,6 +124,14 @@ export function ProjectCarousel() {
           <span aria-live="polite">{String(activeIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}</span>
           <button type="button" onClick={() => change(1)} disabled={activeIndex === projects.length - 1} aria-label="Progetto successivo"><ArrowRight size={20} aria-hidden="true" /></button>
         </div>
+      </div>
+
+      <div className="scene__container projects-scene__outro">
+        <p className="projects-scene__closing">
+          <span className="projects-scene__quote-mark" aria-hidden="true">“</span>
+          <span>{copy.introB}</span>
+          <span className="projects-scene__quote-mark" aria-hidden="true">”</span>
+        </p>
       </div>
 
     </section>

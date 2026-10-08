@@ -6,7 +6,7 @@ export const homeCopy = {
     nav: { services: 'Servizi', projects: 'Progetti', about: 'Chi sono', journal: 'Journal', skip: 'Vai al contenuto', changeLanguage: 'Cambia lingua', openMenu: 'Apri menu', closeMenu: 'Chiudi menu' },
     hero: {
       titleA: 'Idee', titleAEmphasis: 'fuori di testa.', titleB: 'Soluzioni', titleBMiddle: 'con i', titleBEmphasis: 'piedi per terra.',
-      typewriter: ['Siti web', 'Automazioni', 'Gestionali e web app', 'Formazione', 'Identità visiva', 'Infrastrutture'], staticTypewriter: 'siti web, automazioni, formazione e strumenti digitali.',
+      typewriter: ['Siti web', 'Automazioni', 'Gestionali', 'Web app', 'Formazione', 'Identità visiva', 'Infrastruttura', 'Grafica', 'Social media'], typewriterPrefix: 'Posso fare:', staticTypewriter: 'siti web, automazioni, formazione e strumenti digitali.',
       book: 'Prenota 15 minuti', projects: 'Guarda i progetti', sceneLabel: 'Computer retro interattivo'
     },
     projects: {
@@ -17,9 +17,9 @@ export const homeCopy = {
       ]
     },
     services: {
-      titleA: 'Dimmi cosa', titleEmphasis: 'non funziona.', titleB: 'Il servizio lo scegliamo dopo.', all: 'Vedi tutti i servizi',
+      titleA: 'Dimmi cosa', titleEmphasis: 'non funziona.', titleB: 'Il servizio lo scegliamo dopo.',
       groups: [
-        { title: 'Farti scegliere', services: 'Siti web · Identità', description: 'Per far capire in fretta chi sei, cosa fai e perché dovrebbero contattarti.', cta: 'Siti e identità', path: '/servizi/siti-web' },
+        { title: 'Farti scegliere', emphasis: 'scegliere', services: 'Siti web · Identità', description: 'Per far capire in fretta chi sei, cosa fai e perché dovrebbero contattarti.', cta: 'Siti e identità', path: '/servizi/siti-web' },
         { title: 'Farti risparmiare tempo', emphasis: 'risparmiare tempo', services: 'Automazioni · Gestionali · Web app', description: 'Per togliere di mezzo passaggi manuali, doppioni e strumenti che non si parlano.', cta: 'Automazioni e software', path: '/servizi/automazioni' },
         { title: 'Darti autonomia', emphasis: 'autonomia', services: 'Formazione · Infrastruttura', description: 'Per capire meglio gli strumenti che usi e dipendere meno dagli altri.', cta: 'Formazione e infrastruttura', path: '/servizi/formazione-ai' }
       ]
@@ -64,7 +64,7 @@ export const homeCopy = {
     nav: { services: 'Services', projects: 'Projects', about: 'About', journal: 'Journal', skip: 'Skip to content', changeLanguage: 'Change language', openMenu: 'Open menu', closeMenu: 'Close menu' },
     hero: {
       titleA: 'Bold', titleAEmphasis: 'ideas.', titleB: 'Grounded', titleBMiddle: '', titleBEmphasis: 'solutions.',
-      typewriter: ['Websites', 'Automation', 'Admin tools and web apps', 'Training', 'Visual identity', 'Infrastructure'], staticTypewriter: 'websites, automation, training and digital tools.',
+      typewriter: ['Websites', 'Automation', 'Admin tools', 'Web apps', 'Training', 'Visual identity', 'Infrastructure', 'Graphics', 'Social media'], typewriterPrefix: 'I can do:', staticTypewriter: 'websites, automation, training and digital tools.',
       book: 'Book 15 minutes', projects: 'See projects', sceneLabel: 'Interactive retro computer'
     },
     projects: {
@@ -75,9 +75,9 @@ export const homeCopy = {
       ]
     },
     services: {
-      titleA: 'Tell me what', titleEmphasis: 'is not working.', titleB: 'We choose the service after that.', all: 'See all services',
+      titleA: 'Tell me what', titleEmphasis: 'is not working.', titleB: 'We choose the service after that.',
       groups: [
-        { title: 'Help people choose you', services: 'Websites · Identity', description: 'So people quickly understand who you are, what you do and why they should contact you.', cta: 'Websites and identity', path: '/servizi/siti-web' },
+        { title: 'Help people choose you', emphasis: 'choose you', services: 'Websites · Identity', description: 'So people quickly understand who you are, what you do and why they should contact you.', cta: 'Websites and identity', path: '/servizi/siti-web' },
         { title: 'Save you time', emphasis: 'time', services: 'Automations · Admin tools · Web apps', description: 'To remove manual steps, duplicate work and tools that do not speak to each other.', cta: 'Automation and software', path: '/servizi/automazioni' },
         { title: 'Give you autonomy', emphasis: 'autonomy', services: 'Training · Infrastructure', description: 'So you understand the tools you use and depend less on other people.', cta: 'Training and infrastructure', path: '/servizi/formazione-ai' }
       ]

@@ -47,21 +47,20 @@ export function Services() {
             <article ref={(element) => { chapterRefs.current[index] = element; }} key={group.title} className={`service-chapter ${activeServiceIndex === index ? 'is-active' : ''}`} data-service-index={index} aria-current={activeServiceIndex === index ? 'step' : undefined}>
               <span className="service-chapter__control" aria-hidden="true" />
               <div>
-                <h3>{'emphasis' in group ? <ServiceTitle title={group.title} emphasis={group.emphasis} /> : group.title}</h3>
+                <h3>{'emphasis' in group ? <ServiceTitle title={group.title} emphasis={group.emphasis} active={activeServiceIndex === index} /> : group.title}</h3>
                 <p className="service-chapter__services">{group.services}</p>
                 <p className="service-chapter__description">{group.description}</p>
                 <Link to={group.path} className="text-link">{group.cta} <ArrowUpRight size={17} aria-hidden="true" /></Link>
               </div>
             </article>
           ))}
-          <div className="services-scene__footer"><Link to="/servizi" className="text-link">{copy.all} <ArrowUpRight size={17} aria-hidden="true" /></Link></div>
         </div>
       </div>
     </section>
   );
 }
 
-function ServiceTitle({ title, emphasis }: { title: string; emphasis: string }) {
+function ServiceTitle({ title, emphasis, active }: { title: string; emphasis: string; active: boolean }) {
   const [before, after] = title.split(emphasis);
-  return <>{before}<ScrollUnderline>{emphasis}</ScrollUnderline>{after}</>;
+  return <>{before}<ScrollUnderline active={active}>{emphasis}</ScrollUnderline>{after}</>;
 }

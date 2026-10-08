@@ -21,7 +21,7 @@ const TUNA_FORWARD = new THREE.Vector3(0, 0, 1);
 
 function getExclusionRects() {
   return Array.from(document.querySelectorAll<HTMLElement>(
-    '.experience-nav, .hero-scene__content, .hero-scene__stage, .project-stage__content, .project-stage__controls, .contact-scene__form, .faq-scene__answer, .experience-button',
+    '.experience-nav, .hero-scene__content, .hero-scene__stage, .project-stage__content, .project-stage__controls, .contact-scene__form, .faq-scene__answer, .testimonials-scene__layout, .experience-button',
   )).map((element) => element.getBoundingClientRect());
 }
 
@@ -157,8 +157,8 @@ function TunaModel({ reducedMotion, petMode, onReady }: { reducedMotion: boolean
         const next = chooseWaypoint(currentPoint.current);
         const event = now >= nextEventAt.current;
         const roll = Math.random();
-        const nextState: TunaState = !isMobile && event && roll > .88 ? 'BREACH' : event && roll > .72 ? 'DART' : event && roll > .52 ? 'APPROACH' : 'CRUISE';
-        const duration = nextState === 'BREACH' ? 1.4 : nextState === 'DART' ? 1.25 : nextState === 'APPROACH' ? 5.5 : 7 + Math.random() * 4;
+        const nextState: TunaState = event && roll > .72 ? 'DART' : event && roll > .52 ? 'APPROACH' : 'CRUISE';
+        const duration = nextState === 'DART' ? 1.25 : nextState === 'APPROACH' ? 5.5 : 7 + Math.random() * 4;
         startPath(next, nextState, now, duration);
         if (event) nextEventAt.current = now + 22 + Math.random() * 18;
       }
@@ -187,7 +187,7 @@ function TunaModel({ reducedMotion, petMode, onReady }: { reducedMotion: boolean
       }
     }
 
-    const scaleTarget = state.current === 'APPROACH' ? TUNA_SCALE * 1.15 : state.current === 'RETREAT' ? TUNA_SCALE * .78 : TUNA_SCALE;
+    const scaleTarget = state.current === 'APPROACH' ? TUNA_SCALE * 1.05 : state.current === 'RETREAT' ? TUNA_SCALE * .9 : TUNA_SCALE;
     root.current.scale.setScalar(THREE.MathUtils.damp(root.current.scale.x, scaleTarget, 2.2, delta));
   });
 
@@ -199,6 +199,7 @@ export function MascotLayer() {
   const [reducedMotion, setReducedMotion] = useState(false);
   const [pageVisible, setPageVisible] = useState(true);
   const [introduced, setIntroduced] = useState(false);
+  const [heroVisible, setHeroVisible] = useState(true);
   const [zone, setZone] = useState('hero');
   const [tunaReady, setTunaReady] = useState(false);
   const handleTunaReady = useCallback(() => setTunaReady(true), []);
@@ -226,21 +227,36 @@ export function MascotLayer() {
       formazione: 'formation',
       processo: 'process',
       contatti: 'contact',
+      about: 'away',
+      abbo: 'away',
+      faq: 'away',
     };
     const observer = new IntersectionObserver((entries) => {
       const visible = entries
         .filter((entry) => entry.isIntersecting)
         .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      const next = visible ? zoneById[(visible.target as HTMLElement).id] ?? 'hero' : 'hero';
+      const visibleId = visible ? (visible.target as HTMLElement).id : '';
+      const next = visible ? zoneById[visibleId] ?? ((visible.target as HTMLElement).classList.contains('scene--hero') ? 'hero' : 'away') : 'away';
       setZone((current) => current === next ? current : next);
     }, { rootMargin: '-42% 0px -42% 0px', threshold: [0, 0.5, 1] });
 
-    Object.keys(zoneById).forEach((id) => {
-      const section = document.getElementById(id);
-      if (section) observer.observe(section);
+    document.querySelectorAll<HTMLElement>('.experience-page .scene, .experience-page #abbo').forEach((section) => {
+      observer.observe(section);
     });
 
-    return () => observer.disconnect();
+    Object.keys(zoneById).forEach((id) => {
+      const section = document.getElementById(id);
+      if (section && !section.matches('.scene, #abbo')) observer.observe(section);
+    });
+
+    const hero = document.querySelector<HTMLElement>('.scene--hero');
+    const heroObserver = new IntersectionObserver(([entry]) => setHeroVisible(entry.isIntersecting), { threshold: .02 });
+    if (hero) heroObserver.observe(hero);
+
+    return () => {
+      observer.disconnect();
+      heroObserver.disconnect();
+    };
   }, []);
 
   const activate = () => {
@@ -251,8 +267,10 @@ export function MascotLayer() {
   if (webgl === false) return createPortal(<div className="tuna-static-fallback" aria-hidden="true" />, document.body);
   if (webgl !== true) return null;
 
+  const visibleZone = !heroVisible && !introduced ? 'away' : zone;
+
   return createPortal(
-    <aside className={`tuna-overlay${tunaReady ? ' is-ready' : ''}`} data-tuna-state={reducedMotion ? 'STATIC' : introduced ? 'PET' : 'INTRO'} data-tuna-zone={zone} aria-label="Tonno, mascotte interattiva">
+    <aside className={`tuna-overlay${tunaReady ? ' is-ready' : ''}`} data-tuna-state={reducedMotion ? 'STATIC' : introduced ? 'PET' : 'INTRO'} data-tuna-zone={visibleZone} aria-label="Tonno, mascotte interattiva">
       <Canvas className="tuna-canvas" frameloop={reducedMotion || !pageVisible ? 'demand' : 'always'} dpr={[1, 1.5]} camera={{ position: [0, 0, 7.4], fov: 32 }} gl={{ alpha: true, antialias: true, powerPreference: 'high-performance' }}>
         <ambientLight intensity={1.7} />
         <directionalLight position={[3, 4, 4]} intensity={2.2} />

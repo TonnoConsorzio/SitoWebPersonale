@@ -3,13 +3,16 @@ import { type ReactNode, useEffect, useRef, useState } from 'react';
 type ScrollUnderlineProps = {
   children: ReactNode;
   className?: string;
+  active?: boolean;
 };
 
-export function ScrollUnderline({ children, className = '' }: ScrollUnderlineProps) {
+export function ScrollUnderline({ children, className = '', active }: ScrollUnderlineProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const [visible, setVisible] = useState(false);
+  const isControlled = typeof active === 'boolean';
 
   useEffect(() => {
+    if (isControlled) return;
     const element = ref.current;
     if (!element) return;
 
@@ -27,10 +30,12 @@ export function ScrollUnderline({ children, className = '' }: ScrollUnderlinePro
 
     observer.observe(element);
     return () => observer.disconnect();
-  }, []);
+  }, [isControlled]);
+
+  const isVisible = isControlled ? active : visible;
 
   return (
-      <span ref={ref} className={`scroll-underline ${visible ? 'is-visible' : ''} ${className}`.trim()}>
+      <span ref={ref} className={`scroll-underline ${isVisible ? 'is-visible' : ''} ${className}`.trim()}>
         <span className="scroll-underline__text">{children}</span>
         <span className="scroll-underline__line" aria-hidden="true" />
       </span>

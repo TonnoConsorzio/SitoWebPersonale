@@ -22,7 +22,7 @@ export function Hero() {
           </h1>
           <div className="hero-scene__lower">
             <div className="hero-scene__copy">
-              <TypewriterLine phrases={copy.typewriter} staticText={copy.staticTypewriter} />
+              <TypewriterLine phrases={copy.typewriter} staticText={copy.staticTypewriter} prefix={copy.typewriterPrefix} />
             </div>
             <div className="hero-scene__actions">
               <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="experience-button">{copy.book} <ArrowUpRight size={17} aria-hidden="true" /></a>
@@ -38,7 +38,7 @@ export function Hero() {
   );
 }
 
-function TypewriterLine({ phrases, staticText }: { phrases: readonly string[]; staticText: string }) {
+function TypewriterLine({ phrases, staticText, prefix }: { phrases: readonly string[]; staticText: string; prefix: string }) {
   const [text, setText] = useState(phrases[0] ?? '');
   const [reducedMotion, setReducedMotion] = useState(false);
 
@@ -92,16 +92,16 @@ function TypewriterLine({ phrases, staticText }: { phrases: readonly string[]; s
 
   return reducedMotion ? (
     <>
-      <span className="hero-typewriter hero-typewriter--visual is-static" aria-hidden="true">Posso fare: {staticText}</span>
-      <span className="sr-only">Posso fare: {staticText}</span>
+      <span className="hero-typewriter hero-typewriter--visual is-static" aria-hidden="true">{prefix} {staticText}</span>
+      <span className="sr-only">{prefix} {staticText}</span>
     </>
   ) : (
     <>
       <span className="hero-typewriter hero-typewriter--visual" aria-hidden="true">
-        <span className="hero-typewriter__prefix">Posso fare:</span>
+        <span className="hero-typewriter__prefix">{prefix}</span>
         <span className="hero-typewriter__dynamic">{text}<i aria-hidden="true" /></span>
       </span>
-      <span className="sr-only">Posso fare: {staticText}</span>
+      <span className="sr-only">{prefix} {staticText}</span>
     </>
   );
 }
