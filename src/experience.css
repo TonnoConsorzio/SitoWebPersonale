@@ -122,7 +122,7 @@
 .service-chapter__services { margin: var(--space-4) 0 0; font-family: var(--font-mono); font-size: .78rem; font-weight: 600; letter-spacing: .07em; line-height: 1.6; text-transform: uppercase; }
 .service-chapter__description { max-width: 42ch; margin: var(--space-4) 0 0; color: var(--color-text-muted); font-size: clamp(1rem,1.2vw,1.18rem); line-height: 1.52; }
 .service-chapter .text-link { margin-top: var(--space-4); }
-.services-scene__footer { padding-top: var(--space-4); }
+.services-scene__footer { margin-top: clamp(1.75rem, 3vw, 2.5rem); }
 
 /* Formation */
 .scene--formation { padding: clamp(6.9rem,9vw,8.75rem) 0; background: var(--color-warm-secondary); }
@@ -1404,23 +1404,59 @@ textarea.experience-field { min-height: 11.25rem; }
 }
 
 .projects-scene__intro > h2 {
-  display: grid;
-  width: min(100%, 70rem);
-  max-width: 70rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(1rem, 2vw, 2rem);
+  position: relative;
+  width: min(100%, 31rem);
+  max-width: 12ch;
 }
 
 .projects-scene__intro > h2 > span {
   display: block;
+  position: relative;
 }
 
-.projects-scene__intro > h2 > .projects-scene__intro-a {
+.projects-scene__intro > h2::before,
+.projects-scene__outro h2::after {
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: 1.35em;
+  font-weight: 620;
+  line-height: 1;
+}
+
+.projects-scene__intro > h2::before {
+  top: -.72em;
+  left: -.08em;
+  content: '“';
+  color: var(--color-brand-yellow);
+}
+
+.projects-scene__outro h2::after {
+  right: -.08em;
+  bottom: -1.2em;
+  content: '”';
   color: var(--color-warm-white);
 }
 
-.projects-scene__intro > h2 > .projects-scene__intro-b {
+.projects-scene__outro {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  padding-top: clamp(2.5rem, 5vw, 5rem);
+}
+
+.projects-scene__outro h2 {
+  position: relative;
+  grid-column: 7 / -1;
+  justify-self: end;
+  max-width: 11ch;
+  margin: 0;
   color: var(--color-brand-yellow);
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 4.4vw, 4.25rem);
+  font-weight: 620;
+  letter-spacing: -.07em;
+  line-height: .96;
+  text-align: right;
+  text-wrap: balance;
 }
 
 .abbo-scene {
@@ -1529,9 +1565,13 @@ textarea.experience-field { min-height: 11.25rem; }
   .projects-scene__intro > h2 {
     width: 100%;
     max-width: none;
-    grid-template-columns: 1fr;
-    gap: .25em;
   }
+
+  .projects-scene__intro > h2::before { top: -.6em; }
+  .projects-scene__outro h2::after { bottom: -1.05em; }
+
+  .projects-scene__outro { grid-template-columns: 1fr; }
+  .projects-scene__outro h2 { grid-column: auto; max-width: 10ch; font-size: clamp(2.85rem, 12vw, 4rem); }
 
   .scroll-underline::after {
     height: 2px;

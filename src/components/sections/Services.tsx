@@ -41,6 +41,9 @@ export function Services() {
       <div className="scene__container services-scene__layout">
         <div className="services-scene__lead">
           <h2 id="servizi-title">{copy.titleA} <ScrollUnderline>{copy.titleEmphasis}</ScrollUnderline><br />{copy.titleB}</h2>
+          <div className="services-scene__footer">
+            <Link to="/servizi" className="text-link">{copy.all} <ArrowUpRight size={17} aria-hidden="true" /></Link>
+          </div>
         </div>
           <div className="services-scene__chapters">
             {groups.map((group, index) => (
@@ -54,9 +57,6 @@ export function Services() {
               </div>
             </article>
           ))}
-          <div className="services-scene__footer">
-            <Link to="/servizi" className="text-link">{copy.all} <ArrowUpRight size={17} aria-hidden="true" /></Link>
-          </div>
         </div>
       </div>
     </section>

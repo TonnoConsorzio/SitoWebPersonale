@@ -73,8 +73,7 @@ export function ProjectCarousel() {
     <section ref={sectionRef} id="progetti" data-scroll-theme="dark" className="scene scene--projects" aria-labelledby="progetti-title">
       <div className="scene__container projects-scene__intro">
         <h2 id="progetti-title">
-          <span className="projects-scene__intro-a">{copy.introA}</span>
-          <span className="projects-scene__intro-b">{copy.introB}</span>
+          <span>{copy.introA}</span>
         </h2>
       </div>
 
@@ -125,6 +124,10 @@ export function ProjectCarousel() {
           <span aria-live="polite">{String(activeIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}</span>
           <button type="button" onClick={() => change(1)} disabled={activeIndex === projects.length - 1} aria-label="Progetto successivo"><ArrowRight size={20} aria-hidden="true" /></button>
         </div>
+      </div>
+
+      <div className="scene__container projects-scene__outro">
+        <h2>{copy.introB}</h2>
       </div>
 
     </section>
