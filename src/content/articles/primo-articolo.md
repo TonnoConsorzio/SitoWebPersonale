@@ -1,6 +1,7 @@
 ---
 title: Da Eventbrite a una piattaforma proprietaria: il viaggio dietro Digital Heroes
 date: 2026-07-26
+author: Alessio Bellan
 excerpt: Come ho costruito il sito web di Digital Heroes, da WordPress ed Eventbrite a una piattaforma proprietaria
 tags: Tech, Markdown, React
 ---

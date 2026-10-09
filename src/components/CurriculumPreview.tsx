@@ -44,7 +44,7 @@ export function CurriculumPreview() {
 
       <div className={`mt-12 text-center relative z-20 ${isInView ? 'animate-fade-rise-delay' : 'opacity-0'}`}>
         <Link 
-          to="/curriculum"
+          to="/chi-sono"
           className="liquid-glass inline-block rounded-full px-8 py-3 text-sm text-foreground hover:scale-[1.03] transition-transform cursor-pointer"
         >
           Vedi l'intero percorso

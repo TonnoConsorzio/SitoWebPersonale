@@ -22,7 +22,7 @@ export function Certifications() {
           </h2>
         </div>
         <Link 
-          to="/curriculum" 
+          to="/chi-sono"
           className="text-base font-medium text-primary hover:underline flex items-center transition-colors shrink-0"
         >
           <span>Vedi il curriculum completo →</span>

@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
-    "build": "node scripts/generate-sitemap.js && vite build",
+    "build": "node scripts/generate-sitemap.js && vite build && node scripts/generate-static-routes.js",
+    "indexnow": "node scripts/submit-indexnow.js",
     "deploy": "npm run build && npx gh-pages -d dist --dotfiles",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",

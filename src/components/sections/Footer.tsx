@@ -20,7 +20,8 @@ export function Footer() {
             <nav className="experience-footer__nav" aria-label="Esplora il sito">
               <a href="/#servizi">{copy.services}</a>
               <a href="/#progetti">{copy.projects}</a>
-              <Link to="/curriculum">{copy.about}</Link>
+              <Link to="/chi-sono">{copy.about}</Link>
+              <Link to="/journal">Journal</Link>
             </nav>
           </div>
           <div className="experience-footer__column experience-footer__contact">

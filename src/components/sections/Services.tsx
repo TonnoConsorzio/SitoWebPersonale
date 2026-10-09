@@ -54,6 +54,9 @@ export function Services() {
               </div>
             </article>
           ))}
+          <div className="services-scene__footer">
+            <Link to="/servizi" className="text-link">{copy.all} <ArrowUpRight size={17} aria-hidden="true" /></Link>
+          </div>
         </div>
       </div>
     </section>

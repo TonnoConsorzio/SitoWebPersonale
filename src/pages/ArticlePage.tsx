@@ -7,6 +7,7 @@ import { Footer } from '../components/sections/Footer';
 import { ArrowLeft, Calendar } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import { Article, getArticleBySlug } from '../utils/markdown';
+import { business } from '../config/business';
 
 export function ArticlePage() {
   const { slug } = useParams<{ slug: string }>();
@@ -39,17 +40,31 @@ export function ArticlePage() {
 
   if (!article) return null; // handled by navigate
 
+  const articleSchema: any = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: article.metadata.title,
+    description: article.metadata.excerpt,
+    datePublished: article.metadata.date,
+    mainEntityOfPage: `${business.siteUrl}/journal/${slug}`,
+    author: { '@id': business.personId, name: article.metadata.author || business.name },
+    publisher: { '@id': business.personId, name: business.name },
+  };
+  if (article.metadata.modified) articleSchema.dateModified = article.metadata.modified;
+
   return (
     <>
       <SEO 
         title={`${article.metadata.title} | Alessio Bellan Journal`}
         description={article.metadata.excerpt}
         canonical={`/journal/${slug}`}
+        type="article"
+        schemas={[articleSchema]}
       />
       <Navigation />
       
       <main className="min-h-screen pt-32 pb-24 px-8 max-w-4xl mx-auto">
-        <Link to="/#journal" className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors mb-12">
+        <Link to="/journal" className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors mb-12">
           <ArrowLeft className="w-4 h-4 mr-2" /> Torna al Journal
         </Link>
         
@@ -66,6 +81,7 @@ export function ArticlePage() {
                   {new Date(article.metadata.date).toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' })}
                 </time>
               </div>
+              <span>Scritto da {article.metadata.author || business.name}</span>
               
               {article.metadata.tags && article.metadata.tags.length > 0 && (
                 <div className="flex gap-2">
@@ -84,6 +100,10 @@ export function ArticlePage() {
               {article.content}
             </ReactMarkdown>
           </div>
+          <aside className="mt-16 border-t border-foreground/20 pt-8">
+            <p className="mono-label">Approfondisci</p>
+            <div className="mt-4 flex flex-wrap gap-4"><Link to="/portfolio" className="text-link">Progetti <ArrowLeft className="ml-1 w-4 rotate-180" /></Link><Link to="/servizi/gestionali-web-app" className="text-link">Gestionali e web app <ArrowLeft className="ml-1 w-4 rotate-180" /></Link></div>
+          </aside>
         </article>
       </main>
 

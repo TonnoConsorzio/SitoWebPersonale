@@ -8,6 +8,7 @@ import { useScrollTo } from '../hooks/useScrollTo';
 import experiences from '../data/curriculum.json';
 import cvData from '../data/cv.json';
 import certifications from '../data/certifications.json';
+import { business } from '../config/business';
 
 export function CurriculumPage() {
   const { i18n } = useTranslation();
@@ -27,25 +28,37 @@ export function CurriculumPage() {
   return (
     <div className="profile-page">
       <SEO
-        title="Curriculum ed esperienze | Alessio Bellan"
-        description="Percorso professionale, esperienze lavorative, formazione e certificazioni di Alessio Bellan."
-        canonical="/curriculum"
+        title="Chi sono | Alessio Bellan"
+        description="Esperienze, formazione e certificazioni di Alessio Bellan: siti web e strumenti digitali per PMI, professionisti e associazioni in Lombardia."
+        canonical="/chi-sono"
+        schemas={[{
+          '@context': 'https://schema.org',
+          '@type': 'Person',
+          '@id': business.personId,
+          name: business.name,
+          url: `${business.siteUrl}/chi-sono`,
+          hasCredential: certifications.map((item: any) => ({
+            '@type': 'EducationalOccupationalCredential',
+            name: getLocalized(item.title),
+            recognizedBy: { '@type': 'Organization', name: item.issuer },
+          })),
+        }]}
       />
       <Navigation />
 
       <main>
         <section className="profile-page__hero">
           <div className="scene__container">
-            <p className="profile-page__eyebrow">Curriculum</p>
+            <p className="profile-page__eyebrow">Chi sono</p>
             <h1>Un percorso fatto di lavoro reale.</h1>
-            <p>Sviluppatore web, coordinatore di progetti digitali e presidente di ABBO APS.</p>
+            <p>Sviluppatore web, coordinatore di progetti digitali e presidente di ABBO APS. Lavoro con PMI, professionisti e associazioni nelle province di Monza e Brianza, Milano, Lecco e Bergamo.</p>
             <a href="#contatti" onClick={(event) => handleScrollTo(event, 'contatti')} className="experience-button">
               Parliamo <ArrowRight size={17} aria-hidden="true" />
             </a>
           </div>
         </section>
 
-        <section className="profile-page__section">
+        <section id="certificazioni" className="profile-page__section">
           <div className="scene__container profile-page__section-grid">
             <div className="profile-page__section-intro">
               <p className="profile-page__eyebrow">Esperienze</p>

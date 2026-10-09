@@ -7,8 +7,8 @@ import { SEO } from '../components/SEO';
 import { ServiceSignatureVisual } from '../components/ServiceSignatureVisual';
 import { useScrollTo } from '../hooks/useScrollTo';
 import servicesData from '../data/servicesData.json';
-import landingPagesData from '../data/landingPages.json';
-import geoLandingPagesData from '../data/geoLandingPages.json';
+import certifications from '../data/certifications.json';
+import { business } from '../config/business';
 
 type PageKind = 'showroom' | 'system' | 'workflow' | 'identity' | 'newsroom' | 'lab' | 'map' | 'gallery';
 
@@ -31,15 +31,22 @@ const pageConfig: Record<string, PageConfig> = {
   grafica: { kind: 'gallery', statement: 'Un materiale funziona quando ha una direzione, non solo quando è bello.', contentTitle: 'Cosa posso realizzare', proofTitle: 'La qualità sta nel modo in cui ogni elemento tiene insieme gli altri.', crossSell: { label: 'Se serve un sistema completo, guarda l’identità visiva.', path: '/servizi/grafica-identita' } }
 };
 
-function resolveServiceKey(id?: string) {
-  if (!id) return null;
-  if ((servicesData as any)[id]) return id;
-  if (id === 'gestionali') return 'gestionali-web-app';
-  if (id === 'grafica') return 'grafica';
-  if (id === 'social') return 'social-media';
-  if (id === 'infra') return 'infrastrutture';
-  return id;
-}
+const legacyServiceAliases: Record<string, string> = {
+  automation: 'automazioni',
+  gestionali: 'gestionali-web-app',
+  grafica: 'grafica-identita',
+  infra: 'infrastrutture',
+  social: 'social-media',
+};
+
+const geoServicePattern = /^(siti-web|gestionali|grafica|social-media|infrastrutture)-(monza-brianza|milano|lecco|bergamo)$/;
+
+const credentialTitles: Record<string, string[]> = {
+  'grafica-identita': ['Brand Identity e social copywriting'],
+  'social-media': ['Brand Identity e social copywriting', 'Podcast per la comunicazione aziendale'],
+  'formazione-ai': ['Teaching the AI Fluency Framework', 'AI Fluency for Nonprofits'],
+  infrastrutture: ['Introduction to Cybersecurity', 'Introduction to IoT and Digital Transformation'],
+};
 
 function listItems(data: any) {
   const source = data.offerings || data.examples || data.tasks || data.paths || data.includes || [];
@@ -58,10 +65,15 @@ export function LandingPage() {
   const { id } = useParams<{ id: string }>();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const handleScrollTo = useScrollTo();
-  const serviceKey = useMemo(() => resolveServiceKey(id), [id]);
-  const data = serviceKey && serviceKey !== 'grafica' ? (servicesData as any)[serviceKey] : null;
-  const legacyData = !data ? ((landingPagesData as any)[id as string] || (geoLandingPagesData as any)[id as string]) : null;
-  const config = pageConfig[serviceKey || id || ''] || pageConfig['siti-web'];
+  const redirectTarget = useMemo(() => {
+    if (!id) return null;
+    if (legacyServiceAliases[id]) return legacyServiceAliases[id];
+    const geoMatch = id.match(geoServicePattern);
+    return geoMatch ? legacyServiceAliases[geoMatch[1]] || geoMatch[1] : null;
+  }, [id]);
+  const serviceKey = redirectTarget ? null : id;
+  const data = serviceKey ? (servicesData as any)[serviceKey] : null;
+  const config = pageConfig[serviceKey || 'siti-web'] || pageConfig['siti-web'];
   const items = listItems(data || {});
   const proof = data?.principles || data?.benefits || data?.approach || [];
 
@@ -70,29 +82,53 @@ export function LandingPage() {
     setOpenFaq(null);
   }, [id]);
 
-  if (!data && !legacyData) return <Navigate to="/servizi" replace />;
+  if (redirectTarget) return <Navigate to={`/servizi/${redirectTarget}`} replace />;
+  if (!data || !serviceKey) return <Navigate to="/servizi" replace />;
 
-  const title1 = data?.title1 || legacyData?.h1 || 'Servizio digitale';
-  const title2 = data?.title2 || '';
-  const subtitle = data?.subtitle || legacyData?.intro || '';
-  const statementText = data?.positioningText1 || data?.introText || data?.problemText || subtitle;
+  const title1 = data.title1 || 'Servizio digitale';
+  const title2 = data.title2 || '';
+  const subtitle = data.subtitle || '';
+  const statementText = data.positioningText1 || data.introText || data.problemText || subtitle;
   const faq = data?.faq || [];
-  const faqSchema = faq.length > 0 ? [{
+  const schemas: any[] = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: data.badge,
+      description: subtitle,
+      url: `${business.siteUrl}/servizi/${serviceKey}`,
+      provider: { '@id': business.personId },
+      areaServed: business.serviceAreas.map((name) => ({ '@type': 'AdministrativeArea', name })),
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: business.siteUrl },
+        { '@type': 'ListItem', position: 2, name: 'Servizi', item: `${business.siteUrl}/servizi` },
+        { '@type': 'ListItem', position: 3, name: data.badge, item: `${business.siteUrl}/servizi/${serviceKey}` },
+      ],
+    },
+  ];
+  if (faq.length > 0) schemas.push({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: faq.map((item: any) => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } }))
-  }] : undefined;
+    mainEntity: faq.map((item: any) => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } })),
+  });
+  const relatedCredentials = (credentialTitles[serviceKey] || [])
+    .map((title) => certifications.find((item: any) => item.title.it === title))
+    .filter(Boolean) as any[];
 
   return (
     <div className={`service-page service-page--${config.kind}`}>
-      <SEO title={`${data?.badge || legacyData?.titleTag || 'Servizio'} | Alessio Bellan`} description={subtitle || legacyData?.metaDescription || ''} canonical={`/servizi/${id}`} schemas={faqSchema} />
+      <SEO title={`${data.badge} | Alessio Bellan`} description={subtitle} canonical={`/servizi/${serviceKey}`} schemas={schemas} />
       <Navigation />
 
       <main>
         <section className="service-page__hero">
           <div className="scene__container service-page__hero-grid">
             <div className="service-page__hero-copy">
-              <p className="service-page__eyebrow">{data?.badge || 'Servizio'}</p>
+              <p className="service-page__eyebrow">{data.badge}</p>
               <h1><span>{title1}</span><em>{title2}</em></h1>
               <p className="service-page__hero-lead">{subtitle}</p>
               <div className="service-page__actions">
@@ -135,6 +171,18 @@ export function LandingPage() {
                   return <li key={`${title}-${index}`}><span>{String(index + 1).padStart(2, '0')}</span><div><h3>{title}</h3>{description && <p>{description}</p>}</div></li>;
                 })}
               </ol>
+            </div>
+          </section>
+        )}
+
+        {relatedCredentials.length > 0 && (
+          <section className="service-page__credentials" aria-labelledby="credential-title">
+            <div className="scene__container service-page__credentials-grid">
+              <div><p className="service-page__eyebrow">Competenze pertinenti</p><h2 id="credential-title">Formazione collegata al servizio.</h2></div>
+              <ul>
+                {relatedCredentials.map((item) => <li key={item.title.it}><strong>{item.title.it}</strong><span>{item.issuer}</span></li>)}
+              </ul>
+              <Link to="/chi-sono#certificazioni" className="text-link">Vedi formazione e certificazioni <ArrowRight size={17} aria-hidden="true" /></Link>
             </div>
           </section>
         )}

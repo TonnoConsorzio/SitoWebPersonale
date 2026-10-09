@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useMotionValueEvent, useScroll } from 'motion/react';
 import { useScrollTo } from '../../hooks/useScrollTo';
 import { useTranslation } from 'react-i18next';
@@ -16,6 +16,7 @@ export function Navigation() {
   const languageTimer = useRef<number | undefined>(undefined);
   const handleScrollTo = useScrollTo();
   const { scrollY } = useScroll();
+  const location = useLocation();
 
   useMotionValueEvent(scrollY, 'change', (value) => setScrolled(value > 24));
 
@@ -26,7 +27,10 @@ export function Navigation() {
   useEffect(() => () => window.clearTimeout(languageTimer.current), []);
 
   const scrollLink = (id: string, label: string) => (
-    <a href={`#${id}`} onClick={(event) => { setMenuOpen(false); handleScrollTo(event, id); }} className="experience-nav__link">
+    <a href={location.pathname === '/' ? `#${id}` : `/#${id}`} onClick={(event) => {
+      setMenuOpen(false);
+      if (location.pathname === '/') handleScrollTo(event, id);
+    }} className="experience-nav__link">
       {label}
     </a>
   );

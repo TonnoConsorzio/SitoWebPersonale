@@ -18,7 +18,7 @@ export function About() {
           <div>
             {copy.paragraphs.map((paragraph, index) => <p key={paragraph}>{index === 4 ? <strong>{paragraph}</strong> : paragraph}</p>)}
           </div>
-          <Link to="/curriculum" className="text-link">{copy.cta} <ArrowUpRight size={17} aria-hidden="true" /></Link>
+          <Link to="/chi-sono" className="text-link">{copy.cta} <ArrowUpRight size={17} aria-hidden="true" /></Link>
         </div>
       </div>
 

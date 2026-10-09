@@ -26,7 +26,7 @@ export function Hero() {
             </div>
             <div className="hero-scene__actions">
               <a href={bookingUrl} target="_blank" rel="noopener noreferrer" className="experience-button">{copy.book} <ArrowUpRight size={17} aria-hidden="true" /></a>
-              <a href="#progetti" onClick={(event) => handleScrollTo(event, 'progetti')} className="experience-button experience-button--secondary">{copy.projects} <ArrowDownRight size={17} aria-hidden="true" /></a>
+              <a href="#servizi" onClick={(event) => handleScrollTo(event, 'servizi')} className="experience-button experience-button--secondary">{copy.services} <ArrowDownRight size={17} aria-hidden="true" /></a>
             </div>
           </div>
         </div>

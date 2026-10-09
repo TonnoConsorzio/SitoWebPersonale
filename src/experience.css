@@ -1143,8 +1143,7 @@ textarea.experience-field { min-height: 11.25rem; }
 .service-page__eyebrow,
 .service-index-page__eyebrow,
 .case-index-page__eyebrow,
-.case-page__eyebrow,
-.profile-page__eyebrow { display: none !important; }
+.case-page__eyebrow { display: none !important; }
 
 .hero-typewriter {
   display: flex;
@@ -1405,36 +1404,22 @@ textarea.experience-field { min-height: 11.25rem; }
 }
 
 .projects-scene__intro > h2 {
+  display: grid;
+  width: min(100%, 70rem);
+  max-width: 70rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 2rem);
+}
+
+.projects-scene__intro > h2 > span {
   display: block;
-  width: min(100%, 34rem);
-  max-width: 14ch;
 }
 
 .projects-scene__intro > h2 > .projects-scene__intro-a {
   color: var(--color-warm-white);
 }
 
-.projects-scene__outro {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  padding-top: clamp(1.75rem, 3vw, 3rem);
-}
-
-.projects-scene__closing {
-  grid-column: 8 / -1;
-  max-width: 17ch;
-  justify-self: end;
-  margin: 0;
-  color: var(--color-warm-white);
-  font-family: var(--font-display);
-  font-size: clamp(1.9rem, 2.7vw, 3rem);
-  font-weight: 560;
-  letter-spacing: -.055em;
-  line-height: .98;
-  text-align: right;
-}
-
-.projects-scene__quote-mark {
+.projects-scene__intro > h2 > .projects-scene__intro-b {
   color: var(--color-brand-yellow);
 }
 
@@ -1541,14 +1526,11 @@ textarea.experience-field { min-height: 11.25rem; }
     padding-bottom: 1.5rem;
   }
 
-  .projects-scene__outro {
-    display: block;
-    padding-top: 1.5rem;
-  }
-
-  .projects-scene__closing {
-    max-width: 14ch;
-    text-align: left;
+  .projects-scene__intro > h2 {
+    width: 100%;
+    max-width: none;
+    grid-template-columns: 1fr;
+    gap: .25em;
   }
 
   .scroll-underline::after {
@@ -1644,3 +1626,186 @@ textarea.experience-field { min-height: 11.25rem; }
     margin-top: -1rem;
   }
 }
+
+/* Curriculum: make the reading order visible before adding more content. */
+.profile-page .profile-page__eyebrow {
+  display: inline-flex !important;
+  margin: 0 0 var(--space-4);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.profile-page__hero {
+  padding: clamp(8rem, 13vw, 11rem) 0 clamp(5rem, 8vw, 7rem);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.profile-page__hero .scene__container,
+.profile-page__cta .scene__container {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: end;
+  gap: var(--grid-gutter);
+}
+
+.profile-page__hero .profile-page__eyebrow,
+.profile-page__cta .profile-page__eyebrow {
+  grid-column: 1 / -1;
+}
+
+.profile-page__hero h1 {
+  grid-column: 1 / span 7;
+  max-width: 8ch;
+  font-size: clamp(4rem, 7vw, 7rem);
+  line-height: .9;
+}
+
+.profile-page__hero > .scene__container > p:not(.profile-page__eyebrow) {
+  grid-column: 8 / -1;
+  max-width: 34ch;
+  margin: 0 0 .25rem;
+  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+  line-height: 1.5;
+}
+
+.profile-page .experience-button {
+  grid-column: 8 / -1;
+  justify-self: start;
+  margin-top: var(--space-5);
+}
+
+.profile-page__section {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.profile-page__section-intro,
+.profile-page__details > div {
+  min-width: 0;
+}
+
+.profile-page__section-intro h2,
+.profile-page__details h2 {
+  max-width: 11ch;
+  font-size: clamp(2.6rem, 4.2vw, 4.4rem);
+  line-height: .94;
+  letter-spacing: -.055em;
+}
+
+.profile-page__rows > li {
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  padding: 1.5rem 0 1.7rem;
+}
+
+.profile-page__rows > li > span,
+.profile-page__compact-list > li > span {
+  color: var(--color-brand-yellow);
+}
+
+.profile-page__row-meta {
+  align-items: baseline;
+}
+
+.profile-page__rows h3 {
+  max-width: 22ch;
+  font-size: clamp(1.35rem, 1.9vw, 1.8rem);
+  line-height: 1.05;
+}
+
+.profile-page__details {
+  align-items: start;
+}
+
+.profile-page__compact-list,
+.profile-page__skills {
+  margin-top: var(--space-6);
+}
+
+.profile-page__skills li {
+  font-weight: 600;
+}
+
+.profile-page__cta {
+  padding: clamp(5rem, 8vw, 7rem) 0;
+}
+
+.profile-page__cta h2 {
+  grid-column: 1 / span 7;
+  max-width: 9ch;
+}
+
+.profile-page__cta .experience-button {
+  grid-column: 8 / -1;
+  margin: 0;
+}
+
+@media (max-width: 63.99rem) {
+  .profile-page__hero h1 {
+    grid-column: 1 / span 6;
+  }
+
+  .profile-page__hero > .scene__container > p:not(.profile-page__eyebrow),
+  .profile-page__hero .experience-button {
+    grid-column: 4 / -1;
+  }
+
+  .profile-page__cta h2 {
+    grid-column: 1 / span 4;
+  }
+
+  .profile-page__cta .experience-button {
+    grid-column: 5 / -1;
+  }
+}
+
+@media (max-width: 43.99rem) {
+  .profile-page__hero {
+    padding: 3.5rem 0 4.5rem;
+  }
+
+  .profile-page__hero .scene__container,
+  .profile-page__cta .scene__container {
+    display: block;
+  }
+
+  .profile-page__hero h1 {
+    max-width: 9ch;
+    font-size: clamp(3.5rem, 16vw, 5rem);
+  }
+
+  .profile-page__hero > .scene__container > p:not(.profile-page__eyebrow) {
+    margin-top: var(--space-6);
+    font-size: 1rem;
+  }
+
+  .profile-page .experience-button,
+  .profile-page__cta .experience-button {
+    display: inline-flex;
+    margin-top: var(--space-5);
+  }
+
+  .profile-page__section-grid,
+  .profile-page__details,
+  .profile-page__certifications {
+    gap: 2.5rem;
+  }
+
+  .profile-page__section-intro h2,
+  .profile-page__details h2,
+  .profile-page__cta h2 {
+    max-width: 10ch;
+    font-size: clamp(2.65rem, 12vw, 4rem);
+  }
+}
+
+.service-page__credentials { border-block: 1px solid var(--color-line); background: var(--color-warm-secondary); }
+.service-page__credentials-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(16rem, .9fr) auto; gap: 2rem; align-items: end; padding-block: clamp(2.5rem, 5vw, 5rem); }
+.service-page__credentials h2 { max-width: 15ch; margin: 0; font-size: clamp(2rem, 3.6vw, 4rem); line-height: .96; letter-spacing: -.055em; }
+.service-page__credentials ul { display: grid; gap: .8rem; margin: 0; padding: 0; list-style: none; }
+.service-page__credentials li { display: grid; gap: .12rem; border-bottom: 1px solid var(--color-line); padding-bottom: .8rem; }
+.service-page__credentials li span { color: var(--color-text-muted); font-family: var(--font-mono); font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; }
+@media (max-width: 48rem) { .service-page__credentials-grid { grid-template-columns: 1fr; align-items: start; gap: 1.5rem; } }

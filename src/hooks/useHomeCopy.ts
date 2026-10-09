@@ -7,7 +7,7 @@ export const homeCopy = {
     hero: {
       titleA: 'Idee', titleAEmphasis: 'fuori di testa.', titleB: 'Soluzioni', titleBMiddle: 'con i', titleBEmphasis: 'piedi per terra.',
       typewriter: ['Siti web', 'Automazioni', 'Gestionali', 'Web app', 'Formazione', 'Identità visiva', 'Infrastruttura', 'Grafica', 'Social media'], typewriterPrefix: 'Posso fare:', staticTypewriter: 'siti web, automazioni, formazione e strumenti digitali.',
-      book: 'Prenota 15 minuti', projects: 'Guarda i progetti', sceneLabel: 'Computer retro interattivo'
+      book: 'Prenota 15 minuti', services: 'Vedi i servizi', sceneLabel: 'Computer retro interattivo'
     },
     projects: {
       introA: 'Non ti racconto cosa potrei fare.', introB: 'Ti faccio vedere cosa sto facendo.', cta: 'Guarda il progetto',
@@ -17,7 +17,7 @@ export const homeCopy = {
       ]
     },
     services: {
-      titleA: 'Dimmi cosa', titleEmphasis: 'non funziona.', titleB: 'Il servizio lo scegliamo dopo.',
+      titleA: 'Dimmi cosa', titleEmphasis: 'non funziona.', titleB: 'Il servizio lo scegliamo dopo.', all: 'Vedi tutti i servizi',
       groups: [
         { title: 'Farti scegliere', emphasis: 'scegliere', services: 'Siti web · Identità', description: 'Per far capire in fretta chi sei, cosa fai e perché dovrebbero contattarti.', cta: 'Siti e identità', path: '/servizi/siti-web' },
         { title: 'Farti risparmiare tempo', emphasis: 'risparmiare tempo', services: 'Automazioni · Gestionali · Web app', description: 'Per togliere di mezzo passaggi manuali, doppioni e strumenti che non si parlano.', cta: 'Automazioni e software', path: '/servizi/automazioni' },
@@ -65,7 +65,7 @@ export const homeCopy = {
     hero: {
       titleA: 'Bold', titleAEmphasis: 'ideas.', titleB: 'Grounded', titleBMiddle: '', titleBEmphasis: 'solutions.',
       typewriter: ['Websites', 'Automation', 'Admin tools', 'Web apps', 'Training', 'Visual identity', 'Infrastructure', 'Graphics', 'Social media'], typewriterPrefix: 'I can do:', staticTypewriter: 'websites, automation, training and digital tools.',
-      book: 'Book 15 minutes', projects: 'See projects', sceneLabel: 'Interactive retro computer'
+      book: 'Book 15 minutes', services: 'See services', sceneLabel: 'Interactive retro computer'
     },
     projects: {
       introA: 'I won’t tell you what I could do.', introB: 'I’ll show you what I’m doing.', cta: 'See the project',
@@ -75,7 +75,7 @@ export const homeCopy = {
       ]
     },
     services: {
-      titleA: 'Tell me what', titleEmphasis: 'is not working.', titleB: 'We choose the service after that.',
+      titleA: 'Tell me what', titleEmphasis: 'is not working.', titleB: 'We choose the service after that.', all: 'See all services',
       groups: [
         { title: 'Help people choose you', emphasis: 'choose you', services: 'Websites · Identity', description: 'So people quickly understand who you are, what you do and why they should contact you.', cta: 'Websites and identity', path: '/servizi/siti-web' },
         { title: 'Save you time', emphasis: 'time', services: 'Automations · Admin tools · Web apps', description: 'To remove manual steps, duplicate work and tools that do not speak to each other.', cta: 'Automation and software', path: '/servizi/automazioni' },
