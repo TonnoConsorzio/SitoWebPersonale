@@ -23,7 +23,7 @@ Il sito descrive anche automazioni e formazione pratica sull'AI quando pertinent
 
 - Chi sono e curriculum: https://alessiobellan.it/chi-sono
 - Servizi: https://alessiobellan.it/servizi
-- Portfolio: https://alessiobellan.it/portfolio
+- Progetti: https://alessiobellan.it/progetti
 - Journal: https://alessiobellan.it/journal
 
 ## Contatti e profili

@@ -7,6 +7,7 @@ import { SEO } from '../components/SEO';
 import { ServiceSignatureVisual } from '../components/ServiceSignatureVisual';
 import { useScrollTo } from '../hooks/useScrollTo';
 import servicesData from '../data/servicesData.json';
+import portfolio from '../data/portfolio.json';
 import certifications from '../data/certifications.json';
 import { business } from '../config/business';
 
@@ -118,6 +119,7 @@ export function LandingPage() {
   const relatedCredentials = (credentialTitles[serviceKey] || [])
     .map((title) => certifications.find((item: any) => item.title.it === title))
     .filter(Boolean) as any[];
+  const relatedProject = (portfolio as any[]).find((project) => project.service === serviceKey);
 
   return (
     <div className={`service-page service-page--${config.kind}`}>
@@ -127,13 +129,14 @@ export function LandingPage() {
       <main>
         <section className="service-page__hero">
           <div className="scene__container service-page__hero-grid">
+            <nav className="seo-breadcrumbs" aria-label="Percorso"><Link to="/">Home</Link><span aria-hidden="true">/</span><Link to="/servizi">Servizi</Link><span aria-hidden="true">/</span><span>{data.badge}</span></nav>
             <div className="service-page__hero-copy">
               <p className="service-page__eyebrow">{data.badge}</p>
               <h1><span>{title1}</span><em>{title2}</em></h1>
               <p className="service-page__hero-lead">{subtitle}</p>
               <div className="service-page__actions">
                 <a href="#contatti" onClick={(event) => handleScrollTo(event, 'contatti')} className="experience-button">Prenota 15 minuti <ArrowRight size={17} aria-hidden="true" /></a>
-                <Link to="/portfolio" className="text-link">Guarda i progetti <ArrowRight size={17} aria-hidden="true" /></Link>
+                <Link to="/progetti" className="text-link">Guarda i progetti <ArrowRight size={17} aria-hidden="true" /></Link>
               </div>
             </div>
             <ServiceSignatureVisual kind={config.kind} data={data || {}} />
@@ -197,6 +200,13 @@ export function LandingPage() {
             </div>
           </section>
         )}
+
+        <section className="service-page__area-note" aria-labelledby="service-area-title">
+          <div className="scene__container service-page__area-note-grid">
+            <div><p className="service-page__eyebrow">Dove lavoro</p><h2 id="service-area-title">Lavoro con realtà locali che hanno bisogno di fare ordine.</h2></div>
+            <div><p>Seguo PMI, professionisti, associazioni e realtà no-profit nella provincia di Monza e Brianza, Milano, Lecco e Bergamo.</p><div className="service-page__area-links"><Link to="/chi-sono" className="text-link">Conosci il mio percorso <ArrowRight size={17} aria-hidden="true" /></Link>{relatedProject && <Link to={`/progetti/${relatedProject.slug}`} className="text-link">Vedi {relatedProject.title.it} <ArrowRight size={17} aria-hidden="true" /></Link>}</div></div>
+          </div>
+        </section>
 
         {config.crossSell && <section className="service-page__cross-sell"><div className="scene__container"><Link to={config.crossSell.path}>{config.crossSell.label}<ArrowRight size={17} aria-hidden="true" /></Link></div></section>}
 

@@ -30,7 +30,9 @@ export default function App() {
               <Route path="/" element={<Home />} />
               <Route path="/chi-sono" element={<CurriculumPage />} />
               <Route path="/curriculum" element={<Navigate to="/chi-sono" replace />} />
-              <Route path="/portfolio" element={<PortfolioPage />} />
+              <Route path="/progetti" element={<PortfolioPage />} />
+              <Route path="/progetti/:slug" element={<ProjectPage />} />
+              <Route path="/portfolio" element={<Navigate to="/progetti" replace />} />
               <Route path="/portfolio/:id" element={<ProjectPage />} />
               <Route path="/servizi" element={<ServicesOverviewPage />} />
               <Route path="/agenzie" element={<AgencyPage />} />

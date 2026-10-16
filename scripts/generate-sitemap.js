@@ -14,21 +14,40 @@ const articleSlugs = fs.readdirSync(articleDirectory)
   .map((file) => file.replace(/\.md$/, ''));
 
 const routes = [
-  '/',
-  '/chi-sono',
-  '/servizi',
-  ...services.overview.grid.map((service) => service.path),
-  '/portfolio',
-  ...projects.map((project) => `/portfolio/${project.id}`),
-  '/agenzie',
-  '/journal',
-  ...articleSlugs.map((slug) => `/journal/${slug}`),
+  { route: '/', priority: '1.0' },
+  { route: '/chi-sono', priority: '0.8' },
+  { route: '/servizi', priority: '0.9' },
+  ...services.overview.grid.map((service) => ({ route: service.path, priority: '0.8' })),
+  { route: '/progetti', priority: '0.9' },
+  ...projects.map((project) => ({
+    route: `/progetti/${project.slug}`,
+    priority: '0.8',
+    image: `${domain}${String(project.image).replace(/^\.\//, '/')}`,
+    imageTitle: typeof project.title === 'string' ? project.title : project.title.it,
+  })),
+  { route: '/agenzie', priority: '0.6' },
+  { route: '/journal', priority: '0.7' },
+  ...articleSlugs.map((slug) => ({ route: `/journal/${slug}`, priority: '0.6' })),
 ];
+
+const escapeXml = (value) => String(value)
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;')
+  .replace(/'/g, '&apos;');
 
 const sitemap = [
   '<?xml version="1.0" encoding="UTF-8"?>',
-  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-  ...routes.map((route) => `  <url><loc>${domain}${route}</loc></url>`),
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
+  ...routes.map(({ route, priority, image, imageTitle }) => [
+    '  <url>',
+    `    <loc>${escapeXml(domain + route)}</loc>`,
+    `    <changefreq>${route.startsWith('/journal') ? 'monthly' : 'yearly'}</changefreq>`,
+    `    <priority>${priority}</priority>`,
+    image ? `    <image:image><image:loc>${escapeXml(image)}</image:loc><image:title>${escapeXml(imageTitle)}</image:title></image:image>` : '',
+    '  </url>',
+  ].filter(Boolean).join('\n')),
   '</urlset>',
   '',
 ].join('\n');

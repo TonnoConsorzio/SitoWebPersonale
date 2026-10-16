@@ -59,7 +59,7 @@ export function ServiceSignatureVisual({ kind, data }: ServiceSignatureVisualPro
   if (kind === 'showroom') {
     return (
       <div className="service-visual service-visual--showroom">
-        <Link to="/portfolio/2" className="service-visual__image-link">
+        <Link to="/progetti/digital-heroes" className="service-visual__image-link">
           <img src={projectImages.showroom} alt="Anteprima del progetto Digital Heroes" />
           <span>Apri il progetto <ExternalLink size={15} aria-hidden="true" /></span>
         </Link>
@@ -183,7 +183,7 @@ export function ServiceSignatureVisual({ kind, data }: ServiceSignatureVisualPro
     <div className="service-visual service-visual--gallery">
       <div className="service-visual__gallery-main"><img src={projectImages.galleryA} alt="Progetto La Voce del Fumagalli" /><span>Progetti reali</span></div>
       <div className="service-visual__gallery-side"><img src={projectImages.galleryB} alt="Dettaglio progetto Digital Heroes" /><img src={projectImages.galleryC} alt="Dettaglio progetto ABBO APS" /></div>
-      <div className="service-visual__gallery-caption"><strong>Un materiale deve avere una direzione.</strong><Link to="/portfolio">Vedi i progetti <ArrowRight size={16} aria-hidden="true" /></Link></div>
+      <div className="service-visual__gallery-caption"><strong>Un materiale deve avere una direzione.</strong><Link to="/progetti">Vedi i progetti <ArrowRight size={16} aria-hidden="true" /></Link></div>
     </div>
   );
 }

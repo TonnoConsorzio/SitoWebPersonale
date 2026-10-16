@@ -1,6 +1,11 @@
 [
   {
     "id": 1,
+    "slug": "la-voce-del-fumagalli",
+    "imageAlt": "Homepage del sito editoriale La Voce del Fumagalli",
+    "imageWidth": 1654,
+    "imageHeight": 1092,
+    "service": "siti-web",
     "title": {
       "it": "La Voce del Fumagalli",
       "en": "La Voce del Fumagalli"
@@ -26,6 +31,12 @@
   },
   {
     "id": 2,
+    "slug": "digital-heroes",
+    "imageAlt": "Homepage della piattaforma Digital Heroes per eventi e iscrizioni",
+    "imageWidth": 1654,
+    "imageHeight": 1132,
+    "service": "gestionali-web-app",
+    "relatedArticle": "primo-articolo",
     "title": {
       "it": "Digital Heroes",
       "en": "Digital Heroes"
@@ -56,6 +67,11 @@
   },
   {
     "id": 3,
+    "slug": "abbo-aps",
+    "imageAlt": "Homepage del sito di ABBO APS per l'educazione digitale",
+    "imageWidth": 1654,
+    "imageHeight": 1132,
+    "service": "grafica-identita",
     "title": {
       "it": "ABBO APS",
       "en": "ABBO APS"

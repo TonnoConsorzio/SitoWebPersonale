@@ -1,5 +1,5 @@
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
-import { useEffect, useRef, useState, type KeyboardEvent, type TouchEvent } from 'react';
+import { useEffect, useRef, useState, type KeyboardEvent, type SyntheticEvent, type TouchEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import portfolio from '../../data/portfolio.json';
@@ -10,9 +10,9 @@ type Locale = 'it' | 'en';
 type PortfolioItem = (typeof portfolio)[number];
 
 const getImagePath = (image: string) => image.replace(/^\.\//, '/');
-const projectHref = (project: PortfolioItem) => `/portfolio/${project.id}`;
+const projectHref = (project: PortfolioItem) => `/progetti/${project.slug}`;
 const relativeIndex = (index: number, activeIndex: number) => index - activeIndex;
-const projectMediaSize = { width: 1600, height: 1000 };
+const fallbackImage = '/media/brand/foto_profilo_firma.jpg';
 
 export function ProjectCarousel() {
   const { i18n } = useTranslation();
@@ -93,16 +93,27 @@ export function ProjectCarousel() {
             const title = project.title[locale];
             const image = getImagePath(project.image);
             const href = projectHref(project);
+            const near = Math.abs(distance) <= 1;
+            const imageProps = {
+              width: project.imageWidth,
+              height: project.imageHeight,
+              src: image,
+              onError: (event: SyntheticEvent<HTMLImageElement>) => {
+                if (event.currentTarget.src.endsWith(fallbackImage)) return;
+                event.currentTarget.src = fallbackImage;
+              },
+              decoding: 'async' as const,
+            };
 
             return (
               <article key={project.id} className={`project-stage__slide ${distance === 0 ? 'is-active' : ''}`.trim()} data-relative-index={distance} aria-hidden={Math.abs(distance) > 2 ? true : undefined}>
                 {distance === 0 ? (
                   <Link to={href} className="project-stage__active-media" aria-label={`Apri il progetto ${title}`}>
-                    <img {...projectMediaSize} src={image} alt={title} loading="eager" decoding="async" />
+                    <img {...imageProps} alt={project.imageAlt} loading="eager" fetchPriority="high" />
                   </Link>
                 ) : (
                   <button type="button" className="project-stage__preview" onClick={() => select(index)} tabIndex={Math.abs(distance) <= 2 ? 0 : -1} aria-label={`Seleziona il progetto ${title}`}>
-                    <img {...projectMediaSize} src={image} alt="" loading={distance <= 2 ? 'eager' : 'lazy'} decoding="async" />
+                    <img {...imageProps} alt="" loading={near ? 'eager' : 'lazy'} fetchPriority={near ? 'low' : 'auto'} />
                   </button>
                 )}
 

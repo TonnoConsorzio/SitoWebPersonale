@@ -51,6 +51,15 @@ export function ArticlePage() {
     publisher: { '@id': business.personId, name: business.name },
   };
   if (article.metadata.modified) articleSchema.dateModified = article.metadata.modified;
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: business.siteUrl },
+      { '@type': 'ListItem', position: 2, name: 'Journal', item: `${business.siteUrl}/journal` },
+      { '@type': 'ListItem', position: 3, name: article.metadata.title, item: `${business.siteUrl}/journal/${slug}` },
+    ],
+  };
 
   return (
     <>
@@ -59,11 +68,12 @@ export function ArticlePage() {
         description={article.metadata.excerpt}
         canonical={`/journal/${slug}`}
         type="article"
-        schemas={[articleSchema]}
+        schemas={[articleSchema, breadcrumbSchema]}
       />
       <Navigation />
       
       <main className="min-h-screen pt-32 pb-24 px-8 max-w-4xl mx-auto">
+        <nav className="seo-breadcrumbs" aria-label="Percorso"><Link to="/">Home</Link><span aria-hidden="true">/</span><Link to="/journal">Journal</Link><span aria-hidden="true">/</span><span>{article.metadata.title}</span></nav>
         <Link to="/journal" className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors mb-12">
           <ArrowLeft className="w-4 h-4 mr-2" /> Torna al Journal
         </Link>
@@ -102,7 +112,7 @@ export function ArticlePage() {
           </div>
           <aside className="mt-16 border-t border-foreground/20 pt-8">
             <p className="mono-label">Approfondisci</p>
-            <div className="mt-4 flex flex-wrap gap-4"><Link to="/portfolio" className="text-link">Progetti <ArrowLeft className="ml-1 w-4 rotate-180" /></Link><Link to="/servizi/gestionali-web-app" className="text-link">Gestionali e web app <ArrowLeft className="ml-1 w-4 rotate-180" /></Link></div>
+            <div className="mt-4 flex flex-wrap gap-4"><Link to="/progetti" className="text-link">Progetti <ArrowLeft className="ml-1 w-4 rotate-180" /></Link><Link to="/servizi/gestionali-web-app" className="text-link">Gestionali e web app <ArrowLeft className="ml-1 w-4 rotate-180" /></Link></div>
           </aside>
         </article>
       </main>

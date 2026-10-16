@@ -769,7 +769,11 @@ textarea.experience-field { min-height: 11.25rem; }
 /* Internal service pages: one clear argument, one signature visual, plain index rows. */
 .service-page { min-height: 100svh; padding-top: 6.25rem; background: var(--color-warm-white); color: var(--color-ink); }
 .service-page__hero { padding: clamp(4rem, 8vw, 7.5rem) 0 clamp(5rem, 8vw, 8rem); }
-.service-page__hero-grid, .service-page__statement-grid, .service-page__index-grid, .service-page__proof-grid, .service-page__process-grid, .service-page__faq-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--grid-gutter); }
+.service-page__hero-grid, .service-page__statement-grid, .service-page__index-grid, .service-page__proof-grid, .service-page__process-grid, .service-page__faq-grid, .service-page__area-note-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--grid-gutter); }
+.seo-breadcrumbs { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem; margin-bottom: var(--space-6); color: var(--color-text-muted); font-family: var(--font-mono); font-size: .7rem; font-weight: 700; letter-spacing: .04em; }
+.seo-breadcrumbs a { color: inherit; text-decoration: none; }
+.seo-breadcrumbs a:hover { color: var(--color-ink); text-decoration: underline; text-underline-offset: .25rem; }
+.service-page__hero-grid > .seo-breadcrumbs { grid-column: 1 / -1; margin-bottom: calc(var(--space-6) * -1); }
 .service-page__hero-copy { grid-column: 1 / span 5; align-self: center; }
 .service-page__eyebrow { margin: 0 0 var(--space-5); color: var(--color-text-muted); font-family: var(--font-mono); font-size: .75rem; font-weight: 700; letter-spacing: .1em; line-height: 1.3; text-transform: uppercase; }
 .service-page h1, .service-page h2, .service-page h3 { font-family: var(--font-display); letter-spacing: -.06em; }
@@ -805,6 +809,13 @@ textarea.experience-field { min-height: 11.25rem; }
 .service-page__cross-sell a { display: flex; max-width: 55rem; align-items: center; justify-content: space-between; gap: var(--space-6); padding: 1.35rem 0; border-top: 1px solid var(--color-ink); border-bottom: 1px solid var(--color-ink); color: var(--color-ink); font-size: clamp(1.1rem, 1.6vw, 1.35rem); font-weight: 700; text-decoration: none; }
 .service-page__cross-sell a svg { flex: 0 0 auto; transition: transform var(--dur-fast) var(--ease-out); }
 .service-page__cross-sell a:hover svg { transform: translateX(.35rem); }
+.service-page__area-note { padding: clamp(4.5rem, 7vw, 7rem) 0; background: var(--color-warm-secondary); }
+.service-page__area-note-grid > div:first-child { grid-column: 1 / span 5; }
+.service-page__area-note-grid > div:last-child { grid-column: 8 / span 4; align-self: end; }
+.service-page__area-note h2 { max-width: 12ch; margin: 0; font-size: clamp(2.5rem, 4vw, 4.2rem); line-height: .98; }
+.service-page__area-note p:not(.service-page__eyebrow) { max-width: 38ch; margin: 0; color: var(--color-text-muted); font-size: 1.05rem; line-height: 1.5; }
+.service-page__area-links { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; margin-top: var(--space-6); }
+.service-page__area-links .text-link { display: inline-flex; align-items: center; gap: .35rem; color: var(--color-ink); font-weight: 700; text-decoration: none; }
 .service-page__faq-list { grid-column: 6 / span 7; border-top: 1px solid var(--color-line); }
 .service-page__faq-list > div { border-bottom: 1px solid var(--color-line); }
 .service-page__faq-list button { display: flex; width: 100%; min-height: 4.25rem; align-items: center; justify-content: space-between; gap: var(--space-5); padding: 1rem 0; border: 0; background: transparent; color: inherit; cursor: pointer; font-family: var(--font-display); font-size: clamp(1.1rem, 1.6vw, 1.35rem); font-weight: 650; line-height: 1.15; text-align: left; }
@@ -893,7 +904,7 @@ textarea.experience-field { min-height: 11.25rem; }
 .service-visual__gallery-caption a { display: inline-flex; align-items: center; gap: .4rem; color: inherit; font-size: .9rem; font-weight: 700; text-decoration: none; }
 
 @media (max-width: 63.99rem) {
-  .service-page__hero-grid, .service-page__statement-grid, .service-page__index-grid, .service-page__proof-grid, .service-page__process-grid, .service-page__faq-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .service-page__hero-grid, .service-page__statement-grid, .service-page__index-grid, .service-page__proof-grid, .service-page__process-grid, .service-page__faq-grid, .service-page__area-note-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
   .service-page__hero-copy { grid-column: 1 / span 5; }
   .service-page__hero > .scene__container > .service-visual { grid-column: 2 / span 5; }
   .service-page__statement h2 { grid-column: 1 / span 3; }
@@ -905,8 +916,8 @@ textarea.experience-field { min-height: 11.25rem; }
 @media (max-width: 43.99rem) {
   .service-page { padding-top: 5.25rem; }
   .service-page__hero { padding: 3rem 0 4.5rem; }
-  .service-page__hero-grid, .service-page__statement-grid, .service-page__index-grid, .service-page__proof-grid, .service-page__process-grid, .service-page__faq-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-5); }
-  .service-page__hero-copy, .service-page__hero > .scene__container > .service-visual, .service-page__statement h2, .service-page__statement-grid > div, .service-page__section-intro, .service-page__index-list, .service-page__proof-list, .service-page__process-list, .service-page__faq-list { grid-column: 1 / -1; }
+  .service-page__hero-grid, .service-page__statement-grid, .service-page__index-grid, .service-page__proof-grid, .service-page__process-grid, .service-page__faq-grid, .service-page__area-note-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-5); }
+  .service-page__hero-copy, .service-page__hero > .scene__container > .service-visual, .service-page__statement h2, .service-page__statement-grid > div, .service-page__section-intro, .service-page__index-list, .service-page__proof-list, .service-page__process-list, .service-page__faq-list, .service-page__area-note-grid > div { grid-column: 1 / -1; }
   .service-page h1 { max-width: 10ch; font-size: clamp(3rem, 14vw, 4.15rem); }
   .service-page__hero-lead { max-width: 32ch; font-size: 1.05rem; }
   .service-page__actions { align-items: stretch; flex-direction: column; gap: .85rem; }
@@ -916,6 +927,9 @@ textarea.experience-field { min-height: 11.25rem; }
   .service-page__rule-label { margin-top: var(--space-6); }
   .service-page__index, .service-page__proof, .service-page__process, .service-page__faq { padding: 4.5rem 0; }
   .service-page__section-intro h2 { max-width: 13ch; font-size: clamp(2.45rem, 10vw, 3.3rem); }
+  .service-page__hero-grid > .seo-breadcrumbs { margin-bottom: 0; }
+  .service-page__area-note h2 { max-width: 13ch; font-size: clamp(2.45rem, 10vw, 3.3rem); }
+  .service-page__area-note-grid > div:last-child { align-self: start; }
   .service-page__index-list, .service-page__proof-list, .service-page__process-list, .service-page__faq-list { margin-top: var(--space-5); }
   .service-page__index-list li, .service-page__proof-list li, .service-page__process-list li { grid-template-columns: 2rem minmax(0, 1fr); gap: .8rem; padding: 1.15rem 0; }
   .service-page__index-list h3, .service-page__proof-list h3, .service-page__process-list h3 { font-size: 1.2rem; }
@@ -1030,7 +1044,7 @@ textarea.experience-field { min-height: 11.25rem; }
 .case-page__hero .scene__container { max-width: 70rem; }
 .case-page__back { display: inline-flex; align-items: center; gap: .4rem; margin-bottom: clamp(3rem, 6vw, 5rem); color: var(--color-text-muted); font-weight: 700; text-decoration: none; }
 .case-page__back svg { transform: rotate(180deg); }
-.case-page__hero h1 { max-width: 11ch; margin: 0; font-size: clamp(4rem, 7vw, 7.25rem); line-height: .9; }
+.case-page__hero h1 { max-width: 11ch; margin: 0; overflow-wrap: anywhere; font-size: clamp(4rem, 7vw, 7.25rem); line-height: .9; }
 .case-page__lead { max-width: 48ch; margin: var(--space-6) 0 0; color: var(--color-text-muted); font-size: clamp(1.1rem, 1.35vw, 1.3rem); line-height: 1.5; }
 .case-page__meta { display: flex; flex-wrap: wrap; gap: .7rem 1rem; align-items: center; margin-top: var(--space-8); color: var(--color-text-muted); font-family: var(--font-mono); font-size: .75rem; font-weight: 700; text-transform: uppercase; }
 .case-page__meta a { display: inline-flex; min-height: 2.75rem; align-items: center; gap: .4rem; padding: .6rem .8rem; background: var(--color-ink); color: var(--color-warm-white); font-family: var(--font-body); font-size: .9rem; text-decoration: none; text-transform: none; }
@@ -1050,7 +1064,7 @@ textarea.experience-field { min-height: 11.25rem; }
 @media (max-width: 43.99rem) {
   .case-index-page, .case-page { padding-top: 5.25rem; }
   .case-index-page__hero, .case-page__hero { padding: 3rem 0 4.5rem; }
-  .case-index-page__hero h1, .case-page__hero h1 { max-width: 10ch; font-size: clamp(3.2rem, 15vw, 4.3rem); }
+  .case-index-page__hero h1, .case-page__hero h1 { max-width: 8ch; font-size: clamp(3.2rem, 15vw, 4.3rem); }
   .case-index-page__project { grid-template-columns: 1fr; gap: var(--space-5); padding: 1.5rem 0 2.5rem; }
   .case-index-page__project-copy h2 { max-width: 13ch; font-size: clamp(2.35rem, 11vw, 3.5rem); }
   .case-page__back { margin-bottom: 2.75rem; }
